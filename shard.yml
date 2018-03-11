@@ -1,0 +1,14 @@
+name: cadmium
+version: 0.1.0
+
+authors:
+  - Chris Watson <chris@watzon.me>
+
+crystal: 0.24.2
+
+development_dependencies:
+  spec2:
+    github: watzon/spec2.cr
+    branch: master
+
+license: MIT
