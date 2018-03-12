@@ -43,6 +43,8 @@ This is all I want to have done before a __v1.0__ release.
   - [ ] LancasterStemmer
     - [ ] Multi-Lang
 - [ ] Classifiers
+    - [ ] Bayes
+    - [ ] Logic Regression 
 - [ ] Phonetics
 - [ ] Inflectors
 - [x] N-Grams
