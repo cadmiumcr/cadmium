@@ -26,7 +26,7 @@ This is all I want to have done before a __v1.0__ release.
 
 - [x] Tokenizers
   - [x] AggressiveTokenizer
-    - [x] Multi-Lang
+    - [x] i18n
   - [x] CaseTokenizer
   - [x] RegexTokenizer
   - [x] SentenceTokenizer
@@ -39,14 +39,19 @@ This is all I want to have done before a __v1.0__ release.
   - [x] JaroWinkler
 - [ ] Stemmers
   - [x] PorterStemmer
-    - [ ] Multi-Lang
+    - [ ] i18n
   - [ ] LancasterStemmer
-    - [ ] Multi-Lang
+    - [ ] i18n
 - [ ] Classifiers
     - [ ] Bayes
     - [ ] Logic Regression 
 - [ ] Phonetics
 - [ ] Inflectors
+  - [x] Count
+  - [ ] Noun
+  - [ ] Present Verb
+  - [ ] Singular Plural
+  - [ ] i18n
 - [x] N-Grams
 - [ ] TF-IDF
 - [ ] Sentiment Analysis
