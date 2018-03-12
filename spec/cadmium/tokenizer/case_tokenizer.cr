@@ -34,11 +34,11 @@ describe Cadmium::Tokenizer::CaseTokenizer do
     subject { described_class.new(preserve_apostrophe: true) }
 
     it "should tokenize strings" do
-      expect(subject.tokenize("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's")).to eq(["'s","Morgens","is","het","nog","erg","koud","vertelde","de","weerman","over","een","van","de","radio's"])
+      expect(subject.tokenize("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's")).to eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
     end
 
     it "should tokenize strings via String#tokenize" do
-      expect("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's".tokenize(Cadmium::Tokenizer::CaseTokenizer, preserve_apostrophe: true)).to eq(["'s","Morgens","is","het","nog","erg","koud","vertelde","de","weerman","over","een","van","de","radio's"])
+      expect("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's".tokenize(Cadmium::Tokenizer::CaseTokenizer, preserve_apostrophe: true)).to eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
     end
   end
 

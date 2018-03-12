@@ -25,9 +25,23 @@ require "cadmium"
 This is all I want to have done before a __v1.0__ release.
 
 - [x] Tokenizers
+  - [x] AggressiveTokenizer
+    - [x] Multi-Lang
+  - [x] CaseTokenizer
+  - [x] RegexTokenizer
+  - [x] SentenceTokenizer
+  - [x] TreebankWordTokenizer
+  - [x] WhitespaceTokenizer
+  - [x] WordPunctuationTokenizer
 - [x] String Distance
-- [ ] Approximate String Matching
+  - [x] Levenshein
+    - [ ] Approximate String Matching
+  - [x] JaroWinkler
 - [ ] Stemmers
+  - [x] PorterStemmer
+    - [ ] Multi-Lang
+  - [ ] LancasterStemmer
+    - [ ] Multi-Lang
 - [ ] Classifiers
 - [ ] Phonetics
 - [ ] Inflectors

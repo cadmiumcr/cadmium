@@ -43,7 +43,6 @@ module Cadmium
           trim(string.split(/\W+/))
         end
       end
-
     end
   end
 end

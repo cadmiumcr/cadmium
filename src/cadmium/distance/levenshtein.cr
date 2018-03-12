@@ -32,13 +32,13 @@ module Cadmium::Distance::Levenshtein
         diff[{i, j}] = [
           diff[{i - 1, j}] + 1,
           diff[{i, j - 1}] + 1,
-          diff[{i-1, j-1}] + c
+          diff[{i - 1, j - 1}] + c,
         ].min
 
         if i > 0 && j > 0 && s1[i] == s2[j - 1] && s1[i - 1] == s2[j]
           diff[{i, j}] = [
             diff[{i, j}],
-            diff[{i - 2, j - 2}] + c
+            diff[{i - 2, j - 2}] + c,
           ].min
         end
       end
