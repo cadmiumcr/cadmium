@@ -25,7 +25,7 @@ require "cadmium"
 This is all I want to have done before a __v1.0__ release.
 
 - [x] Tokenizers
-- [ ] String Distance
+- [x] String Distance
 - [ ] Approximate String Matching
 - [ ] Stemmers
 - [ ] Classifiers
