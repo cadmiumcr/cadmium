@@ -45,7 +45,7 @@ This is all I want to have done before a __v1.0__ release.
 - [ ] Classifiers
 - [ ] Phonetics
 - [ ] Inflectors
-- [ ] N-Grams
+- [x] N-Grams
 - [ ] tf-idf
 - [ ] Tries
 - [ ] EdgeWeightedDigraph
