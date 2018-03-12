@@ -46,7 +46,8 @@ This is all I want to have done before a __v1.0__ release.
 - [ ] Phonetics
 - [ ] Inflectors
 - [x] N-Grams
-- [ ] tf-idf
+- [ ] TF-IDF
+- [ ] Sentiment Analysis
 - [ ] Tries
 - [ ] EdgeWeightedDigraph
 - [ ] ShortestPathTree
