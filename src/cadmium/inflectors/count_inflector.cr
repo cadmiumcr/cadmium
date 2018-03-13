@@ -3,7 +3,7 @@ module Cadmium
     module CountInflector
       extend self
 
-      private def nth(i)
+      def nth(i)
         i.to_s + nth_form(i)
       end
 
@@ -14,13 +14,13 @@ module Cadmium
           return "th"
         else
           case i % 10
-          when 1:
+          when 1
             return "st"
-          when 2:
+          when 2
             return "nd"
-          when 3:
+          when 3
             return "rd"
-          else:
+          else
             return "th"
           end
         end

@@ -46,11 +46,10 @@ This is all I want to have done before a __v1.0__ release.
     - [ ] Bayes
     - [ ] Logic Regression 
 - [ ] Phonetics
-- [ ] Inflectors
+- [x] Inflectors
   - [x] Count
-  - [ ] Noun
-  - [ ] Present Verb
-  - [ ] Singular Plural
+  - [x] Noun
+  - [x] Verb
   - [ ] i18n
 - [x] N-Grams
 - [ ] TF-IDF
