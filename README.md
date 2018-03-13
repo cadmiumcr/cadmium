@@ -1,6 +1,6 @@
 # Cadmium
 
-Cadmium is a Natrual Language Processing (NLP) library for Crystal. Invluded are classes and modules for tokenizing, inflecting, stemming, and creating n-grams with much more to come.
+Cadmium is a Natrual Language Processing (NLP) library for Crystal. Included are classes and modules for tokenizing, inflecting, stemming, and creating n-grams with much more to come.
 
 It's still in early development, but tests are being written as I go so hopefully it will be somewhat stable.
 
