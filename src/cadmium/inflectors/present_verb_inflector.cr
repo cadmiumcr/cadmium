@@ -4,16 +4,15 @@ require "./form_set"
 module Cadmium
   module Inflectors
     class PresentVerbInflector < TenseInflector
-
       def initialize
         @ambiguous = [
-          "will"
+          "will",
         ]
 
-        @custom_plural_forms   = [] of Tuple(Regex, String)
+        @custom_plural_forms = [] of Tuple(Regex, String)
         @custom_singular_forms = [] of Tuple(Regex, String)
-        @singular_forms  = FormSet.new
-        @plural_forms    = FormSet.new
+        @singular_forms = FormSet.new
+        @plural_forms = FormSet.new
 
         add_irregular("am", "are")
         add_irregular("is", "are")
@@ -36,7 +35,6 @@ module Cadmium
         plural_forms.regular_forms.push({/ies$/i, "y"}) # flies->fly
         plural_forms.regular_forms.push({/e?s$/i, ""})
       end
-
     end
   end
 end

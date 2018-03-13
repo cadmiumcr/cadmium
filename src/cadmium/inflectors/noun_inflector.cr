@@ -4,20 +4,19 @@ require "./form_set"
 module Cadmium
   module Inflectors
     class NounInflector < TenseInflector
-
       def initialize
         @ambiguous = [
           "bison", "bream", "carp", "chassis", "cod", "corps", "debris", "deer",
           "diabetes", "equipment", "elk", "fish", "flounder", "gallows", "graffiti",
           "headquarters", "herpes", "highjinks", "homework", "information",
           "mackerel", "mews", "money", "news", "rice", "rabies", "salmon", "series",
-          "sheep", "shrimp", "species", "swine", "trout", "tuna", "whiting", "wildebeest"
+          "sheep", "shrimp", "species", "swine", "trout", "tuna", "whiting", "wildebeest",
         ]
 
-        @custom_plural_forms   = [] of Tuple(Regex, String)
+        @custom_plural_forms = [] of Tuple(Regex, String)
         @custom_singular_forms = [] of Tuple(Regex, String)
-        @singular_forms  = FormSet.new
-        @plural_forms    = FormSet.new
+        @singular_forms = FormSet.new
+        @plural_forms = FormSet.new
 
         add_irregular("child", "children")
         add_irregular("man", "men")
@@ -32,7 +31,6 @@ module Cadmium
         add_irregular("cloth", "clothes")
         add_irregular("hero", "heroes")
 
-
         plural_forms.regular_forms.push({/y$/i, "ies"})
         plural_forms.regular_forms.push({/ife$/i, "ives"})
         plural_forms.regular_forms.push({/(antenn|formul|nebul|vertebr|vit)a$/i, "\\1ae"})
@@ -44,7 +42,6 @@ module Cadmium
         plural_forms.regular_forms.push({/(x|ch|ss|sh|s|z)$/i, "\\1es"})
         plural_forms.regular_forms.push({/^(?!talis|.*hu)(.*)man$/i, "\\1men"})
         plural_forms.regular_forms.push({/(.*)/i, "\\1s"})
-
 
         singular_forms.regular_forms.push({/([^v])ies$/i, "\\1y"})
         singular_forms.regular_forms.push({/ives$/i, "ife"})

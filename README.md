@@ -224,14 +224,14 @@ n-grams can also be returned with left or right padding by passing a start and/o
 ```crystal
 Cadmium::NGrams.ngrams(""these are some words", 4, "[start]", "[end]")
 # => [
-# =>   ["[start]", "[start]", "[start]", "these"],
-# =>   ["[start]", "[start]", "these", "are"],
-# =>   ["[start]", "these", "are", "some"],
-# =>   ["these", "are", "some", "words"],
-# =>   ["are", "some", "words", "[end]"],
-# =>   ["some", "words", "[end]", "[end]"],
-# =>   ["words", "[end]", "[end]", "[end]"]
-# => ]
+      ["[start]", "[start]", "[start]", "these"],
+      ["[start]", "[start]", "these", "are"],
+      ["[start]", "these", "are", "some"],
+      ["these", "are", "some", "words"],
+      ["are", "some", "words", "[end]"],
+      ["some", "words", "[end]", "[end]"],
+      ["words", "[end]", "[end]", "[end]"]
+    ]
 ```
 
 ## Roadmap

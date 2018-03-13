@@ -3,19 +3,18 @@ require "./form_set"
 module Cadmium
   module Inflectors
     abstract class TenseInflector
-
-      private property ambiguous              : Array(String)
-      private property plural_forms           : FormSet
-      private property singular_forms         : FormSet
-      private property custom_singular_forms  : Array(Tuple(Regex, String))
-      private property custom_plural_forms    : Array(Tuple(Regex, String))
+      private property ambiguous : Array(String)
+      private property plural_forms : FormSet
+      private property singular_forms : FormSet
+      private property custom_singular_forms : Array(Tuple(Regex, String))
+      private property custom_plural_forms : Array(Tuple(Regex, String))
 
       private def initialize
-        @ambiguous              = [] of String
-        @custom_plural_forms    = [] of Tuple(Regex, String)
-        @custom_singular_forms  = [] of Tuple(Regex, String)
-        @singular_forms         = FormSet.new
-        @plural_forms           = FormSet.new
+        @ambiguous = [] of String
+        @custom_plural_forms = [] of Tuple(Regex, String)
+        @custom_singular_forms = [] of Tuple(Regex, String)
+        @singular_forms = FormSet.new
+        @plural_forms = FormSet.new
       end
 
       def pluralize(token)
@@ -37,7 +36,7 @@ module Cadmium
       def ize(token, form_set, custom_forms)
         restore_case = self.restore_case(token)
         restore_case.call(ize_regex(token, custom_forms) || ize_ambiguous(token) ||
-          ize_regulars(token, form_set) || ize_regex(token, form_set.regular_forms) || token)
+                          ize_regulars(token, form_set) || ize_regex(token, form_set.regular_forms) || token)
       end
 
       def ize_ambiguous(token)

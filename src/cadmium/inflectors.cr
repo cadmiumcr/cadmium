@@ -3,7 +3,6 @@ require "./inflectors/*"
 module Cadmium
   module Inflectors
     module StringExtension
-
       @@_noun_inflector = Cadmium::Inflectors::NounInflector.new
       @@_verb_inflector = Cadmium::Inflectors::PresentVerbInflector.new
 
@@ -25,11 +24,9 @@ module Cadmium
     end
 
     module IntExtension
-
       def to_nth
         Cadmium::Inflectors::CountInflector.nth(self)
       end
-
     end
   end
 end

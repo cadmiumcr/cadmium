@@ -51,6 +51,5 @@ module Cadmium
 
       result
     end
-
   end
 end

@@ -41,29 +41,29 @@ describe Cadmium::NGrams do
 
   it "should bigram a string with start and end symbols" do
     expect(subject.ngrams("these are some words", 2, "[start]", "[end]")).to eq([
-        ["[start]", "these"],
-        ["these", "are"],
-        ["are", "some" ],
-        ["some", "words"],
-        ["words", "[end]"]
+      ["[start]", "these"],
+      ["these", "are"],
+      ["are", "some"],
+      ["some", "words"],
+      ["words", "[end]"],
     ])
   end
 
   it "should bigram a string with start symbols only" do
     expect(subject.ngrams("these are some words", 2, "[start]")).to eq([
-        ["[start]", "these"],
-        ["these", "are"],
-        ["are", "some" ],
-        ["some", "words"]
+      ["[start]", "these"],
+      ["these", "are"],
+      ["are", "some"],
+      ["some", "words"],
     ])
   end
 
   it "should bigram a string with end symbols only" do
     expect(subject.ngrams("these are some words", 2, nil, "[end]")).to eq([
-        ["these", "are"],
-        ["are", "some" ],
-        ["some", "words"],
-        ["words", "[end]"]
+      ["these", "are"],
+      ["are", "some"],
+      ["some", "words"],
+      ["words", "[end]"],
     ])
   end
 
@@ -74,7 +74,7 @@ describe Cadmium::NGrams do
       ["these", "are", "some"],
       ["are", "some", "words"],
       ["some", "words", "[end]"],
-      ["words", "[end]", "[end]"]
+      ["words", "[end]", "[end]"],
     ])
   end
 
@@ -86,12 +86,12 @@ describe Cadmium::NGrams do
       ["these", "are", "some", "words"],
       ["are", "some", "words", "[end]"],
       ["some", "words", "[end]", "[end]"],
-      ["words", "[end]", "[end]", "[end]"]
+      ["words", "[end]", "[end]", "[end]"],
     ])
   end
 
   it "should use an alternate tokenizer" do
     subject.tokenizer = Cadmium::Tokenizer::AggressiveTokenizer.new(lang: :fr)
-    expect(subject.ngrams("Un Éléphant rouge", 2)).to eq([["Un", "Éléphant"], ["Éléphant", "rouge" ]])
+    expect(subject.ngrams("Un Éléphant rouge", 2)).to eq([["Un", "Éléphant"], ["Éléphant", "rouge"]])
   end
 end

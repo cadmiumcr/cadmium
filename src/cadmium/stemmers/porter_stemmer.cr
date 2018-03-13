@@ -31,7 +31,7 @@ module Cadmium
               res = self.attempt_replace_patterns(token, [
                 ["at", "", "ate"],
                 ["bl", "", "ble"],
-                ["iz", "", "ize"]
+                ["iz", "", "ize"],
               ])
 
               if res != token
