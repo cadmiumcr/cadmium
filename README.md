@@ -222,7 +222,7 @@ Cadmium::NGrams.ngrams("some other words here for you", 4)
 n-grams can also be returned with left or right padding by passing a start and/or end symbol to the bigrams, trigrams or ngrams.
 
 ```crystal
-Cadmium::NGrams.ngrams(""these are some words", 4, "[start]", "[end]")
+Cadmium::NGrams.ngrams("these are some words", 4, "[start]", "[end]")
 # => [
       ["[start]", "[start]", "[start]", "these"],
       ["[start]", "[start]", "these", "are"],
