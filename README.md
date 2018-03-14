@@ -16,6 +16,7 @@ Any utilities that can be internationalized will be eventually. For now English 
 - [Stemmers](#stemmers)
 - [Inflectors](#inflectors)
 - [N-Grams](#n-grams)
+- [tf-idf](#tf-idf)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
@@ -234,6 +235,39 @@ Cadmium::NGrams.ngrams("these are some words", 4, "[start]", "[end]")
     ]
 ```
 
+### tf-idf
+
+[Term Frequency–Inverse Document Frequency (tf-idf)](http://en.wikipedia.org/wiki/Tf%E2%80%93idf) is implemented to determine how important a word (or words) is to a document relative to a corpus. The following example will add four documents to a corpus and determine the weight of the word "node" and then the weight of the word "ruby" in each document.
+
+```crystal
+tfidf = Cadmium::TfIdf.new
+tfidf.add_document("this document is about crystal.")
+tfidf.add_document("this document is about ruby.")
+tfidf.add_document("this document is about ruby and crystal.")
+tfidf.add_document("this document is about crystal. it has crystal examples")
+
+puts "crystal --------------------------------"
+tfidf.tfidfs("crystal") do |i, measure, key|
+  puts "document ##{i} is #{measure}"
+end
+
+puts "ruby --------------------------------"
+tfidf.tfidfs("ruby") do |i, measure, key|
+  puts "document ##{i} is #{measure}"
+end
+
+# =>  node --------------------------------
+      document #0 is 1
+      document #1 is 0
+      document #2 is 1
+      document #3 is 2
+      ruby --------------------------------
+      document #0 is 0
+      document #1 is 1.2876820724517808
+      document #2 is 1.2876820724517808
+      document #3 is 0
+```
+
 ## Roadmap
 
 This is all I want to have done before a __v1.0__ release.
@@ -266,7 +300,7 @@ This is all I want to have done before a __v1.0__ release.
   - [x] Verb
   - [ ] i18n
 - [x] N-Grams
-- [ ] TF-IDF
+- [x] TF-IDF
 - [ ] Sentiment Analysis
 - [ ] Tries
 - [ ] EdgeWeightedDigraph
