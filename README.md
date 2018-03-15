@@ -17,6 +17,7 @@ Any utilities that can be internationalized will be eventually. For now English 
 - [Inflectors](#inflectors)
 - [N-Grams](#n-grams)
 - [tf-idf](#tf-idf)
+- [tf-idf](#transliterator)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
@@ -321,6 +322,7 @@ This is all I want to have done before a __v1.0__ release.
   - [ ] i18n
 - [x] N-Grams
 - [x] TF-IDF
+- [x] Transliterator
 - [ ] Sentiment Analysis
 - [ ] Tries
 - [ ] EdgeWeightedDigraph
@@ -329,7 +331,6 @@ This is all I want to have done before a __v1.0__ release.
 - [ ] WordNet
 - [ ] Spellcheck
 - [ ] POS Tagger
-- [ ] Transliterator
 
 ## Contributing
 
