@@ -23,7 +23,6 @@ module Cadmium
     end
 
     module StringExtension
-
       def phonetics(max_length = nil, phonetics = Cadmium::Phonetics::Metaphone)
         phonetics.process(self, max_length)
       end
@@ -35,7 +34,6 @@ module Cadmium
       def tokenize_and_phoneticize(keep_stops = false, phonetics = Cadmium::Phonetics::Metaphone)
         phonetics.tokenize_and_phoneticize(self, keep_stops)
       end
-
     end
   end
 end

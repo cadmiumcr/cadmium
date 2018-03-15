@@ -77,7 +77,6 @@ describe Cadmium::Phonetics::SoundEx do
     expect(described_class.process("JUMP")).to eq("J510")
     expect(described_class.process("phonetics")).to eq("P532")
     expect(described_class.process("PHONETICS")).to eq("P532")
-
   end
 
   it "should perform soundex via compare method" do

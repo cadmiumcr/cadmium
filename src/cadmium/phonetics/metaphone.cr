@@ -1,7 +1,6 @@
 module Cadmium
   class Phonetics
     class Metaphone < Phonetics
-
       def self.process(token, max_length = nil)
         max_length ||= 32
         token = token.downcase

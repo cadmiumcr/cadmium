@@ -1,7 +1,6 @@
 module Cadmium
   class Phonetics
     class SoundEx < Phonetics
-
       def self.process(token, max_length = nil)
         token = token.downcase
         transformed = condense(transform(token[1..-1]))

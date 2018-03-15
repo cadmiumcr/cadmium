@@ -69,7 +69,6 @@ describe Cadmium::Phonetics::Metaphone do
     expect(subject.drop_g("align")).to eq("alin")
   end
 
-
   it "should transform G to J if followed by I, E or Y and not preceeded by G" do
     expect(subject.transform_g("age")).to eq("aje")
     expect(subject.transform_g("gin")).to eq("jin")

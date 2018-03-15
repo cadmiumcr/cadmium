@@ -14,6 +14,7 @@ Any utilities that can be internationalized will be eventually. For now English 
 - [Tokenizers](#tokenizers)
 - [String Distance](#string-distance)
 - [Stemmers](#stemmers)
+- [Phonetics](#phonetics)
 - [Inflectors](#inflectors)
 - [N-Grams](#n-grams)
 - [tf-idf](#tf-idf)
