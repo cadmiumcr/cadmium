@@ -5,4 +5,5 @@ class String
   include Cadmium::Stemmers::StringExtension
   include Cadmium::Inflectors::StringExtension
   include Cadmium::Transliterator::StringExtension
+  include Cadmium::Phonetics::StringExtension
 end

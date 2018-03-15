@@ -79,7 +79,6 @@ describe Cadmium::Transliterator do
       ]
 
       tests.each do |(str, replace, result)|
-        puts [str, replace, result]
         expect(described_class.replace_str(str, replace)).to eq(result)
       end
     end

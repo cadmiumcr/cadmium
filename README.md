@@ -137,6 +137,58 @@ Currently Cadmium only comes with a [Porter](http://tartarus.org/martin/PorterSt
 # => ["wake", "sound", "chainsaw"]
 ```
 
+### Phonetics
+
+Phonetic matching (sounds-like) matching can be done with the SoundEx or Metaphone algorithms
+
+```crystal
+soundex = Cadmium::Phonetics::SoundEx
+metaphone = Cadmium::Phonetics::Metaphone
+
+soundex.process("phonetics")
+# => "P532"
+
+soundex.tokenize_and_phoneticize("Ruby aint got nothing on Crystal")
+# => ["R100", "A530", "G300", "C234"]
+
+# Keep word stops
+soundex.tokenize_and_phoneticize("Ruby aint got nothing on Crystal", true)
+# => ["R100", "A530", "G300", "N352", "O000", "C234"]
+
+soundex.compare("phonetix", "phonetics")
+# => true
+
+metaphone.process("phonetics")
+# => "FNTKS"
+
+metaphone.tokenize_and_phoneticize("Ruby aint got nothing on Crystal")
+# => ["RB", "ANT", "KT", "KRSTL"]
+
+# Keep word stops
+metaphone.tokenize_and_phoneticize("Ruby aint got nothing on Crystal", true)
+# => ["RB", "ANT", "KT", "N0NK", "ON", "KRSTL"]
+
+metaphone.compare("phonetix", "phonetics")
+# => true
+```
+
+Both classes can also be used with attached String methods. The default class for String methods is `Metaphone`. The attached methods are `phonetics`, `sounds_like`, and `tokenize_and_phoneticize`.
+
+```crystal
+"Crystal".phonetics
+# => "KRSTL"
+
+"Crystal".sounds_like("Krystal")
+# => true
+
+"Crystal".phonetics(nil, Cadmium::Phonetics::SoundEx)
+# => "C234"
+
+# Using a max length
+"Constitution".phonetics(6, Cadmium::Phonetics::SoundEx)
+# => "C52333"
+```
+
 ### Inflectors
 
 #### Nouns
@@ -314,7 +366,10 @@ This is all I want to have done before a __v1.0__ release.
 - [ ] Classifiers
     - [ ] Bayes
     - [ ] Logic Regression 
-- [ ] Phonetics
+- [x] Phonetics
+  - [x] SoundEx
+  - [x] Metaphone
+  - [ ] Double Metaphone
 - [x] Inflectors
   - [x] Count
   - [x] Noun
