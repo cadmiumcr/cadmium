@@ -1,18 +1,17 @@
 module Cadmium
   module Classifiers
     abstract class Classifier
-
       alias Document = NamedTuple(label: String, text: String)
 
-      private getter docs       : Array(Document)
-      private getter features   : Hash(String, Int32)
-      private getter stemmer    : Cadmium::Stemmers::Stemmer.class
+      private getter docs : Array(Document)
+      private getter features : Hash(String, Int32)
+      private getter stemmer : Cadmium::Stemmers::Stemmer.class
       private getter last_added : Int32
 
       property keep_stops : Bool
 
       def initialize(stemmer = nil)
-        @stemmer = stemmer ||  Cadmium::Stemmer::PorterStemmer
+        @stemmer = stemmer || Cadmium::Stemmer::PorterStemmer
         @docs = [] of Document
         @features = {} of String => Int32
         @keep_stops = false
@@ -90,8 +89,6 @@ module Cadmium
           @last_added += 1
         end
       end
-
-
     end
   end
 end

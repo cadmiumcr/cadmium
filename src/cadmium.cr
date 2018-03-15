@@ -19,4 +19,8 @@ module Cadmium
   def self.jaro_winkler_distance(s1 : String, s2 : String)
     Distance.jaro_winkler(s1, s2)
   end
+
+  def self.transliterate(source, **options)
+    Transliterator.transliterate(source, **options)
+  end
 end

@@ -268,6 +268,26 @@ end
       document #3 is 0
 ```
 
+### Transliterator
+
+The Transliterator module provides the ability to transliterate UTF-8 strings into pure ASCII so that they can be safely displayed in URL slugs or file names.
+
+```crystal
+Cadmium.transliterate("Привет")
+# => "Privet"
+
+Cadmium.transliterate("你好朋友")
+# => "Ni Hao Peng You"
+
+# With the string extension
+
+"Das Weisse Haus ist gross".transliterate
+# => "Das Weisse Haus ist gross"
+
+"こんにちは、友人".transliterate
+# => konnitiha, You Ren
+```
+
 ## Roadmap
 
 This is all I want to have done before a __v1.0__ release.

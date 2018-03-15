@@ -8,16 +8,16 @@ module Cadmium
 
     alias Document = NamedTuple(key: String, terms: Hash(String, Float64))
 
-    @documents  : Array(Document)
-    @idf_cache  : Hash(String, Float64)
+    @documents : Array(Document)
+    @idf_cache : Hash(String, Float64)
     @stop_words : Array(String)
-    @tokenizer  : Cadmium::Tokenizer::WordTokenizer
+    @tokenizer : Cadmium::Tokenizer::WordTokenizer
 
     def initialize(documents = nil)
-      @documents  = documents || [] of Document
-      @idf_cache  = {} of String => Float64
+      @documents = documents || [] of Document
+      @idf_cache = {} of String => Float64
       @stop_words = @@stop_words
-      @tokenizer  = Cadmium::Tokenizer::WordTokenizer.new
+      @tokenizer = Cadmium::Tokenizer::WordTokenizer.new
     end
 
     def tfidf(terms, d)
@@ -74,7 +74,7 @@ module Cadmium
         return @idf_cache[term]
       end
 
-      docs_with_term = @documents.reduce(0) { |count, doc| count + (document_has_term(doc, term) ? 1.0 : 0.0)  }
+      docs_with_term = @documents.reduce(0) { |count, doc| count + (document_has_term(doc, term) ? 1.0 : 0.0) }
       idf = 1 + Math.log(@documents.size / (1.0 + docs_with_term))
       @idf_cache[term] = idf
       idf
@@ -86,10 +86,10 @@ module Cadmium
       return terms unless @documents[d]?
 
       @documents[d][:terms].each do |(key, value)|
-        terms.push({ term: key, tfidf: self.tfidf(key, d) })
+        terms.push({term: key, tfidf: self.tfidf(key, d)})
       end
 
-      terms.sort_by { |x| -x[:tfidf]  }
+      terms.sort_by { |x| -x[:tfidf] }
     end
 
     private def build_document(text, key)
