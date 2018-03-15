@@ -282,8 +282,8 @@ Cadmium.transliterate("你好朋友")
 
 # With the string extension
 
-"Das Weisse Haus ist gross".transliterate
-# => "Das Weisse Haus ist gross"
+"މިއަދަކީ ހދ ރީތި ދވހކވ".transliterate
+# => "mi'adhakee hdh reethi dhvhkv"
 
 "こんにちは、友人".transliterate
 # => konnitiha, You Ren
