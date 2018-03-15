@@ -286,7 +286,7 @@ Cadmium.transliterate("你好朋友")
 # => "mi'adhakee hdh reethi dhvhkv"
 
 "こんにちは、友人".transliterate
-# => konnitiha, You Ren
+# => konnichiwa, You Ren
 ```
 
 ## Roadmap
