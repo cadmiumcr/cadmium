@@ -24,3 +24,5 @@ module Cadmium
     Transliterator.transliterate(source, **options)
   end
 end
+
+p "こんにちは、友人".transliterate
