@@ -17,7 +17,7 @@ Any utilities that can be internationalized will be eventually. For now English 
 - [Inflectors](#inflectors)
 - [N-Grams](#n-grams)
 - [tf-idf](#tf-idf)
-- [tf-idf](#transliterator)
+- [Transliterator](#transliterator)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
