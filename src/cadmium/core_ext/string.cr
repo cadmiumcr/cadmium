@@ -6,4 +6,5 @@ class String
   include Cadmium::Inflectors::StringExtension
   include Cadmium::Transliterator::StringExtension
   include Cadmium::Phonetics::StringExtension
+  include Cadmium::Sentiment::StringExtension
 end

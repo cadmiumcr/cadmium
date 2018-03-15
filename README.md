@@ -21,6 +21,7 @@ Any utilities that can be internationalized will be eventually. For now English 
 - [N-Grams](#n-grams)
 - [tf-idf](#tf-idf)
 - [Transliterator](#transliterator)
+- [Sentiment Analysis](#sentiment-analysis)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
@@ -344,6 +345,32 @@ Cadmium.transliterate("你好朋友")
 # => konnichiwa, You Ren
 ```
 
+### Sentiment Analysis
+
+The Sentiment module uses the [AFINN-165](http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010) wordlist and [Emoji Sentiment Ranking](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144296) to provide sentiment analysis on arbitrary blocks of text.
+
+```crystal
+sentiment = Cadmium::Sentiment
+
+"Crystal is seriously the best programming language.".sentiment
+# or
+sentiment.analyze("Crystal is seriously the best programming language.")
+# =>  {
+        score: 3,
+        comparative: 0,
+        tokens: ["Crystal", "is", "seriously", "the", "best", "programming", "language"],
+        words: ["best"],
+        positive: ["best"],
+        negative: []
+      }
+
+"I really hate Python".is_negative?
+# => true
+
+"I really 💗 Crystal. It's my favorite.".is_positive?
+# => true
+```
+
 ## Roadmap
 
 This is all I want to have done before a __v1.0__ release.
@@ -381,7 +408,7 @@ This is all I want to have done before a __v1.0__ release.
 - [x] N-Grams
 - [x] TF-IDF
 - [x] Transliterator
-- [ ] Sentiment Analysis
+- [x] Sentiment Analysis
 - [ ] Tries
 - [ ] EdgeWeightedDigraph
 - [ ] ShortestPathTree
