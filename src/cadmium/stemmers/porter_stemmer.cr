@@ -22,13 +22,13 @@ module Cadmium
 
       def self.step1b(token : String)
         if token[-3..-1] == "eed"
-          if self.measure(token[0, token.size - 3]) > 0
+          if measure(token[0, token.size - 3]) > 0
             return token.sub(/eed$/, "ee")
           end
         else
-          result = self.attempt_replace(token, /(ed|ing)$/, "") do |token|
-            if self.categorize_groups(token).index('V')
-              res = self.attempt_replace_patterns(token, [
+          result = attempt_replace(token, /(ed|ing)$/, "") do |token|
+            if categorize_groups(token).index('V')
+              res = attempt_replace_patterns(token, [
                 ["at", "", "ate"],
                 ["bl", "", "ble"],
                 ["iz", "", "ize"],
@@ -37,11 +37,11 @@ module Cadmium
               if res != token
                 return res
               else
-                if self.ends_with_double_cons(token) && token.match(/[^lsz]$/)
+                if ends_with_double_cons(token) && token.match(/[^lsz]$/)
                   return token.sub(/([^aeiou])\\1$/, "\\1")
                 end
 
-                if self.measure(token) == 1 && self.categorize_chars(token)[-3, 3] == "CVC" && token.match(/[^wxy]$/)
+                if measure(token) == 1 && categorize_chars(token)[-3, 3] == "CVC" && token.match(/[^wxy]$/)
                   return token + "e"
                 end
               end
@@ -59,7 +59,7 @@ module Cadmium
       end
 
       def self.step1c(token : String)
-        categorized_groups = self.categorize_groups(token)
+        categorized_groups = categorize_groups(token)
 
         if token[-1] == 'y' && categorized_groups[0, categorized_groups.size - 1].index('V')
           return token.sub(/y$/, "i")
@@ -69,16 +69,16 @@ module Cadmium
       end
 
       def self.step2(token : String)
-        self.replace_patterns(token, [["ational", "", "ate"], ["tional", "", "tion"], ["enci", "", "ence"], ["anci", "", "ance"],
-                                      ["izer", "", "ize"], ["abli", "", "able"], ["bli", "", "ble"], ["alli", "", "al"], ["entli", "", "ent"], ["eli", "", "e"],
-                                      ["ousli", "", "ous"], ["ization", "", "ize"], ["ation", "", "ate"], ["ator", "", "ate"], ["alism", "", "al"],
-                                      ["iveness", "", "ive"], ["fulness", "", "ful"], ["ousness", "", "ous"], ["aliti", "", "al"],
-                                      ["iviti", "", "ive"], ["biliti", "", "ble"], ["logi", "", "log"]], 0)
+        replace_patterns(token, [["ational", "", "ate"], ["tional", "", "tion"], ["enci", "", "ence"], ["anci", "", "ance"],
+                                 ["izer", "", "ize"], ["abli", "", "able"], ["bli", "", "ble"], ["alli", "", "al"], ["entli", "", "ent"], ["eli", "", "e"],
+                                 ["ousli", "", "ous"], ["ization", "", "ize"], ["ation", "", "ate"], ["ator", "", "ate"], ["alism", "", "al"],
+                                 ["iveness", "", "ive"], ["fulness", "", "ful"], ["ousness", "", "ous"], ["aliti", "", "al"],
+                                 ["iviti", "", "ive"], ["biliti", "", "ble"], ["logi", "", "log"]], 0)
       end
 
       def self.step3(token : String)
-        self.replace_patterns(token, [["icate", "", "ic"], ["ative", "", ""], ["alize", "", "al"],
-                                      ["iciti", "", "ic"], ["ical", "", "ic"], ["ful", "", ""], ["ness", "", ""]], 0)
+        replace_patterns(token, [["icate", "", "ic"], ["ative", "", ""], ["alize", "", "al"],
+                                 ["iciti", "", "ic"], ["ical", "", "ic"], ["ful", "", ""], ["ness", "", ""]], 0)
       end
 
       def self.step4(token : String)
@@ -88,10 +88,10 @@ module Cadmium
       end
 
       def self.step5a(token : String)
-        m = self.measure(token.sub(/e$/, ""))
-        c = self.categorize_chars(token)
+        m = measure(token.sub(/e$/, ""))
+        c = categorize_chars(token)
 
-        if m > 1 || (m == 1 && c.size > 3 && !(self.categorize_chars(token)[-4, 3] == "CVC" && token.match(/[^wxy].$/)))
+        if m > 1 || (m == 1 && c.size > 3 && !(categorize_chars(token)[-4, 3] == "CVC" && token.match(/[^wxy].$/)))
           token = token.sub(/e$/, "")
         end
 
@@ -99,7 +99,7 @@ module Cadmium
       end
 
       def self.step5b(token : String)
-        if self.measure(token) > 1
+        if measure(token) > 1
           return token.sub(/ll$/, "l")
         end
         token
@@ -152,8 +152,8 @@ module Cadmium
         replacement = token
 
         replacements.each do |re|
-          if measure_threshold.nil? || self.measure(self.attempt_replace(token, re[0].to_s, re[1].to_s)) > measure_threshold.not_nil!
-            replacement = self.attempt_replace(replacement, re[0].to_s, re[2].to_s) || replacement
+          if measure_threshold.nil? || measure(attempt_replace(token, re[0].to_s, re[1].to_s)) > measure_threshold.not_nil!
+            replacement = attempt_replace(replacement, re[0].to_s, re[2].to_s) || replacement
           end
         end
 
@@ -174,7 +174,7 @@ module Cadmium
           end
         end
 
-        if self.measure(result) > minimum_measure
+        if measure(result) > minimum_measure
           return result
         end
 

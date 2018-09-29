@@ -26,7 +26,7 @@ module Cadmium
       end
 
       terms.reduce(0.0) do |value, term|
-        _idf = self.idf(term)
+        _idf = idf(term)
         _idf = _idf.infinite? ? 0.0 : _idf
         value + TfIdf.tf(term, @documents[d]) * _idf
       end

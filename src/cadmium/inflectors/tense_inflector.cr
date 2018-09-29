@@ -34,21 +34,21 @@ module Cadmium
       end
 
       def ize(token, form_set, custom_forms)
-        restore_case = self.restore_case(token)
+        restore_case = restore_case(token)
         restore_case.call(ize_regex(token, custom_forms) || ize_ambiguous(token) ||
                           ize_regulars(token, form_set) || ize_regex(token, form_set.regular_forms) || token)
       end
 
       def ize_ambiguous(token)
         if ambiguous.includes?(token.downcase)
-          return token.downcase
+          token.downcase
         end
       end
 
       def ize_regulars(token, form_set)
         token = token.downcase
         if form_set.irregular_forms.has_key?(token) && form_set.irregular_forms[token]
-          return form_set.irregular_forms[token]
+          form_set.irregular_forms[token]
         end
       end
 
