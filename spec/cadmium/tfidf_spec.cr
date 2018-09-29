@@ -15,7 +15,7 @@ describe Cadmium::TfIdf do
       tfidf.add_document("document one", "un")
       tfidf.add_document("document Two", "deux")
 
-      tfidf.tfidfs("two") do |i, tfidf, key|
+      tfidf.tfidfs("two") do |i, _tfidf, key|
         if i == 0
           expect(key).to eq("un")
         else
@@ -31,7 +31,7 @@ describe Cadmium::TfIdf do
       ]
       tfidf = described_class.new(documents)
 
-      tfidfs = tfidf.tfidfs("two") do |i, tfidf, key|
+      tfidf.tfidfs("two") do |i, _tfidf, key|
         if i == 0
           expect(key).to eq("un")
         else
@@ -59,7 +59,7 @@ describe Cadmium::TfIdf do
 
       tfidf.add_document("document Two", "deux", true)
 
-      tfidf.tfidfs("two") do |i, tfdif, key|
+      tfidf.tfidfs("two") do |i, _tfidf, key|
         if i == 0
           expect(key).to eq("un")
         else

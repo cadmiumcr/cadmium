@@ -51,7 +51,7 @@ module Cadmium::Distance
         jaro_distance
       else
         codes1, codes2 = codes2, codes1 if codes1.size > codes2.size
-        len1, len2 = codes1.size, codes2.size
+        len1 = codes1.size
         max_4 = len1 > 4 ? 4 : len1
         prefix = 0
         while prefix < max_4 && codes1[prefix] == codes2[prefix]

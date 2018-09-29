@@ -64,18 +64,18 @@ module Cadmium
       def docs_to_features(docs)
         parsed_docs = [] of NamedTuple(index: Int32, features: Array(Int32))
 
-        docs.each_with_index do |doc, i|
+        docs.each do |doc|
           features = [] of Int32
 
           @features.each do |feature|
-            if docs[i][:observation].includes?(feature)
+            if doc[:observation].includes?(feature)
               features.push(1)
             else
               features.push(0)
             end
           end
 
-          parsed_docs.push({index: docs[i][:index], features: features})
+          parsed_docs.push({index: doc[:index], features: features})
         end
 
         parsed_docs

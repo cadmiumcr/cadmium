@@ -17,6 +17,7 @@ module Cadmium
           else
             acc += ' '
           end
+          acc
         end
         trim(result.gsub(/\s+/, ' ').split(' '))
       end
