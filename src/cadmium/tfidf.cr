@@ -26,7 +26,7 @@ module Cadmium
       end
 
       terms.reduce(0.0) do |value, term|
-        _idf = self.idf(term)
+        _idf = idf(term)
         _idf = _idf.infinite? ? 0.0 : _idf
         value + TfIdf.tf(term, @documents[d]) * _idf
       end
@@ -55,7 +55,7 @@ module Cadmium
       @documents.each_with_index do |doc, i|
         tfidfs[i] = tfidf(terms, i)
 
-        yield(i, tfidfs[i], @documents[i][:key])
+        yield(i, tfidfs[i], doc[:key])
       end
 
       tfidfs
@@ -85,8 +85,8 @@ module Cadmium
 
       return terms unless @documents[d]?
 
-      @documents[d][:terms].each do |(key, value)|
-        terms.push({term: key, tfidf: self.tfidf(key, d)})
+      @documents[d][:terms].each do |(key, _)|
+        terms.push({term: key, tfidf: tfidf(key, d)})
       end
 
       terms.sort_by { |x| -x[:tfidf] }

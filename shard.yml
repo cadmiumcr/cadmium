@@ -10,5 +10,8 @@ development_dependencies:
   spec2:
     github: watzon/spec2.cr
     branch: master
+  ameba:
+    github: veelenga/ameba
+    version: 0.8.0
 
 license: MIT
