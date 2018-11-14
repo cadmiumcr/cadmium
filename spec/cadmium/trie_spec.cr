@@ -211,14 +211,18 @@ describe Cadmium::Trie do
       expect(trie.size).to eq(3)
     end
 
-    it "should count all branches" do
+    it "should count ragged branches" do
       trie = described_class.new
       trie.add "a"
       trie.add "ba"
       expect(trie.size).to eq(4)
     end
-  end
 
-  describe "case sensitivity" do
+    it "should count branches that split in different directions" do
+      trie = described_class.new
+      trie.add "meet"
+      trie.add "meek"
+      expect(trie.size).to eq(6)
+    end
   end
 end
