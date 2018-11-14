@@ -25,8 +25,6 @@ module Cadmium
     @dictionary = {} of Char => Trie
     @is_end = false
 
-    protected getter dictionary
-
     def initialize(@case_sensitive = true)
     end
 
@@ -100,26 +98,26 @@ module Cadmium
     # substring that was not matched.
     def find_prefix(lookup)
       lookup = lookup.downcase unless @case_sensitive
-      collect_prefix_and_suffix(self, lookup.chars, [] of Char, nil)
+      collect_prefix_and_suffix(lookup.chars, [] of Char, nil)
     end
 
     # Helper method for prefix finding
-    private def collect_prefix_and_suffix(node, search, matched_chars, largest_prefix)
+    protected def collect_prefix_and_suffix(search, matched_chars, largest_prefix)
       # If the current node is marked as being the end of a word, update the
       # largest prefix
-      largest_prefix = matched_chars.join if node.end?
+      largest_prefix = matched_chars.join if @is_end
 
       # If all of the characters have been exhausted or there is nowhere left
       # to go, return what was discovered to this point
-      if search.empty? || !node.dictionary.has_key? search[0]
+      if search.empty? || !@dictionary.has_key? search[0]
         return {largest_prefix, search.join}
       end
 
       # Otherwise, keep looking
       first_letter = search.shift
-      next_node = node.dictionary[first_letter]
+      next_node = @dictionary[first_letter]
       matched_chars.push first_letter
-      collect_prefix_and_suffix(next_node, search, matched_chars, largest_prefix)
+      next_node.collect_prefix_and_suffix(search, matched_chars, largest_prefix)
     end
 
     # Finds all of the words that begin with *prefix*
@@ -127,69 +125,65 @@ module Cadmium
       results = [] of String
       prefix = prefix.downcase unless @case_sensitive
 
-      node = get_node_with_prefix(self, prefix.chars)
-      collect_keys_beginning_with_prefix(node, prefix, results)
+      if node = get_node_with_prefix(prefix.chars)
+        node.collect_keys_beginning_with_prefix(prefix, results)
+      end
       results
     end
 
     # Finds the node corresponding to *prefix*
     #
     # Returns nil if there is no such node
-    private def get_node_with_prefix(node, prefix)
-      if !node
-        nil
-      elsif prefix.empty?
-        node
-      else
-        get_node_with_prefix(node.dictionary[prefix.shift]?, prefix)
+    protected def get_node_with_prefix(prefix)
+      return self if prefix.empty?
+
+      first_letter = prefix.shift
+      unless next_node = @dictionary[first_letter]?
+        return nil
       end
+
+      next_node.get_node_with_prefix(prefix)
     end
 
     # Helper function for key finding based on prefix
     #
     # Adds all of the words beginning with *prefix* into *results*
-    private def collect_keys_beginning_with_prefix(node, prefix, results)
-      return unless node
+    protected def collect_keys_beginning_with_prefix(prefix, results)
+      results.push prefix if @is_end
 
-      results.push prefix if node.end?
+      return if @dictionary.empty?
 
-      return if node.dictionary.empty?
-
-      node.dictionary.each {|c, next_node|
-        collect_keys_beginning_with_prefix(next_node, prefix+c, results)
+      @dictionary.each {|c, next_node|
+        next_node.collect_keys_beginning_with_prefix(prefix+c, results)
       }
     end
 
     # Finds all of the words stored in the Trie that are found along *path*
     def matches_on_path(path)
       path = path.downcase unless @case_sensitive
-      collect_matches_on_path(self, path.chars, [] of Char, [] of String)
+      collect_matches_on_path(path.chars, [] of Char, [] of String)
     end
 
     # Helper function for finding matches on a path
     #
     # Adds all of the words along *path* into *results*
-    private def collect_matches_on_path(node, path, match_builder, results)
-      results.push match_builder.join if node.end?
+    protected def collect_matches_on_path(path, match_builder, results)
+      results.push match_builder.join if @is_end
 
       return results if path.empty?
 
       first_letter = path.shift
-      unless next_node = node.dictionary[first_letter]?
+      unless next_node = @dictionary[first_letter]?
         return results
       end
 
       match_builder.push first_letter
-      collect_matches_on_path(next_node, path, match_builder, results)
+      next_node.collect_matches_on_path(path, match_builder, results)
     end
 
     # Returns the number of nodes in the Trie
     def size
       @dictionary.sum(1) {|c, node| node.size }
-    end
-
-    protected def end?
-      @is_end
     end
   end
 end
