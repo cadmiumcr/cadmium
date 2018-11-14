@@ -1,3 +1,5 @@
+# Based on https://github.com/NaturalNode/natural/blob/master/lib/natural/trie/trie.js
+#
 # Legal stuff:
 #
 # Copyright (c) 2014 Ken Koch
