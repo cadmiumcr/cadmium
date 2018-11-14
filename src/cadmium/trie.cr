@@ -58,7 +58,7 @@ module Cadmium
         @is_end = true
         return was_end
       end
-      
+
       # Otherwise, carry on down the Trie
       first_letter = chars.shift
       unless next_node = @dictionary[first_letter]?
@@ -185,7 +185,7 @@ module Cadmium
 
     # Returns the number of nodes in the Trie
     def size
-      @dictionary.sum(1) {|c, node| node.size }
+      @dictionary.sum(1) {|_, node| node.size }
     end
   end
 end
