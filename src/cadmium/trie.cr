@@ -163,23 +163,24 @@ module Cadmium
     # Finds all of the words stored in the Trie that are found along *path*
     def matches_on_path(path)
       path = path.downcase unless @case_sensitive
-      collect_matches_on_path(self, path.chars, "", [] of String)
+      collect_matches_on_path(self, path.chars, [] of Char, [] of String)
     end
 
     # Helper function for finding matches on a path
     #
-    #
+    # Adds all of the words along *path* into *results*
     private def collect_matches_on_path(node, path, match_builder, results)
-      results.push match_builder if node.end?
+      results.push match_builder.join if node.end?
 
       return results if path.empty?
 
-      first_letter = path[0]
+      first_letter = path.shift
       unless next_node = node.dictionary[first_letter]?
         return results
       end
 
-      collect_matches_on_path(next_node, path[1..-1], match_builder + first_letter, results)
+      match_builder.push first_letter
+      collect_matches_on_path(next_node, path, match_builder, results)
     end
 
     # Returns the number of nodes in the Trie
