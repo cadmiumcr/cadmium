@@ -47,7 +47,7 @@ describe Cadmium::Trie do
       test_words = ["test", "abcd", "ffff"]
       trie.add test_words
 
-      test_words.each {|word|
+      test_words.each { |word|
         expect(trie.contains? word).to be_true
       }
     end

@@ -42,7 +42,7 @@ module Cadmium
     #
     # Returns true if all of the strings were already present, and false otherwise
     def add(strings : Array(String))
-      strings.reduce(true) {|memo, string| add(string) && memo }
+      strings.reduce(true) { |memo, string| add(string) && memo }
     end
 
     # Helper method for adding to the Trie
@@ -155,8 +155,8 @@ module Cadmium
 
       return if @dictionary.empty?
 
-      @dictionary.each {|c, next_node|
-        next_node.collect_keys_beginning_with_prefix(prefix+c, results)
+      @dictionary.each { |c, next_node|
+        next_node.collect_keys_beginning_with_prefix(prefix + c, results)
       }
     end
 
@@ -185,7 +185,7 @@ module Cadmium
 
     # Returns the number of nodes in the Trie
     def size
-      @dictionary.sum(1) {|_, node| node.size }
+      @dictionary.sum(1) { |_, node| node.size }
     end
   end
 end
