@@ -37,7 +37,7 @@ module Cadmium
     end
 
     def add(strings : Array(String))
-      strings.map {|string| add string}.any?
+      strings.reduce(true) {|memo, string| add(string) && memo }
     end
 
     protected def add(chars : Array(Char))

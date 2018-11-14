@@ -29,14 +29,20 @@ describe Cadmium::Trie do
       }
     end
 
-    it "should return false if none of the strings that were added already existed" do
+    it "should return false if all the strings that were added did not already exist" do
       trie = described_class.new
       expect(trie.add ["test", "abcd"]).to be_false
     end
 
-    it "should return true if any strings that were added already existed" do
+    it "should return false if any of the strings that were added did not already exist" do
       trie = described_class.new
-      trie.add "test"
+      trie.add ["test", "abcd"]
+      expect(trie.add ["test", "abcd", "foo"]).to be_false
+    end
+
+    it "should return true if all of the strings that were added already existed" do
+      trie = described_class.new
+      trie.add ["test", "abcd"]
       expect(trie.add ["test", "abcd"]).to be_true
     end
   end
