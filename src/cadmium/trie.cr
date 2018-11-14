@@ -30,25 +30,37 @@ module Cadmium
     def initialize(@case_sensitive = true)
     end
 
+    # Adds a string to the Trie
+    #
+    # Returns true if the string was already present, and false otherwise
     def add(string : String)
       string = string.downcase unless @case_sensitive
-      chars = string.chars
-      add(chars)
+      add(string.chars)
     end
 
+    # Adds an array of strings to the Trie
+    #
+    # Returns true if all of the strings were already present, and false otherwise
     def add(strings : Array(String))
       strings.reduce(true) {|memo, string| add(string) && memo }
     end
 
+    # Helper method for adding to the Trie
+    #
+    # Works with Char arrays instead of Strings to avoid unnecessary
+    # substringing.
     protected def add(chars : Array(Char))
+      # If all of the characters have been exhausted, mark the current node as
+      # the end of a word, and return whether the current node had already been
+      # marked as such
       if chars.empty?
         was_end = @is_end
         @is_end = true
         return was_end
       end
       
+      # Otherwise, carry on down the Trie
       first_letter = chars.shift
-
       unless next_node = @dictionary[first_letter]?
         @dictionary[first_letter] = Trie.new
         next_node = @dictionary[first_letter]
@@ -57,12 +69,19 @@ module Cadmium
       next_node.add chars
     end
 
+    # Determines if *string* has been added to the Trie
     def contains?(string)
       string = string.downcase unless @case_sensitive
       contains? string.chars
     end
 
+    # Helper method for finding an exact element in the Trie
+    #
+    # Works with Char arrays instead of Strings to avoid unnecessary
+    # substringing.
     protected def contains?(chars : Array(Char))
+      # If all of the characters have been exhausted, check if the current
+      # node was marked as being the end of a word
       return @is_end if chars.empty?
 
       first_letter = chars.shift
@@ -74,68 +93,96 @@ module Cadmium
       next_node.contains? chars
     end
 
+    # Finds the largest prefix matching the prefix of *lookup*
+    #
+    # Returns a 2-Tuple. If a prefix was found, it will be the first element;
+    # otherwise, the first element will be nil. The second element will be the
+    # substring that was not matched.
     def find_prefix(lookup)
       lookup = lookup.downcase unless @case_sensitive
       collect_prefix_and_suffix(self, lookup.chars, [] of Char, nil)
     end
 
-    private def collect_prefix_and_suffix(node, search, matched_chars, last)
-      last = matched_chars.join if node.end?
+    # Helper method for prefix finding
+    private def collect_prefix_and_suffix(node, search, matched_chars, largest_prefix)
+      # If the current node is marked as being the end of a word, update the
+      # largest prefix
+      largest_prefix = matched_chars.join if node.end?
 
-      return {last, ""} if search.empty?
-
-      unless next_node = node.dictionary[search[0]]?
-          return {last, search.join}
+      # If all of the characters have been exhausted or there is nowhere left
+      # to go, return what was discovered to this point
+      if search.empty? || !node.dictionary.has_key? search[0]
+        return {largest_prefix, search.join}
       end
 
-      matched_chars.push search.shift
-      collect_prefix_and_suffix(next_node, search, matched_chars, last)
+      # Otherwise, keep looking
+      first_letter = search.shift
+      next_node = node.dictionary[first_letter]
+      matched_chars.push first_letter
+      collect_prefix_and_suffix(next_node, search, matched_chars, largest_prefix)
     end
 
+    # Finds all of the words that begin with *prefix*
     def keys_with_prefix(prefix)
       results = [] of String
       prefix = prefix.downcase unless @case_sensitive
+
       node = get_node_with_prefix(self, prefix.chars)
       collect_keys_beginning_with_prefix(node, prefix, results)
       results
     end
 
+    # Finds the node corresponding to *prefix*
+    #
+    # Returns nil if there is no such node
     private def get_node_with_prefix(node, prefix)
-      return nil unless node
-      return node if prefix.empty?
-      return get_node_with_prefix(node.dictionary[prefix.shift]?, prefix)
+      if !node
+        nil
+      elsif prefix.empty?
+        node
+      else
+        get_node_with_prefix(node.dictionary[prefix.shift]?, prefix)
+      end
     end
 
-    private def collect_keys_beginning_with_prefix(node, builder, results)
+    # Helper function for key finding based on prefix
+    #
+    # Adds all of the words beginning with *prefix* into *results*
+    private def collect_keys_beginning_with_prefix(node, prefix, results)
       return unless node
 
-      results.push builder if node.end?
+      results.push prefix if node.end?
 
       return if node.dictionary.empty?
 
       node.dictionary.each {|c, next_node|
-        collect_keys_beginning_with_prefix(next_node, builder+c, results)
+        collect_keys_beginning_with_prefix(next_node, prefix+c, results)
       }
     end
 
+    # Finds all of the words stored in the Trie that are found along *path*
     def matches_on_path(path)
       path = path.downcase unless @case_sensitive
       collect_matches_on_path(self, path.chars, "", [] of String)
     end
 
-    private def collect_matches_on_path(node, lookup, builder, results)
-      results.push builder if node.end?
+    # Helper function for finding matches on a path
+    #
+    #
+    private def collect_matches_on_path(node, path, match_builder, results)
+      results.push match_builder if node.end?
 
-      return results if lookup.empty?
+      return results if path.empty?
 
-      first_letter = lookup[0]
+      first_letter = path[0]
       unless next_node = node.dictionary[first_letter]?
         return results
       end
 
-      collect_matches_on_path(next_node, lookup[1..-1], builder + first_letter, results)
+      collect_matches_on_path(next_node, path[1..-1], match_builder + first_letter, results)
     end
 
+    # Returns the number of nodes in the Trie
     def size
       @dictionary.sum(1) {|c, node| node.size }
     end
