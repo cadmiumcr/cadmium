@@ -31,10 +31,10 @@ describe Cadmium::Tokenizer::CaseTokenizer do
   end
 
   describe "dutch" do
-    subject = Cadmium::Tokenizer::CaseTokenizer.new(preserve_apostrophe: true)
+    dutch_tokenizer = Cadmium::Tokenizer::CaseTokenizer.new(preserve_apostrophe: true)
 
     it "should tokenize strings" do
-      subject.tokenize("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's").should eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
+      dutch_tokenizer.tokenize("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's").should eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
     end
 
     it "should tokenize strings via String#tokenize" do
