@@ -313,7 +313,7 @@ tfidf.tfidfs("ruby") do |i, measure, key|
   puts "document ##{i} is #{measure}"
 end
 
-# =>  node --------------------------------
+# =>  crystal --------------------------------
       document #0 is 1
       document #1 is 0
       document #2 is 1
