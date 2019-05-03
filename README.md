@@ -51,7 +51,7 @@ Cadmium includes several different tokenizers, each of which is useful for diffe
 
 #### Aggressive Tokenizer
 
-The aggressive tokenizer currently has localization available for English (:en / nil), Spanish (:es), Persian (:fa), French (:fr), Indonesian (:id), Dutch (:nl), Norwegian (:no), Polish (:pl), Portuguese (:pt), Russian (:ru), and Swedish (:sv). If no language is included it will
+The aggressive tokenizer currently has localization available for English (:en / nil), Spanish (:es), Persian (:fa), French (:fr), Indonesian (:id), Dutch (:nl), Norwegian (:no), Polish (:pl), Portuguese (:pt), Russian (:ru), and Swedish (:sv). If no language is included it will default to English.
 
 Use it like so:
 
@@ -313,7 +313,7 @@ tfidf.tfidfs("ruby") do |i, measure, key|
   puts "document ##{i} is #{measure}"
 end
 
-# =>  node --------------------------------
+# =>  crystal --------------------------------
       document #0 is 1
       document #1 is 0
       document #2 is 1
