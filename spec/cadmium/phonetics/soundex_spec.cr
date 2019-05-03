@@ -61,7 +61,7 @@ describe Cadmium::Phonetics::SoundEx do
   it "should pad right with zeros" do
     subject.process("super").should eq("S160")
     subject.process("butt").should eq("B300")
-    # subject.process("a").should eq("A000") # Causing an error
+    subject.process("a").should eq("A000") # Causing an error
   end
 
   it "should pad right with zeros" do
@@ -69,8 +69,8 @@ describe Cadmium::Phonetics::SoundEx do
   end
 
   it "should perform soundex" do
-    subject.process("BLACKBERRY").should eq("B216")
-    subject.process("blackberry").should eq("B216")
+    subject.process("BLACKBERRY").should eq("B421") # TODO: Make sure this is right
+    subject.process("blackberry").should eq("B421")
     subject.process("calculate").should eq("C424")
     subject.process("CALCULATE").should eq("C424")
     subject.process("fox").should eq("F200")

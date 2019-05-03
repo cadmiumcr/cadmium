@@ -3,7 +3,7 @@ module Cadmium
     class SoundEx < Phonetics
       def self.process(token, max_length = nil)
         token = token.downcase
-        transformed = condense(transform(token[1..-1]))
+        transformed = condense(transform(token[0..-1]))
         # deal with duplicate INITIAL consonant SOUNDS
         transformed = transformed.sub(Regex.new("^#{transformed[0]}"), "")
         token[0].upcase + pad_right_0(transformed.gsub(/\D/, ""))[0, (max_length && max_length - 1) || 3]
