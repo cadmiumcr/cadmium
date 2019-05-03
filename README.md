@@ -371,6 +371,39 @@ sentiment.analyze("Crystal is seriously the best programming language.")
 # => true
 ```
 
+### Tries
+
+A [trie](https://en.wikipedia.org/wiki/Trie) is a data structure for efficiently storing and retrieving strings with identical prefixes, like "**mee**t" and "**mee**k".
+
+```crystal
+trie = Cadmium::Trie.new
+
+trie.add("meet")
+trie.size
+# => 5
+
+trie.add("meek")
+trie.size
+# => 6
+
+trie.contains?("meet")
+# => true
+
+trie.find_prefix("meeting")
+# => {"meet", "ing"}
+trie.find_prefix("meet")
+# => {"meet", ""}
+trie.find_prefix("me")
+# => {nil, "me"}
+
+trie.keys_with_prefix("me")
+# => ["meet", "meek"]
+
+trie.add(["m", "me"])
+trie.matches_on_path("meeting")
+# => ["m", "me", "meet"]
+```
+
 ## Roadmap
 
 This is all I want to have done before a __v1.0__ release.
@@ -410,7 +443,7 @@ This is all I want to have done before a __v1.0__ release.
 - [x] TF-IDF
 - [x] Transliterator
 - [x] Sentiment Analysis
-- [ ] Tries
+- [x] Tries
 - [ ] EdgeWeightedDigraph
 - [ ] ShortestPathTree
 - [ ] LongestPathTree
