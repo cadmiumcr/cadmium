@@ -411,8 +411,8 @@ This is all I want to have done before a __v1.0__ release.
 - [x] Tokenizers
   - [x] AggressiveTokenizer
     - [x] i18n
-  - [ ] Pragmatic [?](https://github.com/diasks2/pragmatic_tokenizer)
   - [x] CaseTokenizer
+  - [ ] Pragmatic [?](https://github.com/diasks2/pragmatic_tokenizer)
   - [x] RegexTokenizer
   - [x] SentenceTokenizer
   - [x] TreebankWordTokenizer
