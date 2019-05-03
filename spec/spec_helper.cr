@@ -1,4 +1,4 @@
-require "spec2"
+require "spec"
 require "../src/cadmium"
 
-include Spec2::GlobalDSL
+# include Spec2::GlobalDSL

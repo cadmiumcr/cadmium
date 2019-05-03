@@ -1,6 +1,8 @@
 require "../spec_helper"
 
 describe Cadmium::Sentiment do
+  subject = Cadmium::Sentiment
+
   it "should analyze a sentance and return a correct result" do
     tests = [
       {"You guys suck at football, we always beat you!", -3},
@@ -11,13 +13,13 @@ describe Cadmium::Sentiment do
     ]
 
     tests.each do |(string, result)|
-      expect(described_class.analyze(string)[:score]).to eq(result)
+      subject.analyze(string)[:score].should eq(result)
     end
   end
 
   it "should work with attached string extensions" do
-    expect("You guys suck at football, we always beat you!".sentiment[:score]).to eq(-3)
-    expect("Crystal is ❤️".is_positive?).to be_true
-    expect("Here's a thing I do if I have to run mid-task 🤔".is_negative?).to be_true
+    "You guys suck at football, we always beat you!".sentiment[:score].should eq(-3)
+    "Crystal is ❤️".is_positive?.should be_true
+    "Here's a thing I do if I have to run mid-task 🤔".is_negative?.should be_true
   end
 end

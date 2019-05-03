@@ -1,6 +1,8 @@
 require "../spec_helper"
 
 describe Cadmium::Transliterator do
+  subject = Cadmium::Transliterator
+
   describe ".transliterate" do
     it "should keep strings without special characters the same" do
       tests = [
@@ -11,7 +13,7 @@ describe Cadmium::Transliterator do
       ]
 
       tests.each do |test|
-        expect(described_class.transliterate(test)).to eq(test)
+        subject.transliterate(test).should eq(test)
       end
     end
 
@@ -43,7 +45,7 @@ describe Cadmium::Transliterator do
       ]
 
       tests.each do |test|
-        expect(described_class.transliterate(test[0])).to eq(test[1])
+        subject.transliterate(test[0]).should eq(test[1])
       end
     end
 
@@ -55,7 +57,7 @@ describe Cadmium::Transliterator do
     #   ]
 
     #   tests.each do |(str, ignore, result)|
-    #     expect(described_class.transliterate(str, ignore: ignore)).to eq(result)
+    #     subject.transliterate(str, ignore: ignore).should eq(result)
     #   end
     # end
 
@@ -66,7 +68,7 @@ describe Cadmium::Transliterator do
       ]
 
       tests.each do |(str, replace, result)|
-        expect(described_class.transliterate(str, replace: replace)).to eq(result)
+        subject.transliterate(str, replace: replace).should eq(result)
       end
     end
   end
@@ -79,7 +81,7 @@ describe Cadmium::Transliterator do
       ]
 
       tests.each do |(str, replace, result)|
-        expect(described_class.replace_str(str, replace)).to eq(result)
+        subject.replace_str(str, replace).should eq(result)
       end
     end
   end

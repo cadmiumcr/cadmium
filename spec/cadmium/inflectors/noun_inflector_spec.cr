@@ -1,224 +1,224 @@
 require "../../spec_helper"
 
 describe Cadmium::Inflectors::NounInflector do
-  subject { described_class.new }
+  subject = Cadmium::Inflectors::NounInflector.new
 
   describe "#singularize" do
     it "should drop an S by default" do
-      expect(subject.singularize("rrrs")).to eq("rrr")
-      expect(subject.singularize("hackers")).to eq("hacker")
-      expect(subject.singularize("movies")).to eq("movie")
+      subject.singularize("rrrs").should eq("rrr")
+      subject.singularize("hackers").should eq("hacker")
+      subject.singularize("movies").should eq("movie")
 
       # MAN cases that don"t pluralize to MEN
-      expect(subject.singularize("talismans")).to eq("talisman")
-      expect(subject.singularize("humans")).to eq("human")
-      expect(subject.singularize("prehumans")).to eq("prehuman")
+      subject.singularize("talismans").should eq("talisman")
+      subject.singularize("humans").should eq("human")
+      subject.singularize("prehumans").should eq("prehuman")
     end
 
     it "should handle ambiguous form" do
-      expect(subject.singularize("deer")).to eq("deer")
-      expect(subject.singularize("fish")).to eq("fish")
-      expect(subject.singularize("series")).to eq("series")
-      expect(subject.singularize("sheep")).to eq("sheep")
-      expect(subject.singularize("trout")).to eq("trout")
+      subject.singularize("deer").should eq("deer")
+      subject.singularize("fish").should eq("fish")
+      subject.singularize("series").should eq("series")
+      subject.singularize("sheep").should eq("sheep")
+      subject.singularize("trout").should eq("trout")
     end
 
     it "should convert plurals endind in SES to S" do
-      expect(subject.singularize("statuses")).to eq("status")
-      expect(subject.singularize("buses")).to eq("bus")
+      subject.singularize("statuses").should eq("status")
+      subject.singularize("buses").should eq("bus")
     end
 
     it "should match irregulars" do
-      expect(subject.singularize("people")).to eq("person")
-      expect(subject.singularize("children")).to eq("child")
-      expect(subject.singularize("oxen")).to eq("ox")
-      expect(subject.singularize("clothes")).to eq("cloth")
-      expect(subject.singularize("heroes")).to eq("hero")
+      subject.singularize("people").should eq("person")
+      subject.singularize("children").should eq("child")
+      subject.singularize("oxen").should eq("ox")
+      subject.singularize("clothes").should eq("cloth")
+      subject.singularize("heroes").should eq("hero")
     end
 
     it "should handle IX cases" do
-      expect(subject.singularize("matrices")).to eq("matrix")
-      expect(subject.singularize("indices")).to eq("index")
-      expect(subject.singularize("cortices")).to eq("cortex")
+      subject.singularize("matrices").should eq("matrix")
+      subject.singularize("indices").should eq("index")
+      subject.singularize("cortices").should eq("cortex")
     end
 
     it "should handle ES cases" do
-      expect(subject.singularize("churches")).to eq("church")
-      expect(subject.singularize("appendixes")).to eq("appendix")
-      expect(subject.singularize("messes")).to eq("mess")
-      expect(subject.singularize("quizes")).to eq("quiz")
-      expect(subject.singularize("shoes")).to eq("shoe")
-      expect(subject.singularize("funguses")).to eq("fungus")
+      subject.singularize("churches").should eq("church")
+      subject.singularize("appendixes").should eq("appendix")
+      subject.singularize("messes").should eq("mess")
+      subject.singularize("quizes").should eq("quiz")
+      subject.singularize("shoes").should eq("shoe")
+      subject.singularize("funguses").should eq("fungus")
     end
 
     it "should handle special OES cases" do
-      expect(subject.singularize("tomatoes")).to eq("tomato")
+      subject.singularize("tomatoes").should eq("tomato")
     end
 
     it "should handle I cases" do
-      expect(subject.singularize("octopi")).to eq("octopus")
-      expect(subject.singularize("stimuli")).to eq("stimulus")
-      expect(subject.singularize("radii")).to eq("radius")
-      expect(subject.singularize("nuclei")).to eq("nucleus")
-      expect(subject.singularize("fungi")).to eq("fungus")
-      expect(subject.singularize("cacti")).to eq("cactus")
+      subject.singularize("octopi").should eq("octopus")
+      subject.singularize("stimuli").should eq("stimulus")
+      subject.singularize("radii").should eq("radius")
+      subject.singularize("nuclei").should eq("nucleus")
+      subject.singularize("fungi").should eq("fungus")
+      subject.singularize("cacti").should eq("cactus")
     end
 
     it "should handle IVES cases" do
-      expect(subject.singularize("lives")).to eq("life")
-      expect(subject.singularize("knives")).to eq("knife")
+      subject.singularize("lives").should eq("life")
+      subject.singularize("knives").should eq("knife")
     end
 
     it "should handle Y cases" do
-      expect(subject.singularize("parties")).to eq("party")
-      expect(subject.singularize("flies")).to eq("fly")
-      expect(subject.singularize("victories")).to eq("victory")
-      expect(subject.singularize("monstrosities")).to eq("monstrosity")
+      subject.singularize("parties").should eq("party")
+      subject.singularize("flies").should eq("fly")
+      subject.singularize("victories").should eq("victory")
+      subject.singularize("monstrosities").should eq("monstrosity")
     end
 
     it "should handle SS cases" do
-      expect(subject.singularize("dresses")).to eq("dress")
-      expect(subject.singularize("dress")).to eq("dress")
-      expect(subject.singularize("messes")).to eq("mess")
+      subject.singularize("dresses").should eq("dress")
+      subject.singularize("dress").should eq("dress")
+      subject.singularize("messes").should eq("mess")
     end
 
     it "should handle MAN->MAN cases" do
-      expect(subject.singularize("men")).to eq("man")
-      expect(subject.singularize("women")).to eq("woman")
-      expect(subject.singularize("workmen")).to eq("workman")
-      expect(subject.singularize("riflemen")).to eq("rifleman")
+      subject.singularize("men").should eq("man")
+      subject.singularize("women").should eq("woman")
+      subject.singularize("workmen").should eq("workman")
+      subject.singularize("riflemen").should eq("rifleman")
     end
 
     it "should handle irregular cases" do
-      expect(subject.singularize("feet")).to eq("foot")
-      expect(subject.singularize("geese")).to eq("goose")
-      expect(subject.singularize("teeth")).to eq("tooth")
-      expect(subject.singularize("ephemerides")).to eq("ephemeris")
+      subject.singularize("feet").should eq("foot")
+      subject.singularize("geese").should eq("goose")
+      subject.singularize("teeth").should eq("tooth")
+      subject.singularize("ephemerides").should eq("ephemeris")
     end
 
     it "should handle AE cases" do
-      expect(subject.singularize("antennae")).to eq("antenna")
-      expect(subject.singularize("formulae")).to eq("formula")
-      expect(subject.singularize("nebulae")).to eq("nebula")
-      expect(subject.singularize("vertebrae")).to eq("vertebra")
-      expect(subject.singularize("vitae")).to eq("vita")
+      subject.singularize("antennae").should eq("antenna")
+      subject.singularize("formulae").should eq("formula")
+      subject.singularize("nebulae").should eq("nebula")
+      subject.singularize("vertebrae").should eq("vertebra")
+      subject.singularize("vitae").should eq("vita")
     end
 
     it "should allow AE cases to be S" do
-      expect(subject.singularize("antennas")).to eq("antenna")
-      expect(subject.singularize("formulas")).to eq("formula")
+      subject.singularize("antennas").should eq("antenna")
+      subject.singularize("formulas").should eq("formula")
     end
   end
 
   describe "#pluralize" do
     it "should append an S by default" do
-      expect(subject.pluralize("rrr")).to eq("rrrs")
-      expect(subject.pluralize("hacker")).to eq("hackers")
-      expect(subject.pluralize("movie")).to eq("movies")
+      subject.pluralize("rrr").should eq("rrrs")
+      subject.pluralize("hacker").should eq("hackers")
+      subject.pluralize("movie").should eq("movies")
     end
 
     it "should handle ambiguous form" do
-      expect(subject.pluralize("deer")).to eq("deer")
-      expect(subject.pluralize("fish")).to eq("fish")
-      expect(subject.pluralize("series")).to eq("series")
-      expect(subject.pluralize("sheep")).to eq("sheep")
-      expect(subject.pluralize("trout")).to eq("trout")
+      subject.pluralize("deer").should eq("deer")
+      subject.pluralize("fish").should eq("fish")
+      subject.pluralize("series").should eq("series")
+      subject.pluralize("sheep").should eq("sheep")
+      subject.pluralize("trout").should eq("trout")
     end
 
     it "should convert singulars ending s to ses" do
-      expect(subject.pluralize("status")).to eq("statuses")
-      expect(subject.pluralize("bus")).to eq("buses")
+      subject.pluralize("status").should eq("statuses")
+      subject.pluralize("bus").should eq("buses")
     end
 
     it "should match irregulars" do
-      expect(subject.pluralize("person")).to eq("people")
-      expect(subject.pluralize("child")).to eq("children")
-      expect(subject.pluralize("ox")).to eq("oxen")
+      subject.pluralize("person").should eq("people")
+      subject.pluralize("child").should eq("children")
+      subject.pluralize("ox").should eq("oxen")
     end
 
     it "should maintain case of irregulars" do
-      expect(subject.pluralize("OX")).to eq("OXEN")
-      expect(subject.pluralize("Person")).to eq("People")
-      expect(subject.pluralize("child")).to eq("children")
-      expect(subject.pluralize("cloth")).to eq("clothes")
+      subject.pluralize("OX").should eq("OXEN")
+      subject.pluralize("Person").should eq("People")
+      subject.pluralize("child").should eq("children")
+      subject.pluralize("cloth").should eq("clothes")
     end
 
     it "should handle IX cases" do
-      expect(subject.pluralize("matrix")).to eq("matrices")
-      expect(subject.pluralize("index")).to eq("indices")
-      expect(subject.pluralize("cortex")).to eq("cortices")
+      subject.pluralize("matrix").should eq("matrices")
+      subject.pluralize("index").should eq("indices")
+      subject.pluralize("cortex").should eq("cortices")
     end
 
     it "should regulars to ES" do
-      expect(subject.pluralize("church")).to eq("churches")
-      expect(subject.pluralize("appendix")).to eq("appendixes")
-      expect(subject.pluralize("mess")).to eq("messes")
-      expect(subject.pluralize("quiz")).to eq("quizes")
-      expect(subject.pluralize("shoe")).to eq("shoes")
+      subject.pluralize("church").should eq("churches")
+      subject.pluralize("appendix").should eq("appendixes")
+      subject.pluralize("mess").should eq("messes")
+      subject.pluralize("quiz").should eq("quizes")
+      subject.pluralize("shoe").should eq("shoes")
     end
 
     it "should handle SIS cases" do
-      expect(subject.pluralize("synopsis")).to eq("synopses")
-      expect(subject.pluralize("parenthesis")).to eq("parentheses")
+      subject.pluralize("synopsis").should eq("synopses")
+      subject.pluralize("parenthesis").should eq("parentheses")
     end
 
     it "should handle special OES cases" do
-      expect(subject.pluralize("tomato")).to eq("tomatoes")
-      expect(subject.pluralize("buffalo")).to eq("buffaloes")
-      expect(subject.pluralize("tornado")).to eq("tornadoes")
+      subject.pluralize("tomato").should eq("tomatoes")
+      subject.pluralize("buffalo").should eq("buffaloes")
+      subject.pluralize("tornado").should eq("tornadoes")
     end
 
     it "should handle I cases" do
-      expect(subject.pluralize("radius")).to eq("radii")
-      expect(subject.pluralize("octopus")).to eq("octopi")
-      expect(subject.pluralize("stimulus")).to eq("stimuli")
-      expect(subject.pluralize("nucleus")).to eq("nuclei")
-      expect(subject.pluralize("fungus")).to eq("fungi")
-      expect(subject.pluralize("cactus")).to eq("cacti")
+      subject.pluralize("radius").should eq("radii")
+      subject.pluralize("octopus").should eq("octopi")
+      subject.pluralize("stimulus").should eq("stimuli")
+      subject.pluralize("nucleus").should eq("nuclei")
+      subject.pluralize("fungus").should eq("fungi")
+      subject.pluralize("cactus").should eq("cacti")
     end
 
     it "should handle IVES cases" do
-      expect(subject.pluralize("knife")).to eq("knives")
-      expect(subject.pluralize("life")).to eq("lives")
+      subject.pluralize("knife").should eq("knives")
+      subject.pluralize("life").should eq("lives")
     end
 
     it "should handle Y cases" do
-      expect(subject.pluralize("party")).to eq("parties")
-      expect(subject.pluralize("fly")).to eq("flies")
-      expect(subject.pluralize("victory")).to eq("victories")
-      expect(subject.pluralize("monstrosity")).to eq("monstrosities")
+      subject.pluralize("party").should eq("parties")
+      subject.pluralize("fly").should eq("flies")
+      subject.pluralize("victory").should eq("victories")
+      subject.pluralize("monstrosity").should eq("monstrosities")
     end
 
     it "should handle SS cases" do
-      expect(subject.pluralize("dress")).to eq("dresses")
-      expect(subject.pluralize("dresses")).to eq("dresses")
-      expect(subject.pluralize("mess")).to eq("messes")
+      subject.pluralize("dress").should eq("dresses")
+      subject.pluralize("dresses").should eq("dresses")
+      subject.pluralize("mess").should eq("messes")
     end
 
     it "should handle MAN->MEN cases" do
-      expect(subject.pluralize("man")).to eq("men")
-      expect(subject.pluralize("woman")).to eq("women")
-      expect(subject.pluralize("workman")).to eq("workmen")
-      expect(subject.pluralize("rifleman")).to eq("riflemen")
+      subject.pluralize("man").should eq("men")
+      subject.pluralize("woman").should eq("women")
+      subject.pluralize("workman").should eq("workmen")
+      subject.pluralize("rifleman").should eq("riflemen")
     end
 
     it "should handle irregular cases" do
-      expect(subject.pluralize("foot")).to eq("feet")
-      expect(subject.pluralize("goose")).to eq("geese")
-      expect(subject.pluralize("tooth")).to eq("teeth")
-      expect(subject.pluralize("ephemeris")).to eq("ephemerides")
+      subject.pluralize("foot").should eq("feet")
+      subject.pluralize("goose").should eq("geese")
+      subject.pluralize("tooth").should eq("teeth")
+      subject.pluralize("ephemeris").should eq("ephemerides")
 
-      expect(subject.pluralize("talisman")).to eq("talismans")
-      expect(subject.pluralize("human")).to eq("humans")
-      expect(subject.pluralize("prehuman")).to eq("prehumans")
+      subject.pluralize("talisman").should eq("talismans")
+      subject.pluralize("human").should eq("humans")
+      subject.pluralize("prehuman").should eq("prehumans")
     end
 
     it "should handle AE cases" do
-      expect(subject.pluralize("antenna")).to eq("antennae")
-      expect(subject.pluralize("formula")).to eq("formulae")
-      expect(subject.pluralize("nebula")).to eq("nebulae")
-      expect(subject.pluralize("vertebra")).to eq("vertebrae")
-      expect(subject.pluralize("vita")).to eq("vitae")
+      subject.pluralize("antenna").should eq("antennae")
+      subject.pluralize("formula").should eq("formulae")
+      subject.pluralize("nebula").should eq("nebulae")
+      subject.pluralize("vertebra").should eq("vertebrae")
+      subject.pluralize("vita").should eq("vitae")
     end
   end
 end

@@ -1,106 +1,106 @@
 require "../../spec_helper"
 
 describe Cadmium::Inflectors::PresentVerbInflector do
-  subject { described_class.new }
+  subject = Cadmium::Inflectors::PresentVerbInflector.new
 
   describe "#singularize" do
     it "should singularize regular ES forms" do
-      expect(subject.singularize("catch")).to eq("catches")
-      expect(subject.singularize("do")).to eq("does")
-      expect(subject.singularize("go")).to eq("goes")
+      subject.singularize("catch").should eq("catches")
+      subject.singularize("do").should eq("does")
+      subject.singularize("go").should eq("goes")
     end
 
     it "should handle [CS]HES forms" do
-      expect(subject.singularize("cash")).to eq("cashes")
-      expect(subject.singularize("ach")).to eq("aches")
+      subject.singularize("cash").should eq("cashes")
+      subject.singularize("ach").should eq("aches")
     end
 
     it "should ignore XES forms" do
-      expect(subject.singularize("annex")).to eq("annexes")
+      subject.singularize("annex").should eq("annexes")
     end
 
     it "should handle SSES forms" do
-      expect(subject.singularize("access")).to eq("accesses")
+      subject.singularize("access").should eq("accesses")
     end
 
     it "should ignore ZZES forms" do
-      expect(subject.singularize("buzz")).to eq("buzzes")
+      subject.singularize("buzz").should eq("buzzes")
     end
 
     it "should singularize regular S forms" do
-      expect(subject.singularize("claim")).to eq("claims")
-      expect(subject.singularize("drink")).to eq("drinks")
-      expect(subject.singularize("become")).to eq("becomes")
+      subject.singularize("claim").should eq("claims")
+      subject.singularize("drink").should eq("drinks")
+      subject.singularize("become").should eq("becomes")
     end
 
     it "should singularize irregular forms" do
-      expect(subject.singularize("are")).to eq("is")
-      expect(subject.singularize("were")).to eq("was")
-      expect(subject.singularize("have")).to eq("has")
+      subject.singularize("are").should eq("is")
+      subject.singularize("were").should eq("was")
+      subject.singularize("have").should eq("has")
     end
 
     it "should singularize ies forms" do
-      expect(subject.singularize("fly")).to eq("flies")
-      expect(subject.singularize("try")).to eq("tries")
+      subject.singularize("fly").should eq("flies")
+      subject.singularize("try").should eq("tries")
     end
 
     it "should handle ambiguous forms" do
-      expect(subject.singularize("will")).to eq("will")
+      subject.singularize("will").should eq("will")
     end
   end
 
   describe "#pluralize" do
     it "should pluralize regular ES forms" do
-      expect(subject.pluralize("catches")).to eq("catch")
-      expect(subject.pluralize("does")).to eq("do")
-      expect(subject.pluralize("goes")).to eq("go")
+      subject.pluralize("catches").should eq("catch")
+      subject.pluralize("does").should eq("do")
+      subject.pluralize("goes").should eq("go")
     end
 
     it "should handle [CS]HES forms" do
-      expect(subject.pluralize("cashes")).to eq("cash")
-      expect(subject.pluralize("aches")).to eq("ach")
+      subject.pluralize("cashes").should eq("cash")
+      subject.pluralize("aches").should eq("ach")
     end
 
     it "should handle XES forms" do
-      expect(subject.pluralize("annexes")).to eq("annex")
+      subject.pluralize("annexes").should eq("annex")
     end
 
     it "should handle SSES forms" do
-      expect(subject.pluralize("accesses")).to eq("access")
+      subject.pluralize("accesses").should eq("access")
     end
 
     it "should handle ZZES forms" do
-      expect(subject.pluralize("buzzes")).to eq("buzz")
+      subject.pluralize("buzzes").should eq("buzz")
     end
 
     it "should pluralize regular S forms that done drop e" do
-      expect(subject.pluralize("becomes")).to eq("become")
+      subject.pluralize("becomes").should eq("become")
     end
 
     it "should pluralize regular S forms" do
-      expect(subject.pluralize("drinks")).to eq("drink")
-      expect(subject.pluralize("claims")).to eq("claim")
+      subject.pluralize("drinks").should eq("drink")
+      subject.pluralize("claims").should eq("claim")
     end
 
     it "should pluralize irregular forms" do
-      expect(subject.pluralize("was")).to eq("were")
-      expect(subject.pluralize("is")).to eq("are")
-      expect(subject.pluralize("am")).to eq("are")
-      expect(subject.pluralize("has")).to eq("have")
+      subject.pluralize("was").should eq("were")
+      subject.pluralize("is").should eq("are")
+      subject.pluralize("am").should eq("are")
+      subject.pluralize("has").should eq("have")
     end
 
     it "should pluralize ies forms" do
-      expect(subject.pluralize("flies")).to eq("fly")
-      expect(subject.pluralize("tries")).to eq("try")
+      subject.pluralize("flies").should eq("fly")
+      subject.pluralize("tries").should eq("try")
     end
 
     it "should handle ambiguous forms" do
-      expect(subject.pluralize("will")).to eq("will")
+      subject.pluralize("will").should eq("will")
     end
   end
 
   it "should pluralize and singularize string from patch" do
-    expect("becomes".pluralize(false)).to eq("become")
-    expect("become".singularize(false)).to eq("becomes")
+    "becomes".pluralize(false).should eq("become")
+    "become".singularize(false).should eq("becomes")
   end
 end

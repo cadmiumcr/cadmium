@@ -2,96 +2,96 @@ require "../../spec_helper"
 
 describe Cadmium::Tokenizer::AggressiveTokenizer do
   describe "default language" do
-    subject { described_class.new(lang: :en) }
+    subject = Cadmium::Tokenizer::AggressiveTokenizer.new(lang: :en)
 
     it "should tokenize strings" do
-      expect(subject.tokenize("these are strings")).to eq(["these", "are", "strings"])
+      subject.tokenize("these are strings").should eq(["these", "are", "strings"])
     end
 
     it "should tokenize strings via String#tokenize" do
-      expect("these are strings".tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :en)).to eq(["these", "are", "strings"])
+      "these are strings".tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :en).should eq(["these", "are", "strings"])
     end
 
     it "should allow punctuation" do
-      expect(subject.tokenize("these are things, no")).to eq(["these", "are", "things", "no"])
+      subject.tokenize("these are things, no").should eq(["these", "are", "things", "no"])
     end
 
     it "should swollow final punctuation" do
-      expect(subject.tokenize("these are things, no?")).to eq(["these", "are", "things", "no"])
+      subject.tokenize("these are things, no?").should eq(["these", "are", "things", "no"])
     end
 
     it "should swollow initial punctuation" do
-      expect(subject.tokenize(".these are things, no")).to eq(["these", "are", "things", "no"])
+      subject.tokenize(".these are things, no").should eq(["these", "are", "things", "no"])
     end
 
     it "should swollow duplicate punctuation" do
-      expect(subject.tokenize("i shal... pause")).to eq(["i", "shal", "pause"])
+      subject.tokenize("i shal... pause").should eq(["i", "shal", "pause"])
     end
   end
 
   describe ":es" do
-    subject { described_class.new(lang: :es) }
+    subject = Cadmium::Tokenizer::AggressiveTokenizer.new(lang: :es)
 
     it "should tokenize strings" do
-      expect(subject.tokenize("hola yo me llamo eduardo y esudié ingeniería")).to eq(["hola", "yo", "me", "llamo", "eduardo", "y", "esudié", "ingeniería"])
+      subject.tokenize("hola yo me llamo eduardo y esudié ingeniería").should eq(["hola", "yo", "me", "llamo", "eduardo", "y", "esudié", "ingeniería"])
     end
 
     it "should tokenize strings via String#tokenize" do
-      expect("hola yo me llamo eduardo y esudié ingeniería".tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :es)).to eq(["hola", "yo", "me", "llamo", "eduardo", "y", "esudié", "ingeniería"])
+      "hola yo me llamo eduardo y esudié ingeniería".tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :es).should eq(["hola", "yo", "me", "llamo", "eduardo", "y", "esudié", "ingeniería"])
     end
   end
 
   describe ":fr" do
-    subject { described_class.new(lang: :fr) }
-    let(text) { "Affectueusement surnommé « Gabo » dans toute l'Amérique latine, le Colombien Gabriel Garcia Marquez, prix Nobel de littérature 1982, l'un des plus grands écrivains du XXe siècle, est mort À son domicile de Mexico jeudi 17 avril. Il était âgé de 87 ans. Son Œuvre a été traduite dans toutes les langues ou presque, et vendue à quelque 50 millions d'exemplaires." }
-    let(tokenized) { ["Affectueusement", "surnommé", "Gabo", "dans", "toute", "l", "Amérique", "latine", "le", "Colombien", "Gabriel", "Garcia", "Marquez", "prix", "Nobel", "de", "littérature", "1982", "l", "un", "des", "plus", "grands", "écrivains", "du", "XXe", "siècle", "est", "mort", "À", "son", "domicile", "de", "Mexico", "jeudi", "17", "avril", "Il", "était", "âgé", "de", "87", "ans", "Son", "Œuvre", "a", "été", "traduite", "dans", "toutes", "les", "langues", "ou", "presque", "et", "vendue", "à", "quelque", "50", "millions", "d", "exemplaires"] }
+    subject = Cadmium::Tokenizer::AggressiveTokenizer.new(lang: :fr)
+    text = "Affectueusement surnommé « Gabo » dans toute l'Amérique latine, le Colombien Gabriel Garcia Marquez, prix Nobel de littérature 1982, l'un des plus grands écrivains du XXe siècle, est mort À son domicile de Mexico jeudi 17 avril. Il était âgé de 87 ans. Son Œuvre a été traduite dans toutes les langues ou presque, et vendue à quelque 50 millions d'exemplaires."
+    tokenized = ["Affectueusement", "surnommé", "Gabo", "dans", "toute", "l", "Amérique", "latine", "le", "Colombien", "Gabriel", "Garcia", "Marquez", "prix", "Nobel", "de", "littérature", "1982", "l", "un", "des", "plus", "grands", "écrivains", "du", "XXe", "siècle", "est", "mort", "À", "son", "domicile", "de", "Mexico", "jeudi", "17", "avril", "Il", "était", "âgé", "de", "87", "ans", "Son", "Œuvre", "a", "été", "traduite", "dans", "toutes", "les", "langues", "ou", "presque", "et", "vendue", "à", "quelque", "50", "millions", "d", "exemplaires"]
 
     it "should tokenize strings" do
-      expect(subject.tokenize(text)).to eq(tokenized)
+      subject.tokenize(text).should eq(tokenized)
     end
 
     it "should tokenize strings via String#tokenize" do
-      expect(text.tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :fr)).to eq(tokenized)
+      text.tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :fr).should eq(tokenized)
     end
   end
 
   describe ":nl" do
-    subject { described_class.new(lang: :nl) }
+    subject = Cadmium::Tokenizer::AggressiveTokenizer.new(lang: :nl)
 
     it "should tokenize strings" do
-      expect(subject.tokenize("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's")).to eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
+      subject.tokenize("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's").should eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
     end
 
     it "should tokenize strings via String#tokenize" do
-      expect("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's".tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :nl)).to eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
+      "'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's".tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :nl).should eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
     end
   end
 
   describe ":pt" do
-    subject { described_class.new(lang: :pt) }
+    subject = Cadmium::Tokenizer::AggressiveTokenizer.new(lang: :pt)
 
     it "should tokenize strings" do
-      expect(subject.tokenize("isso é coração")).to eq(["isso", "é", "coração"])
+      subject.tokenize("isso é coração").should eq(["isso", "é", "coração"])
     end
 
     it "should tokenize strings via String#tokenize" do
-      expect("isso é coração".tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :pt)).to eq(["isso", "é", "coração"])
+      "isso é coração".tokenize(Cadmium::Tokenizer::AggressiveTokenizer, lang: :pt).should eq(["isso", "é", "coração"])
     end
 
     it "should swollow punctuation" do
-      expect(subject.tokenize("isso é coração, não")).to eq(["isso", "é", "coração", "não"])
+      subject.tokenize("isso é coração, não").should eq(["isso", "é", "coração", "não"])
     end
 
     it "should swollow final punctuation" do
-      expect(subject.tokenize("isso é coração, não?")).to eq(["isso", "é", "coração", "não"])
+      subject.tokenize("isso é coração, não?").should eq(["isso", "é", "coração", "não"])
     end
 
     it "should swollow initial punctuation" do
-      expect(subject.tokenize(".isso é coração, não")).to eq(["isso", "é", "coração", "não"])
+      subject.tokenize(".isso é coração, não").should eq(["isso", "é", "coração", "não"])
     end
 
     it "should swollow duplicate punctuation" do
-      expect(subject.tokenize("eu vou... pause")).to eq(["eu", "vou", "pause"])
+      subject.tokenize("eu vou... pause").should eq(["eu", "vou", "pause"])
     end
   end
 end

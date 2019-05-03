@@ -1,32 +1,34 @@
 require "../../spec_helper"
 
 describe Cadmium::Distance::Levenshtein do
+  subject = Cadmium::Distance::Levenshtein
+
   it "should replace 2" do
-    expect(described_class.distance("doctor", "doktor")).to eq(1)
+    subject.distance("doctor", "doktor").should eq(1)
   end
 
   it "should delete 1" do
-    expect(described_class.distance("doctor", "docto")).to eq(1)
+    subject.distance("doctor", "docto").should eq(1)
   end
 
   it "should insert 1" do
-    expect(described_class.distance("flat", "flats")).to eq(1)
+    subject.distance("flat", "flats").should eq(1)
   end
 
   it "should combine operations" do
-    expect(described_class.distance("flad", "flaten")).to eq(3)
-    expect(described_class.distance("flaten", "flad")).to eq(3)
+    subject.distance("flad", "flaten").should eq(3)
+    subject.distance("flaten", "flad").should eq(3)
   end
 
   it "should consider perfect matches 0" do
-    expect(described_class.distance("one", "one")).to eq(0)
+    subject.distance("one", "one").should eq(0)
   end
 
   it "should delete all characters" do
-    expect(described_class.distance("delete", "")).to eq(6)
+    subject.distance("delete", "").should eq(6)
   end
 
   it "should insert all characters" do
-    expect(described_class.distance("", "insert")).to eq(6)
+    subject.distance("", "insert").should eq(6)
   end
 end

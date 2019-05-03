@@ -1,133 +1,133 @@
 require "../../spec_helper"
 
 describe Cadmium::Stemmers::PorterStemmer do
-  subject { described_class }
+  subject = Cadmium::Stemmers::PorterStemmer
 
   it "should categorize groups" do
-    expect(subject.categorize_groups("syllog")).to eq("CVCVC")
-    expect(subject.categorize_groups("gypsy")).to eq("CVCV")
+    subject.categorize_groups("syllog").should eq("CVCVC")
+    subject.categorize_groups("gypsy").should eq("CVCV")
   end
 
   it "should measure" do
-    expect(subject.measure("syllog")).to eq(2)
+    subject.measure("syllog").should eq(2)
   end
 
   it "should preform step 1a" do
-    expect(subject.step1a("caresses")).to eq("caress")
-    expect(subject.step1a("ponies")).to eq("poni")
-    expect(subject.step1a("ties")).to eq("ti")
-    expect(subject.step1a("caress")).to eq("caress")
-    expect(subject.step1a("cats")).to eq("cat")
+    subject.step1a("caresses").should eq("caress")
+    subject.step1a("ponies").should eq("poni")
+    subject.step1a("ties").should eq("ti")
+    subject.step1a("caress").should eq("caress")
+    subject.step1a("cats").should eq("cat")
   end
 
   it "should perform step 1b" do
-    expect(subject.step1b("feed")).to eq("feed")
-    expect(subject.step1b("agreed")).to eq("agree")
-    expect(subject.step1b("plastered")).to eq("plaster")
-    expect(subject.step1b("bled")).to eq("bled")
-    expect(subject.step1b("motoring")).to eq("motor")
-    expect(subject.step1b("sing")).to eq("sing")
+    subject.step1b("feed").should eq("feed")
+    subject.step1b("agreed").should eq("agree")
+    subject.step1b("plastered").should eq("plaster")
+    subject.step1b("bled").should eq("bled")
+    subject.step1b("motoring").should eq("motor")
+    subject.step1b("sing").should eq("sing")
   end
 
   it "should perform step 1c" do
-    expect(subject.step1c("happy")).to eq("happi")
-    expect(subject.step1c("sky")).to eq("sky")
+    subject.step1c("happy").should eq("happi")
+    subject.step1c("sky").should eq("sky")
   end
 
   it "should perform step 2" do
-    expect(subject.step2("relational")).to eq("relate")
-    expect(subject.step2("conditional")).to eq("condition")
-    expect(subject.step2("rational")).to eq("rational")
-    expect(subject.step2("valenci")).to eq("valence")
-    expect(subject.step2("hesitanci")).to eq("hesitance")
-    expect(subject.step2("digitizer")).to eq("digitize")
-    expect(subject.step2("conformabli")).to eq("conformable")
-    expect(subject.step2("radicalli")).to eq("radical")
-    expect(subject.step2("differentli")).to eq("different")
-    expect(subject.step2("vileli")).to eq("vile")
-    expect(subject.step2("analogousli")).to eq("analogous")
-    expect(subject.step2("vietnamization")).to eq("vietnamize")
-    expect(subject.step2("predication")).to eq("predicate")
-    expect(subject.step2("operator")).to eq("operate")
-    expect(subject.step2("feudalism")).to eq("feudal")
-    expect(subject.step2("decisiveness")).to eq("decisive")
-    expect(subject.step2("hopefulness")).to eq("hopeful")
-    expect(subject.step2("callousness")).to eq("callous")
-    expect(subject.step2("formaliti")).to eq("formal")
-    expect(subject.step2("sensitiviti")).to eq("sensitive")
-    expect(subject.step2("sensibiliti")).to eq("sensible")
+    subject.step2("relational").should eq("relate")
+    subject.step2("conditional").should eq("condition")
+    subject.step2("rational").should eq("rational")
+    subject.step2("valenci").should eq("valence")
+    subject.step2("hesitanci").should eq("hesitance")
+    subject.step2("digitizer").should eq("digitize")
+    subject.step2("conformabli").should eq("conformable")
+    subject.step2("radicalli").should eq("radical")
+    subject.step2("differentli").should eq("different")
+    subject.step2("vileli").should eq("vile")
+    subject.step2("analogousli").should eq("analogous")
+    subject.step2("vietnamization").should eq("vietnamize")
+    subject.step2("predication").should eq("predicate")
+    subject.step2("operator").should eq("operate")
+    subject.step2("feudalism").should eq("feudal")
+    subject.step2("decisiveness").should eq("decisive")
+    subject.step2("hopefulness").should eq("hopeful")
+    subject.step2("callousness").should eq("callous")
+    subject.step2("formaliti").should eq("formal")
+    subject.step2("sensitiviti").should eq("sensitive")
+    subject.step2("sensibiliti").should eq("sensible")
   end
 
   it "should preform step 3" do
-    expect(subject.step3("triplicate")).to eq("triplic")
-    expect(subject.step3("formative")).to eq("form")
-    expect(subject.step3("formalize")).to eq("formal")
-    expect(subject.step3("electriciti")).to eq("electric")
-    expect(subject.step3("electrical")).to eq("electric")
-    expect(subject.step3("hopeful")).to eq("hope")
-    expect(subject.step3("goodness")).to eq("good")
+    subject.step3("triplicate").should eq("triplic")
+    subject.step3("formative").should eq("form")
+    subject.step3("formalize").should eq("formal")
+    subject.step3("electriciti").should eq("electric")
+    subject.step3("electrical").should eq("electric")
+    subject.step3("hopeful").should eq("hope")
+    subject.step3("goodness").should eq("good")
   end
 
   it "should perform step 4" do
-    expect(subject.step4("revival")).to eq("reviv")
-    expect(subject.step4("allowance")).to eq("allow")
-    expect(subject.step4("inference")).to eq("infer")
-    expect(subject.step4("airliner")).to eq("airlin")
-    expect(subject.step4("gyroscopic")).to eq("gyroscop")
-    expect(subject.step4("adjustable")).to eq("adjust")
-    expect(subject.step4("defensible")).to eq("defens")
-    expect(subject.step4("irritant")).to eq("irrit")
-    expect(subject.step4("replacement")).to eq("replac")
-    expect(subject.step4("adjustment")).to eq("adjust")
-    expect(subject.step4("dependent")).to eq("depend")
-    expect(subject.step4("adoption")).to eq("adopt")
-    expect(subject.step4("homologou")).to eq("homolog")
-    expect(subject.step4("communism")).to eq("commun")
-    expect(subject.step4("activate")).to eq("activ")
-    expect(subject.step4("angulariti")).to eq("angular")
-    expect(subject.step4("homologous")).to eq("homolog")
-    expect(subject.step4("effective")).to eq("effect")
-    expect(subject.step4("bowdlerize")).to eq("bowdler")
+    subject.step4("revival").should eq("reviv")
+    subject.step4("allowance").should eq("allow")
+    subject.step4("inference").should eq("infer")
+    subject.step4("airliner").should eq("airlin")
+    subject.step4("gyroscopic").should eq("gyroscop")
+    subject.step4("adjustable").should eq("adjust")
+    subject.step4("defensible").should eq("defens")
+    subject.step4("irritant").should eq("irrit")
+    subject.step4("replacement").should eq("replac")
+    subject.step4("adjustment").should eq("adjust")
+    subject.step4("dependent").should eq("depend")
+    subject.step4("adoption").should eq("adopt")
+    subject.step4("homologou").should eq("homolog")
+    subject.step4("communism").should eq("commun")
+    subject.step4("activate").should eq("activ")
+    subject.step4("angulariti").should eq("angular")
+    subject.step4("homologous").should eq("homolog")
+    subject.step4("effective").should eq("effect")
+    subject.step4("bowdlerize").should eq("bowdler")
   end
 
   it "should perform step 5a" do
-    expect(subject.step5a("probate")).to eq("probat")
-    expect(subject.step5a("rate")).to eq("rate")
-    expect(subject.step5a("cease")).to eq("ceas")
+    subject.step5a("probate").should eq("probat")
+    subject.step5a("rate").should eq("rate")
+    subject.step5a("cease").should eq("ceas")
   end
 
   it "should preform step 5b" do
-    expect(subject.step5b("controll")).to eq("control")
-    expect(subject.step5b("roll")).to eq("roll")
+    subject.step5b("controll").should eq("control")
+    subject.step5b("roll").should eq("roll")
   end
 
   it "should preform complete stemming" do
-    expect(subject.stem("scoring")).to eq("score")
-    expect(subject.stem("scored")).to eq("score")
-    expect(subject.stem("scores")).to eq("score")
-    expect(subject.stem("score")).to eq("score")
-    expect(subject.stem("SCORING")).to eq("score")
-    expect(subject.stem("SCORED")).to eq("score")
-    expect(subject.stem("SCORES")).to eq("score")
-    expect(subject.stem("SCORE")).to eq("score")
-    expect(subject.stem("nationals")).to eq("nation")
-    expect(subject.stem("doing")).to eq("do")
+    subject.stem("scoring").should eq("score")
+    subject.stem("scored").should eq("score")
+    subject.stem("scores").should eq("score")
+    subject.stem("score").should eq("score")
+    subject.stem("SCORING").should eq("score")
+    subject.stem("SCORED").should eq("score")
+    subject.stem("SCORES").should eq("score")
+    subject.stem("SCORE").should eq("score")
+    subject.stem("nationals").should eq("nation")
+    subject.stem("doing").should eq("do")
   end
 
   it "should perform animated to anim" do
-    expect(subject.stem("animated")).to eq("anim")
+    subject.stem("animated").should eq("anim")
   end
 
   it "should tokenize and stem with String#tokenize_and_stem" do
-    expect("scoring stinks".tokenize_and_stem).to eq(["score", "stink"])
-    expect("SCORING STINKS".tokenize_and_stem).to eq(["score", "stink"])
+    "scoring stinks".tokenize_and_stem.should eq(["score", "stink"])
+    "SCORING STINKS".tokenize_and_stem.should eq(["score", "stink"])
   end
 
   it "should tokenize and stem ignoring stop words" do
-    expect("My dog is very fun TO play with And another thing, he is A poodle.".tokenize_and_stem).to eq(["dog", "fun", "plai", "thing", "poodl"])
+    "My dog is very fun TO play with And another thing, he is A poodle.".tokenize_and_stem.should eq(["dog", "fun", "plai", "thing", "poodl"])
   end
 
   it "should tokenize and stem including stopwords" do
-    expect("My dog is very fun TO play with And another thing, he is A poodle.".tokenize_and_stem(keep_stops: true)).to eq(["my", "dog", "is", "veri", "fun", "to", "plai", "with", "and", "anoth", "thing", "he", "is", "a", "poodl"])
+    "My dog is very fun TO play with And another thing, he is A poodle.".tokenize_and_stem(keep_stops: true).should eq(["my", "dog", "is", "veri", "fun", "to", "plai", "with", "and", "anoth", "thing", "he", "is", "a", "poodl"])
   end
 end

@@ -1,53 +1,53 @@
 require "../../spec_helper"
 
 describe Cadmium::Inflectors::CountInflector do
-  subject { described_class }
+  subject = Cadmium::Inflectors::CountInflector
 
   it "should handle 1st cases" do
-    expect(subject.nth(1)).to eq("1st")
-    expect(subject.nth(101)).to eq("101st")
-    expect(subject.nth(11)).not_to eq("11st")
-    expect(subject.nth(111)).not_to eq("111st")
+    subject.nth(1).should eq("1st")
+    subject.nth(101).should eq("101st")
+    subject.nth(11).should_not eq("11st")
+    subject.nth(111).should_not eq("111st")
   end
 
   it "should handle the 12th cases" do
-    expect(subject.nth(12)).to eq("12th")
-    expect(subject.nth(112)).to eq("112th")
-    expect(subject.nth(1112)).to eq("1112th")
+    subject.nth(12).should eq("12th")
+    subject.nth(112).should eq("112th")
+    subject.nth(1112).should eq("1112th")
   end
 
   it "should handle the 11th cases" do
-    expect(subject.nth(11)).to eq("11th")
-    expect(subject.nth(111)).to eq("111th")
-    expect(subject.nth(1111)).to eq("1111th")
+    subject.nth(11).should eq("11th")
+    subject.nth(111).should eq("111th")
+    subject.nth(1111).should eq("1111th")
   end
 
   it "should handle the 13th cases" do
-    expect(subject.nth(13)).to eq("13th")
-    expect(subject.nth(113)).to eq("113th")
-    expect(subject.nth(1113)).to eq("1113th")
+    subject.nth(13).should eq("13th")
+    subject.nth(113).should eq("113th")
+    subject.nth(1113).should eq("1113th")
   end
 
   it "should handle the th cases" do
-    expect(subject.nth(10)).to eq("10th")
-    expect(subject.nth(4)).to eq("4th")
-    expect(subject.nth(400)).to eq("400th")
-    expect(subject.nth(404)).to eq("404th")
-    expect(subject.nth(5)).to eq("5th")
-    expect(subject.nth(5000)).to eq("5000th")
-    expect(subject.nth(5005)).to eq("5005th")
-    expect(subject.nth(9)).to eq("9th")
-    expect(subject.nth(90009)).to eq("90009th")
-    expect(subject.nth(90000)).to eq("90000th")
+    subject.nth(10).should eq("10th")
+    subject.nth(4).should eq("4th")
+    subject.nth(400).should eq("400th")
+    subject.nth(404).should eq("404th")
+    subject.nth(5).should eq("5th")
+    subject.nth(5000).should eq("5000th")
+    subject.nth(5005).should eq("5005th")
+    subject.nth(9).should eq("9th")
+    subject.nth(90009).should eq("90009th")
+    subject.nth(90000).should eq("90000th")
   end
 
   it "should handle 2nd cases" do
-    expect(subject.nth(2)).to eq("2nd")
-    expect(subject.nth(12)).not_to eq("12nd")
+    subject.nth(2).should eq("2nd")
+    subject.nth(12).should_not eq("12nd")
   end
 
   it "should handle 3rd cases" do
-    expect(subject.nth(3)).to eq("3rd")
-    expect(subject.nth(13)).not_to eq("13rd")
+    subject.nth(3).should eq("3rd")
+    subject.nth(13).should_not eq("13rd")
   end
 end
