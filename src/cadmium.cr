@@ -24,9 +24,3 @@ module Cadmium
     Transliterator.transliterate(source, **options)
   end
 end
-
-# cls = Cadmium::Classifiers::Bayes.new
-# cls.add_document("Woof woof", :dog)
-# cls.add_document("Meow", :cat)
-# cls.train
-# pp cls
