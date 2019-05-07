@@ -22,6 +22,8 @@ Any utilities that can be internationalized will be eventually. For now English 
 - [tf-idf](#tf-idf)
 - [Transliterator](#transliterator)
 - [Sentiment Analysis](#sentiment-analysis)
+- [Tries](#tries)
+- [WordNet](#wordnet)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
