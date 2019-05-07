@@ -14,13 +14,13 @@ module Cadmium
     # Represents a synset (or group of synonymous words) in WordNet. Synsets are related to each other by various (and numerous!)
     # relationships, including Hypernym (x is a hypernym of y <=> x is a parent of y) and Hyponym (x is a child of y)
     class Synset
-      @@morphy_path = File.expand_path("./data/", __DIR__)
+      @@morphy_path = File.expand_path("../../../data/wordnet/", __DIR__)
       @@exception_map = {} of String => Hash(String, Array(String))
       @pointers : Array(WordNet::Pointer)
 
       # Get the offset, in bytes, at which this synset's information is stored in WordNet's internal DB.
       # You almost certainly don't care about this.
-      getter synset_offset : Int32
+      getter synset_offset : String
 
       # A two digit decimal integer representing the name of the lexicographer file containing the synset for the sense.
       # Probably only of interest if you're using a wordnet database marked up with custom attributes, and you
@@ -63,7 +63,7 @@ module Cadmium
 
         @pos = pos
         @pos_offset = offset
-        @synset_offset = line.shift.to_i
+        @synset_offset = line.shift
         @lex_filenum = line.shift.to_i
         @synset_type = line.shift
 
