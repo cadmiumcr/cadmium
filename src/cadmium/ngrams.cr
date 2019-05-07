@@ -29,6 +29,7 @@ module Cadmium
         sequence = @@tokenizer.tokenize(sequence)
       end
 
+      sequence = sequence.not_nil! # TODO: Figure out why this is necessary
       count = [0, sequence.size - n + 1].max
 
       unless start_symbol.nil?

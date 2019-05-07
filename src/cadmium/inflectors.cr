@@ -1,10 +1,10 @@
-require "./inflectors/*"
+require "./inflector/*"
 
 module Cadmium
-  module Inflectors
+  module Inflector
     module StringExtension
-      @@_noun_inflector = Cadmium::Inflectors::NounInflector.new
-      @@_verb_inflector = Cadmium::Inflectors::PresentVerbInflector.new
+      @@_noun_inflector = Cadmium::Inflector::NounInflector.new
+      @@_verb_inflector = Cadmium::Inflector::PresentVerbInflector.new
 
       def pluralize(noun = true)
         if noun

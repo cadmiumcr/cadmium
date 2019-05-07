@@ -1,7 +1,7 @@
 require "./form_set"
 
 module Cadmium
-  module Inflectors
+  module Inflector
     abstract class TenseInflector
       private property ambiguous : Array(String)
       private property plural_forms : FormSet

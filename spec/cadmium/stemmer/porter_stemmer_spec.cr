@@ -1,7 +1,7 @@
 require "../../spec_helper"
 
-describe Cadmium::Stemmers::PorterStemmer do
-  subject = Cadmium::Stemmers::PorterStemmer
+describe Cadmium::Stemmer::PorterStemmer do
+  subject = Cadmium::Stemmer::PorterStemmer
 
   it "should categorize groups" do
     subject.categorize_groups("syllog").should eq("CVCVC")
