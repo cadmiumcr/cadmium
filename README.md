@@ -23,6 +23,7 @@ Any utilities that can be internationalized will be eventually. For now English 
 - [Transliterator](#transliterator)
 - [Sentiment Analysis](#sentiment-analysis)
 - [Tries](#tries)
+- [Readability](#readability)
 - [WordNet](#wordnet)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
