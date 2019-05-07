@@ -3,7 +3,7 @@ module Cadmium
     # Pointers represent the relations between the words in one synset and another.
     class Pointer
       # The symbol that devices the relationship this pointer represents, e.g. "!" for verb antonym. Valid
-      # pointer symbols are defined in pointers.rb
+      # pointer symbols are defined in pointers.cr
       getter symbol : String
 
       # The offset, in bytes, of this pointer in WordNet's internal database.
