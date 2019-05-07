@@ -1,3 +1,4 @@
+require "./cadmium/util/*"
 require "./cadmium/*"
 require "./cadmium/core_ext/**"
 
