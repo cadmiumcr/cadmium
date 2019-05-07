@@ -1,5 +1,5 @@
 module Cadmium
-  module Inflectors
+  module Inflector
     class FormSet
       property regular_forms : Array(Tuple(Regex, String))
       property irregular_forms : Hash(String, String)

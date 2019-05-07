@@ -1,7 +1,7 @@
 require "../../spec_helper"
 
-describe Cadmium::Inflectors::PresentVerbInflector do
-  subject = Cadmium::Inflectors::PresentVerbInflector.new
+describe Cadmium::Inflector::PresentVerbInflector do
+  subject = Cadmium::Inflector::PresentVerbInflector.new
 
   describe "#singularize" do
     it "should singularize regular ES forms" do

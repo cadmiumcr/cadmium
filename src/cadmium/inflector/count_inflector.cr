@@ -1,5 +1,5 @@
 module Cadmium
-  module Inflectors
+  module Inflector
     module CountInflector
       extend self
 

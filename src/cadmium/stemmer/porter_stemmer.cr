@@ -1,7 +1,7 @@
 require "./stemmer"
 
 module Cadmium
-  module Stemmers
+  module Stemmer
     class PorterStemmer < Stemmer
       def self.stem(token : String)
         return token if token.size < 3

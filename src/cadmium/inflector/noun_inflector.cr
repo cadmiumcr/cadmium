@@ -2,7 +2,7 @@ require "./tense_inflector"
 require "./form_set"
 
 module Cadmium
-  module Inflectors
+  module Inflector
     class NounInflector < TenseInflector
       def initialize
         @ambiguous = [

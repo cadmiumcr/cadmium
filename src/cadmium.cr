@@ -4,11 +4,11 @@ require "./cadmium/core_ext/**"
 # Cadmium is a Natrual Language Processing (NLP) library for Crystal. It includes several
 # modules and classes for processing sentences and splitting them into digestable pieces.
 module Cadmium
-  def self.stem(string, stemmer = Cadmium::Stemmers::PorterStemmer)
+  def self.stem(string, stemmer = Cadmium::Stemmer::PorterStemmer)
     stemmer.stem(string)
   end
 
-  def self.tokenize_and_stem(string, keep_stops = false, stemmer = Cadmium::Stemmers::PorterStemmer)
+  def self.tokenize_and_stem(string, keep_stops = false, stemmer = Cadmium::Stemmer::PorterStemmer)
     stemmer.tokenize_and_stem(string, keep_stops)
   end
 
@@ -24,3 +24,9 @@ module Cadmium
     Transliterator.transliterate(source, **options)
   end
 end
+
+# cls = Cadmium::Classifiers::Bayes.new
+# cls.add_document("Woof woof", :dog)
+# cls.add_document("Meow", :cat)
+# cls.train
+# pp cls

@@ -1,5 +1,5 @@
 module Cadmium
-  module Stemmers
+  module Stemmer
     class Token
       @string : String
       @original : String

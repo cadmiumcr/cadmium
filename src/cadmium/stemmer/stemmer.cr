@@ -2,7 +2,7 @@ require "../util/stop_words"
 require "../tokenizer/aggressive_tokenizer"
 
 module Cadmium
-  module Stemmers
+  module Stemmer
     abstract class Stemmer
       include Cadmium::Util::StopWords
 

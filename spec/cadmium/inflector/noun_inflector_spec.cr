@@ -1,7 +1,7 @@
 require "../../spec_helper"
 
-describe Cadmium::Inflectors::NounInflector do
-  subject = Cadmium::Inflectors::NounInflector.new
+describe Cadmium::Inflector::NounInflector do
+  subject = Cadmium::Inflector::NounInflector.new
 
   describe "#singularize" do
     it "should drop an S by default" do
