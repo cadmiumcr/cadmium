@@ -14,8 +14,8 @@ module Cadmium
     # Represents a synset (or group of synonymous words) in WordNet. Synsets are related to each other by various (and numerous!)
     # relationships, including Hypernym (x is a hypernym of y <=> x is a parent of y) and Hyponym (x is a child of y)
     class Synset
-      @morphy_path = File.expand_path("./data/", __FILE__)
-      @exception_map = {} of String => Hash(String, String)
+      @@morphy_path = File.expand_path("./data/", __DIR__)
+      @@exception_map = {} of String => Hash(String, Array(String))
       @pointers : Array(WordNet::Pointer)
 
       # Get the offset, in bytes, at which this synset's information is stored in WordNet's internal DB.
@@ -70,7 +70,7 @@ module Cadmium
         @word_counts = {} of String => Int32
         word_count = line.shift.to_i
         word_count.times do
-          @word_counts[line.shift] = line.shift.to_i
+          @word_counts[line.shift] = line.shift.to_i? || 0
         end
 
         pointer_count = line.shift.to_i
@@ -102,25 +102,25 @@ module Cadmium
 
       def self.load_exception_map
         SYNSET_TYPES.each do |_, pos|
-          @exception_map[pos] = {} of String => String
-          File.open(File.join(@morphy_path, "exceptions", "#{pos}.exc"), "r").each_line do |line|
+          @@exception_map[pos] = {} of String => Array(String)
+          File.open(File.join(@@morphy_path, "exceptions", "#{pos}.exc"), "r").each_line do |line|
             line = line.split
-            @exception_map[pos][line[0]] = line[1..-1]
+            @@exception_map[pos][line[0]] = line[1..-1]
           end
         end
       end
 
       def self._apply_rules(forms, pos)
         substitutions = MORPHOLOGICAL_SUBSTITUTIONS[pos]
-        out = [] of Array(String)
+        res = [] of String
         forms.each do |form|
-          substitutions.each do |old, new|
-            if form.end_with? old
-              out.push form[0...-old.length] + new
+          substitutions.each do |a|
+            if form.ends_with? a[0]
+              res.push form[0...-a[0].size] + a[1]
             end
           end
         end
-        return out end
+        return res
       end
 
       def self._filter_forms(forms, pos)
@@ -135,10 +135,14 @@ module Cadmium
       # 3. If there are no matches, keep applying rules until you either
       #    find a match or you can't go any further
       def self.morphy(form, pos)
-        if @exception_map.empty?
+        pos = pos.to_s
+        pos = SYNSET_TYPES[pos] if SYNSET_TYPES.has_key?(pos)
+
+        if @@exception_map.empty?
           self.load_exception_map
         end
-        exceptions = @exception_map[pos]
+
+        exceptions = @@exception_map[pos]
 
         # 0. Check the exception lists
         if exceptions.has_key? form
@@ -155,7 +159,7 @@ module Cadmium
         end
 
         # 3. If there are no matches, keep applying rules until we find a match
-        while forms.length > 0
+        while forms.size > 0
           forms = self._apply_rules(forms, pos)
           results = self._filter_forms(forms, pos)
           if !results.empty?
@@ -167,8 +171,8 @@ module Cadmium
         return [] of String
       end
 
-      def self.morphy_all(form)
-        SYNSET_TYPES.values.map { |pos| self.morphy(form, pos) }.flatten
+      def self.morphy(form)
+        SYNSET_TYPES.values.map { |pos| self.morphy(form, pos) }.flatten.uniq
       end
 
       # How many words does this Synset include?
@@ -189,7 +193,7 @@ module Cadmium
       #     WordNet::Lemma.find("fall", :verb).synsets[1].relation("!")[0].gloss
       def relation(pointer_symbol)
         @pointers.select { |pointer| pointer.symbol == pointer_symbol }
-          .map! { |pointer| Synset.new(@synset_type, pointer.offset) }
+          .map { |pointer| Synset.new(@synset_type, pointer.offset) }
       end
 
       # Get the Synsets of this sense's antonym
@@ -211,6 +215,11 @@ module Cadmium
       # Get the child synset(s) (i.e., lower-level categories, i.e. fruit -> edible_fruit)
       def hyponyms
         relation(HYPONYM)
+      end
+
+      # Get the synonyms (hypernyms and hyponyms) for this Synset
+      def synonyms
+        hypernyms + hyponyms
       end
 
       # Get the entire hypernym tree (from this synset all the way up to +entity+) as an array.
@@ -235,7 +244,7 @@ module Cadmium
         list = [] of Int32
         return list unless parents
 
-        while parents.length > 0
+        while parents.size > 0
           parent = parents.pop
           next if list.include? parent.pos_offset
           list.push parent.pos_offset
@@ -253,7 +262,7 @@ module Cadmium
         return list unless parents
 
         max_depth = 1
-        while parents.length > 0
+        while parents.size > 0
           parent, depth = parents.pop
           next if list.include? parent.pos_offset
           list.push parent.pos_offset

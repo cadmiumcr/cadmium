@@ -19,5 +19,13 @@ module Cadmium
     def self.get(offset : Int32, pos : Symbol | String)
       return Synset.new(pos, offset)
     end
+
+    def self.morphy(form)
+      Synset.morphy(form)
+    end
+
+    def self.morphy(form, pos)
+      Synset.morphy(form, pos)
+    end
   end
 end

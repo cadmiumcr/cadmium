@@ -25,5 +25,3 @@ module Cadmium
     Transliterator.transliterate(source, **options)
   end
 end
-
-Cadmium::WordNet.lookup("admirer", :n)
