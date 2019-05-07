@@ -404,6 +404,44 @@ trie.matches_on_path("meeting")
 # => ["m", "me", "meet"]
 ```
 
+### WordNet
+
+>> WordNet® is a large lexical database of English. Nouns, verbs, adjectives and adverbs are grouped into sets of cognitive synonyms (synsets), each expressing a distinct concept. Synsets are interlinked by means of conceptual-semantic and lexical relations. - [https://wordnet.princeton.edu/](https://wordnet.princeton.edu/)
+
+This WordNet implimentation is based almost completely on [doches](https://github.com/doches) ruby library [rwordnet](https://github.com/doches/rwordnet) with some extras thrown in and, of course, backed by the speed and type safety of Crystal. This is experimental and the API may change, but WordNet brings the power of the English (and hopefully other languages in the future) dictionary to your programs.
+
+Using it is easy with Cadmium's API.
+
+```crystal
+# Lookup a single word and get all parts of speech
+synsets = Cadmium::WordNet.lookup("horse")
+synsets.each do |synset|
+  puts "---------------------------------------------"
+  puts synset.synset_offset
+  puts synset.pos
+  puts synset.gloss
+  puts synset.word_counts
+end
+
+# Lookup a single word with a specific part of speech
+synsets = Cadmium::WordNet.lookup("horse", :v) # :v is for verb
+synsets.each do |synset|
+  puts "---------------------------------------------"
+  puts synset.synset_offset
+  puts synset.pos
+  puts synset.gloss
+  puts synset.word_counts
+end
+
+# Lookup a definition by offset and part of speech
+synset = Cadmium::WordNet.get(4424418, :n) # :n is for noun
+puts "---------------------------------------------"
+puts synset.synset_offset
+puts synset.pos
+puts synset.gloss
+puts synset.word_counts
+```
+
 ## Roadmap
 
 This is all I want to have done before a __v1.0__ release.
@@ -447,7 +485,7 @@ This is all I want to have done before a __v1.0__ release.
 - [ ] EdgeWeightedDigraph
 - [ ] ShortestPathTree
 - [ ] LongestPathTree
-- [ ] WordNet
+- [x] WordNet
 - [ ] Spellcheck
 - [ ] POS Tagger
 
