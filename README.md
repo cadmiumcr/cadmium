@@ -297,7 +297,7 @@ Cadmium::NGrams.ngrams("these are some words", 4, "[start]", "[end]")
 
 ### tf-idf
 
-[Term Frequency–Inverse Document Frequency (tf-idf)](http://en.wikipedia.org/wiki/Tf%E2%80%93idf) is implemented to determine how important a word (or words) is to a document relative to a corpus. The following example will add four documents to a corpus and determine the weight of the word "node" and then the weight of the word "ruby" in each document.
+[Term Frequency–Inverse Document Frequency (tf-idf)](http://en.wikipedia.org/wiki/Tf%E2%80%93idf) is implemented to determine how important a word (or words) is to a document relative to a corpus. The following example will add four documents to a corpus and determine the weight of the word "crystal" and then the weight of the word "ruby" in each document.
 
 ```crystal
 tfidf = Cadmium::TfIdf.new
