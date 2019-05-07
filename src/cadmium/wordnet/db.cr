@@ -3,7 +3,7 @@ module Cadmium
     # Represents the WordNet database, and provides some basic interaction.
     class DB
       # By default, use the bundled WordNet
-      @@path = File.expand_path("./data/", __DIR__)
+      @@path = File.expand_path("../../../data/wordnet/", __DIR__)
 
       @@raw_wordnet = {} of String => String
 
