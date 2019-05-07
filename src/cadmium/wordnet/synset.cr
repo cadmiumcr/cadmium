@@ -74,7 +74,7 @@ module Cadmium
         end
 
         pointer_count = line.shift.to_i
-        @pointers = Array(WordNet::Pointer).new(pointer_count).map do
+        @pointers = Array(WordNet::Pointer).new(pointer_count) do
           WordNet::Pointer.new(
             symbol: line.shift,
             offset: line.shift.to_i,
