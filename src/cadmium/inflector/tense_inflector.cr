@@ -74,12 +74,12 @@ module Cadmium
       def restore_case(token)
         if token[0] == token[0].upcase
           if token[1]? && token[1] == token[1].downcase
-            ->(token : String) { token.capitalize }
+            ->(tok : String) { tok.capitalize }
           else
-            ->(token : String) { token.upcase }
+            ->(tok : String) { tok.upcase }
           end
         else
-          ->(token : String) { token.downcase }
+          ->(tok : String) { tok.downcase }
         end
       end
     end

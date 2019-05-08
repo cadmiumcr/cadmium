@@ -26,27 +26,27 @@ module Cadmium
             return token.sub(/eed$/, "ee")
           end
         else
-          result = attempt_replace(token, /(ed|ing)$/, "") do |token|
-            if categorize_groups(token).index('V')
-              res = attempt_replace_patterns(token, [
+          result = attempt_replace(token, /(ed|ing)$/, "") do |tok|
+            if categorize_groups(tok).index('V')
+              res = attempt_replace_patterns(tok, [
                 ["at", "", "ate"],
                 ["bl", "", "ble"],
                 ["iz", "", "ize"],
               ])
 
-              if res != token
+              if res != tok
                 return res
               else
-                if ends_with_double_cons(token) && token.match(/[^lsz]$/)
-                  return token.sub(/([^aeiou])\\1$/, "\\1")
+                if ends_with_double_cons(tok) && tok.match(/[^lsz]$/)
+                  return tok.sub(/([^aeiou])\\1$/, "\\1")
                 end
 
-                if measure(token) == 1 && categorize_chars(token)[-3, 3] == "CVC" && token.match(/[^wxy]$/)
-                  return token + "e"
+                if measure(tok) == 1 && categorize_chars(tok)[-3, 3] == "CVC" && tok.match(/[^wxy]$/)
+                  return tok + "e"
                 end
               end
 
-              return token
+              return tok
             end
 
             nil

@@ -3,17 +3,17 @@ module Cadmium
     module Sentence
       EOS = "\001" # temporary end of sentence marker
 
-      Titles = ["jr", "mr", "mrs", "ms", "dr", "prof", "sr", "sen", "rep",
+      TITLES = ["jr", "mr", "mrs", "ms", "dr", "prof", "sr", "sen", "rep",
                 "rev", "gov", "atty", "supt", "det", "rev", "col", "gen", "lt",
                 "cmdr", "adm", "capt", "sgt", "cpl", "maj"]
-      Entities = ["dept", "univ", "uni", "assn", "bros", "inc", "ltd", "co",
+      ENTITIES = ["dept", "univ", "uni", "assn", "bros", "inc", "ltd", "co",
                   "corp", "plc"]
-      Months = ["jan", "feb", "mar", "apr", "may", "jun", "jul",
+      MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul",
                 "aug", "sep", "oct", "nov", "dec", "sept"]
-      Days = ["mon", "tue", "wed", "thu",
+      DAYS = ["mon", "tue", "wed", "thu",
               "fri", "sat", "sun"]
-      Misc    = ["vs", "etc", "no", "esp", "cf"]
-      Streets = ["ave", "bld", "blvd", "cl", "ct",
+      MISC    = ["vs", "etc", "no", "esp", "cf"]
+      STREETS = ["ave", "bld", "blvd", "cl", "ct",
                  "cres", "dr", "rd", "st"]
 
       # Finds abbreviations, like e.g., i.e., U.S., u.S., U.S.S.R.
@@ -24,7 +24,7 @@ module Cadmium
 
       CORRECT_ABBR = /(#{ABBR_DETECT})#{EOS}(\s+[a-z0-9])/
 
-      @@abbreviations : Array(String) = Titles + Entities + Months + Days + Streets + Misc
+      @@abbreviations : Array(String) = TITLES + ENTITIES + MONTHS + DAYS + STREETS + MISC
       @@abbr_regex = / (#{@@abbreviations.join("|")})\.#{EOS}/i
 
       # Split the passed text into individual sentences, trim these and return

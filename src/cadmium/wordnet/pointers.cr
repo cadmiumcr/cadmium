@@ -53,7 +53,7 @@ module Cadmium
     MEMBER_OF_THIS_DOMAIN_TOPIC  = "-c"
     DERIVATIONALLY_RELATED_FORM  = "+"
     PART_MERONYM                 = "%p"
-    InstanceHyponym              = "~i"
+    INSTANCE_HYPONYM             = "~i"
     HYPERNYM                     = "@"
     DOMAIN_OF_SYNSET_REGION      = ";r"
     ANTONYM                      = "!"
