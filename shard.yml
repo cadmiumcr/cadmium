@@ -1,10 +1,10 @@
 name: cadmium
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - Chris Watson <chris@watzon.me>
 
-crystal: 0.24.2
+crystal: 0.28.0
 
 development_dependencies:
   ameba:
