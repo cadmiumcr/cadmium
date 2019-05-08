@@ -43,7 +43,7 @@ module Cadmium
       # it guesses right about 95-97% of the time.
       module Guess
         # special cases - 1 syllable less than expected
-        SubSyl = [
+        SUB_SYL = [
           /[^aeiou]e$/, # give, love, bone, done, ride ...
           /[aeiou](?:([cfghklmnprsvwz])\1?|ck|sh|[rt]ch)e[ds]$/,
           # (passive) past participles and 3rd person sing present verbs:
@@ -62,7 +62,7 @@ module Cadmium
         ]
 
         # special cases - 1 syllable more than expected
-        AddSyl = [
+        ADD_SYL = [
           /i[aiou]/,                       # alias, science, phobia
           /[dls]ien/,                      # salient, gradient, transient
           /[aeiouym]ble$/,                 # -Vble, plus -mble
@@ -76,7 +76,7 @@ module Cadmium
 
         # special cases not actually used - these seem to me to be either very
         # marginal or actually break more stuff than they fix
-        NotUsed = [
+        NOT_USED = [
           /^coa[dglx]./,     # +1 coagulate, coaxial, coalition, coalesce - marginal
           /[^gq]ua[^auieo]/, # +1 'du-al' - only for some speakers, and breaks
           /riet/,            # variety, parietal, notoriety - marginal?
@@ -89,11 +89,11 @@ module Cadmium
           syllables = word.scan(/[aeiouy]+/).size
 
           # special cases
-          SubSyl.each do |pat|
+          SUB_SYL.each do |pat|
             syllables -= 1 if pat.match(word)
           end
 
-          AddSyl.each do |pat|
+          ADD_SYL.each do |pat|
             syllables += 1 if pat.match(word)
           end
 
