@@ -1,6 +1,6 @@
 module Cadmium
   module Util
-    # The module Cadmium::Util::Syllable contains a single class method,
+    # The module `Cadmium::Util::Syllable` contains a single class method,
     # +syllable+, which will use the most accurate technique available to
     # determine the number syllables in a string containing a word passed to it.
     module Syllable
@@ -27,7 +27,7 @@ module Cadmium
       # applications like syllable counting for readability scoring. This module
       # implements such an algorithm.
       #
-      # This module is inspired by the Perl Cadmium::Util::Syllable module.
+      # This module is inspired by the Perl Lingua::EN::Syllable module.
       # However, it uses a different (though not larger) set of patterns to
       # compensate for the 'special cases' which arise out of English's
       # irregular orthography. A number of extra patterns (particularly for

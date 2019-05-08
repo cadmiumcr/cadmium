@@ -1,4 +1,6 @@
 module Cadmium
+  # A syntactical analyzer that helps determine the readibility
+  # of a block of text.
   class Readability
     getter text : String
     getter paragraphs : Array(String)
@@ -108,16 +110,16 @@ module Cadmium
     # Return a nicely formatted report on the sample, showing most the useful
     # statistics about the text sample.
     def report
-      sprintf "Number of paragraphs           %d \n" <<
-              "Number of sentences            %d \n" <<
-              "Number of words                %d \n" <<
-              "Number of characters           %d \n\n" <<
-              "Average words per sentence     %.2f \n" <<
-              "Average syllables per word     %.2f \n\n" <<
-              "Flesch score                   %2.2f \n" <<
-              "Flesch-Kincaid grade level     %2.2f \n" <<
+      sprintf "Number of paragraphs           %d \n" +
+              "Number of sentences            %d \n" +
+              "Number of words                %d \n" +
+              "Number of characters           %d \n\n" +
+              "Average words per sentence     %.2f \n" +
+              "Average syllables per word     %.2f \n\n" +
+              "Flesch score                   %2.2f \n" +
+              "Flesch-Kincaid grade level     %2.2f \n" +
               "Fog Index                      %2.2f \n",
-        num_paragraphs, num_sentences, num_words, num_characters,
+        num_paragraphs, num_sentences, num_words, num_chars,
         words_per_sentence, syllables_per_word,
         flesch, kincaid, fog
     end

@@ -1,7 +1,10 @@
 module Cadmium
+  # Uses sentiment analysis to score a sentence's "feeling". `Cadmium::Sentiment`
+  # also takes advantage of emojis to further increase accuracy.
   module Sentiment
     extend self
 
+    # Negate the next word in the phrase.
     NEGATORS = {
       "cant"    => 1,
       "can't"   => 1,
@@ -22,6 +25,20 @@ module Cadmium
     @@tokenizer = Cadmium::Tokenizer::TreebankWordTokenizer.new
     @@data = File.read(File.join(__DIR__, "../../data/sentiment.txt"))
 
+    # Analyze a phrase and return a `result` hash comprised of a score,
+    # comparative analysis (a score based soley on number of negative
+    # and positive words), tokens, words, positive (positive words),
+    # and negative (negative words).
+    #
+    # ```
+    # pp Cadmium::Sentiment.analyze("You are a piece of 💩")
+    # # => {score: -1,
+    # #     comparative: -1,
+    # #     tokens: ["You", "are", "a", "piece", "of", "💩"],
+    # #     words: ["💩"],
+    # #     positive: [],
+    # #     negative: ["💩"]}
+    # ```
     def analyze(phrase, inject = nil)
       # Turn our text file into an array
       data = @@data.split("\n").map do |d|
@@ -87,15 +104,21 @@ module Cadmium
     end
 
     module StringExtension
+      # Get the sentiment of a string. Same as running
+      # `Cadmium::Sentiment.analyze(STRING)`.
       def sentiment(inject = nil)
         Cadmium::Sentiment.analyze(self, inject)
       end
 
+      # Determines if a string is more positive than negative.
+      # Returns `Bool`.
       def is_positive?
         sentiment = self.sentiment
         sentiment[:positive] > sentiment[:negative]
       end
 
+      # Determines if a string is more negative than positive.
+      # Returns `Bool`.
       def is_negative?
         sentiment = self.sentiment
         sentiment[:negative] > sentiment[:positive]
