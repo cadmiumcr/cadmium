@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../../js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "../../";
+</script>
+
+  <meta id="repository-name" content="github.com/watzon/cadmium">
+  <title>Cadmium::WordNet::Lemma - github.com/watzon/cadmium</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium" data-name="cadmium">
+      <a href="../../Cadmium.html">Cadmium</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifier" data-name="cadmium::classifier">
+      <a href="../../Cadmium/Classifier.html">Classifier</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Classifiers" data-name="cadmium::classifiers">
+      <a href="../../Cadmium/Classifiers.html">Classifiers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifiers/Bayes" data-name="cadmium::classifiers::bayes">
+      <a href="../../Cadmium/Classifiers/Bayes.html">Bayes</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifiers/LogisticRegression" data-name="cadmium::classifiers::logisticregression">
+      <a href="../../Cadmium/Classifiers/LogisticRegression.html">LogisticRegression</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Distance" data-name="cadmium::distance">
+      <a href="../../Cadmium/Distance.html">Distance</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Distance/JaroWinkler" data-name="cadmium::distance::jarowinkler">
+      <a href="../../Cadmium/Distance/JaroWinkler.html">JaroWinkler</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Distance/Levenshtein" data-name="cadmium::distance::levenshtein">
+      <a href="../../Cadmium/Distance/Levenshtein.html">Levenshtein</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Inflector" data-name="cadmium::inflector">
+      <a href="../../Cadmium/Inflector.html">Inflector</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/CountInflector" data-name="cadmium::inflector::countinflector">
+      <a href="../../Cadmium/Inflector/CountInflector.html">CountInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/FormSet" data-name="cadmium::inflector::formset">
+      <a href="../../Cadmium/Inflector/FormSet.html">FormSet</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/IntExtension" data-name="cadmium::inflector::intextension">
+      <a href="../../Cadmium/Inflector/IntExtension.html">IntExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/NounInflector" data-name="cadmium::inflector::nouninflector">
+      <a href="../../Cadmium/Inflector/NounInflector.html">NounInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/PresentVerbInflector" data-name="cadmium::inflector::presentverbinflector">
+      <a href="../../Cadmium/Inflector/PresentVerbInflector.html">PresentVerbInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/StringExtension" data-name="cadmium::inflector::stringextension">
+      <a href="../../Cadmium/Inflector/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/TenseInflector" data-name="cadmium::inflector::tenseinflector">
+      <a href="../../Cadmium/Inflector/TenseInflector.html">TenseInflector</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/NGrams" data-name="cadmium::ngrams">
+      <a href="../../Cadmium/NGrams.html">NGrams</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Normalizers" data-name="cadmium::normalizers">
+      <a href="../../Cadmium/Normalizers.html">Normalizers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Normalizers/RemoveDiacritics" data-name="cadmium::normalizers::removediacritics">
+      <a href="../../Cadmium/Normalizers/RemoveDiacritics.html">RemoveDiacritics</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Phonetics" data-name="cadmium::phonetics">
+      <a href="../../Cadmium/Phonetics.html">Phonetics</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics/Metaphone" data-name="cadmium::phonetics::metaphone">
+      <a href="../../Cadmium/Phonetics/Metaphone.html">Metaphone</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics/SoundEx" data-name="cadmium::phonetics::soundex">
+      <a href="../../Cadmium/Phonetics/SoundEx.html">SoundEx</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics/StringExtension" data-name="cadmium::phonetics::stringextension">
+      <a href="../../Cadmium/Phonetics/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Readability" data-name="cadmium::readability">
+      <a href="../../Cadmium/Readability.html">Readability</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Sentiment" data-name="cadmium::sentiment">
+      <a href="../../Cadmium/Sentiment.html">Sentiment</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Sentiment/StringExtension" data-name="cadmium::sentiment::stringextension">
+      <a href="../../Cadmium/Sentiment/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Stemmer" data-name="cadmium::stemmer">
+      <a href="../../Cadmium/Stemmer.html">Stemmer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/PorterStemmer" data-name="cadmium::stemmer::porterstemmer">
+      <a href="../../Cadmium/Stemmer/PorterStemmer.html">PorterStemmer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/Stemmer" data-name="cadmium::stemmer::stemmer">
+      <a href="../../Cadmium/Stemmer/Stemmer.html">Stemmer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/StringExtension" data-name="cadmium::stemmer::stringextension">
+      <a href="../../Cadmium/Stemmer/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/Token" data-name="cadmium::stemmer::token">
+      <a href="../../Cadmium/Stemmer/Token.html">Token</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/TfIdf" data-name="cadmium::tfidf">
+      <a href="../../Cadmium/TfIdf.html">TfIdf</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/TfIdf/Document" data-name="cadmium::tfidf::document">
+      <a href="../../Cadmium/TfIdf/Document.html">Document</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer" data-name="cadmium::tokenizer">
+      <a href="../../Cadmium/Tokenizer.html">Tokenizer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/AggressiveTokenizer" data-name="cadmium::tokenizer::aggressivetokenizer">
+      <a href="../../Cadmium/Tokenizer/AggressiveTokenizer.html">AggressiveTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/CaseTokenizer" data-name="cadmium::tokenizer::casetokenizer">
+      <a href="../../Cadmium/Tokenizer/CaseTokenizer.html">CaseTokenizer</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer" data-name="cadmium::tokenizer::pragmatictokenizer">
+      <a href="../../Cadmium/Tokenizer/PragmaticTokenizer.html">PragmaticTokenizer</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languages" data-name="cadmium::tokenizer::pragmatictokenizer::languages">
+      <a href="../../Cadmium/Tokenizer/PragmaticTokenizer/Languages.html">Languages</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languages/Common" data-name="cadmium::tokenizer::pragmatictokenizer::languages::common">
+      <a href="../../Cadmium/Tokenizer/PragmaticTokenizer/Languages/Common.html">Common</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languages/Common/SingleQuotes" data-name="cadmium::tokenizer::pragmatictokenizer::languages::common::singlequotes">
+      <a href="../../Cadmium/Tokenizer/PragmaticTokenizer/Languages/Common/SingleQuotes.html">SingleQuotes</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languges" data-name="cadmium::tokenizer::pragmatictokenizer::languges">
+      <a href="../../Cadmium/Tokenizer/PragmaticTokenizer/Languges.html">Languges</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languges/English" data-name="cadmium::tokenizer::pragmatictokenizer::languges::english">
+      <a href="../../Cadmium/Tokenizer/PragmaticTokenizer/Languges/English.html">English</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languges/English/SingleQuotes" data-name="cadmium::tokenizer::pragmatictokenizer::languges::english::singlequotes">
+      <a href="../../Cadmium/Tokenizer/PragmaticTokenizer/Languges/English/SingleQuotes.html">SingleQuotes</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Regex" data-name="cadmium::tokenizer::pragmatictokenizer::regex">
+      <a href="../../Cadmium/Tokenizer/PragmaticTokenizer/Regex.html">Regex</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/RegexTokenizer" data-name="cadmium::tokenizer::regextokenizer">
+      <a href="../../Cadmium/Tokenizer/RegexTokenizer.html">RegexTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/SentenceTokenizer" data-name="cadmium::tokenizer::sentencetokenizer">
+      <a href="../../Cadmium/Tokenizer/SentenceTokenizer.html">SentenceTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/StringExtension" data-name="cadmium::tokenizer::stringextension">
+      <a href="../../Cadmium/Tokenizer/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/TokenizerBase" data-name="cadmium::tokenizer::tokenizerbase">
+      <a href="../../Cadmium/Tokenizer/TokenizerBase.html">TokenizerBase</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/TreebankWordTokenizer" data-name="cadmium::tokenizer::treebankwordtokenizer">
+      <a href="../../Cadmium/Tokenizer/TreebankWordTokenizer.html">TreebankWordTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WhitespaceTokenizer" data-name="cadmium::tokenizer::whitespacetokenizer">
+      <a href="../../Cadmium/Tokenizer/WhitespaceTokenizer.html">WhitespaceTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WordPunctuationTokenizer" data-name="cadmium::tokenizer::wordpunctuationtokenizer">
+      <a href="../../Cadmium/Tokenizer/WordPunctuationTokenizer.html">WordPunctuationTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WordTokenizer" data-name="cadmium::tokenizer::wordtokenizer">
+      <a href="../../Cadmium/Tokenizer/WordTokenizer.html">WordTokenizer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Transliterator" data-name="cadmium::transliterator">
+      <a href="../../Cadmium/Transliterator.html">Transliterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Transliterator/CharMap" data-name="cadmium::transliterator::charmap">
+      <a href="../../Cadmium/Transliterator/CharMap.html">CharMap</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Transliterator/StringExtension" data-name="cadmium::transliterator::stringextension">
+      <a href="../../Cadmium/Transliterator/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Trie" data-name="cadmium::trie">
+      <a href="../../Cadmium/Trie.html">Trie</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util" data-name="cadmium::util">
+      <a href="../../Cadmium/Util.html">Util</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Paragraph" data-name="cadmium::util::paragraph">
+      <a href="../../Cadmium/Util/Paragraph.html">Paragraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Sentence" data-name="cadmium::util::sentence">
+      <a href="../../Cadmium/Util/Sentence.html">Sentence</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/StopWords" data-name="cadmium::util::stopwords">
+      <a href="../../Cadmium/Util/StopWords.html">StopWords</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util/Syllable" data-name="cadmium::util::syllable">
+      <a href="../../Cadmium/Util/Syllable.html">Syllable</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Syllable/Guess" data-name="cadmium::util::syllable::guess">
+      <a href="../../Cadmium/Util/Syllable/Guess.html">Guess</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium/WordNet" data-name="cadmium::wordnet">
+      <a href="../../Cadmium/WordNet.html">WordNet</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/DB" data-name="cadmium::wordnet::db">
+      <a href="../../Cadmium/WordNet/DB.html">DB</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/watzon/cadmium/Cadmium/WordNet/Lemma" data-name="cadmium::wordnet::lemma">
+      <a href="../../Cadmium/WordNet/Lemma.html">Lemma</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Pointer" data-name="cadmium::wordnet::pointer">
+      <a href="../../Cadmium/WordNet/Pointer.html">Pointer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Synset" data-name="cadmium::wordnet::synset">
+      <a href="../../Cadmium/WordNet/Synset.html">Synset</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Int" data-name="int">
+      <a href="../../Int.html">Int</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/String" data-name="string">
+      <a href="../../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Cadmium::WordNet::Lemma
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Cadmium/WordNet/Lemma.html">Cadmium::WordNet::Lemma</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L3" target="_blank">
+        cadmium/wordnet/lemma.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="POS_SHORTHAND">
+        <strong>POS_SHORTHAND</strong> = <code>{<span class="n">:v</span> => <span class="n">:verb</span>, <span class="n">:n</span> => <span class="n">:noun</span>, <span class="n">:a</span> => <span class="n">:adj</span>, <span class="n">:r</span> => <span class="n">:adv</span>}</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="SPACE">
+        <strong>SPACE</strong> = <code><span class="s">&quot; &quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28lexicon_line%3AString%2Cid%3AInt32%29-class-method" class="signature"><strong>.new</strong>(lexicon_line : String, id : Int32)</a>
+        
+          <div class="summary"><p>Create a lemma from a line in an lexicon file.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Class Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#find%28word%2Cpos%29-class-method" class="signature"><strong>.find</strong>(word, pos)</a>
+        
+          <div class="summary"><p>Find a lemma for a given word and pos.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find_all%28word%3AString%29-class-method" class="signature"><strong>.find_all</strong>(word : String)</a>
+        
+          <div class="summary"><p>Find all lemmas for this word across all known parts of speech</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#id%3AInt32-instance-method" class="signature"><strong>#id</strong> : Int32</a>
+        
+          <div class="summary"><p>A unique integer id that references this lemma.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pointer_symbols%3AArray%28String%29-instance-method" class="signature"><strong>#pointer_symbols</strong> : Array(String)</a>
+        
+          <div class="summary"><p>An array of valid pointer symbols for this lemma.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pos%3AString-instance-method" class="signature"><strong>#pos</strong> : String</a>
+        
+          <div class="summary"><p>The part of speech (noun, verb, adjective) of this lemma.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#synset_offsets%3AArray%28Int32%29-instance-method" class="signature"><strong>#synset_offsets</strong> : Array(Int32)</a>
+        
+          <div class="summary"><p>The offset, in bytes, at which the synsets contained in this lemma are stored in WordNet's internal database.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#synsets-instance-method" class="signature"><strong>#synsets</strong></a>
+        
+          <div class="summary"><p>Return a list of synsets for this Lemma.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tagsense_count%3AInt32-instance-method" class="signature"><strong>#tagsense_count</strong> : Int32</a>
+        
+          <div class="summary"><p>The number of times the sense is tagged in various semantic concordance texts.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s-instance-method" class="signature"><strong>#to_s</strong></a>
+        
+          <div class="summary"><p>Returns a compact string representation of this lemma, e.g.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#word%3AString-instance-method" class="signature"><strong>#word</strong> : String</a>
+        
+          <div class="summary"><p>The word this lemma represents</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(lexicon_line:String,id:Int32)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(lexicon_line : <a href="../../String.html">String</a>, id : Int32)
+
+        <a class="method-permalink" href="#new%28lexicon_line%3AString%2Cid%3AInt32%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Create a lemma from a line in an lexicon file. You should not be creating Lemmas by hand; instead,
+use the WordNet::Lemma.find and WordNet::Lemma.find_all methods to find the Lemma for a word.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Class Method Detail</h2>
+  
+    <div class="entry-detail" id="find(word,pos)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find</strong>(word, pos)
+
+        <a class="method-permalink" href="#find%28word%2Cpos%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Find a lemma for a given word and pos. Valid parts of speech are:
+"adj", "adv", "noun", "verb". Additionally, you can use the shorthand
+forms of each of these ("a", "r", "n", "v")/</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L70" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find_all(word:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find_all</strong>(word : <a href="../../String.html">String</a>)
+
+        <a class="method-permalink" href="#find_all%28word%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Find all lemmas for this word across all known parts of speech</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L61" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="id:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : Int32
+
+        <a class="method-permalink" href="#id%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>A unique integer id that references this lemma. Used internally within WordNet's database.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pointer_symbols:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>pointer_symbols</strong> : Array(<a href="../../String.html">String</a>)
+
+        <a class="method-permalink" href="#pointer_symbols%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>An array of valid pointer symbols for this lemma. The list of all valid
+pointer symbols is defined in pointers.cr.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pos:String-instance-method">
+      <div class="signature">
+        
+        def <strong>pos</strong> : <a href="../../String.html">String</a>
+
+        <a class="method-permalink" href="#pos%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The part of speech (noun, verb, adjective) of this lemma.
+One of "n", "v", "a" (adjective), or "r" (adverb)</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="synset_offsets:Array(Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>synset_offsets</strong> : Array(Int32)
+
+        <a class="method-permalink" href="#synset_offsets%3AArray%28Int32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The offset, in bytes, at which the synsets contained in this lemma are stored
+in WordNet's internal database.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L22" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="synsets-instance-method">
+      <div class="signature">
+        
+        def <strong>synsets</strong>
+
+        <a class="method-permalink" href="#synsets-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Return a list of synsets for this Lemma. Each synset represents a different sense, or meaning, of the word.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L50" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tagsense_count:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>tagsense_count</strong> : Int32
+
+        <a class="method-permalink" href="#tagsense_count%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The number of times the sense is tagged in various semantic concordance texts.
+A tagsense_count of 0 indicates that the sense has not been semantically tagged.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>
+
+        <a class="method-permalink" href="#to_s-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns a compact string representation of this lemma, e.g. "fall, v" for
+the verb form of the word "fall".</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L56" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="word:String-instance-method">
+      <div class="signature">
+        
+        def <strong>word</strong> : <a href="../../String.html">String</a>
+
+        <a class="method-permalink" href="#word%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The word this lemma represents</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/wordnet/lemma.cr#L10" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

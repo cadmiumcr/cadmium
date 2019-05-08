@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="../../../css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../../../js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "../../../";
+</script>
+
+  <meta id="repository-name" content="github.com/watzon/cadmium">
+  <title>Cadmium::Tokenizer::PragmaticTokenizer::Regex - github.com/watzon/cadmium</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../../../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium" data-name="cadmium">
+      <a href="../../../Cadmium.html">Cadmium</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifier" data-name="cadmium::classifier">
+      <a href="../../../Cadmium/Classifier.html">Classifier</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Classifiers" data-name="cadmium::classifiers">
+      <a href="../../../Cadmium/Classifiers.html">Classifiers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifiers/Bayes" data-name="cadmium::classifiers::bayes">
+      <a href="../../../Cadmium/Classifiers/Bayes.html">Bayes</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifiers/LogisticRegression" data-name="cadmium::classifiers::logisticregression">
+      <a href="../../../Cadmium/Classifiers/LogisticRegression.html">LogisticRegression</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Distance" data-name="cadmium::distance">
+      <a href="../../../Cadmium/Distance.html">Distance</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Distance/JaroWinkler" data-name="cadmium::distance::jarowinkler">
+      <a href="../../../Cadmium/Distance/JaroWinkler.html">JaroWinkler</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Distance/Levenshtein" data-name="cadmium::distance::levenshtein">
+      <a href="../../../Cadmium/Distance/Levenshtein.html">Levenshtein</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Inflector" data-name="cadmium::inflector">
+      <a href="../../../Cadmium/Inflector.html">Inflector</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/CountInflector" data-name="cadmium::inflector::countinflector">
+      <a href="../../../Cadmium/Inflector/CountInflector.html">CountInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/FormSet" data-name="cadmium::inflector::formset">
+      <a href="../../../Cadmium/Inflector/FormSet.html">FormSet</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/IntExtension" data-name="cadmium::inflector::intextension">
+      <a href="../../../Cadmium/Inflector/IntExtension.html">IntExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/NounInflector" data-name="cadmium::inflector::nouninflector">
+      <a href="../../../Cadmium/Inflector/NounInflector.html">NounInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/PresentVerbInflector" data-name="cadmium::inflector::presentverbinflector">
+      <a href="../../../Cadmium/Inflector/PresentVerbInflector.html">PresentVerbInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/StringExtension" data-name="cadmium::inflector::stringextension">
+      <a href="../../../Cadmium/Inflector/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/TenseInflector" data-name="cadmium::inflector::tenseinflector">
+      <a href="../../../Cadmium/Inflector/TenseInflector.html">TenseInflector</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/NGrams" data-name="cadmium::ngrams">
+      <a href="../../../Cadmium/NGrams.html">NGrams</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Normalizers" data-name="cadmium::normalizers">
+      <a href="../../../Cadmium/Normalizers.html">Normalizers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Normalizers/RemoveDiacritics" data-name="cadmium::normalizers::removediacritics">
+      <a href="../../../Cadmium/Normalizers/RemoveDiacritics.html">RemoveDiacritics</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Phonetics" data-name="cadmium::phonetics">
+      <a href="../../../Cadmium/Phonetics.html">Phonetics</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics/Metaphone" data-name="cadmium::phonetics::metaphone">
+      <a href="../../../Cadmium/Phonetics/Metaphone.html">Metaphone</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics/SoundEx" data-name="cadmium::phonetics::soundex">
+      <a href="../../../Cadmium/Phonetics/SoundEx.html">SoundEx</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics/StringExtension" data-name="cadmium::phonetics::stringextension">
+      <a href="../../../Cadmium/Phonetics/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Readability" data-name="cadmium::readability">
+      <a href="../../../Cadmium/Readability.html">Readability</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Sentiment" data-name="cadmium::sentiment">
+      <a href="../../../Cadmium/Sentiment.html">Sentiment</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Sentiment/StringExtension" data-name="cadmium::sentiment::stringextension">
+      <a href="../../../Cadmium/Sentiment/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Stemmer" data-name="cadmium::stemmer">
+      <a href="../../../Cadmium/Stemmer.html">Stemmer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/PorterStemmer" data-name="cadmium::stemmer::porterstemmer">
+      <a href="../../../Cadmium/Stemmer/PorterStemmer.html">PorterStemmer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/Stemmer" data-name="cadmium::stemmer::stemmer">
+      <a href="../../../Cadmium/Stemmer/Stemmer.html">Stemmer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/StringExtension" data-name="cadmium::stemmer::stringextension">
+      <a href="../../../Cadmium/Stemmer/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/Token" data-name="cadmium::stemmer::token">
+      <a href="../../../Cadmium/Stemmer/Token.html">Token</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/TfIdf" data-name="cadmium::tfidf">
+      <a href="../../../Cadmium/TfIdf.html">TfIdf</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/TfIdf/Document" data-name="cadmium::tfidf::document">
+      <a href="../../../Cadmium/TfIdf/Document.html">Document</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium/Tokenizer" data-name="cadmium::tokenizer">
+      <a href="../../../Cadmium/Tokenizer.html">Tokenizer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/AggressiveTokenizer" data-name="cadmium::tokenizer::aggressivetokenizer">
+      <a href="../../../Cadmium/Tokenizer/AggressiveTokenizer.html">AggressiveTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/CaseTokenizer" data-name="cadmium::tokenizer::casetokenizer">
+      <a href="../../../Cadmium/Tokenizer/CaseTokenizer.html">CaseTokenizer</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer" data-name="cadmium::tokenizer::pragmatictokenizer">
+      <a href="../../../Cadmium/Tokenizer/PragmaticTokenizer.html">PragmaticTokenizer</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languages" data-name="cadmium::tokenizer::pragmatictokenizer::languages">
+      <a href="../../../Cadmium/Tokenizer/PragmaticTokenizer/Languages.html">Languages</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languages/Common" data-name="cadmium::tokenizer::pragmatictokenizer::languages::common">
+      <a href="../../../Cadmium/Tokenizer/PragmaticTokenizer/Languages/Common.html">Common</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languages/Common/SingleQuotes" data-name="cadmium::tokenizer::pragmatictokenizer::languages::common::singlequotes">
+      <a href="../../../Cadmium/Tokenizer/PragmaticTokenizer/Languages/Common/SingleQuotes.html">SingleQuotes</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languges" data-name="cadmium::tokenizer::pragmatictokenizer::languges">
+      <a href="../../../Cadmium/Tokenizer/PragmaticTokenizer/Languges.html">Languges</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languges/English" data-name="cadmium::tokenizer::pragmatictokenizer::languges::english">
+      <a href="../../../Cadmium/Tokenizer/PragmaticTokenizer/Languges/English.html">English</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Languges/English/SingleQuotes" data-name="cadmium::tokenizer::pragmatictokenizer::languges::english::singlequotes">
+      <a href="../../../Cadmium/Tokenizer/PragmaticTokenizer/Languges/English/SingleQuotes.html">SingleQuotes</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/PragmaticTokenizer/Regex" data-name="cadmium::tokenizer::pragmatictokenizer::regex">
+      <a href="../../../Cadmium/Tokenizer/PragmaticTokenizer/Regex.html">Regex</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/RegexTokenizer" data-name="cadmium::tokenizer::regextokenizer">
+      <a href="../../../Cadmium/Tokenizer/RegexTokenizer.html">RegexTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/SentenceTokenizer" data-name="cadmium::tokenizer::sentencetokenizer">
+      <a href="../../../Cadmium/Tokenizer/SentenceTokenizer.html">SentenceTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/StringExtension" data-name="cadmium::tokenizer::stringextension">
+      <a href="../../../Cadmium/Tokenizer/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/TokenizerBase" data-name="cadmium::tokenizer::tokenizerbase">
+      <a href="../../../Cadmium/Tokenizer/TokenizerBase.html">TokenizerBase</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/TreebankWordTokenizer" data-name="cadmium::tokenizer::treebankwordtokenizer">
+      <a href="../../../Cadmium/Tokenizer/TreebankWordTokenizer.html">TreebankWordTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WhitespaceTokenizer" data-name="cadmium::tokenizer::whitespacetokenizer">
+      <a href="../../../Cadmium/Tokenizer/WhitespaceTokenizer.html">WhitespaceTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WordPunctuationTokenizer" data-name="cadmium::tokenizer::wordpunctuationtokenizer">
+      <a href="../../../Cadmium/Tokenizer/WordPunctuationTokenizer.html">WordPunctuationTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WordTokenizer" data-name="cadmium::tokenizer::wordtokenizer">
+      <a href="../../../Cadmium/Tokenizer/WordTokenizer.html">WordTokenizer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Transliterator" data-name="cadmium::transliterator">
+      <a href="../../../Cadmium/Transliterator.html">Transliterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Transliterator/CharMap" data-name="cadmium::transliterator::charmap">
+      <a href="../../../Cadmium/Transliterator/CharMap.html">CharMap</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Transliterator/StringExtension" data-name="cadmium::transliterator::stringextension">
+      <a href="../../../Cadmium/Transliterator/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Trie" data-name="cadmium::trie">
+      <a href="../../../Cadmium/Trie.html">Trie</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util" data-name="cadmium::util">
+      <a href="../../../Cadmium/Util.html">Util</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Paragraph" data-name="cadmium::util::paragraph">
+      <a href="../../../Cadmium/Util/Paragraph.html">Paragraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Sentence" data-name="cadmium::util::sentence">
+      <a href="../../../Cadmium/Util/Sentence.html">Sentence</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/StopWords" data-name="cadmium::util::stopwords">
+      <a href="../../../Cadmium/Util/StopWords.html">StopWords</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util/Syllable" data-name="cadmium::util::syllable">
+      <a href="../../../Cadmium/Util/Syllable.html">Syllable</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Syllable/Guess" data-name="cadmium::util::syllable::guess">
+      <a href="../../../Cadmium/Util/Syllable/Guess.html">Guess</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/WordNet" data-name="cadmium::wordnet">
+      <a href="../../../Cadmium/WordNet.html">WordNet</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/DB" data-name="cadmium::wordnet::db">
+      <a href="../../../Cadmium/WordNet/DB.html">DB</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Lemma" data-name="cadmium::wordnet::lemma">
+      <a href="../../../Cadmium/WordNet/Lemma.html">Lemma</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Pointer" data-name="cadmium::wordnet::pointer">
+      <a href="../../../Cadmium/WordNet/Pointer.html">Pointer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Synset" data-name="cadmium::wordnet::synset">
+      <a href="../../../Cadmium/WordNet/Synset.html">Synset</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Int" data-name="int">
+      <a href="../../../Int.html">Int</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/String" data-name="string">
+      <a href="../../../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Cadmium::Tokenizer::PragmaticTokenizer::Regex
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../../Cadmium/Tokenizer/PragmaticTokenizer/Regex.html">Cadmium::Tokenizer::PragmaticTokenizer::Regex</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/17527313e8ad7fd5ce6d9ba7aa50c00340225da0/src/cadmium/tokenizer/pragmatic/regex.cr#L4" target="_blank">
+        cadmium/tokenizer/pragmatic/regex.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="ACUTE_ACCENT_S">
+        <strong>ACUTE_ACCENT_S</strong> = <code><span class="s">/(?:\s\x{0301}(?=s))/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ALSO_DECIMALS">
+        <strong>ALSO_DECIMALS</strong> = <code><span class="s">/(?:[[:alpha:]]*+[[:digit:]]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="APOSTROPHE_AND_S">
+        <strong>APOSTROPHE_AND_S</strong> = <code><span class="s">/(?:[&#39;’`́]s)/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>matches any character with hexadecimal value 00 through 1F or 7F.</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="ASTERISK">
+        <strong>ASTERISK</strong> = <code><span class="s">/(?:\*+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="BRACKET">
+        <strong>BRACKET</strong> = <code><span class="s">/([{}()\[\]])/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>we only keep first dash</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="CAPTURE_UNUSUAL_AND_EMOJI">
+        <strong>CAPTURE_UNUSUAL_AND_EMOJI</strong> = <code><span class="s">/(</span><span class="i">#{</span><span class="t">RANGE_UNUSUAL_AND_EMOJI</span>.source<span class="i">}</span><span class="s">)/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>Regular expressions used to capture items</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="CHUNK_LONG_INPUT_TEXT">
+        <strong>CHUNK_LONG_INPUT_TEXT</strong> = <code><span class="s">/\S.{1,10000}(?!\S)/</span>m</code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>Text that needs to be tokenized is initially split into chunks of this length:</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="COLON1">
+        <strong>COLON1</strong> = <code><span class="s">/(?:(:)([[:print:]]{2,}))/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>Regular expressions which do not need to capture anything are enclosed in /(?: … )/ to enhance performance</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="COLON2">
+        <strong>COLON2</strong> = <code><span class="s">/(?::)/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>two non-space after colon prevent matching emoticons</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="COLON_IN_URL">
+        <strong>COLON_IN_URL</strong> = <code><span class="s">/(?&lt;=[(https?|ftp)]):(?=\/\/)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="COMMA_AFTER_NON_DIGIT">
+        <strong>COMMA_AFTER_NON_DIGIT</strong> = <code><span class="s">/(?&lt;=\D)(,)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="COMMA_BEFORE_NON_DIGIT">
+        <strong>COMMA_BEFORE_NON_DIGIT</strong> = <code><span class="s">/(,)(?=\D)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="COMMAS">
+        <strong>COMMAS</strong> = <code><span class="s">/(?:([,‚])+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="COMMAS_OR_PUNCTUATION">
+        <strong>COMMAS_OR_PUNCTUATION</strong> = <code><span class="t">Regexp</span>.<span class="k">union</span>(<span class="t">STARTS_WITH_COMMAS</span>, <span class="t">ENDS_WITH_PUNCTUATION1</span>, <span class="t">ENDS_WITH_PUNCTUATION2</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CONTRACTIONS">
+        <strong>CONTRACTIONS</strong> = <code><span class="s">/(?:[‘’‚‛‹›＇´`])/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="CONTROL_CHARACTER">
+        <strong>CONTROL_CHARACTER</strong> = <code><span class="s">/(?:[[:cntrl:]]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="COPYRIGHT_TRADEMARK">
+        <strong>COPYRIGHT_TRADEMARK</strong> = <code><span class="s">/(?:[®©™]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="DIGIT">
+        <strong>DIGIT</strong> = <code><span class="s">/(?:[[:digit:]]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="DINGBATS">
+        <strong>DINGBATS</strong> = <code><span class="s">/(?:(</span><span class="i">#{</span><span class="t">RANGE_DINGBATS</span>.source<span class="i">}</span><span class="s"></span><span class="i">#{</span><span class="t">RANGE_VARIATION_SELECTORS</span>.source<span class="i">}</span><span class="s">*+))/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="DOMAIN1">
+        <strong>DOMAIN1</strong> = <code><span class="s">/(?:((https?:\/\/|)[[:print:]]+\.[[:alpha:]]{2,6}(:[0-9]{1,5})?(\/[[:print:]]*+)?))/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="DOMAIN2">
+        <strong>DOMAIN2</strong> = <code><span class="s">/(?:[[:alnum:]]{2,}([\-.][[:alnum:]]+)*\.[[:alpha:]]{2,6}(:[0-9]{1,5})?(\/[[:print:]]*+)?)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="DOMAIN_OR_EMAIL">
+        <strong>DOMAIN_OR_EMAIL</strong> = <code><span class="t">Regexp</span>.<span class="k">union</span>(<span class="t">ONLY_DOMAIN1</span>, <span class="t">ONLY_EMAIL</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="DOMAIN_PREFIX">
+        <strong>DOMAIN_PREFIX</strong> = <code><span class="s">/(?:https?:\/\/|www\.|[[:alpha:]]\.)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="DOMAIN_SUFFIX">
+        <strong>DOMAIN_SUFFIX</strong> = <code><span class="s">/(?:[[:alpha:]]\.(?:com|net|org|edu|gov|mil|int|[[:alpha:]]{2}))/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="EMAIL">
+        <strong>EMAIL</strong> = <code><span class="s">/(?:[[:print:]]+[＠@][[:print:]]+\.[[:print:]]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENCLOSED_PLUS">
+        <strong>ENCLOSED_PLUS</strong> = <code><span class="s">/(?:([[:print:]]+)\+([[:print:]]+))/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_ALPHA">
+        <strong>ENDS_WITH_ALPHA</strong> = <code><span class="s">/[[:alpha:]]$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_APOSTROPHE_AND_S">
+        <strong>ENDS_WITH_APOSTROPHE_AND_S</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">APOSTROPHE_AND_S</span>.source<span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_COLON2">
+        <strong>ENDS_WITH_COLON2</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">COLON2</span>.source<span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_DIGIT">
+        <strong>ENDS_WITH_DIGIT</strong> = <code><span class="s">/[[:digit:]]$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_DOMAIN">
+        <strong>ENDS_WITH_DOMAIN</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">DOMAIN_SUFFIX</span>.source<span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_EXCITED_ONE">
+        <strong>ENDS_WITH_EXCITED_ONE</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">ONE_AS_EXCLAMATION</span>.source<span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_ONES_EXCLAMATIONS">
+        <strong>ENDS_WITH_ONES_EXCLAMATIONS</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">ONES_EXCLAMATIONS</span>.source<span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_PUNCTUATION1">
+        <strong>ENDS_WITH_PUNCTUATION1</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">PUNCTUATION1</span>.source<span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_PUNCTUATION2">
+        <strong>ENDS_WITH_PUNCTUATION2</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">PUNCTUATION2</span>.source<span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ENDS_WITH_UNDERSCORE">
+        <strong>ENDS_WITH_UNDERSCORE</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">UNDERSCORE</span>.source<span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="EXCLAMATION_BETWEEN_ALPHA">
+        <strong>EXCLAMATION_BETWEEN_ALPHA</strong> = <code><span class="s">/(?&lt;=[[:alpha:]])(!)(?=[[:alpha:]])/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="HASHTAG">
+        <strong>HASHTAG</strong> = <code><span class="s">/(?:[#＃][[:print:]]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="HASHTAG_OR_MENTION">
+        <strong>HASHTAG_OR_MENTION</strong> = <code><span class="s">/(?:[@#＠＃][[:print:]]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="HASHTAG_WITH_HYPHEN">
+        <strong>HASHTAG_WITH_HYPHEN</strong> = <code><span class="s">/(?:^([#＃][[:digit:]]+)-)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="HTTP">
+        <strong>HTTP</strong> = <code><span class="s">/(?:https?:\/\/)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="HYPHEN_AFTER_NON_WORD">
+        <strong>HYPHEN_AFTER_NON_WORD</strong> = <code><span class="s">/(?&lt;=\W)(-)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="HYPHEN_BEFORE_NON_WORD">
+        <strong>HYPHEN_BEFORE_NON_WORD</strong> = <code><span class="s">/(-)(?=\W)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="HYPHEN_OR_UNDERSCORE">
+        <strong>HYPHEN_OR_UNDERSCORE</strong> = <code><span class="s">/(?:[-_])/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="IRRELEVANT_CHARACTERS">
+        <strong>IRRELEVANT_CHARACTERS</strong> = <code><span class="t">Regexp</span>.<span class="k">union</span>(<span class="t">STARTS_WITH_PUNCTUATION3</span>, <span class="t">ENDS_WITH_COLON2</span>, <span class="t">ENDS_WITH_ONES_EXCLAMATIONS</span>, <span class="t">CONTROL_CHARACTER</span>, <span class="t">COPYRIGHT_TRADEMARK</span>, <span class="t">RANGE_ALPHANUMERIC_SUPPLEMENT</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MANY_PERIODS">
+        <strong>MANY_PERIODS</strong> = <code><span class="s">/(?:^\.{2,}$)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MENTION">
+        <strong>MENTION</strong> = <code><span class="s">/(?:[@＠][[:print:]]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MULTIPLE_DASHES">
+        <strong>MULTIPLE_DASHES</strong> = <code><span class="s">/(-){2,}/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>we keep all dashes</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="MULTIPLE_DOTS">
+        <strong>MULTIPLE_DOTS</strong> = <code><span class="s">/(\.{2,})/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="NO_BREAK_SPACE">
+        <strong>NO_BREAK_SPACE</strong> = <code><span class="s">/(?:\x{00A0}+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="NO_DECIMALS">
+        <strong>NO_DECIMALS</strong> = <code><span class="s">/(?:^\D+$)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="NO_DECIMALS_NO_NUMERALS">
+        <strong>NO_DECIMALS_NO_NUMERALS</strong> = <code><span class="t">Regexp</span>.<span class="k">union</span>(<span class="t">ALSO_DECIMALS</span>, <span class="t">ONLY_ROMAN_NUMERALS</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="NOT_URL">
+        <strong>NOT_URL</strong> = <code><span class="s">/(?:^(?!</span><span class="i">#{</span><span class="t">DOMAIN_PREFIX</span>.source<span class="i">}</span><span class="s">)([[:print:]]*))/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONE_AS_EXCLAMATION">
+        <strong>ONE_AS_EXCLAMATION</strong> = <code><span class="s">/(?:\D1+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONES_EXCLAMATIONS">
+        <strong>ONES_EXCLAMATIONS</strong> = <code><span class="s">/(?:!+(1*+!*+)*+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_DECIMALS">
+        <strong>ONLY_DECIMALS</strong> = <code><span class="s">/(?:^[[:digit:]]+$)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_DOMAIN1">
+        <strong>ONLY_DOMAIN1</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">DOMAIN1</span><span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_DOMAIN2">
+        <strong>ONLY_DOMAIN2</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">DOMAIN2</span><span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_DOMAIN3">
+        <strong>ONLY_DOMAIN3</strong> = <code><span class="t">Regexp</span>.<span class="k">union</span>(<span class="t">STARTS_WITH_DOMAIN</span>, <span class="t">ENDS_WITH_DOMAIN</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_EMAIL">
+        <strong>ONLY_EMAIL</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">EMAIL</span><span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_HASHTAG">
+        <strong>ONLY_HASHTAG</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">HASHTAG</span><span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_HASHTAG_MENTION">
+        <strong>ONLY_HASHTAG_MENTION</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">HASHTAG_OR_MENTION</span><span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_MENTION">
+        <strong>ONLY_MENTION</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">MENTION</span><span class="i">}</span><span class="s">$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_PUNCTUATION">
+        <strong>ONLY_PUNCTUATION</strong> = <code><span class="s">/^[[[:punct:]]^\|+]+$/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ONLY_ROMAN_NUMERALS">
+        <strong>ONLY_ROMAN_NUMERALS</strong> = <code><span class="s">/^(?=[MDCLXVI])M*(C[MD]|D?C*)(X[CL]|L?X*)(I[XV]|V?I*)$/</span>i</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PERCENT_BEFORE_DIGIT">
+        <strong>PERCENT_BEFORE_DIGIT</strong> = <code><span class="s">/(%)\d+/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PERIOD_AND_PRIOR">
+        <strong>PERIOD_AND_PRIOR</strong> = <code><span class="s">/(?:(.+\.))/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PERIOD_ONLY">
+        <strong>PERIOD_ONLY</strong> = <code><span class="s">/(?:(\.))/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PRE_PROCESS">
+        <strong>PRE_PROCESS</strong> = <code><span class="t">Regexp</span>.<span class="k">union</span>(<span class="t">SHIFT_BOUNDARY_CHARACTERS</span>, <span class="t">MULTIPLE_DOTS</span>, <span class="t">BRACKET</span>, <span class="t">MULTIPLE_DASHES</span>, <span class="t">EXCLAMATION_BETWEEN_ALPHA</span>, <span class="t">PERCENT_BEFORE_DIGIT</span>, <span class="t">COMMA_BEFORE_NON_DIGIT</span>, <span class="t">COMMA_AFTER_NON_DIGIT</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PUNCTUATION1">
+        <strong>PUNCTUATION1</strong> = <code><span class="s">/(?:([\p{Pd}\p{Pe}\p{Pf}\p{Pi}\p{Ps}])+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PUNCTUATION2">
+        <strong>PUNCTUATION2</strong> = <code><span class="s">/(?:(?&lt;=\S)([!?</span><span class="i">#{</span><span class="t">RANGE_FULLWIDTH</span>.source<span class="i">}</span><span class="s">]+))/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>all punctuation categories except Pc (Connector) and Po (other)</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="PUNCTUATION3">
+        <strong>PUNCTUATION3</strong> = <code><span class="s">/(?:[!%\-–\x{00AD}]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PUNCTUATION4">
+        <strong>PUNCTUATION4</strong> = <code><span class="s">/(?:[.．。]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="QUESTION_MARK_NOT_URL">
+        <strong>QUESTION_MARK_NOT_URL</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">NOT_URL</span>.source<span class="i">}</span><span class="s">(\?)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="QUOTE">
+        <strong>QUOTE</strong> = <code><span class="s">/(&#39;&#39;)|[&quot;”]/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="QUOTE_BEFORE_PRINT">
+        <strong>QUOTE_BEFORE_PRINT</strong> = <code><span class="s">/((&#39;&#39;)|[&quot;“])(?=[[:print:]])/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="RANGE_ALPHANUMERIC_SUPPLEMENT">
+        <strong>RANGE_ALPHANUMERIC_SUPPLEMENT</strong> = <code><span class="s">/[\x{1F100}-\x{1F1FF}]/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>e.g. ！＂＃＇？</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="RANGE_DINGBATS">
+        <strong>RANGE_DINGBATS</strong> = <code><span class="s">/[\x{2701}-\x{27BE}]/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>Ranges</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="RANGE_FULLWIDTH">
+        <strong>RANGE_FULLWIDTH</strong> = <code><span class="s">/[\x{FF01}-\x{fF1F}]/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>alter the previous character</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="RANGE_UNUSUAL_AND_EMOJI">
+        <strong>RANGE_UNUSUAL_AND_EMOJI</strong> = <code><span class="s">/[\x{203C}-\x{3299}\x{1F000}-\x{1F644}]/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="RANGE_VARIATION_SELECTORS">
+        <strong>RANGE_VARIATION_SELECTORS</strong> = <code><span class="s">/[\x{FE00}-\x{FE0F}]/</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>e.g. ✁✎✳❄➾</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="SHIFT_BOUNDARY_CHARACTERS">
+        <strong>SHIFT_BOUNDARY_CHARACTERS</strong> = <code><span class="s">/([;^&amp;|…«»„“¿¡≠]+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="SLASH_NOT_URL">
+        <strong>SLASH_NOT_URL</strong> = <code><span class="s">/</span><span class="i">#{</span><span class="t">NOT_URL</span>.source<span class="i">}</span><span class="s">\//</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>Should we change specs and also capture "/", just like we capture ":" and "?"</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="STARTS_WITH_COLON1">
+        <strong>STARTS_WITH_COLON1</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">COLON1</span>.source<span class="i">}</span><span class="s">/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="STARTS_WITH_COMMAS">
+        <strong>STARTS_WITH_COMMAS</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">COMMAS</span>.source<span class="i">}</span><span class="s">/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="STARTS_WITH_DOMAIN">
+        <strong>STARTS_WITH_DOMAIN</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">DOMAIN_PREFIX</span>.source<span class="i">}</span><span class="s">/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="STARTS_WITH_HTTP">
+        <strong>STARTS_WITH_HTTP</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">HTTP</span>.source<span class="i">}</span><span class="s">/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="STARTS_WITH_PUNCTUATION3">
+        <strong>STARTS_WITH_PUNCTUATION3</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">PUNCTUATION3</span>.source<span class="i">}</span><span class="s">/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="STARTS_WITH_UNDERSCORE">
+        <strong>STARTS_WITH_UNDERSCORE</strong> = <code><span class="s">/^</span><span class="i">#{</span><span class="t">UNDERSCORE</span>.source<span class="i">}</span><span class="s">/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="TIME_WITH_COLON">
+        <strong>TIME_WITH_COLON</strong> = <code><span class="s">/(?:\d:\d)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="UNDERSCORE">
+        <strong>UNDERSCORE</strong> = <code><span class="s">/(?:_+)/</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="UNDERSCORES_ASTERISK">
+        <strong>UNDERSCORES_ASTERISK</strong> = <code><span class="t">Regexp</span>.<span class="k">union</span>(<span class="t">STARTS_WITH_UNDERSCORE</span>, <span class="t">ENDS_WITH_UNDERSCORE</span>, <span class="t">ASTERISK</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="VARIOUS">
+        <strong>VARIOUS</strong> = <code><span class="t">Regexp</span>.<span class="k">union</span>(<span class="t">SLASH_NOT_URL</span>, <span class="t">QUESTION_MARK_NOT_URL</span>, <span class="t">ENCLOSED_PLUS</span>, <span class="t">STARTS_WITH_COLON1</span>, <span class="t">DINGBATS</span>, <span class="t">HASHTAG_WITH_HYPHEN</span>, <span class="t">CAPTURE_UNUSUAL_AND_EMOJI</span>)</code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>Can this constant name be clarified?</p>
+      </dd>
+      
+    
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
