@@ -1,4 +1,4 @@
-# Cadmium
+![Logo](img/cadmium.png)
 
 [![Travis](https://img.shields.io/travis/watzon/cadmium.svg)](https://travis-ci.org/watzon/cadmium) ![license](https://img.shields.io/github/license/watzon/cadmium.svg)
 
