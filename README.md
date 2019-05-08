@@ -10,6 +10,8 @@ This library is heavily based on the [natural](https://github.com/NaturalNode/na
 
 Any utilities that can be internationalized will be eventually. For now English is the primary concern.
 
+For full API documentation check out [the docs](https://watzon.github.io/cadmium/).
+
 ## Table of Contents
 
 - [Installation](#installation)
