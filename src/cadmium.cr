@@ -25,6 +25,3 @@ module Cadmium
     Transliterator.transliterate(source, **options)
   end
 end
-
-lemma = Cadmium::WordNet::Lemma.find("fall", :verb)
-puts lemma.synsets[1].relation("!")[0].gloss unless lemma.nil?

@@ -401,11 +401,6 @@
       
         <ul>
   
-  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Transliterator/CharMap" data-name="cadmium::transliterator::charmap">
-      <a href="../Cadmium/Transliterator/CharMap.html">CharMap</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Transliterator/StringExtension" data-name="cadmium::transliterator::stringextension">
       <a href="../Cadmium/Transliterator/StringExtension.html">StringExtension</a>
       
@@ -548,7 +543,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L6" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L6" target="_blank">
         cadmium/tfidf.cr
       </a>
     
@@ -563,7 +558,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28documents%3Dnil%29-class-method" class="signature"><strong>.new</strong>(documents = <span class="n">nil</span>)</a>
+        <a href="#new%28documents%3AArray%28Document%29%3F%3Dnil%29-class-method" class="signature"><strong>.new</strong>(documents : Array(Document)? = <span class="n">nil</span>)</a>
         
       </li>
     
@@ -575,7 +570,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#tf%28term%2Cdocument%29-class-method" class="signature"><strong>.tf</strong>(term, document)</a>
+        <a href="#tf%28term%3AString%2Cdocument%3ADocument%29-class-method" class="signature"><strong>.tf</strong>(term : String, document : Document)</a>
         
       </li>
     
@@ -587,7 +582,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#add_document%28document%2Ckey%3Dnil%2Crestore_cache%3Dfalse%29-instance-method" class="signature"><strong>#add_document</strong>(document, key = <span class="n">nil</span>, restore_cache = <span class="n">false</span>)</a>
+        <a href="#add_document%28text%3AString%7CArray%28String%29%2Ckey%3Dnil%2Crestore_cache%3Dfalse%29-instance-method" class="signature"><strong>#add_document</strong>(text : String | Array(String), key = <span class="n">nil</span>, restore_cache = <span class="n">false</span>)</a>
         
       </li>
     
@@ -664,18 +659,18 @@
 
   <h2>Constructor Detail</h2>
   
-    <div class="entry-detail" id="new(documents=nil)-class-method">
+    <div class="entry-detail" id="new(documents:Array(Document)?=nil)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(documents = <span class="n">nil</span>)
+        def self.<strong>new</strong>(documents : Array(<a href="../Cadmium/TfIdf/Document.html">Document</a>)? = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#new%28documents%3Dnil%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28documents%3AArray%28Document%29%3F%3Dnil%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -685,18 +680,18 @@
 
   <h2>Class Method Detail</h2>
   
-    <div class="entry-detail" id="tf(term,document)-class-method">
+    <div class="entry-detail" id="tf(term:String,document:Document)-class-method">
       <div class="signature">
         
-        def self.<strong>tf</strong>(term, document)
+        def self.<strong>tf</strong>(term : <a href="../String.html">String</a>, document : <a href="../Cadmium/TfIdf/Document.html">Document</a>)
 
-        <a class="method-permalink" href="#tf%28term%2Cdocument%29-class-method">#</a>
+        <a class="method-permalink" href="#tf%28term%3AString%2Cdocument%3ADocument%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L68" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L69" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -706,18 +701,18 @@
 
   <h2>Instance Method Detail</h2>
   
-    <div class="entry-detail" id="add_document(document,key=nil,restore_cache=false)-instance-method">
+    <div class="entry-detail" id="add_document(text:String|Array(String),key=nil,restore_cache=false)-instance-method">
       <div class="signature">
         
-        def <strong>add_document</strong>(document, key = <span class="n">nil</span>, restore_cache = <span class="n">false</span>)
+        def <strong>add_document</strong>(text : <a href="../String.html">String</a> | Array(<a href="../String.html">String</a>), key = <span class="n">nil</span>, restore_cache = <span class="n">false</span>)
 
-        <a class="method-permalink" href="#add_document%28document%2Ckey%3Dnil%2Crestore_cache%3Dfalse%29-instance-method">#</a>
+        <a class="method-permalink" href="#add_document%28text%3AString%7CArray%28String%29%2Ckey%3Dnil%2Crestore_cache%3Dfalse%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L35" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L36" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -733,7 +728,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L72" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L73" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -749,7 +744,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L83" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L84" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -765,7 +760,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L64" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -781,7 +776,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L23" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -797,7 +792,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L46" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L47" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -813,7 +808,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/tfidf.cr#L52" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/6b91ced25c175c3792e22049152acb094b97b5ab/src/cadmium/tfidf.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>

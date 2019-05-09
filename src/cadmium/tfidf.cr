@@ -6,6 +6,7 @@ module Cadmium
   class TfIdf
     include Cadmium::Util::StopWords
 
+    # TODO: Figure out how to make this work with no key
     alias Document = NamedTuple(key: String, terms: Hash(String, Float64))
 
     @documents : Array(Document)
@@ -13,7 +14,7 @@ module Cadmium
     @stop_words : Array(String)
     @tokenizer : Cadmium::Tokenizer::WordTokenizer
 
-    def initialize(documents = nil)
+    def initialize(documents : Array(Document)? = nil)
       @documents = documents || [] of Document
       @idf_cache = {} of String => Float64
       @stop_words = @@stop_words
@@ -32,9 +33,9 @@ module Cadmium
       end
     end
 
-    def add_document(document, key = nil, restore_cache = false)
+    def add_document(text : String | Array(String), key = nil, restore_cache = false)
       key ||= Random::Secure.hex(4)
-      @documents.push(build_document(document, key))
+      @documents.push(build_document(text, key))
 
       if restore_cache
         @idf_cache.each { |(term, _)| idf(term, true) }
@@ -65,7 +66,7 @@ module Cadmium
       @stop_words = value
     end
 
-    def self.tf(term, document)
+    def self.tf(term : String, document : Document)
       document[:terms].has_key?(term) ? document[:terms][term] : 0.0
     end
 
