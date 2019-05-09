@@ -20,7 +20,7 @@ module Cadmium
 
       # Create a pointer. Pointers represent the relations between the words in one synset and another,
       # and are referenced by a shorthand symbol (e.g. '!' for verb antonym). The list
-      # of valid pointer symbols is defined in pointers.rb
+      # of valid pointer symbols is defined in pointers.cr
       def initialize(@symbol : String, @offset : Int32, @pos : String, @source : String)
         @target = @source[2, 2]
       end

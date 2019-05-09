@@ -1,6 +1,9 @@
 module Cadmium
   module WordNet
-    SYNSET_TYPES                = {"n" => "noun", "v" => "verb", "a" => "adj", "r" => "adv"}
+    # :nodoc:
+    SYNSET_TYPES = {"n" => "noun", "v" => "verb", "a" => "adj", "r" => "adv"}
+
+    # :nodoc:
     MORPHOLOGICAL_SUBSTITUTIONS = {
       "noun" => [["s", ""], ["ses", "s"], ["ves", "f"], ["xes", "x"],
                  ["zes", "z"], ["ches", "ch"], ["shes", "sh"],
@@ -44,12 +47,14 @@ module Cadmium
       # Get a string representation of this synset's gloss. "Gloss" is a human-readable
       # description of this concept, often with example usage, e.g:
       #
-      #    move upward; "The fog lifted"; "The smoke arose from the forest fire"; "The mist uprose from the meadows"
+      # ```text
+      # move upward; "The fog lifted"; "The smoke arose from the forest fire"; "The mist uprose from the meadows"
+      # ```
       #
       # for the second sense of the verb "fall"
       getter gloss : String
 
-      # Create a new synset by reading from the data file specified by +pos+, at +offset+ bytes into the file. This is how
+      # Create a new synset by reading from the data file specified by *pos*, at *offset* bytes into the file. This is how
       # the WordNet database is organized. You shouldn't be creating Synsets directly; instead, use Lemma#synsets.
       def initialize(pos, offset)
         pos = pos.to_s
@@ -84,18 +89,14 @@ module Cadmium
         end
       end
 
-      # Ported from python NLTK
-      # Load all synsets with a given lemma and part of speech tag.
-      # If no pos is specified, all synsets for all parts of speech
-      # will be loaded.
-      # If lang is specified, all the synsets associated with the lemma name
-      # of that language will be returned.
+      # Similar to the method `Lemma#find`, but returns a list of Synsets instead of a Lemma
       def self.find(word, pos)
         word = word.downcase
         lemmas = self.morphy(word, pos).map { |form| WordNet::Lemma.find(form, pos) }
         lemmas.map { |lemma| lemma.synsets }.flatten
       end
 
+      # Similar to the method `Lemma#find_all`, but returns Synsets instead of Lemmas
       def self.find_all(word)
         SYNSET_TYPES.values.map { |pos| self.find(word, pos) }.flatten
       end
@@ -181,11 +182,17 @@ module Cadmium
       end
 
       # Get an array of Synsets with the relation `pointer_symbol` relative to this
-      # Synset. Mostly, this is an internal method used by convience methods (e.g. Synset#antonym), but
-      # it can take any valid valid +pointer_symbol+ defined in pointers.rb.
+      # Synset. Mostly, this is an internal method used by convience methods (e.g. `Synset#antonym`), but
+      # it can take any valid valid *pointer_symbol* defined in pointers.cr.
       #
       # Example (get the gloss of an antonym for 'fall'):
-      #     WordNet::Lemma.find("fall", :verb).synsets[1].relation("!")[0].gloss
+      # ```
+      # lemma = Cadmium::WordNet.lookup("fall", :verb)
+      # puts lemma.synsets[1].relation("!")[0].gloss unless lemma.nil?
+      # ```
+      #
+      # NOTE: Valid pointer symbols are contained in the constants `NOUN_POINTERS`,
+      # `VERB_POINTERS`, `ADJECTIVE_POINTERS`, and `ADVERB_POINTERS`
       def relation(pointer_symbol)
         @pointers.select { |pointer| pointer.symbol == pointer_symbol }
           .map { |pointer| Synset.new(@synset_type, pointer.offset) }
@@ -217,7 +224,7 @@ module Cadmium
         hypernyms + hyponyms
       end
 
-      # Get the entire hypernym tree (from this synset all the way up to +entity+) as an array.
+      # Get the entire hypernym tree (from this synset all the way up to *entity*) as an array.
       def expanded_first_hypernyms
         parent = hypernym
         list = [] of Int32
@@ -233,7 +240,7 @@ module Cadmium
         list.map! { |offset| Synset.new(@pos, offset) }
       end
 
-      # Get the entire hypernym tree (from this synset all the way up to +entity+) as an array.
+      # Get the entire hypernym tree (from this synset all the way up to *entity*) as an array.
       def expanded_hypernyms
         parents = hypernyms
         list = [] of Int32

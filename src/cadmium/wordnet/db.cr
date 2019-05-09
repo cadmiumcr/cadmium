@@ -7,12 +7,12 @@ module Cadmium
 
       @@raw_wordnet = {} of String => String
 
-      # To use your own WordNet installation (rather than the one bundled with rwordnet:
+      # To use your own WordNet installation (rather than the one bundled with Cadmium:
       # Returns the path to the WordNet installation currently in use. Defaults to the bundled version of WordNet.
       class_property path : String
 
       # Open a wordnet database. You shouldn't have to call this directly; it's
-      # handled by the autocaching implemented in lemma.rb.
+      # handled by the autocaching implemented in lemma.cr.
       #
       # `path` should be a string containing the absolute path to the root of a
       # WordNet installation.

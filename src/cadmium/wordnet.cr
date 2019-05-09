@@ -27,12 +27,12 @@ module Cadmium
     end
 
     # Get the root of a *form*
-    def self.morphy(form)
+    def self.morphy(form : String)
       Synset.morphy(form)
     end
 
     # Get the root of a *form* with a specific *pos*
-    def self.morphy(form, pos)
+    def self.morphy(form : String, pos : String | Symbol)
       Synset.morphy(form, pos)
     end
   end
