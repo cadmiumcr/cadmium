@@ -523,6 +523,12 @@
 
 
 
+  <h2>Overview</h2>
+
+  <p>API to grant full access to the Stanford WordNet project allowing
+you to find words, definitions (gloss), hypernyms, hyponyms,
+antonyms, etc.</p>
+
 
 
 
@@ -539,42 +545,42 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet/pointer.cr#L2" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/pointer.cr#L2" target="_blank">
         cadmium/wordnet/pointer.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet/db.cr#L2" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/db.cr#L2" target="_blank">
         cadmium/wordnet/db.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet/lemma.cr#L2" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/lemma.cr#L2" target="_blank">
         cadmium/wordnet/lemma.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet/pointers.cr#L2" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/pointers.cr#L2" target="_blank">
         cadmium/wordnet/pointers.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet/synset.cr#L2" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L2" target="_blank">
         cadmium/wordnet/synset.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet.cr#L8" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet.cr#L11" target="_blank">
         cadmium/wordnet.cr
       </a>
     
@@ -760,25 +766,35 @@
       <li class="entry-summary">
         <a href="#get%28offset%3AInt32%2Cpos%3ASymbol%7CString%29-class-method" class="signature"><strong>.get</strong>(offset : Int32, pos : Symbol | String)</a>
         
+          <div class="summary"><p>Create a <code><a href="../Cadmium/WordNet/Synset.html">Synset</a></code> by <em>offset</em> and <em>pos</em></p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#lookup%28word%3AString%2Cpos%3ASymbol%7CString%29-class-method" class="signature"><strong>.lookup</strong>(word : String, pos : Symbol | String)</a>
+        
+          <div class="summary"><p>Find a lemma for a given word and pos.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#lookup%28word%3AString%29-class-method" class="signature"><strong>.lookup</strong>(word : String)</a>
         
+          <div class="summary"><p>Find all lemmas for this word across all known parts of speech</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#morphy%28form%2Cpos%29-class-method" class="signature"><strong>.morphy</strong>(form, pos)</a>
         
+          <div class="summary"><p>Get the root of a <em>form</em> with a specific <em>pos</em></p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#morphy%28form%29-class-method" class="signature"><strong>.morphy</strong>(form)</a>
+        
+          <div class="summary"><p>Get the root of a <em>form</em></p></div>
         
       </li>
     
@@ -807,10 +823,12 @@
         <a class="method-permalink" href="#get%28offset%3AInt32%2Cpos%3ASymbol%7CString%29-class-method">#</a>
       </div>
       
+        <div class="doc"><p>Create a <code><a href="../Cadmium/WordNet/Synset.html">Synset</a></code> by <em>offset</em> and <em>pos</em></p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet.cr#L25" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -823,10 +841,14 @@
         <a class="method-permalink" href="#lookup%28word%3AString%2Cpos%3ASymbol%7CString%29-class-method">#</a>
       </div>
       
+        <div class="doc"><p>Find a lemma for a given word and pos. Valid parts of speech are:
+:adj, :adv, :noun, :verb. Additionally, you can use the shorthand
+forms of each of these (:a, :r, :n, :v)</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -839,10 +861,12 @@
         <a class="method-permalink" href="#lookup%28word%3AString%29-class-method">#</a>
       </div>
       
+        <div class="doc"><p>Find all lemmas for this word across all known parts of speech</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet.cr#L14" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -855,10 +879,12 @@
         <a class="method-permalink" href="#morphy%28form%2Cpos%29-class-method">#</a>
       </div>
       
+        <div class="doc"><p>Get the root of a <em>form</em> with a specific <em>pos</em></p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet.cr#L27" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet.cr#L35" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -871,10 +897,12 @@
         <a class="method-permalink" href="#morphy%28form%29-class-method">#</a>
       </div>
       
+        <div class="doc"><p>Get the root of a <em>form</em></p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/6c58fb89858c7cf2b420ac97020c38f855312cc6/src/cadmium/wordnet.cr#L23" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet.cr#L30" target="_blank">View source</a>]
         
       </div>
     </div>
