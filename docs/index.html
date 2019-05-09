@@ -902,28 +902,27 @@ puts report.kincaid <span class="c"># =&gt; 7.513725490196077</span></code></pre
 
 <p>Using it is easy with Cadmium's API.</p>
 
-<pre><code class="language-crystal"><span class="c"># Lookup a single word and get all parts of speech</span>
-synsets <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.lookup(<span class="s">&quot;horse&quot;</span>)
-synsets.each <span class="k">do</span> <span class="o">|</span>synset<span class="o">|</span>
-  puts <span class="s">&quot;---------------------------------------------&quot;</span>
-  puts synset.synset_offset
-  puts synset.pos
-  puts synset.gloss
-  puts synset.word_counts
+<pre><code class="language-crystal"><span class="c"># Lookup a single word with a specific part of speech</span>
+lemma <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.lookup(<span class="s">&quot;horse&quot;</span>, <span class="n">:n</span>)
+puts lemma.word.capitalize <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> lemma.pos
+lemma.synsets.each_with_index <span class="k">do</span> <span class="o">|</span>synset, i<span class="o">|</span>
+  puts <span class="s">&quot;</span><span class="i">#{</span>i <span class="o">+</span> <span class="n">1</span><span class="i">}</span><span class="s">. </span><span class="i">#{</span>synset.gloss<span class="i">}</span><span class="s">&quot;</span>
 <span class="k">end</span>
 
-<span class="c"># Lookup a single word with a specific part of speech</span>
-synsets <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.lookup(<span class="s">&quot;horse&quot;</span>, <span class="n">:v</span>) <span class="c"># :v is for verb</span>
-synsets.each <span class="k">do</span> <span class="o">|</span>synset<span class="o">|</span>
-  puts <span class="s">&quot;---------------------------------------------&quot;</span>
-  puts synset.synset_offset
-  puts synset.pos
-  puts synset.gloss
-  puts synset.word_counts
+<span class="c"># Lookup a single word accross all parts of speech</span>
+lemmas <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.lookup(<span class="s">&quot;horse&quot;</span>)
+lemmas <span class="o">=</span> lemmas.map { <span class="o">|</span>l<span class="o">|</span> {word: l.word, pos: l.pos, synsets: l.synsets} }
+lemmas.each <span class="k">do</span> <span class="o">|</span>l<span class="o">|</span>
+  word <span class="o">=</span> l[<span class="n">:word</span>].capitalize
+  pos <span class="o">=</span> l[<span class="n">:pos</span>]
+  l[<span class="n">:synsets</span>].each <span class="k">do</span> <span class="o">|</span>s<span class="o">|</span>
+    puts <span class="s">&quot;</span><span class="i">#{</span>word<span class="i">}</span><span class="s"> (</span><span class="i">#{</span>pos<span class="i">}</span><span class="s">) - </span><span class="i">#{</span>s.gloss<span class="i">}</span><span class="s">&quot;</span>
+  <span class="k">end</span>
 <span class="k">end</span>
+
 
 <span class="c"># Lookup a definition by offset and part of speech</span>
-synset <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.get(<span class="n">4424418</span>, <span class="n">:n</span>) <span class="c"># :n is for noun</span>
+synset <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.get(<span class="n">4424418</span>, <span class="n">:n</span>)
 puts <span class="s">&quot;---------------------------------------------&quot;</span>
 puts synset.synset_offset
 puts synset.pos
