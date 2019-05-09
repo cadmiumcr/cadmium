@@ -5,9 +5,9 @@ describe Cadmium::TfIdf do
 
   describe "stateless operations" do
     it "should tf" do
-      Cadmium::TfIdf.tf("document", {terms: {"document" => 2, "one" => 1}}).should eq(2)
-      Cadmium::TfIdf.tf("document", {terms: {"greetings" => 1, "program" => 1}}).should eq(0)
-      Cadmium::TfIdf.tf("program", {terms: {"greetings" => 1, "program" => 1}}).should eq(1)
+      Cadmium::TfIdf.tf("document", {key: "", terms: {"document" => 2.0, "one" => 1.0}}).should eq(2.0)
+      Cadmium::TfIdf.tf("document", {key: "", terms: {"greetings" => 1.0, "program" => 1.0}}).should eq(0)
+      Cadmium::TfIdf.tf("program", {key: "", terms: {"greetings" => 1.0, "program" => 1.0}}).should eq(1.0)
     end
   end
 
@@ -57,7 +57,7 @@ describe Cadmium::TfIdf do
       tfidf = subject.new
       tfidf.add_document("document one", "un")
 
-      tfidf.idf("one").should eq(1 + Math.log(2.0 / 2.0))
+      tfidf.idf("one").should eq(1.0 + Math.log(2.0 / 2.0))
 
       tfidf.add_document("document Two", "deux", true)
 
@@ -90,7 +90,7 @@ describe Cadmium::TfIdf do
       tfidf.add_document("this document is about ruby and node.")
       tfidf.add_document("this document is about node. it has node examples")
 
-      tfidf.idf("node").should eq(1 + Math.log(4.0 / 4.0))
+      tfidf.idf("node").should eq(1.0 + Math.log(4.0 / 4.0))
     end
 
     it "should compute idf correctly with non-string documents" do
@@ -106,10 +106,10 @@ describe Cadmium::TfIdf do
     end
 
     it "should compute tf correctly" do
-      subject.tf("node", {terms: {"this" => 1, "document" => 1, "is" => 1, "about" => 1, "node" => 1}}).should eq(1)
-      subject.tf("node", {terms: {"this" => 1, "document" => 1, "is" => 1, "about" => 1, "ruby" => 1}}).should eq(0)
-      subject.tf("node", {terms: {"this" => 1, "document" => 1, "is" => 1, "about" => 1, "ruby" => 1, "and" => 1, "node" => 1}}).should eq(1)
-      subject.tf("node", {terms: {"this" => 1, "document" => 1, "is" => 1, "about" => 1, "node" => 2, "it" => 1, "has" => 1, "examples" => 1}}).should eq(2)
+      subject.tf("node", {key: "", terms: {"this" => 1.0, "document" => 1.0, "is" => 1.0, "about" => 1.0, "node" => 1.0}}).should eq(1.0)
+      subject.tf("node", {key: "", terms: {"this" => 1.0, "document" => 1.0, "is" => 1.0, "about" => 1.0, "ruby" => 1.0}}).should eq(0.0)
+      subject.tf("node", {key: "", terms: {"this" => 1.0, "document" => 1.0, "is" => 1.0, "about" => 1.0, "ruby" => 1.0, "and" => 1.0, "node" => 1.0}}).should eq(1.0)
+      subject.tf("node", {key: "", terms: {"this" => 1.0, "document" => 1.0, "is" => 1.0, "about" => 1.0, "node" => 2.0, "it" => 1.0, "has" => 1.0, "examples" => 1.0}}).should eq(2.0)
     end
   end
 end
