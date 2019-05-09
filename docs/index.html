@@ -86,6 +86,36 @@
       
     </li>
   
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Graph" data-name="cadmium::graph">
+      <a href="Cadmium/Graph.html">Graph</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Graph/Bag" data-name="cadmium::graph::bag(t)">
+      <a href="Cadmium/Graph/Bag.html">Bag</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Graph/EdgeWeightedDigraph" data-name="cadmium::graph::edgeweighteddigraph">
+      <a href="Cadmium/Graph/EdgeWeightedDigraph.html">EdgeWeightedDigraph</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Graph/EdgeWeightedDigraph/DirectedEdge" data-name="cadmium::graph::edgeweighteddigraph::directededge">
+      <a href="Cadmium/Graph/EdgeWeightedDigraph/DirectedEdge.html">DirectedEdge</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Inflector" data-name="cadmium::inflector">
       <a href="Cadmium/Inflector.html">Inflector</a>
       
@@ -396,26 +426,6 @@
       
         <ul>
   
-  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Bag" data-name="cadmium::util::bag(t)">
-      <a href="Cadmium/Util/Bag.html">Bag</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util/EdgeWeightedDigraph" data-name="cadmium::util::edgeweighteddigraph">
-      <a href="Cadmium/Util/EdgeWeightedDigraph.html">EdgeWeightedDigraph</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/EdgeWeightedDigraph/DirectedEdge" data-name="cadmium::util::edgeweighteddigraph::directededge">
-      <a href="Cadmium/Util/EdgeWeightedDigraph/DirectedEdge.html">DirectedEdge</a>
-      
-    </li>
-  
-</ul>
-
-      
-    </li>
-  
   <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Paragraph" data-name="cadmium::util::paragraph">
       <a href="Cadmium/Util/Paragraph.html">Paragraph</a>
       
@@ -519,7 +529,7 @@
 
 <h2>Table of Contents</h2>
 
-<ul><li><a href="#installation" target="_blank">Installation</a></li><li><a href="#tokenizers" target="_blank">Tokenizers</a></li><li><a href="#string-distance" target="_blank">String Distance</a></li><li><a href="#stemmers" target="_blank">Stemmers</a></li><li><a href="#phonetics" target="_blank">Phonetics</a></li><li><a href="#inflectors" target="_blank">Inflectors</a></li><li><a href="#n-grams" target="_blank">N-Grams</a></li><li><a href="#tf-idf" target="_blank">tf-idf</a></li><li><a href="#transliterator" target="_blank">Transliterator</a></li><li><a href="#sentiment-analysis" target="_blank">Sentiment Analysis</a></li><li><a href="#tries" target="_blank">Tries</a></li><li><a href="#readability" target="_blank">Readability</a></li><li><a href="#wordnet" target="_blank">WordNet</a></li><li><a href="#roadmap" target="_blank">Roadmap</a></li><li><a href="#contributing" target="_blank">Contributing</a></li><li><a href="#contributors" target="_blank">Contributors</a></li></ul>
+<ul><li><a href="#installation" target="_blank">Installation</a></li><li><a href="#tokenizers" target="_blank">Tokenizers</a></li><li><a href="#string-distance" target="_blank">String Distance</a></li><li><a href="#stemmers" target="_blank">Stemmers</a></li><li><a href="#phonetics" target="_blank">Phonetics</a></li><li><a href="#inflectors" target="_blank">Inflectors</a></li><li><a href="#n-grams" target="_blank">N-Grams</a></li><li><a href="#tf-idf" target="_blank">tf-idf</a></li><li><a href="#transliterator" target="_blank">Transliterator</a></li><li><a href="#sentiment-analysis" target="_blank">Sentiment Analysis</a></li><li><a href="#tries" target="_blank">Tries</a></li><li><a href="#edge-weighted-digraph" target="_blank">EdgeWeightedDigraph</a></li><li><a href="#readability" target="_blank">Readability</a></li><li><a href="#wordnet" target="_blank">WordNet</a></li><li><a href="#roadmap" target="_blank">Roadmap</a></li><li><a href="#contributing" target="_blank">Contributing</a></li><li><a href="#contributors" target="_blank">Contributors</a></li></ul>
 
 <h2>Installation</h2>
 
@@ -855,7 +865,7 @@ trie.matches_on_path(<span class="s">&quot;meeting&quot;</span>)
 
 <p>EdgeWeightedDigraph represents a digraph, you can add an edge, get the number vertexes, edges, get all edges and use toString to print the Digraph.</p>
 
-<pre><code class="language-crystal">digraph <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">Util</span><span class="t">::</span><span class="t">EdgeWeightedDigraph</span>.<span class="k">new</span>
+<pre><code class="language-crystal">digraph <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">Graph</span><span class="t">::</span><span class="t">EdgeWeightedDigraph</span>.<span class="k">new</span>
 
 digraph.add(<span class="n">5</span>, <span class="n">4</span>, <span class="n">0.35</span>)
 digraph.add(<span class="n">5</span>, <span class="n">1</span>, <span class="n">0.32</span>)

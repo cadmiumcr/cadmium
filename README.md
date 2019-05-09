@@ -415,7 +415,7 @@ trie.matches_on_path("meeting")
 EdgeWeightedDigraph represents a digraph, you can add an edge, get the number vertexes, edges, get all edges and use toString to print the Digraph.
 
 ```crystal
-digraph = Cadmium::Util::EdgeWeightedDigraph.new
+digraph = Cadmium::Graph::EdgeWeightedDigraph.new
 
 digraph.add(5, 4, 0.35)
 digraph.add(5, 1, 0.32)
