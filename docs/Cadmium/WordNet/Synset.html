@@ -546,7 +546,7 @@ relationships, including Hypernym (x is a hypernym of y &lt;=> x is a parent of 
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L16" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L19" target="_blank">
         cadmium/wordnet/synset.cr
       </a>
     
@@ -563,7 +563,7 @@ relationships, including Hypernym (x is a hypernym of y &lt;=> x is a parent of 
       <li class="entry-summary">
         <a href="#new%28pos%2Coffset%29-class-method" class="signature"><strong>.new</strong>(pos, offset)</a>
         
-          <div class="summary"><p>Create a new synset by reading from the data file specified by +pos+, at +offset+ bytes into the file.</p></div>
+          <div class="summary"><p>Create a new synset by reading from the data file specified by <em>pos</em>, at <em>offset</em> bytes into the file.</p></div>
         
       </li>
     
@@ -587,12 +587,14 @@ relationships, including Hypernym (x is a hypernym of y &lt;=> x is a parent of 
       <li class="entry-summary">
         <a href="#find%28word%2Cpos%29-class-method" class="signature"><strong>.find</strong>(word, pos)</a>
         
-          <div class="summary"><p>Ported from python NLTK Load all synsets with a given lemma and part of speech tag.</p></div>
+          <div class="summary"><p>Similar to the method <code><a href="../../Cadmium/WordNet/Lemma.html#find%28word%2Cpos%29-class-method">Lemma#find</a></code>, but returns a list of Synsets instead of a Lemma</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#find_all%28word%29-class-method" class="signature"><strong>.find_all</strong>(word)</a>
+        
+          <div class="summary"><p>Similar to the method <code><a href="../../Cadmium/WordNet/Lemma.html#find_all%28word%3AString%29-class-method">Lemma#find_all</a></code>, but returns Synsets instead of Lemmas</p></div>
         
       </li>
     
@@ -632,14 +634,14 @@ relationships, including Hypernym (x is a hypernym of y &lt;=> x is a parent of 
       <li class="entry-summary">
         <a href="#expanded_first_hypernyms-instance-method" class="signature"><strong>#expanded_first_hypernyms</strong></a>
         
-          <div class="summary"><p>Get the entire hypernym tree (from this synset all the way up to +entity+) as an array.</p></div>
+          <div class="summary"><p>Get the entire hypernym tree (from this synset all the way up to <em>entity</em>) as an array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#expanded_hypernyms-instance-method" class="signature"><strong>#expanded_hypernyms</strong></a>
         
-          <div class="summary"><p>Get the entire hypernym tree (from this synset all the way up to +entity+) as an array.</p></div>
+          <div class="summary"><p>Get the entire hypernym tree (from this synset all the way up to <em>entity</em>) as an array.</p></div>
         
       </li>
     
@@ -794,13 +796,13 @@ relationships, including Hypernym (x is a hypernym of y &lt;=> x is a parent of 
         <a class="method-permalink" href="#new%28pos%2Coffset%29-class-method">#</a>
       </div>
       
-        <div class="doc"><p>Create a new synset by reading from the data file specified by +pos+, at +offset+ bytes into the file. This is how
+        <div class="doc"><p>Create a new synset by reading from the data file specified by <em>pos</em>, at <em>offset</em> bytes into the file. This is how
 the WordNet database is organized. You shouldn't be creating Synsets directly; instead, use Lemma#synsets.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L54" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L59" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -821,7 +823,7 @@ the WordNet database is organized. You shouldn't be creating Synsets directly; i
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L113" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L114" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -837,7 +839,7 @@ the WordNet database is organized. You shouldn't be creating Synsets directly; i
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L126" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L127" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -850,17 +852,12 @@ the WordNet database is organized. You shouldn't be creating Synsets directly; i
         <a class="method-permalink" href="#find%28word%2Cpos%29-class-method">#</a>
       </div>
       
-        <div class="doc"><p>Ported from python NLTK
-Load all synsets with a given lemma and part of speech tag.
-If no pos is specified, all synsets for all parts of speech
-will be loaded.
-If lang is specified, all the synsets associated with the lemma name
-of that language will be returned.</p></div>
+        <div class="doc"><p>Similar to the method <code><a href="../../Cadmium/WordNet/Lemma.html#find%28word%2Cpos%29-class-method">Lemma#find</a></code>, but returns a list of Synsets instead of a Lemma</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L93" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L93" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -873,10 +870,12 @@ of that language will be returned.</p></div>
         <a class="method-permalink" href="#find_all%28word%29-class-method">#</a>
       </div>
       
+        <div class="doc"><p>Similar to the method <code><a href="../../Cadmium/WordNet/Lemma.html#find_all%28word%3AString%29-class-method">Lemma#find_all</a></code>, but returns Synsets instead of Lemmas</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L99" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L100" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -892,7 +891,7 @@ of that language will be returned.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L103" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L104" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -910,7 +909,7 @@ of that language will be returned.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L131" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L132" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -928,7 +927,7 @@ of that language will be returned.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L169" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L170" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -951,7 +950,7 @@ of that language will be returned.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L195" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L202" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -964,12 +963,12 @@ of that language will be returned.</p></div>
         <a class="method-permalink" href="#expanded_first_hypernyms-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Get the entire hypernym tree (from this synset all the way up to +entity+) as an array.</p></div>
+        <div class="doc"><p>Get the entire hypernym tree (from this synset all the way up to <em>entity</em>) as an array.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L221" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L228" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -982,12 +981,12 @@ of that language will be returned.</p></div>
         <a class="method-permalink" href="#expanded_hypernyms-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Get the entire hypernym tree (from this synset all the way up to +entity+) as an array.</p></div>
+        <div class="doc"><p>Get the entire hypernym tree (from this synset all the way up to <em>entity</em>) as an array.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L237" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L244" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1003,7 +1002,7 @@ of that language will be returned.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L253" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L260" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1019,14 +1018,14 @@ of that language will be returned.</p></div>
         <div class="doc"><p>Get a string representation of this synset's gloss. "Gloss" is a human-readable
 description of this concept, often with example usage, e.g:</p>
 
-<p>move upward; "The fog lifted"; "The smoke arose from the forest fire"; "The mist uprose from the meadows"</p>
+<pre><code class="language-text">move upward; "The fog lifted"; "The smoke arose from the forest fire"; "The mist uprose from the meadows"</code></pre>
 
 <p>for the second sense of the verb "fall"</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L52" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L57" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1044,7 +1043,7 @@ description of this concept, often with example usage, e.g:</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L200" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L207" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1063,7 +1062,7 @@ as an array.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L206" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L213" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1081,7 +1080,7 @@ as an array.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L211" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L218" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1101,7 +1100,7 @@ want to ensure that you're using your own additions.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L30" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L33" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1119,7 +1118,7 @@ want to ensure that you're using your own additions.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L44" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L47" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1138,7 +1137,7 @@ You almost certainly don't care about this.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L41" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L44" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1152,17 +1151,21 @@ You almost certainly don't care about this.</p></div>
       </div>
       
         <div class="doc"><p>Get an array of Synsets with the relation <code>pointer_symbol</code> relative to this
-Synset. Mostly, this is an internal method used by convience methods (e.g. Synset#antonym), but
-it can take any valid valid +pointer_symbol+ defined in pointers.rb.</p>
+Synset. Mostly, this is an internal method used by convience methods (e.g. <code>Synset#antonym</code>), but
+it can take any valid valid <em>pointer_symbol</em> defined in pointers.cr.</p>
 
 <p>Example (get the gloss of an antonym for 'fall'):</p>
 
-<pre><code><span class="t">WordNet</span><span class="t">::</span><span class="t">Lemma</span>.find(<span class="s">&quot;fall&quot;</span>, <span class="n">:verb</span>).synsets[<span class="n">1</span>].relation(<span class="s">&quot;!&quot;</span>)[<span class="n">0</span>].gloss</code></pre></div>
+<pre><code>lemma <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.lookup(<span class="s">&quot;fall&quot;</span>, <span class="n">:verb</span>)
+puts lemma.synsets[<span class="n">1</span>].relation(<span class="s">&quot;!&quot;</span>)[<span class="n">0</span>].gloss <span class="k">unless</span> lemma.<span class="k">nil?</span></code></pre>
+
+<p><span class="flag purple">NOTE</span>  Valid pointer symbols are contained in the constants <code><a href="../../Cadmium/WordNet.html#NOUN_POINTERS">NOUN_POINTERS</a></code>,
+<code><a href="../../Cadmium/WordNet.html#VERB_POINTERS">VERB_POINTERS</a></code>, <code><a href="../../Cadmium/WordNet.html#ADJECTIVE_POINTERS">ADJECTIVE_POINTERS</a></code>, and <code><a href="../../Cadmium/WordNet.html#ADVERB_POINTERS">ADVERB_POINTERS</a></code></p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L189" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L196" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1180,7 +1183,7 @@ it can take any valid valid +pointer_symbol+ defined in pointers.rb.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L216" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L223" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1199,7 +1202,7 @@ You almost certainly don't care about this.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1217,7 +1220,7 @@ You almost certainly don't care about this.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L40" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1239,7 +1242,7 @@ You almost certainly don't care about this.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L276" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L283" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1257,7 +1260,7 @@ You almost certainly don't care about this.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L174" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L175" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1276,7 +1279,7 @@ in this Synset.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L37" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1294,7 +1297,7 @@ in this Synset.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/1f8e8235641fe632c1b6d2ee14393ccc825f7638/src/cadmium/wordnet/synset.cr#L179" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/db320a25960915359687fc35251be07faffbee49/src/cadmium/wordnet/synset.cr#L180" target="_blank">View source</a>]
         
       </div>
     </div>
