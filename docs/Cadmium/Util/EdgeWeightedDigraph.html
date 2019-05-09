@@ -515,6 +515,12 @@
 
 
 
+  <h2>Overview</h2>
+
+  <p>Represents a digraph, you can add an edge, get the number
+vertexes, edges, get all edges and use
+<code><a href="../../Cadmium/Util/EdgeWeightedDigraph.html#to_s-instance-method">#to_s</a></code> to print the Digraph.</p>
+
 
 
 
@@ -531,7 +537,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/edge_weighted_digraph.cr#L3" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/c8aba91f5c40e8f8356177ce918c583a06f31c90/src/cadmium/util/edge_weighted_digraph.cr#L6" target="_blank">
         cadmium/util/edge_weighted_digraph.cr
       </a>
     
@@ -548,6 +554,8 @@
       <li class="entry-summary">
         <a href="#new-class-method" class="signature"><strong>.new</strong></a>
         
+          <div class="summary"><p>Create a new <code><a href="../../Cadmium/Util/EdgeWeightedDigraph.html">EdgeWeightedDigraph</a></code>.</p></div>
+        
       </li>
     
   </ul>
@@ -562,25 +570,35 @@
       <li class="entry-summary">
         <a href="#add%28from%3AInt32%2Cto%3AInt32%2Cweight%3AFloat64%29-instance-method" class="signature"><strong>#add</strong>(from : Int32, to : Int32, weight : Float64)</a>
         
+          <div class="summary"><p>Create and add a new <code><a href="../../Cadmium/Util/EdgeWeightedDigraph/DirectedEdge.html">DirectedEdge</a></code>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#add_edge%28e%3ADirectedEdge%29-instance-method" class="signature"><strong>#add_edge</strong>(e : DirectedEdge)</a>
+        
+          <div class="summary"><p>Add a <code><a href="../../Cadmium/Util/EdgeWeightedDigraph/DirectedEdge.html">DirectedEdge</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#e%3AInt32-instance-method" class="signature"><strong>#e</strong> : Int32</a>
         
+          <div class="summary"><p>Get the number of edges saved.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#edges-instance-method" class="signature"><strong>#edges</strong></a>
         
+          <div class="summary"><p>Use callback on all edges.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#get_adj%28v%3AInt32%29-instance-method" class="signature"><strong>#get_adj</strong>(v : Int32)</a>
+        
+          <div class="summary"><p>Use callback on all edges from v.</p></div>
         
       </li>
     
@@ -591,6 +609,8 @@
     
       <li class="entry-summary">
         <a href="#v-instance-method" class="signature"><strong>#v</strong></a>
+        
+          <div class="summary"><p>Get the number of vertexs saved.</p></div>
         
       </li>
     
@@ -635,10 +655,12 @@
         <a class="method-permalink" href="#new-class-method">#</a>
       </div>
       
+        <div class="doc"><p>Create a new <code><a href="../../Cadmium/Util/EdgeWeightedDigraph.html">EdgeWeightedDigraph</a></code>.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/edge_weighted_digraph.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/c8aba91f5c40e8f8356177ce918c583a06f31c90/src/cadmium/util/edge_weighted_digraph.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -658,10 +680,12 @@
         <a class="method-permalink" href="#add%28from%3AInt32%2Cto%3AInt32%2Cweight%3AFloat64%29-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Create and add a new <code><a href="../../Cadmium/Util/EdgeWeightedDigraph/DirectedEdge.html">DirectedEdge</a></code>.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/edge_weighted_digraph.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/c8aba91f5c40e8f8356177ce918c583a06f31c90/src/cadmium/util/edge_weighted_digraph.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -674,10 +698,12 @@
         <a class="method-permalink" href="#add_edge%28e%3ADirectedEdge%29-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Add a <code><a href="../../Cadmium/Util/EdgeWeightedDigraph/DirectedEdge.html">DirectedEdge</a></code>.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/edge_weighted_digraph.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/c8aba91f5c40e8f8356177ce918c583a06f31c90/src/cadmium/util/edge_weighted_digraph.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -690,10 +716,12 @@
         <a class="method-permalink" href="#e%3AInt32-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Get the number of edges saved.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/edge_weighted_digraph.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/c8aba91f5c40e8f8356177ce918c583a06f31c90/src/cadmium/util/edge_weighted_digraph.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -706,10 +734,12 @@
         <a class="method-permalink" href="#edges-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Use callback on all edges.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/edge_weighted_digraph.cr#L41" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/c8aba91f5c40e8f8356177ce918c583a06f31c90/src/cadmium/util/edge_weighted_digraph.cr#L51" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -722,10 +752,12 @@
         <a class="method-permalink" href="#get_adj%28v%3AInt32%29-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Use callback on all edges from v.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/edge_weighted_digraph.cr#L36" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/c8aba91f5c40e8f8356177ce918c583a06f31c90/src/cadmium/util/edge_weighted_digraph.cr#L45" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -741,7 +773,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/edge_weighted_digraph.cr#L51" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/c8aba91f5c40e8f8356177ce918c583a06f31c90/src/cadmium/util/edge_weighted_digraph.cr#L61" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -754,10 +786,12 @@
         <a class="method-permalink" href="#v-instance-method">#</a>
       </div>
       
+        <div class="doc"><p>Get the number of vertexs saved.</p></div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/edge_weighted_digraph.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/c8aba91f5c40e8f8356177ce918c583a06f31c90/src/cadmium/util/edge_weighted_digraph.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
