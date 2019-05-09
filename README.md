@@ -25,6 +25,7 @@ For full API documentation check out [the docs](https://watzon.github.io/cadmium
 - [Transliterator](#transliterator)
 - [Sentiment Analysis](#sentiment-analysis)
 - [Tries](#tries)
+- [EdgeWeightedDigraph](#edge-weighted-digraph)
 - [Readability](#readability)
 - [WordNet](#wordnet)
 - [Roadmap](#roadmap)
