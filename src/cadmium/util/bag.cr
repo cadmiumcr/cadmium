@@ -24,6 +24,7 @@ module Cadmium
         @dictionary.includes?(item)
       end
 
+      # Unpack the bag , and get all items
       def unpack
         @dictionary.dup
       end
