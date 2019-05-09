@@ -409,6 +409,24 @@ trie.matches_on_path("meeting")
 # => ["m", "me", "meet"]
 ```
 
+### Edge Weighted Digraph
+
+EdgeWeightedDigraph represents a digraph, you can add an edge, get the number vertexes, edges, get all edges and use toString to print the Digraph.
+
+```crystal
+digraph = Cadmium::Util::EdgeWeightedDigraph.new
+
+digraph.add(5, 4, 0.35)
+digraph.add(5, 1, 0.32)
+digraph.add(1, 3, 0.29)
+digraph.add(6, 2, 0.40)
+digraph.add(3, 6, 0.52)
+digraph.add(6, 4, 0.93)
+
+puts digraph.v # => 7
+puts digraph.e # => 6
+```
+
 ### Readability
 
 Analyze blocks of text and determine, using various algorithms, the readability of the text.
@@ -506,11 +524,11 @@ This is all I want to have done before a __v1.0__ release.
 - [x] Transliterator
 - [x] Sentiment Analysis
 - [x] Tries
+- [x] EdgeWeightedDigraph
 - [x] Readability
-- [ ] EdgeWeightedDigraph
+- [x] WordNet
 - [ ] ShortestPathTree
 - [ ] LongestPathTree
-- [x] WordNet
 - [ ] Spellcheck
 - [ ] POS Tagger
 

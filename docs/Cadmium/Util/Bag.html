@@ -14,7 +14,7 @@
 </script>
 
   <meta id="repository-name" content="github.com/watzon/cadmium">
-  <title>Cadmium::Tokenizer::WhitespaceTokenizer - github.com/watzon/cadmium</title>
+  <title>Cadmium::Util::Bag(T) - github.com/watzon/cadmium</title>
 </head>
 <body>
 
@@ -241,7 +241,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium/Tokenizer" data-name="cadmium::tokenizer">
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer" data-name="cadmium::tokenizer">
       <a href="../../Cadmium/Tokenizer.html">Tokenizer</a>
       
         <ul>
@@ -346,7 +346,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WhitespaceTokenizer" data-name="cadmium::tokenizer::whitespacetokenizer">
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WhitespaceTokenizer" data-name="cadmium::tokenizer::whitespacetokenizer">
       <a href="../../Cadmium/Tokenizer/WhitespaceTokenizer.html">WhitespaceTokenizer</a>
       
     </li>
@@ -391,12 +391,12 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util" data-name="cadmium::util">
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium/Util" data-name="cadmium::util">
       <a href="../../Cadmium/Util.html">Util</a>
       
         <ul>
   
-  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Bag" data-name="cadmium::util::bag(t)">
+  <li class=" current" data-id="github.com/watzon/cadmium/Cadmium/Util/Bag" data-name="cadmium::util::bag(t)">
       <a href="../../Cadmium/Util/Bag.html">Bag</a>
       
     </li>
@@ -505,12 +505,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Cadmium::Tokenizer::WhitespaceTokenizer
+  <span class="kind">struct</span> Cadmium::Util::Bag(T)
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Cadmium/Tokenizer/WhitespaceTokenizer.html">Cadmium::Tokenizer::WhitespaceTokenizer</a></li><li class="superclass"><a href="../../Cadmium/Tokenizer/RegexTokenizer.html">Cadmium::Tokenizer::RegexTokenizer</a></li><li class="superclass"><a href="../../Cadmium/Tokenizer/TokenizerBase.html">Cadmium::Tokenizer::TokenizerBase</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Cadmium/Util/Bag.html">Cadmium::Util::Bag(T)</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -531,26 +531,14 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/tokenizer/whitespace_tokenizer.cr#L5" target="_blank">
-        cadmium/tokenizer/whitespace_tokenizer.cr
+      <a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/bag.cr#L3" target="_blank">
+        cadmium/util/bag.cr
       </a>
     
     <br/>
   
 
 
-
-  
-    <h2>Constant Summary</h2>
-  
-  <dl>
-    
-      <dt class="entry-const" id="REGEX_PATTERN">
-        <strong>REGEX_PATTERN</strong> = <code><span class="s">/[^A-Za-zА-Яа-я0-9_]+/</span></code>
-      </dt>
-      
-    
-  </dl>
 
 
 
@@ -568,6 +556,31 @@
 
 
 
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#add%28element%3AT%29-instance-method" class="signature"><strong>#add</strong>(element : T)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#contains%28item%3AT%29-instance-method" class="signature"><strong>#contains</strong>(item : T)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#empty%3F-instance-method" class="signature"><strong>#empty?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unpack-instance-method" class="signature"><strong>#unpack</strong></a>
+        
+      </li>
+    
+  </ul>
+
 
 
 
@@ -575,48 +588,6 @@
 <div class="methods-inherited">
   
     
-
-  <h3>Instance methods inherited from class <code><a href="../../Cadmium/Tokenizer/RegexTokenizer.html">Cadmium::Tokenizer::RegexTokenizer</a></code></h3>
-  
-  
-    <a href="../../Cadmium/Tokenizer/RegexTokenizer.html#tokenize%28string%3AString%29%3AArray%28String%29-instance-method" class="tooltip">
-      <span>tokenize(string : String) : Array(String)</span>
-    tokenize</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from class <code><a href="../../Cadmium/Tokenizer/RegexTokenizer.html">Cadmium::Tokenizer::RegexTokenizer</a></code></h3>
-  
-  
-    <a href="../../Cadmium/Tokenizer/RegexTokenizer.html#new%28pattern%3ARegex%2C%2A%2Cgaps%3Dnil%2Cdiscard_empty%3Dnil%29-class-method" class="tooltip">
-      <span>new(pattern : Regex, *, gaps = <span class="n">nil</span>, discard_empty = <span class="n">nil</span>)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from class <code><a href="../../Cadmium/Tokenizer/TokenizerBase.html">Cadmium::Tokenizer::TokenizerBase</a></code></h3>
-  
-  
-    <a href="../../Cadmium/Tokenizer/TokenizerBase.html#tokenize%28string%3AString%29%3AArray%28String%29-instance-method" class="tooltip">
-      <span>tokenize(string : String) : Array(String)</span>
-    tokenize</a>, 
-    
-  
-    <a href="../../Cadmium/Tokenizer/TokenizerBase.html#trim%28arr%29-instance-method" class="tooltip">
-      <span>trim(arr)</span>
-    trim</a>
-    
-  
 
 
     
@@ -662,7 +633,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/tokenizer/whitespace_tokenizer.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/bag.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -671,6 +642,73 @@
 
 
 
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="add(element:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>add</strong>(element : T)
+
+        <a class="method-permalink" href="#add%28element%3AT%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/bag.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="contains(item:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>contains</strong>(item : T)
+
+        <a class="method-permalink" href="#contains%28item%3AT%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/bag.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="empty?-instance-method">
+      <div class="signature">
+        
+        def <strong>empty?</strong>
+
+        <a class="method-permalink" href="#empty%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/bag.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unpack-instance-method">
+      <div class="signature">
+        
+        def <strong>unpack</strong>
+
+        <a class="method-permalink" href="#unpack-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/52a29d155c0f59a833d0e895962cb5b12ab03fd7/src/cadmium/util/bag.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
