@@ -127,13 +127,7 @@ module Cadmium
         forms.reject { |form| Lemma.find(form, pos).nil? }.uniq
       end
 
-      # ported from nltk python
-      # from jordanbg:
-      # Given an original string x
-      # 1. Apply rules once to the input to get y1, y2, y3, etc.
-      # 2. Return all that are in the database
-      # 3. If there are no matches, keep applying rules until you either
-      #    find a match or you can't go any further
+      # Get the root of a *form* by *pos*
       def self.morphy(form, pos)
         pos = pos.to_s
         pos = SYNSET_TYPES[pos] if SYNSET_TYPES.has_key?(pos)
@@ -171,6 +165,7 @@ module Cadmium
         return [] of String
       end
 
+      # Get all roots of a *form* regardless of part of speech
       def self.morphy(form)
         SYNSET_TYPES.values.map { |pos| self.morphy(form, pos) }.flatten.uniq
       end
@@ -278,8 +273,8 @@ module Cadmium
       #    (v) fall (descend in free fall under the influence of gravity; "The branch fell from the tree"; "The unfortunate hiker fell into a crevasse")
       #
       # for the second meaning of the verb "fall."
-      def to_s
-        "(#{@synset_type}) #{words.map { |x| x.tr("_", " ") }.join(", ")} (#{@gloss})"
+      def to_s(io)
+        io << "(#{@synset_type}) #{words.map { |x| x.tr("_", " ") }.join(", ")} (#{@gloss})"
       end
     end
   end

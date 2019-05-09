@@ -53,8 +53,8 @@ module Cadmium
 
       # Returns a compact string representation of this lemma, e.g. "fall, v" for
       # the verb form of the word "fall".
-      def to_s
-        [@word, @pos].join(",")
+      def to_s(io)
+        io << @word << ", " << @pos
       end
 
       # Find all lemmas for this word across all known parts of speech

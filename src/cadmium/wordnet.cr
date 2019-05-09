@@ -5,25 +5,33 @@ require "./wordnet/pointers"
 require "./wordnet/synset"
 
 module Cadmium
+  # API to grant full access to the Stanford WordNet project allowing
+  # you to find words, definitions (gloss), hypernyms, hyponyms,
+  # antonyms, etc.
   module WordNet
+    # Find a lemma for a given word and pos. Valid parts of speech are:
+    # :adj, :adv, :noun, :verb. Additionally, you can use the shorthand
+    # forms of each of these (:a, :r, :n, :v)
     def self.lookup(word : String, pos : Symbol | String)
-      lemma = Lemma.find(word, pos)
-      return lemma ? lemma.synsets : [] of Synset
+      Lemma.find(word, pos)
     end
 
+    # Find all lemmas for this word across all known parts of speech
     def self.lookup(word : String)
-      lemmas = Lemma.find_all(word)
-      return lemmas.map { |lemma| lemma.synsets.flatten }.flatten
+      Lemma.find_all(word)
     end
 
+    # Create a `Synset` by *offset* and *pos*
     def self.get(offset : Int32, pos : Symbol | String)
       return Synset.new(pos, offset)
     end
 
+    # Get the root of a *form*
     def self.morphy(form)
       Synset.morphy(form)
     end
 
+    # Get the root of a *form* with a specific *pos*
     def self.morphy(form, pos)
       Synset.morphy(form, pos)
     end

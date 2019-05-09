@@ -456,28 +456,27 @@ This WordNet implimentation is based almost completely on [doches](https://githu
 Using it is easy with Cadmium's API.
 
 ```crystal
-# Lookup a single word and get all parts of speech
-synsets = Cadmium::WordNet.lookup("horse")
-synsets.each do |synset|
-  puts "---------------------------------------------"
-  puts synset.synset_offset
-  puts synset.pos
-  puts synset.gloss
-  puts synset.word_counts
+# Lookup a single word with a specific part of speech
+lemma = Cadmium::WordNet.lookup("horse", :n)
+puts lemma.word.capitalize + " - " + lemma.pos
+lemma.synsets.each_with_index do |synset, i|
+  puts "#{i + 1}. #{synset.gloss}"
 end
 
-# Lookup a single word with a specific part of speech
-synsets = Cadmium::WordNet.lookup("horse", :v) # :v is for verb
-synsets.each do |synset|
-  puts "---------------------------------------------"
-  puts synset.synset_offset
-  puts synset.pos
-  puts synset.gloss
-  puts synset.word_counts
+# Lookup a single word accross all parts of speech
+lemmas = Cadmium::WordNet.lookup("horse")
+lemmas = lemmas.map { |l| {word: l.word, pos: l.pos, synsets: l.synsets} }
+lemmas.each do |l|
+  word = l[:word].capitalize
+  pos = l[:pos]
+  l[:synsets].each do |s|
+    puts "#{word} (#{pos}) - #{s.gloss}"
+  end
 end
+
 
 # Lookup a definition by offset and part of speech
-synset = Cadmium::WordNet.get(4424418, :n) # :n is for noun
+synset = Cadmium::WordNet.get(4424418, :n)
 puts "---------------------------------------------"
 puts synset.synset_offset
 puts synset.pos
