@@ -531,6 +531,7 @@ This is all I want to have done before a __v1.0__ release.
 - [ ] LongestPathTree
 - [ ] Spellcheck
 - [ ] POS Tagger
+- [ ] Word2Vec
 
 ## Contributing
 
