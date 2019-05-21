@@ -1,4 +1,5 @@
 ![Logo](img/cadmium.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwatzon%2Fcadmium.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fwatzon%2Fcadmium?ref=badge_shield)
 
 [![Travis](https://img.shields.io/travis/watzon/cadmium.svg)](https://travis-ci.org/watzon/cadmium) ![license](https://img.shields.io/github/license/watzon/cadmium.svg)
 
@@ -544,3 +545,7 @@ This is all I want to have done before a __v1.0__ release.
 ## Contributors
 
 - [watzon](https://github.com/watzon) Chris Watson - creator, maintainer
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwatzon%2Fcadmium.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fwatzon%2Fcadmium?ref=badge_large)
