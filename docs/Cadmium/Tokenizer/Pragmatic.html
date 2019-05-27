@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../../js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "../../";
+</script>
+
+  <meta id="repository-name" content="github.com/watzon/cadmium">
+  <title>Cadmium::Tokenizer::Pragmatic - github.com/watzon/cadmium</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Array" data-name="array(t)">
+      <a href="../../Array.html">Array</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium" data-name="cadmium">
+      <a href="../../Cadmium.html">Cadmium</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifier" data-name="cadmium::classifier">
+      <a href="../../Cadmium/Classifier.html">Classifier</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Classifiers" data-name="cadmium::classifiers">
+      <a href="../../Cadmium/Classifiers.html">Classifiers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifiers/Bayes" data-name="cadmium::classifiers::bayes">
+      <a href="../../Cadmium/Classifiers/Bayes.html">Bayes</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifiers/LogisticRegression" data-name="cadmium::classifiers::logisticregression">
+      <a href="../../Cadmium/Classifiers/LogisticRegression.html">LogisticRegression</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Distance" data-name="cadmium::distance">
+      <a href="../../Cadmium/Distance.html">Distance</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Distance/JaroWinkler" data-name="cadmium::distance::jarowinkler">
+      <a href="../../Cadmium/Distance/JaroWinkler.html">JaroWinkler</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Distance/Levenshtein" data-name="cadmium::distance::levenshtein">
+      <a href="../../Cadmium/Distance/Levenshtein.html">Levenshtein</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Graph" data-name="cadmium::graph">
+      <a href="../../Cadmium/Graph.html">Graph</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Graph/EdgeWeightedDigraph" data-name="cadmium::graph::edgeweighteddigraph">
+      <a href="../../Cadmium/Graph/EdgeWeightedDigraph.html">EdgeWeightedDigraph</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Graph/EdgeWeightedDigraph/Bag" data-name="cadmium::graph::edgeweighteddigraph::bag(t)">
+      <a href="../../Cadmium/Graph/EdgeWeightedDigraph/Bag.html">Bag</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Graph/EdgeWeightedDigraph/DirectedEdge" data-name="cadmium::graph::edgeweighteddigraph::directededge">
+      <a href="../../Cadmium/Graph/EdgeWeightedDigraph/DirectedEdge.html">DirectedEdge</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Graph/ShortestPath" data-name="cadmium::graph::shortestpath">
+      <a href="../../Cadmium/Graph/ShortestPath.html">ShortestPath</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Inflector" data-name="cadmium::inflector">
+      <a href="../../Cadmium/Inflector.html">Inflector</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/CountInflector" data-name="cadmium::inflector::countinflector">
+      <a href="../../Cadmium/Inflector/CountInflector.html">CountInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/FormSet" data-name="cadmium::inflector::formset">
+      <a href="../../Cadmium/Inflector/FormSet.html">FormSet</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/IntExtension" data-name="cadmium::inflector::intextension">
+      <a href="../../Cadmium/Inflector/IntExtension.html">IntExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/NounInflector" data-name="cadmium::inflector::nouninflector">
+      <a href="../../Cadmium/Inflector/NounInflector.html">NounInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/PresentVerbInflector" data-name="cadmium::inflector::presentverbinflector">
+      <a href="../../Cadmium/Inflector/PresentVerbInflector.html">PresentVerbInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/StringExtension" data-name="cadmium::inflector::stringextension">
+      <a href="../../Cadmium/Inflector/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Inflector/TenseInflector" data-name="cadmium::inflector::tenseinflector">
+      <a href="../../Cadmium/Inflector/TenseInflector.html">TenseInflector</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/NGrams" data-name="cadmium::ngrams">
+      <a href="../../Cadmium/NGrams.html">NGrams</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Normalizers" data-name="cadmium::normalizers">
+      <a href="../../Cadmium/Normalizers.html">Normalizers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Normalizers/RemoveDiacritics" data-name="cadmium::normalizers::removediacritics">
+      <a href="../../Cadmium/Normalizers/RemoveDiacritics.html">RemoveDiacritics</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Phonetics" data-name="cadmium::phonetics">
+      <a href="../../Cadmium/Phonetics.html">Phonetics</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics/Metaphone" data-name="cadmium::phonetics::metaphone">
+      <a href="../../Cadmium/Phonetics/Metaphone.html">Metaphone</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics/SoundEx" data-name="cadmium::phonetics::soundex">
+      <a href="../../Cadmium/Phonetics/SoundEx.html">SoundEx</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics/StringExtension" data-name="cadmium::phonetics::stringextension">
+      <a href="../../Cadmium/Phonetics/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Readability" data-name="cadmium::readability">
+      <a href="../../Cadmium/Readability.html">Readability</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Sentiment" data-name="cadmium::sentiment">
+      <a href="../../Cadmium/Sentiment.html">Sentiment</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Sentiment/StringExtension" data-name="cadmium::sentiment::stringextension">
+      <a href="../../Cadmium/Sentiment/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Stemmer" data-name="cadmium::stemmer">
+      <a href="../../Cadmium/Stemmer.html">Stemmer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/PorterStemmer" data-name="cadmium::stemmer::porterstemmer">
+      <a href="../../Cadmium/Stemmer/PorterStemmer.html">PorterStemmer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/Stemmer" data-name="cadmium::stemmer::stemmer">
+      <a href="../../Cadmium/Stemmer/Stemmer.html">Stemmer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/StringExtension" data-name="cadmium::stemmer::stringextension">
+      <a href="../../Cadmium/Stemmer/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/Token" data-name="cadmium::stemmer::token">
+      <a href="../../Cadmium/Stemmer/Token.html">Token</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/TfIdf" data-name="cadmium::tfidf">
+      <a href="../../Cadmium/TfIdf.html">TfIdf</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/TfIdf/Document" data-name="cadmium::tfidf::document">
+      <a href="../../Cadmium/TfIdf/Document.html">Document</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium/Tokenizer" data-name="cadmium::tokenizer">
+      <a href="../../Cadmium/Tokenizer.html">Tokenizer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/AggressiveTokenizer" data-name="cadmium::tokenizer::aggressivetokenizer">
+      <a href="../../Cadmium/Tokenizer/AggressiveTokenizer.html">AggressiveTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/CaseTokenizer" data-name="cadmium::tokenizer::casetokenizer">
+      <a href="../../Cadmium/Tokenizer/CaseTokenizer.html">CaseTokenizer</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic" data-name="cadmium::tokenizer::pragmatic">
+      <a href="../../Cadmium/Tokenizer/Pragmatic.html">Pragmatic</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic/Languages" data-name="cadmium::tokenizer::pragmatic::languages">
+      <a href="../../Cadmium/Tokenizer/Pragmatic/Languages.html">Languages</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic/Languages/Base" data-name="cadmium::tokenizer::pragmatic::languages::base">
+      <a href="../../Cadmium/Tokenizer/Pragmatic/Languages/Base.html">Base</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic/Languages/Common" data-name="cadmium::tokenizer::pragmatic::languages::common">
+      <a href="../../Cadmium/Tokenizer/Pragmatic/Languages/Common.html">Common</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic/Languages/English" data-name="cadmium::tokenizer::pragmatic::languages::english">
+      <a href="../../Cadmium/Tokenizer/Pragmatic/Languages/English.html">English</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic/MentionsOptions" data-name="cadmium::tokenizer::pragmatic::mentionsoptions">
+      <a href="../../Cadmium/Tokenizer/Pragmatic/MentionsOptions.html">MentionsOptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic/NumbersOptions" data-name="cadmium::tokenizer::pragmatic::numbersoptions">
+      <a href="../../Cadmium/Tokenizer/Pragmatic/NumbersOptions.html">NumbersOptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic/PunctuationOptions" data-name="cadmium::tokenizer::pragmatic::punctuationoptions">
+      <a href="../../Cadmium/Tokenizer/Pragmatic/PunctuationOptions.html">PunctuationOptions</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/RegexTokenizer" data-name="cadmium::tokenizer::regextokenizer">
+      <a href="../../Cadmium/Tokenizer/RegexTokenizer.html">RegexTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/SentenceTokenizer" data-name="cadmium::tokenizer::sentencetokenizer">
+      <a href="../../Cadmium/Tokenizer/SentenceTokenizer.html">SentenceTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/StringExtension" data-name="cadmium::tokenizer::stringextension">
+      <a href="../../Cadmium/Tokenizer/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/TokenizerBase" data-name="cadmium::tokenizer::tokenizerbase">
+      <a href="../../Cadmium/Tokenizer/TokenizerBase.html">TokenizerBase</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/TreebankWordTokenizer" data-name="cadmium::tokenizer::treebankwordtokenizer">
+      <a href="../../Cadmium/Tokenizer/TreebankWordTokenizer.html">TreebankWordTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WhitespaceTokenizer" data-name="cadmium::tokenizer::whitespacetokenizer">
+      <a href="../../Cadmium/Tokenizer/WhitespaceTokenizer.html">WhitespaceTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WordPunctuationTokenizer" data-name="cadmium::tokenizer::wordpunctuationtokenizer">
+      <a href="../../Cadmium/Tokenizer/WordPunctuationTokenizer.html">WordPunctuationTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/WordTokenizer" data-name="cadmium::tokenizer::wordtokenizer">
+      <a href="../../Cadmium/Tokenizer/WordTokenizer.html">WordTokenizer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Transliterator" data-name="cadmium::transliterator">
+      <a href="../../Cadmium/Transliterator.html">Transliterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Transliterator/StringExtension" data-name="cadmium::transliterator::stringextension">
+      <a href="../../Cadmium/Transliterator/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Trie" data-name="cadmium::trie">
+      <a href="../../Cadmium/Trie.html">Trie</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util" data-name="cadmium::util">
+      <a href="../../Cadmium/Util.html">Util</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Paragraph" data-name="cadmium::util::paragraph">
+      <a href="../../Cadmium/Util/Paragraph.html">Paragraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Sentence" data-name="cadmium::util::sentence">
+      <a href="../../Cadmium/Util/Sentence.html">Sentence</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/StopWords" data-name="cadmium::util::stopwords">
+      <a href="../../Cadmium/Util/StopWords.html">StopWords</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util/Syllable" data-name="cadmium::util::syllable">
+      <a href="../../Cadmium/Util/Syllable.html">Syllable</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Syllable/Guess" data-name="cadmium::util::syllable::guess">
+      <a href="../../Cadmium/Util/Syllable/Guess.html">Guess</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/WordNet" data-name="cadmium::wordnet">
+      <a href="../../Cadmium/WordNet.html">WordNet</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/DB" data-name="cadmium::wordnet::db">
+      <a href="../../Cadmium/WordNet/DB.html">DB</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Lemma" data-name="cadmium::wordnet::lemma">
+      <a href="../../Cadmium/WordNet/Lemma.html">Lemma</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Pointer" data-name="cadmium::wordnet::pointer">
+      <a href="../../Cadmium/WordNet/Pointer.html">Pointer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Synset" data-name="cadmium::wordnet::synset">
+      <a href="../../Cadmium/WordNet/Synset.html">Synset</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Int" data-name="int">
+      <a href="../../Int.html">Int</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/String" data-name="string">
+      <a href="../../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Cadmium::Tokenizer::Pragmatic
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Cadmium/Tokenizer/Pragmatic.html">Cadmium::Tokenizer::Pragmatic</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>This tokenizer is based off of the <a href="" target="_blank">pragmatic_tokenizer</a> ruby gem. It is much more robust than any
+of the other tokenizers, but has more features than you'll need for most use cases.</p>
+
+<h3>Constructor Options</h3>
+
+<ul><li><strong>filter_languages</strong> : <code><a href="../../Array.html">Array</a></code> - user-supplied array of languages from which that language's stop words, abbreviations and contractions should be used when calculating the resulting tokens</li><li><strong>language</strong> : <code>Symbol | <a href="../../String.html">String</a></code> - two character ISO 639-1 code; can be a String or symbol (default :en)</li><li><strong>expand_contractions</strong> : <code>Bool</code> - (default: false)</li><li><strong>remove_stop_words</strong> : <code>Bool</code> - (default: false)</li><li><strong>abbreviations</strong> : <code>Set(<a href="../../String.html">String</a>)</code> - user-supplied array of abbreviations (each element should be downcased with final period removed)</li><li><strong>stop_words</strong> : <code>Set(<a href="../../String.html">String</a>)</code> - user-supplied array of stop words - array elements should be of the String class</li><li><strong>contractions</strong> : <code>Hash(<a href="../../String.html">String</a>, <a href="../../String.html">String</a>)</code> - user-supplied hash of contractions (key is the contracted form; value is the expanded form - both the key and value should be downcased)</li><li><strong>punctuation</strong> : <code><a href="../../Cadmium/Tokenizer/Pragmatic/PunctuationOptions.html">PunctuationOptions</a></code> - see description below</li><ul><li><code>all:</code> Does not remove any punctuation from the result</li><li><code>semi:</code> Removes common punctuation (such as full stops) and does not remove less common punctuation
+  (such as questions marks). This is useful for text alignment as less common punctuation can help
+  identify a sentence (like a fingerprint) while common punctuation (like stop words) should be removed.</li><li><code>none:</code> Removes all punctuation from the result</li><li><code>only:</code> Removes everything except punctuation. The returned result is an array of only the punctuation.</li></ul><li><strong>numbers</strong> : <code>NumberOptions</code> - see description below</li><ul><li><code>all:</code> Does not remove any numbers from the result</li><li><code>semi:</code> Removes tokens that include only digits</li><li><code>none:</code> Removes all tokens that include a number from the result (including Roman numerals)</li><li><code>only:</code> Removes everything except tokens that include a number</li></ul><li><strong>minimum_length</strong> : <code>Int32</code> - minimum length of the token in characters</li><li><strong>long_word_split</strong> : <code>Int32</code> - the specified length to split long words at any hyphen or underscore. 0 = no split (default).</li><li><strong>mentions</strong> : <code>MentionOptions</code> - what to do with mentions (such as '@watzon')</li><ul><li><code>remove:</code> will completely remove it</li><li><code>keep_and_clean:</code> will prefix</li><li><code>keep_original:</code> don't alter the token at all (default)</li></ul><li><strong>hashtags</strong> : <code>HashtagOptions</code> - what to do with hashtags (such as '#crystal')</li><ul><li><code>remove:</code> will completely remove it,</li><li><code>keep_and_clean:</code> will prefix</li><li><code>keep_original:</code> don't alter the token at all (default)</li></ul><li><strong>downcase</strong> : <code>Bool</code> - downcase all tokens (default: true)</li><li><strong>clean</strong> : <code>Bool</code> - removes some symbols (default: false)</li><li><strong>classic_filter</strong> : <code>Bool</code> - removes dots from acronyms and 's from the end of tokens. <a href="# https://lucene.apache.org/solr/guide/6_6/filter-descriptions.html#FilterDescriptions-ClassicFilter" target="_blank">link</a> (default: false)</li><li><strong>remove_emoji</strong> : <code>Bool</code> - strip emojis (default: false)</li><li><strong>remove_emails</strong> : <code>Bool</code> - strip emails (default: false)</li><li><strong>remove_urls</strong> : <code>Bool</code> - strip urls (default: false)</li><li><strong>remove_domains</strong> : <code>Bool</code> - strip domains (default: false)</li></ul>
+
+<h3>Examples</h3>
+
+<pre><code>tokenizer <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">Tokenizers</span><span class="t">::</span><span class="t">Pragmatic</span>.<span class="k">new</span>
+tokenizer.tokenize(<span class="s">&quot;Hello world.&quot;</span>)
+<span class="c"># =&gt; [&quot;hello&quot;, &quot;world&quot;, &quot;.&quot;]</span>
+
+tokenizer.tokenize(<span class="s">&quot;Jan. 2015 was 20% colder than now. But not in inter- and outer-space.&quot;</span>)
+<span class="c"># =&gt; [&quot;jan.&quot;, &quot;2015&quot;, &quot;was&quot;, &quot;20%&quot;, &quot;colder&quot;, &quot;than&quot;, &quot;now&quot;, &quot;.&quot;, &quot;but&quot;, &quot;not&quot;, &quot;in&quot;, &quot;inter&quot;, &quot;-&quot;, &quot;and&quot;, &quot;outer-space&quot;, &quot;.&quot;]</span>
+
+tokenizer.contractions <span class="o">=</span> {<span class="s">&quot;supa&#39;soo&quot;</span> => <span class="s">&quot;super smooth&quot;</span>}
+tokenizer.expand_contractions <span class="o">=</span> <span class="n">true</span>
+tokenizer.tokenize(<span class="s">&quot;Hello supa&#39;soo guy.&quot;</span>)
+<span class="c"># =&gt; [&quot;hello&quot;, &quot;super&quot;, &quot;smooth&quot;, &quot;guy&quot;, &quot;.&quot;]</span>
+
+tokenizer.clean <span class="o">=</span> <span class="n">true</span>
+tokenizer.tokenize(<span class="s">&quot;This sentence has a long string of dots .......................&quot;</span>)
+<span class="c"># =&gt; [&quot;this&quot;, &quot;sentence&quot;, &quot;has&quot;, &quot;a&quot;, &quot;long&quot;, &quot;string&quot;, &quot;of&quot;, &quot;dots&quot;]</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic/regex.cr#L3" target="_blank">
+        cadmium/tokenizer/pragmatic/regex.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic/languages/base.cr#L3" target="_blank">
+        cadmium/tokenizer/pragmatic/languages/base.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic/languages/common.cr#L5" target="_blank">
+        cadmium/tokenizer/pragmatic/languages/common.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic/languages/english.cr#L6" target="_blank">
+        cadmium/tokenizer/pragmatic/languages/english.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic/languages.cr#L7" target="_blank">
+        cadmium/tokenizer/pragmatic/languages.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic/pre_processor.cr#L5" target="_blank">
+        cadmium/tokenizer/pragmatic/pre_processor.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic/post_processor.cr#L3" target="_blank">
+        cadmium/tokenizer/pragmatic/post_processor.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L72" target="_blank">
+        cadmium/tokenizer/pragmatic_tokenizer.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="DOT">
+        <strong>DOT</strong> = <code><span class="s">&quot;.&quot;</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MAX_TOKEN_LENGTH">
+        <strong>MAX_TOKEN_LENGTH</strong> = <code><span class="n">50</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="NOTHING">
+        <strong>NOTHING</strong> = <code><span class="s">&quot;&quot;</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="SINGLE_QUOTE">
+        <strong>SINGLE_QUOTE</strong> = <code><span class="s">&quot;&#39;&quot;</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="SPACE">
+        <strong>SPACE</strong> = <code><span class="s">&quot; &quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28%2A%2Clanguage%3D%3Aen%2Cabbreviations%3DSet%28String%29.new%2Cstop_words%3DSet%28String%29.new%2Ccontractions%3D%7B%7DofString%3D%3EString%2Cfilter_languages%3D%5B%5DofString%7CSymbol%2Chashtags%3AMentionsOptions%3D%3Akeep_original%2Cmentions%3AMentionsOptions%3D%3Akeep_original%2Cpunctuation%3APunctuationOptions%3D%3Aall%2Cnumbers%3ANumbersOptions%3D%3Aall%2Cexpand_contractions%3Dfalse%2Cremove_stop_words%3Dfalse%2Cremove_emoji%3Dfalse%2Cremove_emails%3Dfalse%2Cremove_urls%3Dfalse%2Cremove_domains%3Dfalse%2Cclean%3Dfalse%2Cclassic_filter%3Dfalse%2Cdowncase%3Dtrue%2Cminimum_length%3D0%2Clong_word_split%3D0%29-class-method" class="signature"><strong>.new</strong>(*, language = <span class="n">:en</span>, abbreviations = <span class="t">Set</span>(<span class="t">String</span>).<span class="k">new</span>, stop_words = <span class="t">Set</span>(<span class="t">String</span>).<span class="k">new</span>, contractions = {} <span class="k">of</span> <span class="t">String</span> => <span class="t">String</span>, filter_languages = <span class="o">[]</span> <span class="k">of</span> <span class="t">String</span> <span class="o">|</span> <span class="t">Symbol</span>, hashtags : MentionsOptions = <span class="n">:keep_original</span>, mentions : MentionsOptions = <span class="n">:keep_original</span>, punctuation : PunctuationOptions = <span class="n">:all</span>, numbers : NumbersOptions = <span class="n">:all</span>, expand_contractions = <span class="n">false</span>, remove_stop_words = <span class="n">false</span>, remove_emoji = <span class="n">false</span>, remove_emails = <span class="n">false</span>, remove_urls = <span class="n">false</span>, remove_domains = <span class="n">false</span>, clean = <span class="n">false</span>, classic_filter = <span class="n">false</span>, downcase = <span class="n">true</span>, minimum_length = <span class="n">0</span>, long_word_split = <span class="n">0</span>)</a>
+        
+          <div class="summary"><p>Creates a new Pragmatic tokenizer.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#abbreviations%3ASet%28String%29-instance-method" class="signature"><strong>#abbreviations</strong> : Set(String)</a>
+        
+          <div class="summary"><p>Set of recognized abbreviations</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#abbreviations%3D%28abbreviations%3ASet%28String%29%29-instance-method" class="signature"><strong>#abbreviations=</strong>(abbreviations : Set(String))</a>
+        
+          <div class="summary"><p>Set of recognized abbreviations</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#classic_filter%3ABool-instance-method" class="signature"><strong>#classic_filter</strong> : Bool</a>
+        
+          <div class="summary"><p>Run the classic filter?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#classic_filter%3D%28classic_filter%3ABool%29-instance-method" class="signature"><strong>#classic_filter=</strong>(classic_filter : Bool)</a>
+        
+          <div class="summary"><p>Run the classic filter?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clean%3ABool-instance-method" class="signature"><strong>#clean</strong> : Bool</a>
+        
+          <div class="summary"><p>Run the cleaner after we've tokenized?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clean%3D%28clean%3ABool%29-instance-method" class="signature"><strong>#clean=</strong>(clean : Bool)</a>
+        
+          <div class="summary"><p>Run the cleaner after we've tokenized?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#contractions%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#contractions</strong> : Hash(String, String)</a>
+        
+          <div class="summary"><p>Contractions to be replaced</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#contractions%3D%28contractions%3AHash%28String%2CString%29%29-instance-method" class="signature"><strong>#contractions=</strong>(contractions : Hash(String, String))</a>
+        
+          <div class="summary"><p>Contractions to be replaced</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#downcase%3ABool-instance-method" class="signature"><strong>#downcase</strong> : Bool</a>
+        
+          <div class="summary"><p>Downcase all tokens?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#downcase%3D%28downcase%3ABool%29-instance-method" class="signature"><strong>#downcase=</strong>(downcase : Bool)</a>
+        
+          <div class="summary"><p>Downcase all tokens?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expand_contractions%3ABool-instance-method" class="signature"><strong>#expand_contractions</strong> : Bool</a>
+        
+          <div class="summary"><p>Do we want to expand contractions ("he's" => "he is")</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expand_contractions%3D%28expand_contractions%3ABool%29-instance-method" class="signature"><strong>#expand_contractions=</strong>(expand_contractions : Bool)</a>
+        
+          <div class="summary"><p>Do we want to expand contractions ("he's" => "he is")</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#filter_languages%3AArray%28String%7CSymbol%29-instance-method" class="signature"><strong>#filter_languages</strong> : Array(String | Symbol)</a>
+        
+          <div class="summary"><p>Other languages to include in the filtering of abbreviations, contractions, and stop words</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#filter_languages%3D%28filter_languages%3AArray%28String%7CSymbol%29%29-instance-method" class="signature"><strong>#filter_languages=</strong>(filter_languages : Array(String | Symbol))</a>
+        
+          <div class="summary"><p>Other languages to include in the filtering of abbreviations, contractions, and stop words</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hashtags%3AMentionsOptions-instance-method" class="signature"><strong>#hashtags</strong> : MentionsOptions</a>
+        
+          <div class="summary"><p>What to do with hashtags (<code>#awesome</code>)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hashtags%3D%28hashtags%3AMentionsOptions%29-instance-method" class="signature"><strong>#hashtags=</strong>(hashtags : MentionsOptions)</a>
+        
+          <div class="summary"><p>What to do with hashtags (<code>#awesome</code>)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#long_word_split%3AInt32-instance-method" class="signature"><strong>#long_word_split</strong> : Int32</a>
+        
+          <div class="summary"><p>The specified length to split long words at any hyphen or underscore</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#long_word_split%3D%28long_word_split%3AInt32%29-instance-method" class="signature"><strong>#long_word_split=</strong>(long_word_split : Int32)</a>
+        
+          <div class="summary"><p>The specified length to split long words at any hyphen or underscore</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mentions%3AMentionsOptions-instance-method" class="signature"><strong>#mentions</strong> : MentionsOptions</a>
+        
+          <div class="summary"><p>What to do with mentions (<code>@watzon</code>)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mentions%3D%28mentions%3AMentionsOptions%29-instance-method" class="signature"><strong>#mentions=</strong>(mentions : MentionsOptions)</a>
+        
+          <div class="summary"><p>What to do with mentions (<code>@watzon</code>)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#minimum_length%3AInt32-instance-method" class="signature"><strong>#minimum_length</strong> : Int32</a>
+        
+          <div class="summary"><p>Minimum length for tokens</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#minimum_length%3D%28minimum_length%3AInt32%29-instance-method" class="signature"><strong>#minimum_length=</strong>(minimum_length : Int32)</a>
+        
+          <div class="summary"><p>Minimum length for tokens</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#numbers%3ANumbersOptions-instance-method" class="signature"><strong>#numbers</strong> : NumbersOptions</a>
+        
+          <div class="summary"><p>What to do with numbers</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#numbers%3D%28numbers%3ANumbersOptions%29-instance-method" class="signature"><strong>#numbers=</strong>(numbers : NumbersOptions)</a>
+        
+          <div class="summary"><p>What to do with numbers</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#punctuation%3APunctuationOptions-instance-method" class="signature"><strong>#punctuation</strong> : PunctuationOptions</a>
+        
+          <div class="summary"><p>What to do with punctuation</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#punctuation%3D%28punctuation%3APunctuationOptions%29-instance-method" class="signature"><strong>#punctuation=</strong>(punctuation : PunctuationOptions)</a>
+        
+          <div class="summary"><p>What to do with punctuation</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_domains%3ABool-instance-method" class="signature"><strong>#remove_domains</strong> : Bool</a>
+        
+          <div class="summary"><p>Should we remove domains</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_domains%3D%28remove_domains%3ABool%29-instance-method" class="signature"><strong>#remove_domains=</strong>(remove_domains : Bool)</a>
+        
+          <div class="summary"><p>Should we remove domains</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_emails%3ABool-instance-method" class="signature"><strong>#remove_emails</strong> : Bool</a>
+        
+          <div class="summary"><p>Should we remove emails</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_emails%3D%28remove_emails%3ABool%29-instance-method" class="signature"><strong>#remove_emails=</strong>(remove_emails : Bool)</a>
+        
+          <div class="summary"><p>Should we remove emails</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_emoji%3ABool-instance-method" class="signature"><strong>#remove_emoji</strong> : Bool</a>
+        
+          <div class="summary"><p>Should we remove emojis</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_emoji%3D%28remove_emoji%3ABool%29-instance-method" class="signature"><strong>#remove_emoji=</strong>(remove_emoji : Bool)</a>
+        
+          <div class="summary"><p>Should we remove emojis</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_stop_words%3ABool-instance-method" class="signature"><strong>#remove_stop_words</strong> : Bool</a>
+        
+          <div class="summary"><p>Should we remove stop words</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_stop_words%3D%28remove_stop_words%3ABool%29-instance-method" class="signature"><strong>#remove_stop_words=</strong>(remove_stop_words : Bool)</a>
+        
+          <div class="summary"><p>Should we remove stop words</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_urls%3ABool-instance-method" class="signature"><strong>#remove_urls</strong> : Bool</a>
+        
+          <div class="summary"><p>Should we remove urls</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_urls%3D%28remove_urls%3ABool%29-instance-method" class="signature"><strong>#remove_urls=</strong>(remove_urls : Bool)</a>
+        
+          <div class="summary"><p>Should we remove urls</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#stop_words%3ASet%28String%29-instance-method" class="signature"><strong>#stop_words</strong> : Set(String)</a>
+        
+          <div class="summary"><p>An array of stop words</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#stop_words%3D%28stop_words%3ASet%28String%29%29-instance-method" class="signature"><strong>#stop_words=</strong>(stop_words : Set(String))</a>
+        
+          <div class="summary"><p>An array of stop words</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tokenize%28text%3Dnil%29-instance-method" class="signature"><strong>#tokenize</strong>(text = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tokens%3AArray%28String%29-instance-method" class="signature"><strong>#tokens</strong> : Array(String)</a>
+        
+          <div class="summary"><p>Array of output tokens</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(*,language=:en,abbreviations=Set(String).new,stop_words=Set(String).new,contractions={}ofString=&gt;String,filter_languages=[]ofString|Symbol,hashtags:MentionsOptions=:keep_original,mentions:MentionsOptions=:keep_original,punctuation:PunctuationOptions=:all,numbers:NumbersOptions=:all,expand_contractions=false,remove_stop_words=false,remove_emoji=false,remove_emails=false,remove_urls=false,remove_domains=false,clean=false,classic_filter=false,downcase=true,minimum_length=0,long_word_split=0)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(*, language = <span class="n">:en</span>, abbreviations = <span class="t">Set</span>(<span class="t">String</span>).<span class="k">new</span>, stop_words = <span class="t">Set</span>(<span class="t">String</span>).<span class="k">new</span>, contractions = {} <span class="k">of</span> <span class="t">String</span> => <span class="t">String</span>, filter_languages = <span class="o">[]</span> <span class="k">of</span> <span class="t">String</span> <span class="o">|</span> <span class="t">Symbol</span>, hashtags : <a href="../../Cadmium/Tokenizer/Pragmatic/MentionsOptions.html">MentionsOptions</a> = <span class="n">:keep_original</span>, mentions : <a href="../../Cadmium/Tokenizer/Pragmatic/MentionsOptions.html">MentionsOptions</a> = <span class="n">:keep_original</span>, punctuation : <a href="../../Cadmium/Tokenizer/Pragmatic/PunctuationOptions.html">PunctuationOptions</a> = <span class="n">:all</span>, numbers : <a href="../../Cadmium/Tokenizer/Pragmatic/NumbersOptions.html">NumbersOptions</a> = <span class="n">:all</span>, expand_contractions = <span class="n">false</span>, remove_stop_words = <span class="n">false</span>, remove_emoji = <span class="n">false</span>, remove_emails = <span class="n">false</span>, remove_urls = <span class="n">false</span>, remove_domains = <span class="n">false</span>, clean = <span class="n">false</span>, classic_filter = <span class="n">false</span>, downcase = <span class="n">true</span>, minimum_length = <span class="n">0</span>, long_word_split = <span class="n">0</span>)
+
+        <a class="method-permalink" href="#new%28%2A%2Clanguage%3D%3Aen%2Cabbreviations%3DSet%28String%29.new%2Cstop_words%3DSet%28String%29.new%2Ccontractions%3D%7B%7DofString%3D%3EString%2Cfilter_languages%3D%5B%5DofString%7CSymbol%2Chashtags%3AMentionsOptions%3D%3Akeep_original%2Cmentions%3AMentionsOptions%3D%3Akeep_original%2Cpunctuation%3APunctuationOptions%3D%3Aall%2Cnumbers%3ANumbersOptions%3D%3Aall%2Cexpand_contractions%3Dfalse%2Cremove_stop_words%3Dfalse%2Cremove_emoji%3Dfalse%2Cremove_emails%3Dfalse%2Cremove_urls%3Dfalse%2Cremove_domains%3Dfalse%2Cclean%3Dfalse%2Cclassic_filter%3Dfalse%2Cdowncase%3Dtrue%2Cminimum_length%3D0%2Clong_word_split%3D0%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Creates a new Pragmatic tokenizer.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L165" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="abbreviations:Set(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>abbreviations</strong> : Set(<a href="../../String.html">String</a>)
+
+        <a class="method-permalink" href="#abbreviations%3ASet%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Set of recognized abbreviations</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L109" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="abbreviations=(abbreviations:Set(String))-instance-method">
+      <div class="signature">
+        
+        def <strong>abbreviations=</strong>(abbreviations : Set(<a href="../../String.html">String</a>))
+
+        <a class="method-permalink" href="#abbreviations%3D%28abbreviations%3ASet%28String%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Set of recognized abbreviations</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L113" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="classic_filter:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>classic_filter</strong> : Bool
+
+        <a class="method-permalink" href="#classic_filter%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Run the classic filter?</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L155" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="classic_filter=(classic_filter:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>classic_filter=</strong>(classic_filter : Bool)
+
+        <a class="method-permalink" href="#classic_filter%3D%28classic_filter%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Run the classic filter?</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L159" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clean:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>clean</strong> : Bool
+
+        <a class="method-permalink" href="#clean%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Run the cleaner after we've tokenized?</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clean=(clean:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>clean=</strong>(clean : Bool)
+
+        <a class="method-permalink" href="#clean%3D%28clean%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Run the cleaner after we've tokenized?</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L156" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="contractions:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>contractions</strong> : Hash(<a href="../../String.html">String</a>, <a href="../../String.html">String</a>)
+
+        <a class="method-permalink" href="#contractions%3AHash%28String%2CString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Contractions to be replaced</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L112" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="contractions=(contractions:Hash(String,String))-instance-method">
+      <div class="signature">
+        
+        def <strong>contractions=</strong>(contractions : Hash(<a href="../../String.html">String</a>, <a href="../../String.html">String</a>))
+
+        <a class="method-permalink" href="#contractions%3D%28contractions%3AHash%28String%2CString%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Contractions to be replaced</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L116" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="downcase:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>downcase</strong> : Bool
+
+        <a class="method-permalink" href="#downcase%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Downcase all tokens?</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L158" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="downcase=(downcase:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>downcase=</strong>(downcase : Bool)
+
+        <a class="method-permalink" href="#downcase%3D%28downcase%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Downcase all tokens?</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L162" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expand_contractions:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>expand_contractions</strong> : Bool
+
+        <a class="method-permalink" href="#expand_contractions%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Do we want to expand contractions ("he's" => "he is")</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L134" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expand_contractions=(expand_contractions:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>expand_contractions=</strong>(expand_contractions : Bool)
+
+        <a class="method-permalink" href="#expand_contractions%3D%28expand_contractions%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Do we want to expand contractions ("he's" => "he is")</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L138" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="filter_languages:Array(String|Symbol)-instance-method">
+      <div class="signature">
+        
+        def <strong>filter_languages</strong> : <a href="../../Array.html">Array</a>(<a href="../../String.html">String</a> | Symbol)
+
+        <a class="method-permalink" href="#filter_languages%3AArray%28String%7CSymbol%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Other languages to include in the filtering of abbreviations,
+contractions, and stop words</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L119" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="filter_languages=(filter_languages:Array(String|Symbol))-instance-method">
+      <div class="signature">
+        
+        def <strong>filter_languages=</strong>(filter_languages : <a href="../../Array.html">Array</a>(<a href="../../String.html">String</a> | Symbol))
+
+        <a class="method-permalink" href="#filter_languages%3D%28filter_languages%3AArray%28String%7CSymbol%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Other languages to include in the filtering of abbreviations,
+contractions, and stop words</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L123" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hashtags:MentionsOptions-instance-method">
+      <div class="signature">
+        
+        def <strong>hashtags</strong> : <a href="../../Cadmium/Tokenizer/Pragmatic/MentionsOptions.html">MentionsOptions</a>
+
+        <a class="method-permalink" href="#hashtags%3AMentionsOptions-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>What to do with hashtags (<code>#awesome</code>)</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L122" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hashtags=(hashtags:MentionsOptions)-instance-method">
+      <div class="signature">
+        
+        def <strong>hashtags=</strong>(hashtags : <a href="../../Cadmium/Tokenizer/Pragmatic/MentionsOptions.html">MentionsOptions</a>)
+
+        <a class="method-permalink" href="#hashtags%3D%28hashtags%3AMentionsOptions%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>What to do with hashtags (<code>#awesome</code>)</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L126" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="long_word_split:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>long_word_split</strong> : Int32
+
+        <a class="method-permalink" href="#long_word_split%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The specified length to split long words at any hyphen or underscore</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L164" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="long_word_split=(long_word_split:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>long_word_split=</strong>(long_word_split : Int32)
+
+        <a class="method-permalink" href="#long_word_split%3D%28long_word_split%3AInt32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The specified length to split long words at any hyphen or underscore</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L168" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mentions:MentionsOptions-instance-method">
+      <div class="signature">
+        
+        def <strong>mentions</strong> : <a href="../../Cadmium/Tokenizer/Pragmatic/MentionsOptions.html">MentionsOptions</a>
+
+        <a class="method-permalink" href="#mentions%3AMentionsOptions-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>What to do with mentions (<code>@watzon</code>)</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L125" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mentions=(mentions:MentionsOptions)-instance-method">
+      <div class="signature">
+        
+        def <strong>mentions=</strong>(mentions : <a href="../../Cadmium/Tokenizer/Pragmatic/MentionsOptions.html">MentionsOptions</a>)
+
+        <a class="method-permalink" href="#mentions%3D%28mentions%3AMentionsOptions%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>What to do with mentions (<code>@watzon</code>)</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L129" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="minimum_length:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>minimum_length</strong> : Int32
+
+        <a class="method-permalink" href="#minimum_length%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Minimum length for tokens</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L161" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="minimum_length=(minimum_length:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>minimum_length=</strong>(minimum_length : Int32)
+
+        <a class="method-permalink" href="#minimum_length%3D%28minimum_length%3AInt32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Minimum length for tokens</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L165" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="numbers:NumbersOptions-instance-method">
+      <div class="signature">
+        
+        def <strong>numbers</strong> : <a href="../../Cadmium/Tokenizer/Pragmatic/NumbersOptions.html">NumbersOptions</a>
+
+        <a class="method-permalink" href="#numbers%3ANumbersOptions-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>What to do with numbers</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L131" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="numbers=(numbers:NumbersOptions)-instance-method">
+      <div class="signature">
+        
+        def <strong>numbers=</strong>(numbers : <a href="../../Cadmium/Tokenizer/Pragmatic/NumbersOptions.html">NumbersOptions</a>)
+
+        <a class="method-permalink" href="#numbers%3D%28numbers%3ANumbersOptions%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>What to do with numbers</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L135" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="punctuation:PunctuationOptions-instance-method">
+      <div class="signature">
+        
+        def <strong>punctuation</strong> : <a href="../../Cadmium/Tokenizer/Pragmatic/PunctuationOptions.html">PunctuationOptions</a>
+
+        <a class="method-permalink" href="#punctuation%3APunctuationOptions-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>What to do with punctuation</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L128" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="punctuation=(punctuation:PunctuationOptions)-instance-method">
+      <div class="signature">
+        
+        def <strong>punctuation=</strong>(punctuation : <a href="../../Cadmium/Tokenizer/Pragmatic/PunctuationOptions.html">PunctuationOptions</a>)
+
+        <a class="method-permalink" href="#punctuation%3D%28punctuation%3APunctuationOptions%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>What to do with punctuation</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L132" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_domains:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_domains</strong> : Bool
+
+        <a class="method-permalink" href="#remove_domains%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove domains</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L149" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_domains=(remove_domains:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_domains=</strong>(remove_domains : Bool)
+
+        <a class="method-permalink" href="#remove_domains%3D%28remove_domains%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove domains</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L153" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_emails:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_emails</strong> : Bool
+
+        <a class="method-permalink" href="#remove_emails%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove emails</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L143" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_emails=(remove_emails:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_emails=</strong>(remove_emails : Bool)
+
+        <a class="method-permalink" href="#remove_emails%3D%28remove_emails%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove emails</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L147" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_emoji:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_emoji</strong> : Bool
+
+        <a class="method-permalink" href="#remove_emoji%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove emojis</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L140" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_emoji=(remove_emoji:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_emoji=</strong>(remove_emoji : Bool)
+
+        <a class="method-permalink" href="#remove_emoji%3D%28remove_emoji%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove emojis</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L144" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_stop_words:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_stop_words</strong> : Bool
+
+        <a class="method-permalink" href="#remove_stop_words%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove stop words</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L137" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_stop_words=(remove_stop_words:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_stop_words=</strong>(remove_stop_words : Bool)
+
+        <a class="method-permalink" href="#remove_stop_words%3D%28remove_stop_words%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove stop words</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L141" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_urls:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_urls</strong> : Bool
+
+        <a class="method-permalink" href="#remove_urls%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove urls</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L146" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_urls=(remove_urls:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_urls=</strong>(remove_urls : Bool)
+
+        <a class="method-permalink" href="#remove_urls%3D%28remove_urls%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Should we remove urls</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L150" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="stop_words:Set(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>stop_words</strong> : Set(<a href="../../String.html">String</a>)
+
+        <a class="method-permalink" href="#stop_words%3ASet%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>An array of stop words</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L115" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="stop_words=(stop_words:Set(String))-instance-method">
+      <div class="signature">
+        
+        def <strong>stop_words=</strong>(stop_words : Set(<a href="../../String.html">String</a>))
+
+        <a class="method-permalink" href="#stop_words%3D%28stop_words%3ASet%28String%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>An array of stop words</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L119" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tokenize(text=nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>tokenize</strong>(text = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#tokenize%28text%3Dnil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L208" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tokens:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>tokens</strong> : <a href="../../Array.html">Array</a>(<a href="../../String.html">String</a>)
+
+        <a class="method-permalink" href="#tokens%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Array of output tokens</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/2c070b8cc5f882480ce4e18b974ba633582f1a8a/src/cadmium/tokenizer/pragmatic_tokenizer.cr#L106" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

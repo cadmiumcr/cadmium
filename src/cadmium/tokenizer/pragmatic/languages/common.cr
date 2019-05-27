@@ -1,29 +1,46 @@
+require "./base"
+
 module Cadmium
   module Tokenizer
-    class PragmaticTokenizer
-      class Languages
-        module Common
+    class Pragmatic
+      module Languages
+        class Common < Languages::Base
+          # Single quotes handling
+          ALNUM_QUOTE     = /(\w|\D)'(?!')(?=\W|$)/
+          QUOTE_WORD      = /(\W|^)'(?=\w)/
+          QUOTE_NOT_TWAS1 = /(\W|^)'(?!twas)/i
+          QUOTE_NOT_TWAS2 = /(\W|^)‘(?!twas)/i
+
           PUNCTUATION_MAP = {"。" => "♳", "．" => "♴", "." => "♵", "！" => "♶", "!" => "♷", "?" => "♸", "？" => "♹", "、" => "♺", "¡" => "⚀", "¿" => "⚁", "„" => "⚂", "“" => "⚃", "[" => "⚄", "]" => "⚅", "\"" => "☇", "#" => "☈", "$" => "☉", "%" => "☊", "&" => "☋", "(" => "☌", ")" => "☍", "*" => "☠", "+" => "☢", "," => "☣", ":" => "☤", ";" => "☥", "<" => "☦", "=" => "☧", ">" => "☀", "@" => "☁", "^" => "☂", "_" => "☃", "`" => "☄", "'" => "☮", "{" => "♔", "|" => "♕", "}" => "♖", "~" => "♗", "-" => "♘", "«" => "♙", "»" => "♚", "”" => "⚘", "‘" => "⚭"}
-          ABBREVIATIONS   = Set.new([] of String)
-          STOP_WORDS      = Set.new([] of String)
+          ABBREVIATIONS   = Set(String).new
+          STOP_WORDS      = Set(String).new
           CONTRACTIONS    = {} of String => String
 
-          class SingleQuotes
-            ALNUM_QUOTE     = /(\w|\D)'(?!')(?=\W|$)/
-            QUOTE_WORD      = /(\W|^)'(?=\w)/
-            QUOTE_NOT_TWAS1 = /(\W|^)'(?!twas)/i
-            QUOTE_NOT_TWAS2 = /(\W|^)‘(?!twas)/i
+          def self.punctuation_map
+            PUNCTUATION_MAP
+          end
 
-            # This 'special treatment' is actually relevant for many other tests. Alter core regular expressions!
-            def handle_single_quotes(text)
-              # special treatment for "'twas"
-              text.gsub!(QUOTE_NOT_TWAS1, "\1 " << PUNCTUATION_MAP["'"] << " ")
-              text.gsub!(QUOTE_NOT_TWAS2, "\1" << PUNCTUATION_MAP["‘"] << " ")
+          def self.contractions
+            CONTRACTIONS
+          end
 
-              text.gsub!(QUOTE_WORD, " " << PUNCTUATION_MAP["'"])
-              text.gsub!(ALNUM_QUOTE, "\1" << PUNCTUATION_MAP["'"] << " ")
-              text
-            end
+          def self.abbreviations
+            ABBREVIATIONS
+          end
+
+          def self.stop_words
+            STOP_WORDS
+          end
+
+          # This 'special treatment' is actually relevant for many other tests. Alter core regular expressions!
+          def self.handle_single_quotes(text)
+            # special treatment for "'twas"
+            text = text.gsub(QUOTE_NOT_TWAS1, "\\1 " + PUNCTUATION_MAP["'"] + " ")
+            text = text.gsub(QUOTE_NOT_TWAS2, "\\1 " + PUNCTUATION_MAP["‘"] + " ")
+
+            text = text.gsub(QUOTE_WORD, " " + PUNCTUATION_MAP["'"])
+            text = text.gsub(ALNUM_QUOTE, "\\1 " + PUNCTUATION_MAP["'"] + " ")
+            text
           end
         end
       end

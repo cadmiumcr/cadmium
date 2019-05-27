@@ -101,6 +101,10 @@ tokenizer.tokenize("If we 'all' can't go. I'll stay home.")
 # => ["If", "we", "'all", "'", "ca", "n't", "go.", "I", "'ll", "stay", "home", "."]
 ```
 
+#### Pragmatic Tokenizer
+
+The pragmatic tokenizer is based off of the ruby gem from diasks2 which you can find [here](https://github.com/diasks2/pragmatic_tokenizer). It is a multilengual tokenizer which provides a wide array of options for tokenizing strings. For complete documentation check [here](https://watzon.github.io/cadmium/Cadmium/Tokenizer/Pragmatic.html).
+
 ### String Distance
 
 Corundum provides an implimentation of two different string distance algorithms, the [Jaro-Winkler Distance Algorithm](http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance) and the [Levenshtein Distance Algorithm](https://en.wikipedia.org/wiki/Levenshtein_distance).
@@ -492,7 +496,7 @@ This is all I want to have done before a __v1.0__ release.
   - [x] AggressiveTokenizer
     - [x] i18n
   - [x] CaseTokenizer
-  - [ ] Pragmatic [?](https://github.com/diasks2/pragmatic_tokenizer)
+  - [x] Pragmatic [?](https://github.com/diasks2/pragmatic_tokenizer)
   - [x] RegexTokenizer
   - [x] SentenceTokenizer
   - [x] TreebankWordTokenizer

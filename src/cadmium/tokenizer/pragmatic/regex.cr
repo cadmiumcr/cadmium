@@ -1,6 +1,7 @@
 module Cadmium
   module Tokenizer
-    class PragmaticTokenizer
+    class Pragmatic
+      # :nodoc:
       class Regex
         # Things that can or should be done:
         # - check where the use of unicode categories helps (\p{Abbreviation})
@@ -12,10 +13,10 @@ module Cadmium
         CHUNK_LONG_INPUT_TEXT = /\S.{1,10000}(?!\S)/m
 
         # Ranges
-        RANGE_DINGBATS                = /[\x{2701}-\x{27BE}]/ # e.g. ✁✎✳❄➾
-        RANGE_VARIATION_SELECTORS     = /[\x{FE00}-\x{FE0F}]/ # alter the previous character
-        RANGE_FULLWIDTH               = /[\x{FF01}-\x{fF1F}]/ # e.g. ！＂＃＇？
-        RANGE_ALPHANUMERIC_SUPPLEMENT = /[\x{1F100}-\x{1F1FF}]/
+        RANGE_DINGBATS                = /\x{2701}-\x{27BE}/ # e.g. ✁✎✳❄➾
+        RANGE_VARIATION_SELECTORS     = /\x{FE00}-\x{FE0F}/ # alter the previous character
+        RANGE_FULLWIDTH               = /\x{FF01}-\x{fF1F}/ # e.g. ！＂＃＇？
+        RANGE_ALPHANUMERIC_SUPPLEMENT = /\x{1F100}-\x{1F1FF}/
         RANGE_UNUSUAL_AND_EMOJI       = /[\x{203C}-\x{3299}\x{1F000}-\x{1F644}]/
 
         # Regular expressions which do not need to capture anything are enclosed in /(?: … )/ to enhance performance
@@ -35,7 +36,7 @@ module Cadmium
         PUNCTUATION2         = /(?:(?<=\S)([!?#{RANGE_FULLWIDTH.source}]+))/
         PUNCTUATION3         = /(?:[!%\-–\x{00AD}]+)/
         PUNCTUATION4         = /(?:[.．。]+)/
-        DINGBATS             = /(?:(#{RANGE_DINGBATS.source}#{RANGE_VARIATION_SELECTORS.source}*+))/
+        DINGBATS             = /(?:([#{RANGE_DINGBATS.source}][#{RANGE_VARIATION_SELECTORS.source}]*+))/
         NO_BREAK_SPACE       = /(?:\x{00A0}+)/
         HTTP                 = /(?:https?:\/\/)/
         TIME_WITH_COLON      = /(?:\d:\d)/
@@ -96,7 +97,7 @@ module Cadmium
 
         ONLY_DECIMALS           = /(?:^[[:digit:]]+$)/
         NO_DECIMALS             = /(?:^\D+$)/
-        ONLY_PUNCTUATION        = /^[[[:punct:]]^\|+]+$/
+        ONLY_PUNCTUATION        = /^[\x{2000}-\x{206F}\x{2E00}-\x{2E7F}\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]+$/
         ONLY_ROMAN_NUMERALS     = /^(?=[MDCLXVI])M*(C[MD]|D?C*)(X[CL]|L?X*)(I[XV]|V?I*)$/i
         ONLY_EMAIL              = /^#{EMAIL}$/
         ONLY_HASHTAG_MENTION    = /^#{HASHTAG_OR_MENTION}$/
@@ -104,19 +105,19 @@ module Cadmium
         ONLY_MENTION            = /^#{MENTION}$/
         ONLY_DOMAIN1            = /^#{DOMAIN1}$/
         ONLY_DOMAIN2            = /^#{DOMAIN2}$/
-        ONLY_DOMAIN3            = Regexp.union(STARTS_WITH_DOMAIN, ENDS_WITH_DOMAIN)
-        DOMAIN_OR_EMAIL         = Regexp.union(ONLY_DOMAIN1, ONLY_EMAIL)
-        UNDERSCORES_ASTERISK    = Regexp.union(STARTS_WITH_UNDERSCORE, ENDS_WITH_UNDERSCORE, ASTERISK)
-        NO_DECIMALS_NO_NUMERALS = Regexp.union(ALSO_DECIMALS, ONLY_ROMAN_NUMERALS)
+        ONLY_DOMAIN3            = ::Regex.union(STARTS_WITH_DOMAIN, ENDS_WITH_DOMAIN)
+        DOMAIN_OR_EMAIL         = ::Regex.union(ONLY_DOMAIN1, ONLY_EMAIL)
+        UNDERSCORES_ASTERISK    = ::Regex.union(STARTS_WITH_UNDERSCORE, ENDS_WITH_UNDERSCORE, ASTERISK)
+        NO_DECIMALS_NO_NUMERALS = ::Regex.union(ALSO_DECIMALS, ONLY_ROMAN_NUMERALS)
 
-        COMMAS_OR_PUNCTUATION = Regexp.union(
+        COMMAS_OR_PUNCTUATION = ::Regex.union(
           STARTS_WITH_COMMAS,
           ENDS_WITH_PUNCTUATION1,
           ENDS_WITH_PUNCTUATION2
         )
 
         # Can this constant name be clarified?
-        VARIOUS = Regexp.union(
+        VARIOUS = ::Regex.union(
           SLASH_NOT_URL,
           QUESTION_MARK_NOT_URL,
           ENCLOSED_PLUS,
@@ -126,7 +127,7 @@ module Cadmium
           CAPTURE_UNUSUAL_AND_EMOJI
         )
 
-        IRRELEVANT_CHARACTERS = Regexp.union(
+        IRRELEVANT_CHARACTERS = ::Regex.union(
           STARTS_WITH_PUNCTUATION3,
           ENDS_WITH_COLON2,
           ENDS_WITH_ONES_EXCLAMATIONS,
@@ -135,7 +136,7 @@ module Cadmium
           RANGE_ALPHANUMERIC_SUPPLEMENT
         )
 
-        PRE_PROCESS = Regexp.union(
+        PRE_PROCESS = ::Regex.union(
           SHIFT_BOUNDARY_CHARACTERS,
           MULTIPLE_DOTS,
           BRACKET,
