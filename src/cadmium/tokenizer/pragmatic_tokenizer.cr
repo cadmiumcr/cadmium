@@ -96,7 +96,7 @@ module Cadmium
       SPACE            = " "
       SINGLE_QUOTE     = "'"
 
-      @language_module : Languages::Base.class
+      @language_module : Languages::Common.class
 
       @regex_by_options : ::Regex?
 

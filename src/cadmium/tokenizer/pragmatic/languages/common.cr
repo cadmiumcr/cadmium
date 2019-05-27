@@ -1,10 +1,8 @@
-require "./base"
-
 module Cadmium
   module Tokenizer
     class Pragmatic
       module Languages
-        class Common < Languages::Base
+        class Common
           # Single quotes handling
           ALNUM_QUOTE     = /(\w|\D)'(?!')(?=\W|$)/
           QUOTE_WORD      = /(\W|^)'(?=\w)/

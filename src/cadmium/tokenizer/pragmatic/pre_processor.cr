@@ -7,7 +7,7 @@ module Cadmium
       class PreProcessor
         @replacements_for_quotes : Hash(String, String)?
 
-        def initialize(@language_module : Languages::Base.class)
+        def initialize(@language_module : Languages::Common.class)
         end
 
         def process(segment)

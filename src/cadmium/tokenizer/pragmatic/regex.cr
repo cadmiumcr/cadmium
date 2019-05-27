@@ -20,11 +20,11 @@ module Cadmium
         RANGE_UNUSUAL_AND_EMOJI       = /[\x{203C}-\x{3299}\x{1F000}-\x{1F644}]/
 
         # Regular expressions which do not need to capture anything are enclosed in /(?: … )/ to enhance performance
-        COLON1               = /(?:(:)([[:print:]]{2,}))/ # two non-space after colon prevent matching emoticons
+        COLON1               = /(?:(:)([\P{Cc}]{2,}))/ # two non-space after colon prevent matching emoticons
         COLON2               = /(?::)/
         COMMAS               = /(?:([,‚])+)/
-        ENCLOSED_PLUS        = /(?:([[:print:]]+)\+([[:print:]]+))/
-        EMAIL                = /(?:[[:print:]]+[＠@][[:print:]]+\.[[:print:]]+)/
+        ENCLOSED_PLUS        = /(?:([\P{Cc}]+)\+([\P{Cc}]+))/
+        EMAIL                = /(?:[\P{Cc}]+[＠@][\P{Cc}]+\.[\P{Cc}]+)/
         DIGIT                = /(?:[[:digit:]]+)/
         ASTERISK             = /(?:\*+)/
         UNDERSCORE           = /(?:_+)/
@@ -42,12 +42,12 @@ module Cadmium
         TIME_WITH_COLON      = /(?:\d:\d)/
         DOMAIN_PREFIX        = /(?:https?:\/\/|www\.|[[:alpha:]]\.)/
         DOMAIN_SUFFIX        = /(?:[[:alpha:]]\.(?:com|net|org|edu|gov|mil|int|[[:alpha:]]{2}))/
-        DOMAIN1              = /(?:((https?:\/\/|)[[:print:]]+\.[[:alpha:]]{2,6}(:[0-9]{1,5})?(\/[[:print:]]*+)?))/
-        DOMAIN2              = /(?:[[:alnum:]]{2,}([\-.][[:alnum:]]+)*\.[[:alpha:]]{2,6}(:[0-9]{1,5})?(\/[[:print:]]*+)?)/
-        NOT_URL              = /(?:^(?!#{DOMAIN_PREFIX.source})([[:print:]]*))/
-        HASHTAG_OR_MENTION   = /(?:[@#＠＃][[:print:]]+)/
-        HASHTAG              = /(?:[#＃][[:print:]]+)/
-        MENTION              = /(?:[@＠][[:print:]]+)/
+        DOMAIN1              = /(?:((https?:\/\/|)[\P{Cc}]+\.[[:alpha:]]{2,6}(:[0-9]{1,5})?(\/[\P{Cc}]*+)?))/
+        DOMAIN2              = /(?:[[:alnum:]]{2,}([\-.][[:alnum:]]+)*\.[[:alpha:]]{2,6}(:[0-9]{1,5})?(\/[\P{Cc}]*+)?)/
+        NOT_URL              = /(?:^(?!#{DOMAIN_PREFIX.source})([\P{Cc}]*))/
+        HASHTAG_OR_MENTION   = /(?:[@#＠＃][\P{Cc}]+)/
+        HASHTAG              = /(?:[#＃][\P{Cc}]+)/
+        MENTION              = /(?:[@＠][\P{Cc}]+)/
         HASHTAG_WITH_HYPHEN  = /(?:^([#＃][[:digit:]]+)-)/
         ONE_AS_EXCLAMATION   = /(?:\D1+)/
         ONES_EXCLAMATIONS    = /(?:!+(1*+!*+)*+)/
@@ -72,7 +72,7 @@ module Cadmium
         COMMA_BEFORE_NON_DIGIT    = /(,)(?=\D)/
         COMMA_AFTER_NON_DIGIT     = /(?<=\D)(,)/
         COLON_IN_URL              = /(?<=[(https?|ftp)]):(?=\/\/)/
-        QUOTE_BEFORE_PRINT        = /(('')|["“])(?=[[:print:]])/
+        QUOTE_BEFORE_PRINT        = /(('')|["“])(?=[\P{Cc}])/
         QUOTE                     = /('')|["”]/
         HYPHEN_AFTER_NON_WORD     = /(?<=\W)(-)/
         HYPHEN_BEFORE_NON_WORD    = /(-)(?=\W)/
