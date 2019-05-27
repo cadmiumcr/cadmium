@@ -3,15 +3,21 @@ module Cadmium
     class Pragmatic
       module Languages
         abstract class Base
-          # abstract def self.punctuation_map : Hash(String, String)
+          def self.contractions
+            {} of String => String
+          end
 
-          # abstract def self.contractions : Hash(String, String)
+          def self.abbreviations
+            Set(String).new
+          end
 
-          # abstract def self.abbreviations : Set(String)
+          def self.stop_words
+            Set(String).new
+          end
 
-          # abstract def self.stop_words : Set(String)
-
-          # abstract def self.handle_single_quotes(text) : String
+          def self.handle_single_quotes(text)
+            text
+          end
         end
       end
     end

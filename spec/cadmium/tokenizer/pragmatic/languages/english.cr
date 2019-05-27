@@ -207,7 +207,7 @@ describe Cadmium::Tokenizer::Pragmatic do
           pt.tokenize(text).should eq(["thisisnotanormalabbreviation", ".", "hello", "world", "."])
         end
 
-        pending "handles abrreviations across multiple languages" do
+        it "handles abrreviations across multiple languages" do
           text = "Mr. Smith how are ü. today."
           pt = Cadmium::Tokenizer::Pragmatic.new(
             filter_languages: [:en, :de]
@@ -215,7 +215,7 @@ describe Cadmium::Tokenizer::Pragmatic do
           pt.tokenize(text).should eq(["mr.", "smith", "how", "are", "ü.", "today", "."])
         end
 
-        pending "handles abrreviations across multiple languages and user-supplied abbreviations" do
+        it "handles abrreviations across multiple languages and user-supplied abbreviations" do
           text = "Adj. Smith how are ü. today. thisisnotanormalabbreviation. is it?"
           abbreviations = Set{"thisisnotanormalabbreviation"}
           pt = Cadmium::Tokenizer::Pragmatic.new(
@@ -254,7 +254,7 @@ describe Cadmium::Tokenizer::Pragmatic do
           pt.tokenize(text).should eq(["hello", "supa'soo", "guy", "."])
         end
 
-        pending "expands user-supplied contractions and language contractions" do
+        it "expands user-supplied contractions and language contractions" do
           text = "Hello supa'soo guy. auf's wasn't it?"
           contractions = {"supa'soo" => "super smooth"}
           pt = Cadmium::Tokenizer::Pragmatic.new(
@@ -265,7 +265,7 @@ describe Cadmium::Tokenizer::Pragmatic do
           pt.tokenize(text).should eq(["hello", "super", "smooth", "guy", ".", "auf", "das", "was", "not", "it", "?"])
         end
 
-        pending "expands language contractions" do
+        it "expands language contractions" do
           text = "Hello supa'soo guy. auf's wasn't it?"
           pt = Cadmium::Tokenizer::Pragmatic.new(
             expand_contractions: true,
@@ -1107,7 +1107,7 @@ describe Cadmium::Tokenizer::Pragmatic do
           pt.tokenize(text).should eq(["short", "explanations", "."])
         end
 
-        pending "removes user-supplied stop words and default stop words across multiple languages" do
+        it "removes user-supplied stop words and default stop words across multiple languages" do
           text = "This is a short sentence with explanations and stop words. And achte German words."
           pt = Cadmium::Tokenizer::Pragmatic.new(
             language: :en,

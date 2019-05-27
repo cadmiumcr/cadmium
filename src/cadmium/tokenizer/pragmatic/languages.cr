@@ -1,6 +1,7 @@
 require "./languages/common"
 
 require "./languages/english"
+require "./languages/deutsch"
 
 module Cadmium
   module Tokenizer
@@ -13,7 +14,7 @@ module Cadmium
           # ca: Catalan,
           # cs: Czech,
           # da: Danish,
-          # de: Deutsch,
+          de: Deutsch,
           # el: Greek,
           # es: Spanish,
           # fa: Persian,

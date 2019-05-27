@@ -105,6 +105,41 @@ tokenizer.tokenize("If we 'all' can't go. I'll stay home.")
 
 The pragmatic tokenizer is based off of the ruby gem from diasks2 which you can find [here](https://github.com/diasks2/pragmatic_tokenizer). It is a multilengual tokenizer which provides a wide array of options for tokenizing strings. For complete documentation check [here](https://watzon.github.io/cadmium/Cadmium/Tokenizer/Pragmatic.html).
 
+Example is taken directly from the diasks2/pragmatic_tokenizer documentation, with a few modifications. Currently supported languages are:
+- English (:en)
+- Deutsch (:de)
+
+```crystal
+text = "\"I said, 'what're you? Crazy?'\" said Sandowsky. \"I can't afford to do that.\""
+
+Cadmium::Tokenizer::Pragmatic.new.tokenize(text)
+# => ["\"", "i", "said", ",", "'", "what're", "you", "?", "crazy", "?", "'", "\"", "said", "sandowsky", ".", "\"", "i", "can't", "afford", "to", "do", "that", ".", "\""]
+
+# You can pass many different options to #initialize:
+options = {
+  language:            :en, # the language of the string you are tokenizing
+  abbreviations:       Set{"a.b", "a"}, # a user-supplied array of abbreviations (downcased with ending period removed)
+  stop_words:          Set{"is", "the"}, # a user-supplied array of stop words (downcased)
+  remove_stop_words:   true, # remove stop words
+  contractions:        { "i'm" => "i am" }, # a user-supplied hash of contractions (key is the contracted form; value is the expanded form - both the key and value should be downcased)
+  expand_contractions: true, # (i.e. ["isn't"] will change to two tokens ["is", "not"])
+  filter_languages:    [:en, :de], # process abbreviations, contractions and stop words for this array of languages
+  punctuation:         :none, # see below for more details
+  numbers:             :none, # see below for more details
+  remove_emoji:        true, # remove any emoji tokens
+  remove_urls:         true, # remove any urls
+  remove_emails:       true, # remove any emails
+  remove_domains:      true, # remove any domains
+  hashtags:            :keep_and_clean, # remove the hastag prefix
+  mentions:            :keep_and_clean, # remove the @ prefix
+  clean:               true, # remove some special characters
+  classic_filter:      true, # removes dots from acronyms and 's from the end of tokens
+  downcase:            false, # do not downcase tokens
+  minimum_length:      3, # remove any tokens less than 3 characters
+  long_word_split:     10 # split tokens longer than 10 characters at hypens or underscores
+}
+```
+
 ### String Distance
 
 Corundum provides an implimentation of two different string distance algorithms, the [Jaro-Winkler Distance Algorithm](http://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance) and the [Levenshtein Distance Algorithm](https://en.wikipedia.org/wiki/Levenshtein_distance).
