@@ -316,6 +316,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic/Languages/Deutsch" data-name="cadmium::tokenizer::pragmatic::languages::deutsch">
+      <a href="Cadmium/Tokenizer/Pragmatic/Languages/Deutsch.html">Deutsch</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer/Pragmatic/Languages/English" data-name="cadmium::tokenizer::pragmatic::languages::english">
       <a href="Cadmium/Tokenizer/Pragmatic/Languages/English.html">English</a>
       
@@ -577,6 +582,43 @@ tokenizer.tokenize(<span class="s">&quot;my dog hasn&#39;t any fleas.&quot;</spa
 <pre><code class="language-crystal">tokenizer <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">Tokenizer</span><span class="t">::</span><span class="t">TreebankWordTokenizer</span>.<span class="k">new</span>
 tokenizer.tokenize(<span class="s">&quot;If we &#39;all&#39; can&#39;t go. I&#39;ll stay home.&quot;</span>)
 <span class="c"># =&gt; [&quot;If&quot;, &quot;we&quot;, &quot;&#39;all&quot;, &quot;&#39;&quot;, &quot;ca&quot;, &quot;n&#39;t&quot;, &quot;go.&quot;, &quot;I&quot;, &quot;&#39;ll&quot;, &quot;stay&quot;, &quot;home&quot;, &quot;.&quot;]</span></code></pre>
+
+<h4>Pragmatic Tokenizer</h4>
+
+<p>The pragmatic tokenizer is based off of the ruby gem from diasks2 which you can find <a href="https://github.com/diasks2/pragmatic_tokenizer" target="_blank">here</a>. It is a multilengual tokenizer which provides a wide array of options for tokenizing strings. For complete documentation check <a href="https://watzon.github.io/cadmium/Cadmium/Tokenizer/Pragmatic.html" target="_blank">here</a>.</p>
+
+<p>Example is taken directly from the diasks2/pragmatic_tokenizer documentation, with a few modifications. Currently supported languages are:</p>
+
+<ul><li>English (:en)</li><li>Deutsch (:de)</li></ul>
+
+<pre><code class="language-crystal">text <span class="o">=</span> <span class="s">&quot;\&quot;I said, &#39;what&#39;re you? Crazy?&#39;\&quot; said Sandowsky. \&quot;I can&#39;t afford to do that.\&quot;&quot;</span>
+
+<span class="t">Cadmium</span><span class="t">::</span><span class="t">Tokenizer</span><span class="t">::</span><span class="t">Pragmatic</span>.<span class="k">new</span>.tokenize(text)
+<span class="c"># =&gt; [&quot;\&quot;&quot;, &quot;i&quot;, &quot;said&quot;, &quot;,&quot;, &quot;&#39;&quot;, &quot;what&#39;re&quot;, &quot;you&quot;, &quot;?&quot;, &quot;crazy&quot;, &quot;?&quot;, &quot;&#39;&quot;, &quot;\&quot;&quot;, &quot;said&quot;, &quot;sandowsky&quot;, &quot;.&quot;, &quot;\&quot;&quot;, &quot;i&quot;, &quot;can&#39;t&quot;, &quot;afford&quot;, &quot;to&quot;, &quot;do&quot;, &quot;that&quot;, &quot;.&quot;, &quot;\&quot;&quot;]</span>
+
+<span class="c"># You can pass many different options to #initialize:</span>
+options <span class="o">=</span> {
+  language:            <span class="n">:en</span>, <span class="c"># the language of the string you are tokenizing</span>
+  abbreviations:       <span class="t">Set</span>{<span class="s">&quot;a.b&quot;</span>, <span class="s">&quot;a&quot;</span>}, <span class="c"># a user-supplied array of abbreviations (downcased with ending period removed)</span>
+  stop_words:          <span class="t">Set</span>{<span class="s">&quot;is&quot;</span>, <span class="s">&quot;the&quot;</span>}, <span class="c"># a user-supplied array of stop words (downcased)</span>
+  remove_stop_words:   <span class="n">true</span>, <span class="c"># remove stop words</span>
+  contractions:        { <span class="s">&quot;i&#39;m&quot;</span> => <span class="s">&quot;i am&quot;</span> }, <span class="c"># a user-supplied hash of contractions (key is the contracted form; value is the expanded form - both the key and value should be downcased)</span>
+  expand_contractions: <span class="n">true</span>, <span class="c"># (i.e. [&quot;isn&#39;t&quot;] will change to two tokens [&quot;is&quot;, &quot;not&quot;])</span>
+  filter_languages:    [<span class="n">:en</span>, <span class="n">:de</span>], <span class="c"># process abbreviations, contractions and stop words for this array of languages</span>
+  punctuation:         <span class="n">:none</span>, <span class="c"># see below for more details</span>
+  numbers:             <span class="n">:none</span>, <span class="c"># see below for more details</span>
+  remove_emoji:        <span class="n">true</span>, <span class="c"># remove any emoji tokens</span>
+  remove_urls:         <span class="n">true</span>, <span class="c"># remove any urls</span>
+  remove_emails:       <span class="n">true</span>, <span class="c"># remove any emails</span>
+  remove_domains:      <span class="n">true</span>, <span class="c"># remove any domains</span>
+  hashtags:            <span class="n">:keep_and_clean</span>, <span class="c"># remove the hastag prefix</span>
+  mentions:            <span class="n">:keep_and_clean</span>, <span class="c"># remove the @ prefix</span>
+  clean:               <span class="n">true</span>, <span class="c"># remove some special characters</span>
+  classic_filter:      <span class="n">true</span>, <span class="c"># removes dots from acronyms and &#39;s from the end of tokens</span>
+  downcase:            <span class="n">false</span>, <span class="c"># do not downcase tokens</span>
+  minimum_length:      <span class="n">3</span>, <span class="c"># remove any tokens less than 3 characters</span>
+  long_word_split:     <span class="n">10</span> <span class="c"># split tokens longer than 10 characters at hypens or underscores</span>
+}</code></pre>
 
 <h3>String Distance</h3>
 
@@ -923,7 +965,7 @@ puts synset.word_counts</code></pre>
 
 <p>This is all I want to have done before a <strong>v1.0</strong> release.</p>
 
-<ul><li>[x] Tokenizers</li><ul><li>[x] AggressiveTokenizer</li><li>[x] i18n</li><li>[x] CaseTokenizer</li><li>[ ] Pragmatic <a href="https://github.com/diasks2/pragmatic_tokenizer" target="_blank">?</a></li><li>[x] RegexTokenizer</li><li>[x] SentenceTokenizer</li><li>[x] TreebankWordTokenizer</li><li>[x] WhitespaceTokenizer</li><li>[x] WordPunctuationTokenizer</li></ul><li>[x] String Distance</li><ul><li>[x] Levenshein</li><li>[ ] Approximate String Matching</li><li>[x] JaroWinkler</li></ul><li>[ ] Stemmers</li><ul><li>[x] PorterStemmer</li><li>[ ] i18n</li><li>[ ] LancasterStemmer</li><li>[ ] i18n</li></ul><li>[ ] Classifiers</li><ul><li>[ ] Bayes</li><li>[ ] Logic Regression </li></ul><li>[x] Phonetics</li><ul><li>[x] SoundEx</li><li>[x] Metaphone</li><li>[ ] Double Metaphone</li></ul><li>[x] Inflectors</li><ul><li>[x] Count</li><li>[x] Noun</li><li>[x] Verb</li><li>[ ] i18n</li></ul><li>[x] N-Grams</li><li>[x] TF-IDF</li><li>[x] Transliterator</li><li>[x] Sentiment Analysis</li><li>[x] Tries</li><li>[x] EdgeWeightedDigraph</li><li>[x] Readability</li><li>[x] WordNet</li><li>[ ] ShortestPathTree</li><li>[ ] LongestPathTree</li><li>[ ] Spellcheck</li><li>[ ] POS Tagger</li><li>[ ] Word2Vec</li></ul>
+<ul><li>[x] Tokenizers</li><ul><li>[x] AggressiveTokenizer</li><li>[x] i18n</li><li>[x] CaseTokenizer</li><li>[x] Pragmatic <a href="https://github.com/diasks2/pragmatic_tokenizer" target="_blank">?</a></li><li>[x] RegexTokenizer</li><li>[x] SentenceTokenizer</li><li>[x] TreebankWordTokenizer</li><li>[x] WhitespaceTokenizer</li><li>[x] WordPunctuationTokenizer</li></ul><li>[x] String Distance</li><ul><li>[x] Levenshein</li><li>[ ] Approximate String Matching</li><li>[x] JaroWinkler</li></ul><li>[ ] Stemmers</li><ul><li>[x] PorterStemmer</li><li>[ ] i18n</li><li>[ ] LancasterStemmer</li><li>[ ] i18n</li></ul><li>[ ] Classifiers</li><ul><li>[ ] Bayes</li><li>[ ] Logic Regression </li></ul><li>[x] Phonetics</li><ul><li>[x] SoundEx</li><li>[x] Metaphone</li><li>[ ] Double Metaphone</li></ul><li>[x] Inflectors</li><ul><li>[x] Count</li><li>[x] Noun</li><li>[x] Verb</li><li>[ ] i18n</li></ul><li>[x] N-Grams</li><li>[x] TF-IDF</li><li>[x] Transliterator</li><li>[x] Sentiment Analysis</li><li>[x] Tries</li><li>[x] EdgeWeightedDigraph</li><li>[x] Readability</li><li>[x] WordNet</li><li>[ ] ShortestPathTree</li><li>[ ] LongestPathTree</li><li>[ ] Spellcheck</li><li>[ ] POS Tagger</li><li>[ ] Word2Vec</li></ul>
 
 <h2>Contributing</h2>
 
