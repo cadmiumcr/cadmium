@@ -231,6 +231,7 @@ describe Cadmium::Tokenizer::Pragmatic do
           # https://www.ibm.com/developerworks/community/blogs/nlp/entry/tokenization?lang=en
           text = "\"I said, 'what're you? Crazy?'\" said Sandowsky. \"I can't afford to do that.\""
           pt = Cadmium::Tokenizer::Pragmatic.new
+          # ameba:disable Lint/PercentArrays
           pt.tokenize(text).should eq(%w[" i said , ' what're you ? crazy ? ' " said sandowsky . " i can't afford to do that . "])
         end
 
@@ -280,6 +281,7 @@ describe Cadmium::Tokenizer::Pragmatic do
           pt = Cadmium::Tokenizer::Pragmatic.new(
             expand_contractions: true
           )
+          # ameba:disable Lint/PercentArrays
           pt.tokenize(text).should eq(%w[" i said , ' what are you ? crazy ? ' " said sandowsky . " i cannot afford to do that . "])
         end
 
@@ -289,6 +291,7 @@ describe Cadmium::Tokenizer::Pragmatic do
           pt = Cadmium::Tokenizer::Pragmatic.new(
             expand_contractions: true
           )
+          # ameba:disable Lint/PercentArrays
           pt.tokenize(text).should eq(%w[" oh , no , " she is saying , " our $400 blender cannot handle something this hard ! "])
         end
 

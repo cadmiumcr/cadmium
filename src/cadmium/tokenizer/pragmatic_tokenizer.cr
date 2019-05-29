@@ -197,6 +197,7 @@ module Cadmium
         @abbreviations.concat @language_module.abbreviations if @abbreviations.empty?
         @stop_words.concat @language_module.stop_words if @stop_words.empty?
 
+        # ameba:disable Lint/ShadowingOuterLocalVar
         @filter_languages.each do |language|
           language = Languages.get_language_by_code(language)
           @contractions.merge!(language.contractions)
