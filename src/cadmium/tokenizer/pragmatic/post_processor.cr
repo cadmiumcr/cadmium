@@ -1,5 +1,5 @@
 module Cadmium
-  class PragmaticTokenizer
+  class PragmaticTokenizer < Tokenizer
     # :nodoc:
     class PostProcessor
       DOT = "."

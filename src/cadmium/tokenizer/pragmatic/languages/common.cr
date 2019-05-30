@@ -1,5 +1,5 @@
 module Cadmium
-  class PragmaticTokenizer
+  class PragmaticTokenizer < Tokenizer
     module Languages
       class Common
         # Single quotes handling

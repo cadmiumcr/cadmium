@@ -1,7 +1,7 @@
 require "./regex"
 
 module Cadmium
-  class PragmaticTokenizer
+  class PragmaticTokenizer < Tokenizer
     # :nodoc:
     class PreProcessor
       @replacements_for_quotes : Hash(String, String)?

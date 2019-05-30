@@ -4,7 +4,7 @@ require "./languages/english"
 require "./languages/deutsch"
 
 module Cadmium
-  class PragmaticTokenizer
+  class PragmaticTokenizer < Tokenizer
     module Languages
       @@language_codes = {
         en: English,

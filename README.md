@@ -63,7 +63,7 @@ The aggressive tokenizer currently has localization available for English (:en /
 Use it like so:
 
 ```crystal
-tokenizer = Cadmium::AggressiveTokenizer.new(lang: :es)
+tokenizer = Cadmium.aggressive_tokenizer.new(lang: :es)
 tokenizer.tokenize("hola yo me llamo eduardo y esudié ingeniería")
 # => ["hola", "yo", "me", "llamo", "eduardo", "y", "esudié", "ingeniería"]
 ``` 
@@ -73,11 +73,11 @@ tokenizer.tokenize("hola yo me llamo eduardo y esudié ingeniería")
 The case tokenizer doesn't rely on Regex and as such should be pretty fast. It should also work on an international basis fairly easily.
 
 ```crystal
-tokenizer = Cadmium::CaseTokenizer.new
+tokenizer = Cadmium.case_tokenizer.new
 tokenizer.tokenize("these are strings")
 # => ["these", "are", "strings"]
 
-tokenizer = Cadmium::CaseTokenizer.new(preserve_apostrophes: true)
+tokenizer = Cadmium.case_tokenizer.new(preserve_apostrophes: true)
 tokenizer.tokenize("Affectueusement surnommé « Gabo » dans toute l'Amérique latine")
 # => ["Affectueusement", "surnommé", "Gabo", "dans", "toute", "l", "Amérique", "latine"]
 ```
@@ -87,7 +87,7 @@ tokenizer.tokenize("Affectueusement surnommé « Gabo » dans toute l'Amérique 
 The whitespace tokenizer, word punctuation tokenizer, and word tokenizer all extend the regex tokenizer. It uses Regex to match on the correct values.
 
 ```crystal
-tokenizer = Cadmium::WordPunctuationTokenizer.new
+tokenizer = Cadmium.word_punctuation_tokenizer.new
 tokenizer.tokenize("my dog hasn't any fleas.")
 # => ["my", "dog", "hasn", "'", "t", "any", "fleas", "."]
 ```
@@ -97,7 +97,7 @@ tokenizer.tokenize("my dog hasn't any fleas.")
 The treebank tokenizer uses regular expressions to tokenize text as in Penn Treebank. This implementation is a port of the tokenizer sed script written by Robert McIntyre. To read about treebanks you can visit [wikipedia](https://en.wikipedia.org/wiki/Treebank).
 
 ```crystal
-tokenizer = Cadmium::TreebankWordTokenizer.new
+tokenizer = Cadmium.treebank_word_tokenizer.new
 tokenizer.tokenize("If we 'all' can't go. I'll stay home.")
 # => ["If", "we", "'all", "'", "ca", "n't", "go.", "I", "'ll", "stay", "home", "."]
 ```
@@ -113,7 +113,7 @@ Example is taken directly from the diasks2/pragmatic_tokenizer documentation, wi
 ```crystal
 text = "\"I said, 'what're you? Crazy?'\" said Sandowsky. \"I can't afford to do that.\""
 
-Cadmium::PragmaticTokenizer.new.tokenize(text)
+Cadmium.pragmatic_tokenizer.new.tokenize(text)
 # => ["\"", "i", "said", ",", "'", "what're", "you", "?", "crazy", "?", "'", "\"", "said", "sandowsky", ".", "\"", "i", "can't", "afford", "to", "do", "that", ".", "\""]
 
 # You can pass many different options to #initialize:
@@ -150,13 +150,15 @@ Corundum provides an implimentation of two different string distance algorithms,
 The Jaro-Winkler algorithm returns a number between 0 and 1 which tells how closely two strings match (1 being perfect and 0 being not at all).
 
 ```crystal
-Cadmium.jaro_winkler_distance("dixon","dicksonx")
+jwd = Cadmium.jaro_winkler_distance
+
+jwd.distance("dixon","dicksonx")
 # => 0.8133333333333332
 
-Cadmium.jaro_winkler_distance("same","same")
+jwd.distance("same","same")
 # => 1
 
-Cadmium.jaro_winkler_distance("not","same")
+jwd.distance("not","same")
 # => 0.0
 ```
 
@@ -165,13 +167,13 @@ Cadmium.jaro_winkler_distance("not","same")
 The Levenshtein distance algorithm returns the number of edits (insertions, modifications, or deletions) required to transform one string into another.
 
 ```crystal
-Cadmium.levenshtein_distance("doctor", "doktor")
+Cadmium.levenshtein_distance.distance("doctor", "doktor")
 # => 1
 
-Cadmium.levenshtein_distance("doctor", "doctor")
+Cadmium.levenshtein_distance.distance("doctor", "doctor")
 # => 0
 
-Cadmium.levenshtein_distance("flad", "flaten")
+Cadmium.levenshtein_distance.distance("flad", "flaten")
 # => 3
 ```
 
@@ -192,20 +194,20 @@ Currently Cadmium only comes with a [Porter](http://tartarus.org/martin/PorterSt
 Phonetic matching (sounds-like) matching can be done with the SoundEx or Metaphone algorithms
 
 ```crystal
-soundex = Cadmium::SoundEx
-metaphone = Cadmium::Metaphone
+sound_ex = Cadmium.sound_ex
+metaphone = Cadmium.metaphone
 
-soundex.process("phonetics")
+sound_ex.process("phonetics")
 # => "P532"
 
-soundex.tokenize_and_phoneticize("Ruby aint got nothing on Crystal")
+sound_ex.tokenize_and_phoneticize("Ruby aint got nothing on Crystal")
 # => ["R100", "A530", "G300", "C234"]
 
 # Keep word stops
-soundex.tokenize_and_phoneticize("Ruby aint got nothing on Crystal", true)
+sound_ex.tokenize_and_phoneticize("Ruby aint got nothing on Crystal", true)
 # => ["R100", "A530", "G300", "N352", "O000", "C234"]
 
-soundex.compare("phonetix", "phonetics")
+sound_ex.compare("phonetix", "phonetics")
 # => true
 
 metaphone.process("phonetics")
@@ -246,7 +248,7 @@ Both classes can also be used with attached String methods. The default class fo
 Nouns can be inflected using the `NounInflector` which has also been attached to the `String` class.
 
 ```crystal
-inflector = Cadmium::NounInflector.new
+inflector = Cadmium.noun_inflector.new
 
 inflector.pluralize("radius")
 # => radii
@@ -266,7 +268,7 @@ inflector.singularize("radii")
 Present tense verbs can be inflected with the `PresentVerbInflector`. This has also been attached to the string class.
 
 ```crystal
-inflector = Cadmium::PresentVerbInflector.new
+inflector = Cadmium.present_verb_inflector.new
 
 inflector.singularize("become")
 # => became
@@ -286,10 +288,10 @@ inflector.pluralize("became")
 Numbers can be inflected with the `CountInflector` which also adds a method `to_nth` to the `Int` class.
 
 ```crystal
-Cadmium::CountInflector.nth(1)
+Cadmium.count_inflector.nth(1)
 # => 1st
 
-Cadmium::CountInflector.nth(111)
+Cadmium.count_inflector.nth(111)
 # => 111th
 
 153.to_nth
@@ -303,21 +305,21 @@ N-Grams can be obtained for Arrays of Strings, or with single Strings (which wil
 #### bigrams
 
 ```crystal
-Cadmium::NGrams.bigrams("these are some words")
+Cadmium.ngrams.bigrams("these are some words")
 # => [["these", "are"], ["are", "some"], ["some", "words"]]
 ```
 
 #### trigrams
 
 ```crystal
-Cadmium::NGrams.trigrams("these are some words")
+Cadmium.ngrams.trigrams("these are some words")
 # => [["these", "are", "some"], ["are", "some", "words"]]
 ```
 
 #### arbitrary n-grams
 
 ```crystal
-Cadmium::NGrams.ngrams("some other words here for you", 4)
+Cadmium.ngrams.ngrams("some other words here for you", 4)
 # => [["some", "other", "words", "here"], ["other", "words", "here", "for"], ["words", "here", "for", "you"]]
 ```
 
@@ -326,7 +328,7 @@ Cadmium::NGrams.ngrams("some other words here for you", 4)
 n-grams can also be returned with left or right padding by passing a start and/or end symbol to the bigrams, trigrams or ngrams.
 
 ```crystal
-Cadmium::NGrams.ngrams("these are some words", 4, "[start]", "[end]")
+Cadmium.ngrams.ngrams("these are some words", 4, "[start]", "[end]")
 # => [
       ["[start]", "[start]", "[start]", "these"],
       ["[start]", "[start]", "these", "are"],
@@ -343,7 +345,7 @@ Cadmium::NGrams.ngrams("these are some words", 4, "[start]", "[end]")
 Cadmium comes with one classifier so far, a Classic Bayes classifier. It is a probabalistic classifier that, when trained with a data set, can classify words according to categories.
 
 ```crystal
-classifier = Cadmium::BayesClassifier.new
+classifier = Cadmium.bayes_classifier.new
 
 classifier.train("crystal is an awesome programming language", "programming")
 classifier.train("ruby is nice, but not as fast as crystal", "programming")
@@ -360,7 +362,7 @@ classifier.categorize("Crystal is my favorite!")
 [Term Frequency–Inverse Document Frequency (tf-idf)](http://en.wikipedia.org/wiki/Tf%E2%80%93idf) is implemented to determine how important a word (or words) is to a document relative to a corpus. The following example will add four documents to a corpus and determine the weight of the word "crystal" and then the weight of the word "ruby" in each document.
 
 ```crystal
-tfidf = Cadmium::TfIdf.new
+tfidf = Cadmium.tf_idf.new
 tfidf.add_document("this document is about crystal.")
 tfidf.add_document("this document is about ruby.")
 tfidf.add_document("this document is about ruby and crystal.")
@@ -393,10 +395,12 @@ end
 The Transliterator module provides the ability to transliterate UTF-8 strings into pure ASCII so that they can be safely displayed in URL slugs or file names.
 
 ```crystal
-Cadmium.transliterate("Привет")
+transliterator = Cadmium.transliterator
+
+transliterator.transliterate("Привет")
 # => "Privet"
 
-Cadmium.transliterate("你好朋友")
+transliterator.transliterate("你好朋友")
 # => "Ni Hao Peng You"
 
 # With the string extension
@@ -413,7 +417,7 @@ Cadmium.transliterate("你好朋友")
 The Sentiment module uses the [AFINN-165](http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010) wordlist and [Emoji Sentiment Ranking](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144296) to provide sentiment analysis on arbitrary blocks of text.
 
 ```crystal
-sentiment = Cadmium::Sentiment
+sentiment = Cadmium.sentiment
 
 "Crystal is seriously the best programming language.".sentiment
 # or
@@ -439,7 +443,7 @@ sentiment.analyze("Crystal is seriously the best programming language.")
 A [trie](https://en.wikipedia.org/wiki/Trie) is a data structure for efficiently storing and retrieving strings with identical prefixes, like "**mee**t" and "**mee**k".
 
 ```crystal
-trie = Cadmium::Trie.new
+trie = Cadmium.trie.new
 
 trie.add("meet")
 trie.size
@@ -472,7 +476,7 @@ trie.matches_on_path("meeting")
 EdgeWeightedDigraph represents a digraph, you can add an edge, get the number vertexes, edges, get all edges and use toString to print the Digraph.
 
 ```crystal
-digraph = Cadmium::EdgeWeightedDigraph.new
+digraph = Cadmium.edge_weighted_digraph.new
 
 digraph.add(5, 4, 0.35)
 digraph.add(5, 1, 0.32)
@@ -497,7 +501,7 @@ text = <<-EOF
     Make sure that the trip is exactly what she wants. Then on the wedding night tell her about the adventure so that the needed accommodations can be made.
 EOF
 
-report = Cadmium::Readability.new(text)
+report = Cadmium.readability.new(text)
 
 puts report.flesch  # => 71.47176470588238
 puts report.fog     # => 10.721568627450981
@@ -514,14 +518,14 @@ Using it is easy with Cadmium's API.
 
 ```crystal
 # Lookup a single word with a specific part of speech
-lemma = Cadmium::WordNet.lookup("horse", :n)
+lemma = Cadmium.wordnet.lookup("horse", :n)
 puts lemma.word.capitalize + " - " + lemma.pos
 lemma.synsets.each_with_index do |synset, i|
   puts "#{i + 1}. #{synset.gloss}"
 end
 
 # Lookup a single word accross all parts of speech
-lemmas = Cadmium::WordNet.lookup("horse")
+lemmas = Cadmium.wordnet.lookup("horse")
 lemmas = lemmas.map { |l| {word: l.word, pos: l.pos, synsets: l.synsets} }
 lemmas.each do |l|
   word = l[:word].capitalize
@@ -533,7 +537,7 @@ end
 
 
 # Lookup a definition by offset and part of speech
-synset = Cadmium::WordNet.get(4424418, :n)
+synset = Cadmium.wordnet.get(4424418, :n)
 puts "---------------------------------------------"
 puts synset.synset_offset
 puts synset.pos

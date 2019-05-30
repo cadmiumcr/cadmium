@@ -461,7 +461,7 @@
 
 <p>Use it like so:</p>
 
-<pre><code class="language-crystal">tokenizer <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">AggressiveTokenizer</span>.<span class="k">new</span>(lang: <span class="n">:es</span>)
+<pre><code class="language-crystal">tokenizer <span class="o">=</span> <span class="t">Cadmium</span>.aggressive_tokenizer.<span class="k">new</span>(lang: <span class="n">:es</span>)
 tokenizer.tokenize(<span class="s">&quot;hola yo me llamo eduardo y esudié ingeniería&quot;</span>)
 <span class="c"># =&gt; [&quot;hola&quot;, &quot;yo&quot;, &quot;me&quot;, &quot;llamo&quot;, &quot;eduardo&quot;, &quot;y&quot;, &quot;esudié&quot;, &quot;ingeniería&quot;]</span></code></pre>
 
@@ -469,11 +469,11 @@ tokenizer.tokenize(<span class="s">&quot;hola yo me llamo eduardo y esudié inge
 
 <p>The case tokenizer doesn't rely on Regex and as such should be pretty fast. It should also work on an international basis fairly easily.</p>
 
-<pre><code class="language-crystal">tokenizer <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">CaseTokenizer</span>.<span class="k">new</span>
+<pre><code class="language-crystal">tokenizer <span class="o">=</span> <span class="t">Cadmium</span>.case_tokenizer.<span class="k">new</span>
 tokenizer.tokenize(<span class="s">&quot;these are strings&quot;</span>)
 <span class="c"># =&gt; [&quot;these&quot;, &quot;are&quot;, &quot;strings&quot;]</span>
 
-tokenizer <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">CaseTokenizer</span>.<span class="k">new</span>(preserve_apostrophes: <span class="n">true</span>)
+tokenizer <span class="o">=</span> <span class="t">Cadmium</span>.case_tokenizer.<span class="k">new</span>(preserve_apostrophes: <span class="n">true</span>)
 tokenizer.tokenize(<span class="s">&quot;Affectueusement surnommé « Gabo » dans toute l&#39;Amérique latine&quot;</span>)
 <span class="c"># =&gt; [&quot;Affectueusement&quot;, &quot;surnommé&quot;, &quot;Gabo&quot;, &quot;dans&quot;, &quot;toute&quot;, &quot;l&quot;, &quot;Amérique&quot;, &quot;latine&quot;]</span></code></pre>
 
@@ -481,7 +481,7 @@ tokenizer.tokenize(<span class="s">&quot;Affectueusement surnommé « Gabo » da
 
 <p>The whitespace tokenizer, word punctuation tokenizer, and word tokenizer all extend the regex tokenizer. It uses Regex to match on the correct values.</p>
 
-<pre><code class="language-crystal">tokenizer <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordPunctuationTokenizer</span>.<span class="k">new</span>
+<pre><code class="language-crystal">tokenizer <span class="o">=</span> <span class="t">Cadmium</span>.word_punctuation_tokenizer.<span class="k">new</span>
 tokenizer.tokenize(<span class="s">&quot;my dog hasn&#39;t any fleas.&quot;</span>)
 <span class="c"># =&gt; [&quot;my&quot;, &quot;dog&quot;, &quot;hasn&quot;, &quot;&#39;&quot;, &quot;t&quot;, &quot;any&quot;, &quot;fleas&quot;, &quot;.&quot;]</span></code></pre>
 
@@ -489,7 +489,7 @@ tokenizer.tokenize(<span class="s">&quot;my dog hasn&#39;t any fleas.&quot;</spa
 
 <p>The treebank tokenizer uses regular expressions to tokenize text as in Penn Treebank. This implementation is a port of the tokenizer sed script written by Robert McIntyre. To read about treebanks you can visit <a href="https://en.wikipedia.org/wiki/Treebank" target="_blank">wikipedia</a>.</p>
 
-<pre><code class="language-crystal">tokenizer <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">TreebankWordTokenizer</span>.<span class="k">new</span>
+<pre><code class="language-crystal">tokenizer <span class="o">=</span> <span class="t">Cadmium</span>.treebank_word_tokenizer.<span class="k">new</span>
 tokenizer.tokenize(<span class="s">&quot;If we &#39;all&#39; can&#39;t go. I&#39;ll stay home.&quot;</span>)
 <span class="c"># =&gt; [&quot;If&quot;, &quot;we&quot;, &quot;&#39;all&quot;, &quot;&#39;&quot;, &quot;ca&quot;, &quot;n&#39;t&quot;, &quot;go.&quot;, &quot;I&quot;, &quot;&#39;ll&quot;, &quot;stay&quot;, &quot;home&quot;, &quot;.&quot;]</span></code></pre>
 
@@ -503,7 +503,7 @@ tokenizer.tokenize(<span class="s">&quot;If we &#39;all&#39; can&#39;t go. I&#39
 
 <pre><code class="language-crystal">text <span class="o">=</span> <span class="s">&quot;\&quot;I said, &#39;what&#39;re you? Crazy?&#39;\&quot; said Sandowsky. \&quot;I can&#39;t afford to do that.\&quot;&quot;</span>
 
-<span class="t">Cadmium</span><span class="t">::</span><span class="t">PragmaticTokenizer</span>.<span class="k">new</span>.tokenize(text)
+<span class="t">Cadmium</span>.pragmatic_tokenizer.<span class="k">new</span>.tokenize(text)
 <span class="c"># =&gt; [&quot;\&quot;&quot;, &quot;i&quot;, &quot;said&quot;, &quot;,&quot;, &quot;&#39;&quot;, &quot;what&#39;re&quot;, &quot;you&quot;, &quot;?&quot;, &quot;crazy&quot;, &quot;?&quot;, &quot;&#39;&quot;, &quot;\&quot;&quot;, &quot;said&quot;, &quot;sandowsky&quot;, &quot;.&quot;, &quot;\&quot;&quot;, &quot;i&quot;, &quot;can&#39;t&quot;, &quot;afford&quot;, &quot;to&quot;, &quot;do&quot;, &quot;that&quot;, &quot;.&quot;, &quot;\&quot;&quot;]</span>
 
 <span class="c"># You can pass many different options to #initialize:</span>
@@ -538,26 +538,28 @@ options <span class="o">=</span> {
 
 <p>The Jaro-Winkler algorithm returns a number between 0 and 1 which tells how closely two strings match (1 being perfect and 0 being not at all).</p>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span>.jaro_winkler_distance(<span class="s">&quot;dixon&quot;</span>,<span class="s">&quot;dicksonx&quot;</span>)
+<pre><code class="language-crystal">jwd <span class="o">=</span> <span class="t">Cadmium</span>.jaro_winkler_distance
+
+jwd.distance(<span class="s">&quot;dixon&quot;</span>,<span class="s">&quot;dicksonx&quot;</span>)
 <span class="c"># =&gt; 0.8133333333333332</span>
 
-<span class="t">Cadmium</span>.jaro_winkler_distance(<span class="s">&quot;same&quot;</span>,<span class="s">&quot;same&quot;</span>)
+jwd.distance(<span class="s">&quot;same&quot;</span>,<span class="s">&quot;same&quot;</span>)
 <span class="c"># =&gt; 1</span>
 
-<span class="t">Cadmium</span>.jaro_winkler_distance(<span class="s">&quot;not&quot;</span>,<span class="s">&quot;same&quot;</span>)
+jwd.distance(<span class="s">&quot;not&quot;</span>,<span class="s">&quot;same&quot;</span>)
 <span class="c"># =&gt; 0.0</span></code></pre>
 
 <h4>Levenshtein</h4>
 
 <p>The Levenshtein distance algorithm returns the number of edits (insertions, modifications, or deletions) required to transform one string into another.</p>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span>.levenshtein_distance(<span class="s">&quot;doctor&quot;</span>, <span class="s">&quot;doktor&quot;</span>)
+<pre><code class="language-crystal"><span class="t">Cadmium</span>.levenshtein_distance.distance(<span class="s">&quot;doctor&quot;</span>, <span class="s">&quot;doktor&quot;</span>)
 <span class="c"># =&gt; 1</span>
 
-<span class="t">Cadmium</span>.levenshtein_distance(<span class="s">&quot;doctor&quot;</span>, <span class="s">&quot;doctor&quot;</span>)
+<span class="t">Cadmium</span>.levenshtein_distance.distance(<span class="s">&quot;doctor&quot;</span>, <span class="s">&quot;doctor&quot;</span>)
 <span class="c"># =&gt; 0</span>
 
-<span class="t">Cadmium</span>.levenshtein_distance(<span class="s">&quot;flad&quot;</span>, <span class="s">&quot;flaten&quot;</span>)
+<span class="t">Cadmium</span>.levenshtein_distance.distance(<span class="s">&quot;flad&quot;</span>, <span class="s">&quot;flaten&quot;</span>)
 <span class="c"># =&gt; 3</span></code></pre>
 
 <h3>Stemmers</h3>
@@ -574,20 +576,20 @@ options <span class="o">=</span> {
 
 <p>Phonetic matching (sounds-like) matching can be done with the SoundEx or Metaphone algorithms</p>
 
-<pre><code class="language-crystal">soundex <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">SoundEx</span>
-metaphone <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">Metaphone</span>
+<pre><code class="language-crystal">sound_ex <span class="o">=</span> <span class="t">Cadmium</span>.sound_ex
+metaphone <span class="o">=</span> <span class="t">Cadmium</span>.metaphone
 
-soundex.process(<span class="s">&quot;phonetics&quot;</span>)
+sound_ex.process(<span class="s">&quot;phonetics&quot;</span>)
 <span class="c"># =&gt; &quot;P532&quot;</span>
 
-soundex.tokenize_and_phoneticize(<span class="s">&quot;Ruby aint got nothing on Crystal&quot;</span>)
+sound_ex.tokenize_and_phoneticize(<span class="s">&quot;Ruby aint got nothing on Crystal&quot;</span>)
 <span class="c"># =&gt; [&quot;R100&quot;, &quot;A530&quot;, &quot;G300&quot;, &quot;C234&quot;]</span>
 
 <span class="c"># Keep word stops</span>
-soundex.tokenize_and_phoneticize(<span class="s">&quot;Ruby aint got nothing on Crystal&quot;</span>, <span class="n">true</span>)
+sound_ex.tokenize_and_phoneticize(<span class="s">&quot;Ruby aint got nothing on Crystal&quot;</span>, <span class="n">true</span>)
 <span class="c"># =&gt; [&quot;R100&quot;, &quot;A530&quot;, &quot;G300&quot;, &quot;N352&quot;, &quot;O000&quot;, &quot;C234&quot;]</span>
 
-soundex.compare(<span class="s">&quot;phonetix&quot;</span>, <span class="s">&quot;phonetics&quot;</span>)
+sound_ex.compare(<span class="s">&quot;phonetix&quot;</span>, <span class="s">&quot;phonetics&quot;</span>)
 <span class="c"># =&gt; true</span>
 
 metaphone.process(<span class="s">&quot;phonetics&quot;</span>)
@@ -624,7 +626,7 @@ metaphone.compare(<span class="s">&quot;phonetix&quot;</span>, <span class="s">&
 
 <p>Nouns can be inflected using the <code>NounInflector</code> which has also been attached to the <code>String</code> class.</p>
 
-<pre><code class="language-crystal">inflector <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">NounInflector</span>.<span class="k">new</span>
+<pre><code class="language-crystal">inflector <span class="o">=</span> <span class="t">Cadmium</span>.noun_inflector.<span class="k">new</span>
 
 inflector.pluralize(<span class="s">&quot;radius&quot;</span>)
 <span class="c"># =&gt; radii</span>
@@ -642,7 +644,7 @@ inflector.singularize(<span class="s">&quot;radii&quot;</span>)
 
 <p>Present tense verbs can be inflected with the <code>PresentVerbInflector</code>. This has also been attached to the string class.</p>
 
-<pre><code class="language-crystal">inflector <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">PresentVerbInflector</span>.<span class="k">new</span>
+<pre><code class="language-crystal">inflector <span class="o">=</span> <span class="t">Cadmium</span>.present_verb_inflector.<span class="k">new</span>
 
 inflector.singularize(<span class="s">&quot;become&quot;</span>)
 <span class="c"># =&gt; became</span>
@@ -660,10 +662,10 @@ inflector.pluralize(<span class="s">&quot;became&quot;</span>)
 
 <p>Numbers can be inflected with the <code>CountInflector</code> which also adds a method <code>to_nth</code> to the <code>Int</code> class.</p>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span><span class="t">::</span><span class="t">CountInflector</span>.nth(<span class="n">1</span>)
+<pre><code class="language-crystal"><span class="t">Cadmium</span>.count_inflector.nth(<span class="n">1</span>)
 <span class="c"># =&gt; 1st</span>
 
-<span class="t">Cadmium</span><span class="t">::</span><span class="t">CountInflector</span>.nth(<span class="n">111</span>)
+<span class="t">Cadmium</span>.count_inflector.nth(<span class="n">111</span>)
 <span class="c"># =&gt; 111th</span>
 
 <span class="n">153</span>.to_nth
@@ -675,24 +677,24 @@ inflector.pluralize(<span class="s">&quot;became&quot;</span>)
 
 <h4>bigrams</h4>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span><span class="t">::</span><span class="t">NGrams</span>.bigrams(<span class="s">&quot;these are some words&quot;</span>)
+<pre><code class="language-crystal"><span class="t">Cadmium</span>.ngrams.bigrams(<span class="s">&quot;these are some words&quot;</span>)
 <span class="c"># =&gt; [[&quot;these&quot;, &quot;are&quot;], [&quot;are&quot;, &quot;some&quot;], [&quot;some&quot;, &quot;words&quot;]]</span></code></pre>
 
 <h4>trigrams</h4>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span><span class="t">::</span><span class="t">NGrams</span>.trigrams(<span class="s">&quot;these are some words&quot;</span>)
+<pre><code class="language-crystal"><span class="t">Cadmium</span>.ngrams.trigrams(<span class="s">&quot;these are some words&quot;</span>)
 <span class="c"># =&gt; [[&quot;these&quot;, &quot;are&quot;, &quot;some&quot;], [&quot;are&quot;, &quot;some&quot;, &quot;words&quot;]]</span></code></pre>
 
 <h4>arbitrary n-grams</h4>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span><span class="t">::</span><span class="t">NGrams</span>.ngrams(<span class="s">&quot;some other words here for you&quot;</span>, <span class="n">4</span>)
+<pre><code class="language-crystal"><span class="t">Cadmium</span>.ngrams.ngrams(<span class="s">&quot;some other words here for you&quot;</span>, <span class="n">4</span>)
 <span class="c"># =&gt; [[&quot;some&quot;, &quot;other&quot;, &quot;words&quot;, &quot;here&quot;], [&quot;other&quot;, &quot;words&quot;, &quot;here&quot;, &quot;for&quot;], [&quot;words&quot;, &quot;here&quot;, &quot;for&quot;, &quot;you&quot;]]</span></code></pre>
 
 <h4>padding</h4>
 
 <p>n-grams can also be returned with left or right padding by passing a start and/or end symbol to the bigrams, trigrams or ngrams.</p>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span><span class="t">::</span><span class="t">NGrams</span>.ngrams(<span class="s">&quot;these are some words&quot;</span>, <span class="n">4</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[end]&quot;</span>)
+<pre><code class="language-crystal"><span class="t">Cadmium</span>.ngrams.ngrams(<span class="s">&quot;these are some words&quot;</span>, <span class="n">4</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[end]&quot;</span>)
 <span class="c"># =&gt; [</span>
       [<span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;these&quot;</span>],
       [<span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;these&quot;</span>, <span class="s">&quot;are&quot;</span>],
@@ -707,7 +709,7 @@ inflector.pluralize(<span class="s">&quot;became&quot;</span>)
 
 <p>Cadmium comes with one classifier so far, a Classic Bayes classifier. It is a probabalistic classifier that, when trained with a data set, can classify words according to categories.</p>
 
-<pre><code class="language-crystal">classifier <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">BayesClassifier</span>.<span class="k">new</span>
+<pre><code class="language-crystal">classifier <span class="o">=</span> <span class="t">Cadmium</span>.bayes_classifier.<span class="k">new</span>
 
 classifier.train(<span class="s">&quot;crystal is an awesome programming language&quot;</span>, <span class="s">&quot;programming&quot;</span>)
 classifier.train(<span class="s">&quot;ruby is nice, but not as fast as crystal&quot;</span>, <span class="s">&quot;programming&quot;</span>)
@@ -722,7 +724,7 @@ classifier.categorize(<span class="s">&quot;Crystal is my favorite!&quot;</span>
 
 <p><a href="http://en.wikipedia.org/wiki/Tf%E2%80%93idf" target="_blank">Term Frequency–Inverse Document Frequency (tf-idf)</a> is implemented to determine how important a word (or words) is to a document relative to a corpus. The following example will add four documents to a corpus and determine the weight of the word "crystal" and then the weight of the word "ruby" in each document.</p>
 
-<pre><code class="language-crystal">tfidf <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">TfIdf</span>.<span class="k">new</span>
+<pre><code class="language-crystal">tfidf <span class="o">=</span> <span class="t">Cadmium</span>.tf_idf.<span class="k">new</span>
 tfidf.add_document(<span class="s">&quot;this document is about crystal.&quot;</span>)
 tfidf.add_document(<span class="s">&quot;this document is about ruby.&quot;</span>)
 tfidf.add_document(<span class="s">&quot;this document is about ruby and crystal.&quot;</span>)
@@ -749,10 +751,12 @@ tfidf.tfidfs(<span class="s">&quot;ruby&quot;</span>) <span class="k">do</span> 
 
 <p>The Transliterator module provides the ability to transliterate UTF-8 strings into pure ASCII so that they can be safely displayed in URL slugs or file names.</p>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span>.transliterate(<span class="s">&quot;Привет&quot;</span>)
+<pre><code class="language-crystal">transliterator <span class="o">=</span> <span class="t">Cadmium</span>.transliterator
+
+transliterator.transliterate(<span class="s">&quot;Привет&quot;</span>)
 <span class="c"># =&gt; &quot;Privet&quot;</span>
 
-<span class="t">Cadmium</span>.transliterate(<span class="s">&quot;你好朋友&quot;</span>)
+transliterator.transliterate(<span class="s">&quot;你好朋友&quot;</span>)
 <span class="c"># =&gt; &quot;Ni Hao Peng You&quot;</span>
 
 <span class="c"># With the string extension</span>
@@ -767,7 +771,7 @@ tfidf.tfidfs(<span class="s">&quot;ruby&quot;</span>) <span class="k">do</span> 
 
 <p>The Sentiment module uses the <a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010" target="_blank">AFINN-165</a> wordlist and <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144296" target="_blank">Emoji Sentiment Ranking</a> to provide sentiment analysis on arbitrary blocks of text.</p>
 
-<pre><code class="language-crystal">sentiment <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">Sentiment</span>
+<pre><code class="language-crystal">sentiment <span class="o">=</span> <span class="t">Cadmium</span>.sentiment
 
 <span class="s">&quot;Crystal is seriously the best programming language.&quot;</span>.sentiment
 <span class="c"># or</span>
@@ -791,7 +795,7 @@ sentiment.analyze(<span class="s">&quot;Crystal is seriously the best programmin
 
 <p>A <a href="https://en.wikipedia.org/wiki/Trie" target="_blank">trie</a> is a data structure for efficiently storing and retrieving strings with identical prefixes, like "<strong>mee</strong>t" and "<strong>mee</strong>k".</p>
 
-<pre><code class="language-crystal">trie <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">Trie</span>.<span class="k">new</span>
+<pre><code class="language-crystal">trie <span class="o">=</span> <span class="t">Cadmium</span>.trie.<span class="k">new</span>
 
 trie.add(<span class="s">&quot;meet&quot;</span>)
 trie.size
@@ -822,7 +826,7 @@ trie.matches_on_path(<span class="s">&quot;meeting&quot;</span>)
 
 <p>EdgeWeightedDigraph represents a digraph, you can add an edge, get the number vertexes, edges, get all edges and use toString to print the Digraph.</p>
 
-<pre><code class="language-crystal">digraph <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">EdgeWeightedDigraph</span>.<span class="k">new</span>
+<pre><code class="language-crystal">digraph <span class="o">=</span> <span class="t">Cadmium</span>.edge_weighted_digraph.<span class="k">new</span>
 
 digraph.add(<span class="n">5</span>, <span class="n">4</span>, <span class="n">0.35</span>)
 digraph.add(<span class="n">5</span>, <span class="n">1</span>, <span class="n">0.32</span>)
@@ -845,7 +849,7 @@ puts digraph.e <span class="c"># =&gt; 6</span></code></pre>
     Make sure that the trip is exactly what she wants. Then on the wedding night tell her about the adventure so that the needed accommodations can be made.
 EOF</span>
 
-report <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">Readability</span>.<span class="k">new</span>(text)
+report <span class="o">=</span> <span class="t">Cadmium</span>.readability.<span class="k">new</span>(text)
 
 puts report.flesch  <span class="c"># =&gt; 71.47176470588238</span>
 puts report.fog     <span class="c"># =&gt; 10.721568627450981</span>
@@ -860,14 +864,14 @@ puts report.kincaid <span class="c"># =&gt; 7.513725490196077</span></code></pre
 <p>Using it is easy with Cadmium's API.</p>
 
 <pre><code class="language-crystal"><span class="c"># Lookup a single word with a specific part of speech</span>
-lemma <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.lookup(<span class="s">&quot;horse&quot;</span>, <span class="n">:n</span>)
+lemma <span class="o">=</span> <span class="t">Cadmium</span>.wordnet.lookup(<span class="s">&quot;horse&quot;</span>, <span class="n">:n</span>)
 puts lemma.word.capitalize <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> lemma.pos
 lemma.synsets.each_with_index <span class="k">do</span> <span class="o">|</span>synset, i<span class="o">|</span>
   puts <span class="s">&quot;</span><span class="i">#{</span>i <span class="o">+</span> <span class="n">1</span><span class="i">}</span><span class="s">. </span><span class="i">#{</span>synset.gloss<span class="i">}</span><span class="s">&quot;</span>
 <span class="k">end</span>
 
 <span class="c"># Lookup a single word accross all parts of speech</span>
-lemmas <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.lookup(<span class="s">&quot;horse&quot;</span>)
+lemmas <span class="o">=</span> <span class="t">Cadmium</span>.wordnet.lookup(<span class="s">&quot;horse&quot;</span>)
 lemmas <span class="o">=</span> lemmas.map { <span class="o">|</span>l<span class="o">|</span> {word: l.word, pos: l.pos, synsets: l.synsets} }
 lemmas.each <span class="k">do</span> <span class="o">|</span>l<span class="o">|</span>
   word <span class="o">=</span> l[<span class="n">:word</span>].capitalize
@@ -879,7 +883,7 @@ lemmas.each <span class="k">do</span> <span class="o">|</span>l<span class="o">|
 
 
 <span class="c"># Lookup a definition by offset and part of speech</span>
-synset <span class="o">=</span> <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordNet</span>.get(<span class="n">4424418</span>, <span class="n">:n</span>)
+synset <span class="o">=</span> <span class="t">Cadmium</span>.wordnet.get(<span class="n">4424418</span>, <span class="n">:n</span>)
 puts <span class="s">&quot;---------------------------------------------&quot;</span>
 puts synset.synset_offset
 puts synset.pos

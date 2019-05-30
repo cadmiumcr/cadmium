@@ -68,7 +68,7 @@ module Cadmium
   # tokenizer.tokenize("This sentence has a long string of dots .......................")
   # # => ["this", "sentence", "has", "a", "long", "string", "of", "dots"]
   # ```
-  class PragmaticTokenizer
+  class PragmaticTokenizer < Tokenizer
     enum PunctuationOptions
       ALL
       SEMI
