@@ -21,6 +21,7 @@ For full API documentation check out [the docs](https://watzon.github.io/cadmium
 - [Phonetics](#phonetics)
 - [Inflectors](#inflectors)
 - [N-Grams](#n-grams)
+- [Classifiers](#classifiers)
 - [tf-idf](#tf-idf)
 - [Transliterator](#transliterator)
 - [Sentiment Analysis](#sentiment-analysis)
@@ -62,7 +63,7 @@ The aggressive tokenizer currently has localization available for English (:en /
 Use it like so:
 
 ```crystal
-tokenizer = Cadmium::Tokenizer::AggressiveTokenizer.new(lang: :es)
+tokenizer = Cadmium::AggressiveTokenizer.new(lang: :es)
 tokenizer.tokenize("hola yo me llamo eduardo y esudié ingeniería")
 # => ["hola", "yo", "me", "llamo", "eduardo", "y", "esudié", "ingeniería"]
 ``` 
@@ -72,11 +73,11 @@ tokenizer.tokenize("hola yo me llamo eduardo y esudié ingeniería")
 The case tokenizer doesn't rely on Regex and as such should be pretty fast. It should also work on an international basis fairly easily.
 
 ```crystal
-tokenizer = Cadmium::Tokenizer::CaseTokenizer.new
+tokenizer = Cadmium::CaseTokenizer.new
 tokenizer.tokenize("these are strings")
 # => ["these", "are", "strings"]
 
-tokenizer = Cadmium::Tokenizer::CaseTokenizer.new(preserve_apostrophes: true)
+tokenizer = Cadmium::CaseTokenizer.new(preserve_apostrophes: true)
 tokenizer.tokenize("Affectueusement surnommé « Gabo » dans toute l'Amérique latine")
 # => ["Affectueusement", "surnommé", "Gabo", "dans", "toute", "l", "Amérique", "latine"]
 ```
@@ -86,7 +87,7 @@ tokenizer.tokenize("Affectueusement surnommé « Gabo » dans toute l'Amérique 
 The whitespace tokenizer, word punctuation tokenizer, and word tokenizer all extend the regex tokenizer. It uses Regex to match on the correct values.
 
 ```crystal
-tokenizer = Cadmium::Tokenizer::WordPunctuationTokenizer.new
+tokenizer = Cadmium::WordPunctuationTokenizer.new
 tokenizer.tokenize("my dog hasn't any fleas.")
 # => ["my", "dog", "hasn", "'", "t", "any", "fleas", "."]
 ```
@@ -96,7 +97,7 @@ tokenizer.tokenize("my dog hasn't any fleas.")
 The treebank tokenizer uses regular expressions to tokenize text as in Penn Treebank. This implementation is a port of the tokenizer sed script written by Robert McIntyre. To read about treebanks you can visit [wikipedia](https://en.wikipedia.org/wiki/Treebank).
 
 ```crystal
-tokenizer = Cadmium::Tokenizer::TreebankWordTokenizer.new
+tokenizer = Cadmium::TreebankWordTokenizer.new
 tokenizer.tokenize("If we 'all' can't go. I'll stay home.")
 # => ["If", "we", "'all", "'", "ca", "n't", "go.", "I", "'ll", "stay", "home", "."]
 ```
@@ -112,7 +113,7 @@ Example is taken directly from the diasks2/pragmatic_tokenizer documentation, wi
 ```crystal
 text = "\"I said, 'what're you? Crazy?'\" said Sandowsky. \"I can't afford to do that.\""
 
-Cadmium::Tokenizer::Pragmatic.new.tokenize(text)
+Cadmium::PragmaticTokenizer.new.tokenize(text)
 # => ["\"", "i", "said", ",", "'", "what're", "you", "?", "crazy", "?", "'", "\"", "said", "sandowsky", ".", "\"", "i", "can't", "afford", "to", "do", "that", ".", "\""]
 
 # You can pass many different options to #initialize:
@@ -191,8 +192,8 @@ Currently Cadmium only comes with a [Porter](http://tartarus.org/martin/PorterSt
 Phonetic matching (sounds-like) matching can be done with the SoundEx or Metaphone algorithms
 
 ```crystal
-soundex = Cadmium::Phonetics::SoundEx
-metaphone = Cadmium::Phonetics::Metaphone
+soundex = Cadmium::SoundEx
+metaphone = Cadmium::Metaphone
 
 soundex.process("phonetics")
 # => "P532"
@@ -230,11 +231,11 @@ Both classes can also be used with attached String methods. The default class fo
 "Crystal".sounds_like("Krystal")
 # => true
 
-"Crystal".phonetics(nil, Cadmium::Phonetics::SoundEx)
+"Crystal".phonetics(nil, Cadmium::SoundEx)
 # => "C234"
 
 # Using a max length
-"Constitution".phonetics(6, Cadmium::Phonetics::SoundEx)
+"Constitution".phonetics(6, Cadmium::SoundEx)
 # => "C52333"
 ```
 
@@ -245,7 +246,7 @@ Both classes can also be used with attached String methods. The default class fo
 Nouns can be inflected using the `NounInflector` which has also been attached to the `String` class.
 
 ```crystal
-inflector = Cadmium::Inflectors::NounInflector.new
+inflector = Cadmium::NounInflector.new
 
 inflector.pluralize("radius")
 # => radii
@@ -265,7 +266,7 @@ inflector.singularize("radii")
 Present tense verbs can be inflected with the `PresentTenseVerb` inflector. This has also been attached to the string class.
 
 ```crystal
-inflector = Cadmium::Inflectors::PresentTenseVerb.new
+inflector = Cadmium::PresentTenseVerb.new
 
 inflector.singularize("become")
 # => became
@@ -285,10 +286,10 @@ inflector.pluralize("became")
 Numbers can be inflected with the `CountInflector` which also adds a method `to_nth` to the `Int` class.
 
 ```crystal
-Cadmium::Inflectors::CountInflector.nth(1)
+Cadmium::CountInflector.nth(1)
 # => 1st
 
-Cadmium::Inflectors::CountInflector.nth(111)
+Cadmium::CountInflector.nth(111)
 # => 111th
 
 153.to_nth
@@ -335,6 +336,23 @@ Cadmium::NGrams.ngrams("these are some words", 4, "[start]", "[end]")
       ["some", "words", "[end]", "[end]"],
       ["words", "[end]", "[end]", "[end]"]
     ]
+```
+
+### Classifiers
+
+Cadmium comes with one classifier so far, a Classic Bayes classifier. It is a probabalistic classifier that, when trained with a data set, can classify words according to categories.
+
+```crystal
+classifier = Cadmium::BayesClassifier.new
+
+classifier.train("crystal is an awesome programming language", "programming")
+classifier.train("ruby is nice, but not as fast as crystal", "programming")
+
+classifier.train("my wife and I went to the beach", "off-topic")
+classifier.train("my dog likes to go outside and play", "off-topic")
+
+classifier.categorize("Crystal is my favorite!")
+# => "programming"
 ```
 
 ### tf-idf
@@ -454,7 +472,7 @@ trie.matches_on_path("meeting")
 EdgeWeightedDigraph represents a digraph, you can add an edge, get the number vertexes, edges, get all edges and use toString to print the Digraph.
 
 ```crystal
-digraph = Cadmium::Graph::EdgeWeightedDigraph.new
+digraph = Cadmium::EdgeWeightedDigraph.new
 
 digraph.add(5, 4, 0.35)
 digraph.add(5, 1, 0.32)
@@ -547,7 +565,7 @@ This is all I want to have done before a __v1.0__ release.
   - [ ] LancasterStemmer
     - [ ] i18n
 - [ ] Classifiers
-    - [ ] Bayes
+    - [x] Bayes
     - [ ] Logic Regression 
 - [x] Phonetics
   - [x] SoundEx

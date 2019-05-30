@@ -1,7 +1,7 @@
 require "../../spec_helper"
 
-describe Cadmium::Phonetics::Metaphone do
-  subject = Cadmium::Phonetics::Metaphone
+describe Cadmium::Metaphone do
+  subject = Cadmium::Metaphone
 
   it "should drop duplicate adjacent letters, except C" do
     subject.dedup("dropping").should eq("droping")

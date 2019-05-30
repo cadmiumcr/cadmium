@@ -1,7 +1,7 @@
 require "../../spec_helper"
 
-describe Cadmium::Tokenizer::CaseTokenizer do
-  subject = Cadmium::Tokenizer::CaseTokenizer.new
+describe Cadmium::CaseTokenizer do
+  subject = Cadmium::CaseTokenizer.new
 
   it "should tokenize numbers" do
     subject.tokenize("0 1 2 3 4 5 6 7 8 9 10").should eq(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
@@ -13,7 +13,7 @@ describe Cadmium::Tokenizer::CaseTokenizer do
     end
 
     it "should tokenize strings via String#tokenize" do
-      "hola yo me llamo eduardo y esudié ingeniería".tokenize(Cadmium::Tokenizer::CaseTokenizer).should eq(["hola", "yo", "me", "llamo", "eduardo", "y", "esudié", "ingeniería"])
+      "hola yo me llamo eduardo y esudié ingeniería".tokenize(Cadmium::CaseTokenizer).should eq(["hola", "yo", "me", "llamo", "eduardo", "y", "esudié", "ingeniería"])
     end
   end
 
@@ -26,19 +26,19 @@ describe Cadmium::Tokenizer::CaseTokenizer do
     end
 
     it "should tokenize strings via String#tokenize" do
-      text.tokenize(Cadmium::Tokenizer::CaseTokenizer).should eq(tokenized)
+      text.tokenize(Cadmium::CaseTokenizer).should eq(tokenized)
     end
   end
 
   describe "dutch" do
-    dutch_tokenizer = Cadmium::Tokenizer::CaseTokenizer.new(preserve_apostrophe: true)
+    dutch_tokenizer = Cadmium::CaseTokenizer.new(preserve_apostrophe: true)
 
     it "should tokenize strings" do
       dutch_tokenizer.tokenize("'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's").should eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
     end
 
     it "should tokenize strings via String#tokenize" do
-      "'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's".tokenize(Cadmium::Tokenizer::CaseTokenizer, preserve_apostrophe: true).should eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
+      "'s Morgens is het nog erg koud, vertelde de weerman over een van de radio's".tokenize(Cadmium::CaseTokenizer, preserve_apostrophe: true).should eq(["'s", "Morgens", "is", "het", "nog", "erg", "koud", "vertelde", "de", "weerman", "over", "een", "van", "de", "radio's"])
     end
   end
 
@@ -48,7 +48,7 @@ describe Cadmium::Tokenizer::CaseTokenizer do
     end
 
     it "should tokenize strings via String#tokenize" do
-      "isso é coração".tokenize(Cadmium::Tokenizer::CaseTokenizer).should eq(["isso", "é", "coração"])
+      "isso é coração".tokenize(Cadmium::CaseTokenizer).should eq(["isso", "é", "coração"])
     end
 
     it "should swollow punctuation" do
@@ -74,7 +74,7 @@ describe Cadmium::Tokenizer::CaseTokenizer do
     end
 
     it "should tokenize strings via String#tokenize" do
-      "these are strings".tokenize(Cadmium::Tokenizer::CaseTokenizer).should eq(["these", "are", "strings"])
+      "these are strings".tokenize(Cadmium::CaseTokenizer).should eq(["these", "are", "strings"])
     end
 
     it "should allow punctuation" do

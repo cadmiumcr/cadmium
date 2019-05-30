@@ -4,9 +4,9 @@ module Cadmium
   module NGrams
     extend self
 
-    @@tokenizer = Cadmium::Tokenizer::WordTokenizer.new
+    @@tokenizer = Cadmium::WordTokenizer.new
 
-    def tokenizer=(tokenizer : Cadmium::Tokenizer::TokenizerBase)
+    def tokenizer=(tokenizer : Cadmium::Tokenizer)
       @@tokenizer = tokenizer
     end
 

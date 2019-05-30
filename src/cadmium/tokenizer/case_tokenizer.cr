@@ -1,26 +1,24 @@
-require "./tokenizer_base"
+require "./tokenizer"
 
 module Cadmium
-  module Tokenizer
-    class CaseTokenizer < TokenizerBase
-      @preserve_apostrophe : Bool
+  class CaseTokenizer < Tokenizer
+    @preserve_apostrophe : Bool
 
-      def initialize(preserve_apostrophe = nil)
-        @preserve_apostrophe = preserve_apostrophe.nil? ? false : preserve_apostrophe
-      end
+    def initialize(preserve_apostrophe = nil)
+      @preserve_apostrophe = preserve_apostrophe.nil? ? false : preserve_apostrophe
+    end
 
-      def tokenize(string : String) : Array(String)
-        whitelist = ('0'..'9').to_a
-        result = string.chars.reduce("") do |acc, cur|
-          if (cur.downcase != cur.upcase) || whitelist.includes?(cur.downcase) || (cur == '\'' && @preserve_apostrophe)
-            acc += cur
-          else
-            acc += ' '
-          end
-          acc
+    def tokenize(string : String) : Array(String)
+      whitelist = ('0'..'9').to_a
+      result = string.chars.reduce("") do |acc, cur|
+        if (cur.downcase != cur.upcase) || whitelist.includes?(cur.downcase) || (cur == '\'' && @preserve_apostrophe)
+          acc += cur
+        else
+          acc += ' '
         end
-        trim(result.gsub(/\s+/, ' ').split(' '))
+        acc
       end
+      trim(result.gsub(/\s+/, ' ').split(' '))
     end
   end
 end

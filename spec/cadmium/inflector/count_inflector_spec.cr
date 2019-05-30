@@ -1,7 +1,7 @@
 require "../../spec_helper"
 
-describe Cadmium::Inflector::CountInflector do
-  subject = Cadmium::Inflector::CountInflector
+describe Cadmium::CountInflector do
+  subject = Cadmium::CountInflector
 
   it "should handle 1st cases" do
     subject.nth(1).should eq("1st")

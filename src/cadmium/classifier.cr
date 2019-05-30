@@ -1,6 +1,6 @@
 require "./classifier/*"
 
 module Cadmium
-  module Classifier
+  module Classifiers
   end
 end

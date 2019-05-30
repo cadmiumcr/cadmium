@@ -91,7 +91,7 @@ describe Cadmium::NGrams do
   end
 
   it "should use an alternate tokenizer" do
-    subject.tokenizer = Cadmium::Tokenizer::AggressiveTokenizer.new(lang: :fr)
+    subject.tokenizer = Cadmium::AggressiveTokenizer.new(lang: :fr)
     subject.ngrams("Un Éléphant rouge", 2).should eq([["Un", "Éléphant"], ["Éléphant", "rouge"]])
   end
 end

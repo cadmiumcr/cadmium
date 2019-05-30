@@ -1,7 +1,7 @@
 require "../../spec_helper"
 
-describe Cadmium::Phonetics::SoundEx do
-  subject = Cadmium::Phonetics::SoundEx
+describe Cadmium::SoundEx do
+  subject = Cadmium::SoundEx
 
   describe ".transform_lips" do
     it "should replace B, F, P, and V with 1" do

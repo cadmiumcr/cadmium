@@ -1,5 +1,5 @@
 require "../inflectors"
 
 struct Int
-  include Cadmium::Inflector::IntExtension
+  include Cadmium::IntExtension
 end

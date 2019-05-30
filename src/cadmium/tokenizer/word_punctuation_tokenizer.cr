@@ -1,13 +1,11 @@
 require "./regex_tokenizer"
 
 module Cadmium
-  module Tokenizer
-    class WordPunctuationTokenizer < RegexTokenizer
-      REGEX_PATTERN = /(\w+|[а-я0-9_]+|\.|\!|\'|\"")/i
+  class WordPunctuationTokenizer < RegexTokenizer
+    REGEX_PATTERN = /(\w+|[а-я0-9_]+|\.|\!|\'|\"")/i
 
-      def initialize
-        super(REGEX_PATTERN)
-      end
+    def initialize
+      super(REGEX_PATTERN)
     end
   end
 end

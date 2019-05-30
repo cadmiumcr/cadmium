@@ -1,6 +1,4 @@
 module Cadmium
-  module Classifiers
-    class LogisticRegression
-    end
+  class LogisticRegression
   end
 end

@@ -1,1 +1,1 @@
-require "./classifier/*"
+require "./classifier/bayes"

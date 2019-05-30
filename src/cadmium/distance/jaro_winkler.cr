@@ -1,10 +1,10 @@
 require "bit_array"
 require "set"
 
-module Cadmium::Distance
+module Cadmium
   # Computes the Jaro distance between two string.
   # Code credit goes to kostya. https://github.com/kostya/jaro_winkler
-  class JaroWinkler
+  class JaroWinklerDistance
     DEFAULT_ADJ_TABLE = [
       ['A', 'E'], ['A', 'I'], ['A', 'O'], ['A', 'U'], ['B', 'V'], ['E', 'I'], ['E', 'O'], ['E', 'U'], ['I', 'O'],
       ['I', 'U'], ['O', 'U'], ['I', 'Y'], ['E', 'Y'], ['C', 'G'], ['E', 'F'], ['W', 'U'], ['W', 'V'], ['X', 'K'],

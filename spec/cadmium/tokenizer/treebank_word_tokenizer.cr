@@ -1,7 +1,7 @@
 require "../../spec_helper"
 
-describe Cadmium::Tokenizer::TreebankWordTokenizer do
-  subject = Cadmium::Tokenizer::TreebankWordTokenizer.new
+describe Cadmium::TreebankWordTokenizer do
+  subject = Cadmium::TreebankWordTokenizer.new
 
   it "should tokenize" do
     tokens = subject.tokenize("If we 'all' can't go. I'll stay home.")

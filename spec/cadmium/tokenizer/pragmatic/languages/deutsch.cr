@@ -1,13 +1,13 @@
-describe Cadmium::Tokenizer::Pragmatic do
+describe Cadmium::PragmaticTokenizer do
   context "Language: German (de)" do
     it "tokenizes a string #001" do
       text = "Das steht auf S. 23, s. vorherige Anmerkung."
-      Cadmium::Tokenizer::Pragmatic.new(language: :de).tokenize(text).should eq(["das", "steht", "auf", "s.", "23", ",", "s.", "vorherige", "anmerkung", "."])
+      Cadmium::PragmaticTokenizer.new(language: :de).tokenize(text).should eq(["das", "steht", "auf", "s.", "23", ",", "s.", "vorherige", "anmerkung", "."])
     end
 
     it "tokenizes a string #002" do
       text = "Die größte Ausdehnung des Landes vom Westen nach Osten beträgt 650 km – von Nord nach Süd sind es 560 km. Unter den europäischen Staaten ist Weißrussland flächenmäßig an 13"
-      Cadmium::Tokenizer::Pragmatic.new(
+      Cadmium::PragmaticTokenizer.new(
         language: :de,
         downcase: false,
         remove_stop_words: true,
@@ -18,7 +18,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "tokenizes a string #003" do
       text = "Die weißrussischen offiziellen Stellen wie auch die deutsche Diplomatie verwenden in offiziellen deutschsprachigen Texten den Namen Belarus, um die Unterscheidung von Russland zu verdeutlichen."
-      Cadmium::Tokenizer::Pragmatic.new(
+      Cadmium::PragmaticTokenizer.new(
         language: :de,
         downcase: false
       ).tokenize(text).should eq(["Die", "weißrussischen", "offiziellen", "Stellen", "wie", "auch", "die", "deutsche", "Diplomatie", "verwenden", "in", "offiziellen", "deutschsprachigen", "Texten", "den", "Namen", "Belarus", ",", "um", "die", "Unterscheidung", "von", "Russland", "zu", "verdeutlichen", "."])
@@ -26,7 +26,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "tokenizes a string #004" do
       text = "der Kaffee-Ersatz"
-      Cadmium::Tokenizer::Pragmatic.new(
+      Cadmium::PragmaticTokenizer.new(
         language: :de,
         downcase: false
       ).tokenize(text).should eq(["der", "Kaffee-Ersatz"])
@@ -34,14 +34,14 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "tokenizes a string #005" do
       text = "Charlie Hebdo backlash over 'racist' Alan Kurdi cartoon - https://t.co/J8N2ylVV3w"
-      Cadmium::Tokenizer::Pragmatic.new(
+      Cadmium::PragmaticTokenizer.new(
         language: :de
       ).tokenize(text).should eq(["charlie", "hebdo", "backlash", "over", "'", "racist", "'", "alan", "kurdi", "cartoon", "-", "https://t.co/j8n2ylvv3w"])
     end
 
     it "handles words with a slash 1" do
       text = "We pay 3000 €/month"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -50,7 +50,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles words with a slash 2" do
       text = "Ich frage mich, wieso er nicht Herr der Lage war/ist."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -59,7 +59,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles words with a slash 3" do
       text = "Poison gas attack in Ghuta/Syria."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -68,7 +68,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles words with a question mark" do
       text = "Essen á la carte?Man ist versucht…"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -77,7 +77,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles apostrophes and quotes 3" do
       text = "Die “Mitte der Gesellschaft” interessiert sich jetzt für “Feminismus”."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -86,7 +86,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles mentions 1" do
       text = "@RainerSteinke @_Sternchen_2015 1:0 für dich."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -95,7 +95,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles mentions 2" do
       text = "@LandauDaniel @AnthZeto @julianfranz @S_Beck19 Yep!"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -104,7 +104,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles old school emoticons 1" do
       text = "du übertreibst maßlos :D"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         downcase: false,
         language: :de
@@ -114,7 +114,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles words with a symbol suffix" do
       text = "hier ist ein Whirlpool versteckt^^"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -123,7 +123,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles hashtags 1" do
       text = "„Was wir tun wird in diesem Land Leben retten“:#Obama"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -132,7 +132,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles numbers and words" do
       text = "Air Force Once ist 18.270-mal abgehoben."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -141,7 +141,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "maintains the german gender-neutrality form 2" do
       text = "der/die Lehrer_in und seine/ihre Schüler_innen"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -150,7 +150,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles contractions 1" do
       text = "gibt's"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         expand_contractions: true,
         language: :de
       )
@@ -159,7 +159,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles contractions 2" do
       text = "gibt‘s schaut’s wenn＇s g›spür find´s"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         expand_contractions: true,
         language: :de
       )
@@ -168,7 +168,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "removes English stopwords" do
       text = "der/die Lehrer_in und seine/ihre Schüler_innen. This has some English."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         filter_languages: [:en],
         remove_stop_words: true,
         language: :de
@@ -178,7 +178,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "removes English and German stopwords" do
       text = "der/die Lehrer_in und seine/ihre Schüler_innen. This has some English."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         filter_languages: [:en, :de],
         remove_stop_words: true,
         language: :de
@@ -188,7 +188,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "does not remove English stopwords" do
       text = "der/die Lehrer_in und seine/ihre Schüler_innen. This has some English."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         language: :de
       )
       pt.tokenize(text).should eq(["der", "die", "lehrer_in", "und", "seine", "ihre", "schüler_innen", ".", "this", "has", "some", "english", "."])
@@ -198,7 +198,7 @@ describe Cadmium::Tokenizer::Pragmatic do
     # that attaches "Innen" (plural) or "In" (singular) (with a capital I) to a word.
     pending "maintains the german gender-neutrality form 1" do
       text = "Wir brauchen eine/n erfahrene/n Informatiker/in."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -207,7 +207,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     pending "handles apostrophes and quotes 4" do
       text = "Endlich regnet es ihm nicht mehr auf ́s Haupt!"
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         punctuation: :none,
         language: :de
       )
@@ -216,7 +216,7 @@ describe Cadmium::Tokenizer::Pragmatic do
 
     it "handles abrreviations for languages other than English" do
       text = "Adj. Smith how are ü. today."
-      pt = Cadmium::Tokenizer::Pragmatic.new(
+      pt = Cadmium::PragmaticTokenizer.new(
         language: :de
       )
       pt.tokenize(text).should eq(["adj", ".", "smith", "how", "are", "ü.", "today", "."])
