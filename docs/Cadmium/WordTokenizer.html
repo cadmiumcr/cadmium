@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "../";
+</script>
+
+  <meta id="repository-name" content="github.com/watzon/cadmium">
+  <title>Cadmium::WordTokenizer - github.com/watzon/cadmium</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="github.com/watzon/cadmium/Cadmium" data-name="cadmium">
+      <a href="../Cadmium.html">Cadmium</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/AggressiveTokenizer" data-name="cadmium::aggressivetokenizer">
+      <a href="../Cadmium/AggressiveTokenizer.html">AggressiveTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/BayesClassifier" data-name="cadmium::bayesclassifier">
+      <a href="../Cadmium/BayesClassifier.html">BayesClassifier</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/CaseTokenizer" data-name="cadmium::casetokenizer">
+      <a href="../Cadmium/CaseTokenizer.html">CaseTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Classifiers" data-name="cadmium::classifiers">
+      <a href="../Cadmium/Classifiers.html">Classifiers</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/CountInflector" data-name="cadmium::countinflector">
+      <a href="../Cadmium/CountInflector.html">CountInflector</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/EdgeWeightedDigraph" data-name="cadmium::edgeweighteddigraph">
+      <a href="../Cadmium/EdgeWeightedDigraph.html">EdgeWeightedDigraph</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/EdgeWeightedDigraph/Bag" data-name="cadmium::edgeweighteddigraph::bag(t)">
+      <a href="../Cadmium/EdgeWeightedDigraph/Bag.html">Bag</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/EdgeWeightedDigraph/DirectedEdge" data-name="cadmium::edgeweighteddigraph::directededge">
+      <a href="../Cadmium/EdgeWeightedDigraph/DirectedEdge.html">DirectedEdge</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Graph" data-name="cadmium::graph">
+      <a href="../Cadmium/Graph.html">Graph</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Graph/ShortestPath" data-name="cadmium::graph::shortestpath">
+      <a href="../Cadmium/Graph/ShortestPath.html">ShortestPath</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/IntExtension" data-name="cadmium::intextension">
+      <a href="../Cadmium/IntExtension.html">IntExtension</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/JaroWinklerDistance" data-name="cadmium::jarowinklerdistance">
+      <a href="../Cadmium/JaroWinklerDistance.html">JaroWinklerDistance</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/LevenshteinDistance" data-name="cadmium::levenshteindistance">
+      <a href="../Cadmium/LevenshteinDistance.html">LevenshteinDistance</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/LogisticRegression" data-name="cadmium::logisticregression">
+      <a href="../Cadmium/LogisticRegression.html">LogisticRegression</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Metaphone" data-name="cadmium::metaphone">
+      <a href="../Cadmium/Metaphone.html">Metaphone</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/NGrams" data-name="cadmium::ngrams">
+      <a href="../Cadmium/NGrams.html">NGrams</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Normalizers" data-name="cadmium::normalizers">
+      <a href="../Cadmium/Normalizers.html">Normalizers</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Normalizers/RemoveDiacritics" data-name="cadmium::normalizers::removediacritics">
+      <a href="../Cadmium/Normalizers/RemoveDiacritics.html">RemoveDiacritics</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/NounInflector" data-name="cadmium::nouninflector">
+      <a href="../Cadmium/NounInflector.html">NounInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics" data-name="cadmium::phonetics">
+      <a href="../Cadmium/Phonetics.html">Phonetics</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PorterStemmer" data-name="cadmium::porterstemmer">
+      <a href="../Cadmium/PorterStemmer.html">PorterStemmer</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/PragmaticTokenizer" data-name="cadmium::pragmatictokenizer">
+      <a href="../Cadmium/PragmaticTokenizer.html">PragmaticTokenizer</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/PragmaticTokenizer/Languages" data-name="cadmium::pragmatictokenizer::languages">
+      <a href="../Cadmium/PragmaticTokenizer/Languages.html">Languages</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PragmaticTokenizer/Languages/Common" data-name="cadmium::pragmatictokenizer::languages::common">
+      <a href="../Cadmium/PragmaticTokenizer/Languages/Common.html">Common</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PragmaticTokenizer/Languages/Deutsch" data-name="cadmium::pragmatictokenizer::languages::deutsch">
+      <a href="../Cadmium/PragmaticTokenizer/Languages/Deutsch.html">Deutsch</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PragmaticTokenizer/Languages/English" data-name="cadmium::pragmatictokenizer::languages::english">
+      <a href="../Cadmium/PragmaticTokenizer/Languages/English.html">English</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PragmaticTokenizer/MentionsOptions" data-name="cadmium::pragmatictokenizer::mentionsoptions">
+      <a href="../Cadmium/PragmaticTokenizer/MentionsOptions.html">MentionsOptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PragmaticTokenizer/NumbersOptions" data-name="cadmium::pragmatictokenizer::numbersoptions">
+      <a href="../Cadmium/PragmaticTokenizer/NumbersOptions.html">NumbersOptions</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PragmaticTokenizer/PunctuationOptions" data-name="cadmium::pragmatictokenizer::punctuationoptions">
+      <a href="../Cadmium/PragmaticTokenizer/PunctuationOptions.html">PunctuationOptions</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PresentVerbInflector" data-name="cadmium::presentverbinflector">
+      <a href="../Cadmium/PresentVerbInflector.html">PresentVerbInflector</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Readability" data-name="cadmium::readability">
+      <a href="../Cadmium/Readability.html">Readability</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/RegexTokenizer" data-name="cadmium::regextokenizer">
+      <a href="../Cadmium/RegexTokenizer.html">RegexTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/SentenceTokenizer" data-name="cadmium::sentencetokenizer">
+      <a href="../Cadmium/SentenceTokenizer.html">SentenceTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Sentiment" data-name="cadmium::sentiment">
+      <a href="../Cadmium/Sentiment.html">Sentiment</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/SoundEx" data-name="cadmium::soundex">
+      <a href="../Cadmium/SoundEx.html">SoundEx</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Stemmer" data-name="cadmium::stemmer">
+      <a href="../Cadmium/Stemmer.html">Stemmer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Stemmer/Token" data-name="cadmium::stemmer::token">
+      <a href="../Cadmium/Stemmer/Token.html">Token</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/StringExtension" data-name="cadmium::stringextension">
+      <a href="../Cadmium/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/TenseInflector" data-name="cadmium::tenseinflector">
+      <a href="../Cadmium/TenseInflector.html">TenseInflector</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/TenseInflector/FormSet" data-name="cadmium::tenseinflector::formset">
+      <a href="../Cadmium/TenseInflector/FormSet.html">FormSet</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/TfIdf" data-name="cadmium::tfidf">
+      <a href="../Cadmium/TfIdf.html">TfIdf</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/TfIdf/Document" data-name="cadmium::tfidf::document">
+      <a href="../Cadmium/TfIdf/Document.html">Document</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Tokenizer" data-name="cadmium::tokenizer">
+      <a href="../Cadmium/Tokenizer.html">Tokenizer</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Transliterator" data-name="cadmium::transliterator">
+      <a href="../Cadmium/Transliterator.html">Transliterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Transliterator/StringExtension" data-name="cadmium::transliterator::stringextension">
+      <a href="../Cadmium/Transliterator/StringExtension.html">StringExtension</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/TreebankWordTokenizer" data-name="cadmium::treebankwordtokenizer">
+      <a href="../Cadmium/TreebankWordTokenizer.html">TreebankWordTokenizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Trie" data-name="cadmium::trie">
+      <a href="../Cadmium/Trie.html">Trie</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util" data-name="cadmium::util">
+      <a href="../Cadmium/Util.html">Util</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Paragraph" data-name="cadmium::util::paragraph">
+      <a href="../Cadmium/Util/Paragraph.html">Paragraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Sentence" data-name="cadmium::util::sentence">
+      <a href="../Cadmium/Util/Sentence.html">Sentence</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/StopWords" data-name="cadmium::util::stopwords">
+      <a href="../Cadmium/Util/StopWords.html">StopWords</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/Util/Syllable" data-name="cadmium::util::syllable">
+      <a href="../Cadmium/Util/Syllable.html">Syllable</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Util/Syllable/Guess" data-name="cadmium::util::syllable::guess">
+      <a href="../Cadmium/Util/Syllable/Guess.html">Guess</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WhitespaceTokenizer" data-name="cadmium::whitespacetokenizer">
+      <a href="../Cadmium/WhitespaceTokenizer.html">WhitespaceTokenizer</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/watzon/cadmium/Cadmium/WordNet" data-name="cadmium::wordnet">
+      <a href="../Cadmium/WordNet.html">WordNet</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/DB" data-name="cadmium::wordnet::db">
+      <a href="../Cadmium/WordNet/DB.html">DB</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Lemma" data-name="cadmium::wordnet::lemma">
+      <a href="../Cadmium/WordNet/Lemma.html">Lemma</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Pointer" data-name="cadmium::wordnet::pointer">
+      <a href="../Cadmium/WordNet/Pointer.html">Pointer</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordNet/Synset" data-name="cadmium::wordnet::synset">
+      <a href="../Cadmium/WordNet/Synset.html">Synset</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WordPunctuationTokenizer" data-name="cadmium::wordpunctuationtokenizer">
+      <a href="../Cadmium/WordPunctuationTokenizer.html">WordPunctuationTokenizer</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/watzon/cadmium/Cadmium/WordTokenizer" data-name="cadmium::wordtokenizer">
+      <a href="../Cadmium/WordTokenizer.html">WordTokenizer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Cadmium::WordTokenizer
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Cadmium/WordTokenizer.html">Cadmium::WordTokenizer</a></li><li class="superclass"><a href="../Cadmium/RegexTokenizer.html">Cadmium::RegexTokenizer</a></li><li class="superclass"><a href="../Cadmium/Tokenizer.html">Cadmium::Tokenizer</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/watzon/cadmium/blob/df2958c8792804d7aa934a419d3f30413df30aa1/src/cadmium/tokenizer/word_tokenizer.cr#L4" target="_blank">
+        cadmium/tokenizer/word_tokenizer.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="REGEX_PATTERN">
+        <strong>REGEX_PATTERN</strong> = <code><span class="s">/[^A-Za-zА-Яа-я0-9_]+/</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="../Cadmium/RegexTokenizer.html">Cadmium::RegexTokenizer</a></code></h3>
+  
+  
+    <a href="../Cadmium/RegexTokenizer.html#tokenize%28string%3AString%29%3AArray%28String%29-instance-method" class="tooltip">
+      <span>tokenize(string : String) : Array(String)</span>
+    tokenize</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from class <code><a href="../Cadmium/RegexTokenizer.html">Cadmium::RegexTokenizer</a></code></h3>
+  
+  
+    <a href="../Cadmium/RegexTokenizer.html#new%28pattern%3ARegex%2C%2A%2Cgaps%3Dnil%2Cdiscard_empty%3Dnil%29-class-method" class="tooltip">
+      <span>new(pattern : Regex, *, gaps = <span class="n">nil</span>, discard_empty = <span class="n">nil</span>)</span>
+    new</a>
+    
+  
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="../Cadmium/Tokenizer.html">Cadmium::Tokenizer</a></code></h3>
+  
+  
+    <a href="../Cadmium/Tokenizer.html#tokenize%28string%3AString%29%3AArray%28String%29-instance-method" class="tooltip">
+      <span>tokenize(string : String) : Array(String)</span>
+    tokenize</a>, 
+    
+  
+    <a href="../Cadmium/Tokenizer.html#trim%28arr%29-instance-method" class="tooltip">
+      <span>trim(arr)</span>
+    trim</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/df2958c8792804d7aa934a419d3f30413df30aa1/src/cadmium/tokenizer/word_tokenizer.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

@@ -263,10 +263,10 @@ inflector.singularize("radii")
 
 #### Present Tense Verbs
 
-Present tense verbs can be inflected with the `PresentTenseVerb` inflector. This has also been attached to the string class.
+Present tense verbs can be inflected with the `PresentVerbInflector`. This has also been attached to the string class.
 
 ```crystal
-inflector = Cadmium::PresentTenseVerb.new
+inflector = Cadmium::PresentVerbInflector.new
 
 inflector.singularize("become")
 # => became

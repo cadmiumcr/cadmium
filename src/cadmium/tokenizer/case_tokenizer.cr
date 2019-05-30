@@ -4,8 +4,7 @@ module Cadmium
   class CaseTokenizer < Tokenizer
     @preserve_apostrophe : Bool
 
-    def initialize(preserve_apostrophe = nil)
-      @preserve_apostrophe = preserve_apostrophe.nil? ? false : preserve_apostrophe
+    def initialize(@preserve_apostrophe = false)
     end
 
     def tokenize(string : String) : Array(String)

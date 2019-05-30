@@ -2,16 +2,52 @@ require "json"
 require "yaml"
 
 module Cadmium
-  # Native Bayes Classifier
+  # This is a native-bayes classifier which used Laplace Smoothing. It can
+  # be trained to categorize sentences based on the words in that
+  # sentence.
   #
-  # This is a native-bayes classifier which used Laplace Smoothing
+  # Example:
+  #
+  # ```
+  # classifier = Cadmium.bayes_classifier.new
+  #
+  # # Train some angry examples
+  # classifier.train("omg I can't believe you would do that to me", "angry")
+  # classifier.train("I hate you so much!", "angry")
+  # classifier.train("Just go. I don't need this.", "angry")
+  # classifier.train("You're so full of shit!", "angry")
+  #
+  # # Some happy ones
+  # classifier.train("omg you're the best!", "happy")
+  # classifier.train("I can't believe how happy you make me", "happy")
+  # classifier.train("I love you so damn much!", "happy")
+  # classifier.train("You're the best!", "happy")
+  #
+  # # And some indifferent ones
+  # classifier.train("Idk, what do you think?", "indifferent")
+  # classifier.train("yeah that's ok", "indifferent")
+  # classifier.train("cool", "indifferent")
+  # classifier.train("I guess we could do that", "indifferent")
+  #
+  # # Now let's test it on a sentence
+  # classifier.categorize("You shit head!")
+  # # => "angry"
+  #
+  # puts classifier.categorize("You're the best :)")
+  # # => "happy"
+  #
+  # classifier.categorize("idk, my bff jill?")
+  # # => "indifferent"
+  # ```
   class BayesClassifier
     include JSON::Serializable
     include YAML::Serializable
 
+    DEFAULT_TOKENIZER = Cadmium::WordTokenizer.new
+
     @[JSON::Field(ignore: true)]
     @[YAML::Field(ignore: true)]
-    property tokenizer : Cadmium::Tokenizer = Cadmium::WordTokenizer.new
+    property tokenizer : Cadmium::Tokenizer = DEFAULT_TOKENIZER
 
     # The words to learn from.
     getter vocabulary : Array(String)

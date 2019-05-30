@@ -1,7 +1,21 @@
 module Cadmium
+  # Inflects a number by adding a suffix onto the end
+  # of it.
+  #
+  # ```
+  # 100.to_nth
+  # # => "100th"
+  #
+  # 73.to_nth
+  # # => "73rd"
+  #
+  # 1221.to_nth
+  # "1221st"
+  # ```
   module CountInflector
     extend self
 
+    # Returns a number in it's "nth" form
     def nth(i)
       i.to_s + nth_form(i)
     end

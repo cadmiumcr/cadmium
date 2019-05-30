@@ -2,6 +2,7 @@ require "./tense_inflector"
 require "./form_set"
 
 module Cadmium
+  #
   class PresentVerbInflector < TenseInflector
     def initialize
       @ambiguous = [

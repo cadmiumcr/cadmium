@@ -32,6 +32,16 @@ module Cadmium
       custom_plural_forms.push({pattern, replacement})
     end
 
+    # Add an ambiguous word (a word who's singular form and plural
+    # form are the same), or a whole array of them to the list.
+    def add_ambiguous(words)
+      if words.is_a?(Array)
+        words.each { |w| add_ambiguous(w) }
+      else
+        @ambiguous << words unless ambiguous.includes?(words)
+      end
+    end
+
     def ize(token, form_set, custom_forms)
       restore_case = restore_case(token)
       restore_case.call(ize_regex(token, custom_forms) || ize_ambiguous(token) ||

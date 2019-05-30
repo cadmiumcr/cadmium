@@ -1,3 +1,4 @@
+# :nodoc:
 class Array(T)
   def delete_if(&block)
     items_to_delete = [] of T

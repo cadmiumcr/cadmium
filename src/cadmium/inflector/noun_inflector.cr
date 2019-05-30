@@ -2,6 +2,7 @@ require "./tense_inflector"
 require "./form_set"
 
 module Cadmium
+  # Allows you to pluralize or singularize nouns.
   class NounInflector < TenseInflector
     def initialize
       @ambiguous = [
@@ -56,10 +57,12 @@ module Cadmium
       singular_forms.regular_forms.push({/s$/i, ""})
     end
 
+    # Gives the plural form of a noun.
     def pluralize(token)
       ize(token, plural_forms, custom_plural_forms)
     end
 
+    # Gives the singular form of a noun.
     def singularize(token)
       ize(token, singular_forms, custom_singular_forms)
     end
