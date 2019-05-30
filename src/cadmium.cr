@@ -2,9 +2,6 @@ require "./cadmium/core_ext/**"
 require "./cadmium/util/*"
 require "./cadmium/*"
 
-require "levenshtein"
-require "benchmark"
-
 # Cadmium is a Natrual Language Processing (NLP) library for Crystal. It includes several
 # modules and classes for processing sentences and splitting them into digestable pieces.
 #
@@ -16,8 +13,9 @@ module Cadmium
   # :nodoc:
   MODULES = {
     bayes_classifier:           Cadmium::BayesClassifier,
-    jaro_winkler_distance:      Cadmium::JaroWinklerDistance,
-    levenshtein_distance:       Cadmium::LevenshteinDistance,
+    jaro_winkler:               Cadmium::JaroWinklerDistance,
+    levenshtein:                Cadmium::LevenshteinDistance,
+    pair_distance:              Cadmium::PairDistance,
     edge_weighted_digraph:      Cadmium::EdgeWeightedDigraph,
     count_inflector:            Cadmium::CountInflector,
     noun_inflector:             Cadmium::NounInflector,

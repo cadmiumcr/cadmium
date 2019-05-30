@@ -150,7 +150,7 @@ Corundum provides an implimentation of two different string distance algorithms,
 The Jaro-Winkler algorithm returns a number between 0 and 1 which tells how closely two strings match (1 being perfect and 0 being not at all).
 
 ```crystal
-jwd = Cadmium.jaro_winkler_distance
+jwd = Cadmium.jaro_winkler.new
 
 jwd.distance("dixon","dicksonx")
 # => 0.8133333333333332
@@ -167,14 +167,23 @@ jwd.distance("not","same")
 The Levenshtein distance algorithm returns the number of edits (insertions, modifications, or deletions) required to transform one string into another.
 
 ```crystal
-Cadmium.levenshtein_distance.distance("doctor", "doktor")
+Cadmium.levenshtein.distance("doctor", "doktor")
 # => 1
 
-Cadmium.levenshtein_distance.distance("doctor", "doctor")
+Cadmium.levenshtein.distance("doctor", "doctor")
 # => 0
 
-Cadmium.levenshtein_distance.distance("flad", "flaten")
+Cadmium.levenshtein.distance("flad", "flaten")
 # => 3
+```
+
+#### Pair
+
+Pair Distance uses arbitrary n-grams to calculate how similar one string is to another. By calculating the bi-grams for a string, the pair distance algorithm first checks how many occurrences of each bi-gram occur in both strings, then it calculates their similarity with the formula `simularity = (2 · intersections) / (s1size + s2size)`.
+
+```crystal
+Cadmium.pair_distance.distance("night", "nacht")
+# => 0.25
 ```
 
 ### Stemmers

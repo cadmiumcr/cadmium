@@ -151,6 +151,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PairDistance" data-name="cadmium::pairdistance">
+      <a href="Cadmium/PairDistance.html">PairDistance</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics" data-name="cadmium::phonetics">
       <a href="Cadmium/Phonetics.html">Phonetics</a>
       
@@ -361,6 +366,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/VisibleCharTokenizer" data-name="cadmium::visiblechartokenizer">
+      <a href="Cadmium/VisibleCharTokenizer.html">VisibleCharTokenizer</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WhitespaceTokenizer" data-name="cadmium::whitespacetokenizer">
       <a href="Cadmium/WhitespaceTokenizer.html">WhitespaceTokenizer</a>
       
@@ -538,7 +548,7 @@ options <span class="o">=</span> {
 
 <p>The Jaro-Winkler algorithm returns a number between 0 and 1 which tells how closely two strings match (1 being perfect and 0 being not at all).</p>
 
-<pre><code class="language-crystal">jwd <span class="o">=</span> <span class="t">Cadmium</span>.jaro_winkler_distance
+<pre><code class="language-crystal">jwd <span class="o">=</span> <span class="t">Cadmium</span>.jaro_winkler.<span class="k">new</span>
 
 jwd.distance(<span class="s">&quot;dixon&quot;</span>,<span class="s">&quot;dicksonx&quot;</span>)
 <span class="c"># =&gt; 0.8133333333333332</span>
@@ -553,14 +563,21 @@ jwd.distance(<span class="s">&quot;not&quot;</span>,<span class="s">&quot;same&q
 
 <p>The Levenshtein distance algorithm returns the number of edits (insertions, modifications, or deletions) required to transform one string into another.</p>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span>.levenshtein_distance.distance(<span class="s">&quot;doctor&quot;</span>, <span class="s">&quot;doktor&quot;</span>)
+<pre><code class="language-crystal"><span class="t">Cadmium</span>.levenshtein.distance(<span class="s">&quot;doctor&quot;</span>, <span class="s">&quot;doktor&quot;</span>)
 <span class="c"># =&gt; 1</span>
 
-<span class="t">Cadmium</span>.levenshtein_distance.distance(<span class="s">&quot;doctor&quot;</span>, <span class="s">&quot;doctor&quot;</span>)
+<span class="t">Cadmium</span>.levenshtein.distance(<span class="s">&quot;doctor&quot;</span>, <span class="s">&quot;doctor&quot;</span>)
 <span class="c"># =&gt; 0</span>
 
-<span class="t">Cadmium</span>.levenshtein_distance.distance(<span class="s">&quot;flad&quot;</span>, <span class="s">&quot;flaten&quot;</span>)
+<span class="t">Cadmium</span>.levenshtein.distance(<span class="s">&quot;flad&quot;</span>, <span class="s">&quot;flaten&quot;</span>)
 <span class="c"># =&gt; 3</span></code></pre>
+
+<h4>Pair</h4>
+
+<p>Pair Distance uses arbitrary n-grams to calculate how similar one string is to another. By calculating the bi-grams for a string, the pair distance algorithm first checks how many occurrences of each bi-gram occur in both strings, then it calculates their similarity with the formula <code>simularity = (2 · intersections) / (s1size + s2size)</code>.</p>
+
+<pre><code class="language-crystal"><span class="t">Cadmium</span>.pair_distance.distance(<span class="s">&quot;night&quot;</span>, <span class="s">&quot;nacht&quot;</span>)
+<span class="c"># =&gt; 0.25</span></code></pre>
 
 <h3>Stemmers</h3>
 
@@ -677,24 +694,28 @@ inflector.pluralize(<span class="s">&quot;became&quot;</span>)
 
 <h4>bigrams</h4>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span>.ngrams.bigrams(<span class="s">&quot;these are some words&quot;</span>)
+<pre><code class="language-crystal">ngrams <span class="o">=</span> <span class="t">Cadmium</span>.ngrams.<span class="k">new</span>
+ngrams.bigrams(<span class="s">&quot;these are some words&quot;</span>)
 <span class="c"># =&gt; [[&quot;these&quot;, &quot;are&quot;], [&quot;are&quot;, &quot;some&quot;], [&quot;some&quot;, &quot;words&quot;]]</span></code></pre>
 
 <h4>trigrams</h4>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span>.ngrams.trigrams(<span class="s">&quot;these are some words&quot;</span>)
+<pre><code class="language-crystal">ngrams <span class="o">=</span> <span class="t">Cadmium</span>.ngrams.<span class="k">new</span>
+ngrams.trigrams(<span class="s">&quot;these are some words&quot;</span>)
 <span class="c"># =&gt; [[&quot;these&quot;, &quot;are&quot;, &quot;some&quot;], [&quot;are&quot;, &quot;some&quot;, &quot;words&quot;]]</span></code></pre>
 
 <h4>arbitrary n-grams</h4>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span>.ngrams.ngrams(<span class="s">&quot;some other words here for you&quot;</span>, <span class="n">4</span>)
+<pre><code class="language-crystal">ngrams <span class="o">=</span> <span class="t">Cadmium</span>.ngrams.<span class="k">new</span>
+ngrams.ngrams(<span class="s">&quot;some other words here for you&quot;</span>, <span class="n">4</span>)
 <span class="c"># =&gt; [[&quot;some&quot;, &quot;other&quot;, &quot;words&quot;, &quot;here&quot;], [&quot;other&quot;, &quot;words&quot;, &quot;here&quot;, &quot;for&quot;], [&quot;words&quot;, &quot;here&quot;, &quot;for&quot;, &quot;you&quot;]]</span></code></pre>
 
 <h4>padding</h4>
 
 <p>n-grams can also be returned with left or right padding by passing a start and/or end symbol to the bigrams, trigrams or ngrams.</p>
 
-<pre><code class="language-crystal"><span class="t">Cadmium</span>.ngrams.ngrams(<span class="s">&quot;these are some words&quot;</span>, <span class="n">4</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[end]&quot;</span>)
+<pre><code class="language-crystal">ngrams <span class="o">=</span> <span class="t">Cadmium</span>.ngrams.<span class="k">new</span>
+ngrams.ngrams(<span class="s">&quot;these are some words&quot;</span>, <span class="n">4</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[end]&quot;</span>)
 <span class="c"># =&gt; [</span>
       [<span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;these&quot;</span>],
       [<span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;[start]&quot;</span>, <span class="s">&quot;these&quot;</span>, <span class="s">&quot;are&quot;</span>],

@@ -151,6 +151,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/PairDistance" data-name="cadmium::pairdistance">
+      <a href="../Cadmium/PairDistance.html">PairDistance</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/watzon/cadmium/Cadmium/Phonetics" data-name="cadmium::phonetics">
       <a href="../Cadmium/Phonetics.html">Phonetics</a>
       
@@ -361,6 +366,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/watzon/cadmium/Cadmium/VisibleCharTokenizer" data-name="cadmium::visiblechartokenizer">
+      <a href="../Cadmium/VisibleCharTokenizer.html">VisibleCharTokenizer</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/watzon/cadmium/Cadmium/WhitespaceTokenizer" data-name="cadmium::whitespacetokenizer">
       <a href="../Cadmium/WhitespaceTokenizer.html">WhitespaceTokenizer</a>
       
@@ -420,11 +430,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> Cadmium::NGrams
+  <span class="kind">class</span> Cadmium::NGrams
 
 </h1>
 
 
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Cadmium/NGrams.html">Cadmium::NGrams</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -434,12 +445,6 @@
 
 
 
-  <h2>Extended Modules</h2>
-  <ul class="other-types-list">
-  
-    <li class="other-type"><a href="../Cadmium/NGrams.html">Cadmium::NGrams</a></li>
-  
-  </ul>
 
 
 
@@ -451,7 +456,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/b2f9e2f8c68da4c14ff16947658ba9e3e821210e/src/cadmium/ngrams.cr#L4" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/ngrams.cr#L4" target="_blank">
         cadmium/ngrams.cr
       </a>
     
@@ -461,6 +466,16 @@
 
 
 
+
+  <h2>Constructors</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28tokenizer%3DCadmium%3A%3AWordTokenizer.new%29-class-method" class="signature"><strong>.new</strong>(tokenizer = <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordTokenizer</span>.<span class="k">new</span>)</a>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -485,6 +500,11 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#tokenizer%3ACadmium%3A%3ATokenizer-instance-method" class="signature"><strong>#tokenizer</strong> : Cadmium::Tokenizer</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#tokenizer%3D%28tokenizer%3ACadmium%3A%3ATokenizer%29-instance-method" class="signature"><strong>#tokenizer=</strong>(tokenizer : Cadmium::Tokenizer)</a>
         
       </li>
@@ -502,8 +522,47 @@
 
 <div class="methods-inherited">
   
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
+
+  <h2>Constructor Detail</h2>
+  
+    <div class="entry-detail" id="new(tokenizer=Cadmium::WordTokenizer.new)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(tokenizer = <span class="t">Cadmium</span><span class="t">::</span><span class="t">WordTokenizer</span>.<span class="k">new</span>)
+
+        <a class="method-permalink" href="#new%28tokenizer%3DCadmium%3A%3AWordTokenizer.new%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/ngrams.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
@@ -522,7 +581,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/b2f9e2f8c68da4c14ff16947658ba9e3e821210e/src/cadmium/ngrams.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/ngrams.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -538,7 +597,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/b2f9e2f8c68da4c14ff16947658ba9e3e821210e/src/cadmium/ngrams.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/ngrams.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -554,7 +613,23 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/b2f9e2f8c68da4c14ff16947658ba9e3e821210e/src/cadmium/ngrams.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/ngrams.cr#L22" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tokenizer:Cadmium::Tokenizer-instance-method">
+      <div class="signature">
+        
+        def <strong>tokenizer</strong> : <a href="../Cadmium/Tokenizer.html">Cadmium::Tokenizer</a>
+
+        <a class="method-permalink" href="#tokenizer%3ACadmium%3A%3ATokenizer-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/ngrams.cr#L7" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -570,7 +645,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/b2f9e2f8c68da4c14ff16947658ba9e3e821210e/src/cadmium/ngrams.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/ngrams.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -586,7 +661,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/b2f9e2f8c68da4c14ff16947658ba9e3e821210e/src/cadmium/ngrams.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/ngrams.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
