@@ -305,21 +305,24 @@ N-Grams can be obtained for Arrays of Strings, or with single Strings (which wil
 #### bigrams
 
 ```crystal
-Cadmium.ngrams.bigrams("these are some words")
+ngrams = Cadmium.ngrams.new
+ngrams.bigrams("these are some words")
 # => [["these", "are"], ["are", "some"], ["some", "words"]]
 ```
 
 #### trigrams
 
 ```crystal
-Cadmium.ngrams.trigrams("these are some words")
+ngrams = Cadmium.ngrams.new
+ngrams.trigrams("these are some words")
 # => [["these", "are", "some"], ["are", "some", "words"]]
 ```
 
 #### arbitrary n-grams
 
 ```crystal
-Cadmium.ngrams.ngrams("some other words here for you", 4)
+ngrams = Cadmium.ngrams.new
+ngrams.ngrams("some other words here for you", 4)
 # => [["some", "other", "words", "here"], ["other", "words", "here", "for"], ["words", "here", "for", "you"]]
 ```
 
@@ -328,7 +331,8 @@ Cadmium.ngrams.ngrams("some other words here for you", 4)
 n-grams can also be returned with left or right padding by passing a start and/or end symbol to the bigrams, trigrams or ngrams.
 
 ```crystal
-Cadmium.ngrams.ngrams("these are some words", 4, "[start]", "[end]")
+ngrams = Cadmium.ngrams.new
+ngrams.ngrams("these are some words", 4, "[start]", "[end]")
 # => [
       ["[start]", "[start]", "[start]", "these"],
       ["[start]", "[start]", "these", "are"],

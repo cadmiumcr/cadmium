@@ -1,13 +1,10 @@
 require "./tokenizer/*"
 
 module Cadmium
-  module NGrams
-    extend self
+  class NGrams
+    property tokenizer : Cadmium::Tokenizer
 
-    @@tokenizer = Cadmium::WordTokenizer.new
-
-    def tokenizer=(tokenizer : Cadmium::Tokenizer)
-      @@tokenizer = tokenizer
+    def initialize(@tokenizer = Cadmium::WordTokenizer.new)
     end
 
     def bigrams(sequence, start_symbol = nil, end_symbol = nil)
@@ -26,7 +23,7 @@ module Cadmium
       result = [] of Array(String)
 
       unless sequence.is_a?(Array)
-        sequence = @@tokenizer.tokenize(sequence)
+        sequence = @tokenizer.tokenize(sequence)
       end
 
       sequence = sequence.not_nil! # TODO: Figure out why this is necessary

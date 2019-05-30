@@ -1,7 +1,7 @@
 require "../spec_helper"
 
 describe Cadmium::NGrams do
-  subject = Cadmium::NGrams
+  subject = Cadmium::NGrams.new
 
   it "should bigram a string via ngrams" do
     subject.ngrams("these are some words", 2).should eq([["these", "are"], ["are", "some"], ["some", "words"]])
