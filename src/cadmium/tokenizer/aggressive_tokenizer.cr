@@ -11,6 +11,7 @@ module Cadmium
       @lang = lang.nil? ? :en : lang
     end
 
+    # ameba:disable Metrics/CyclomaticComplexity
     def tokenize(string : String) : Array(String)
       case @lang
       when :es
