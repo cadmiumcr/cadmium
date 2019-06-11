@@ -121,7 +121,7 @@ module Cadmium
             end
           end
         end
-        return res
+        res
       end
 
       def self._filter_forms(forms, pos)
@@ -163,7 +163,7 @@ module Cadmium
         end
 
         # Return an empty list if we can't find anything
-        return [] of String
+        [] of String
       end
 
       # Get all roots of a *form* regardless of part of speech
@@ -272,7 +272,7 @@ module Cadmium
           parents.push *(parent.hypernyms.map { |hypernym| [hypernym, depth + 1] })
           max_depth = [max_depth, depth].max
         end
-        return [out, max_depth]
+        [out, max_depth]
       end
 
       # Returns a compact, human-readable form of this synset, e.g.

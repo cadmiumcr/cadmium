@@ -24,17 +24,17 @@ module Cadmium
       teenth = i % 100
 
       if teenth > 10 && teenth < 14
-        return "th"
+        "th"
       else
         case i % 10
         when 1
-          return "st"
+          "st"
         when 2
-          return "nd"
+          "nd"
         when 3
-          return "rd"
+          "rd"
         else
-          return "th"
+          "th"
         end
       end
     end

@@ -23,7 +23,7 @@ module Cadmium
 
     # Create a `Synset` by *offset* and *pos*
     def self.get(offset : Int32, pos : Symbol | String)
-      return Synset.new(pos, offset)
+      Synset.new(pos, offset)
     end
 
     # Get the root of a *form*
