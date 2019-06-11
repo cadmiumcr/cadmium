@@ -55,18 +55,15 @@ module Cadmium
         [str.join(" "), int]
       end.reject(&.empty?)
 
-      # Inject data into our array
-      if inject.is_a?(Array)
+      case inject
+      when Array
         data += inject
-      end
-
-      # Turn our data array into a hash
-      data = data.to_h
-
-      # Inject data into our hash
-      if inject.is_a?(Hash) || inject.is_a?(NamedTuple)
+      when Hash, NamedTuple
         data = inject.to_h.merge(data)
       end
+
+      # Turn our data array into a hash if it isn't one already
+      data = data.to_h
 
       tokens = @@tokenizer.tokenize(phrase)
       score = 0
