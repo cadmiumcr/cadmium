@@ -1,6 +1,6 @@
 ![Logo](img/cadmium.png)
 
-[![Travis](https://img.shields.io/travis/watzon/cadmium.svg)](https://travis-ci.org/watzon/cadmium) ![license](https://img.shields.io/github/license/watzon/cadmium.svg)
+[![Travis](https://img.shields.io/travis/watzon/cadmium.svg)](https://travis-ci.org/watzon/cadmium) <a href="https://patreon.com/watzon"><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.herokuapp.com%2Fwatzon%2Fpledgesssss&style=flat" /></a>
 
 Cadmium is a Natural Language Processing (NLP) library for Crystal. Included are classes and modules for tokenizing, inflecting, stemming, and creating n-grams with much more to come.
 
