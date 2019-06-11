@@ -72,7 +72,7 @@ module Cadmium
 
       transposition_count = transposition_count(len1, len2, flags1, flags2, codes1, codes2)
 
-      similar_count = similar_count(len1, len2, flags1, flags2, codes1, codes2, match_count )
+      similar_count = similar_count(len1, len2, flags1, flags2, codes1, codes2, match_count)
 
       t = transposition_count / 2
       jaro_distance(len1, len2, match_count, t, similar_count)
