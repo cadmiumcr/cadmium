@@ -29,23 +29,11 @@ module Cadmium
     end
 
     def distance(s1 : String, s2 : String)
-      _distance(s1.chars, s2.chars)
+      distance(s1.chars, s2.chars)
     end
 
-    def distance(s1 : Array(Char), s2 : Array(Char))
-      _distance(s1, s2)
-    end
-
-    def jaro_distance(s1 : String, s2 : String)
-      _jaro_distance(s1.chars, s2.chars)
-    end
-
-    def jaro_distance(s1 : Array(Char), s2 : Array(Char))
-      _jaro_distance(s1, s2)
-    end
-
-    private def _distance(codes1, codes2)
-      jaro_distance = _jaro_distance(codes1, codes2)
+    def distance(codes1 : Array(Char), codes2 : Array(Char))
+      jaro_distance = jaro_distance(codes1, codes2)
 
       if jaro_distance < @threshold
         jaro_distance
@@ -61,7 +49,11 @@ module Cadmium
       end
     end
 
-    private def _jaro_distance(codes1, codes2)
+    def jaro_distance(s1 : String, s2 : String)
+      jaro_distance(s1.chars, s2.chars)
+    end
+
+    def jaro_distance(codes1 : Array(Char), codes2 : Array(Char))
       codes1, codes2 = codes2, codes1 if codes1.size > codes2.size
       len1, len2 = codes1.size, codes2.size
       return 0.0 if len1 == 0 || len2 == 0
@@ -71,15 +63,33 @@ module Cadmium
         codes2.map! { |c| c = c.ord; c >= 97 && c <= 122 ? (c - 32).chr : c.chr }
       end
 
-      window = len2 / 2 - 1
-      window = 0 if window < 0
+      window = (len2 / 2 - 1).clamp(0, Float64::MAX)
       flags1, flags2 = BitArray.new(len1), BitArray.new(len2)
 
+      match_count = match_count(len1, len2, flags1, flags2, codes1, codes2, window)
+
+      return 0.0 if match_count == 0
+
+      transposition_count = transposition_count(len1, len2, flags1, flags2, codes1, codes2)
+
+      similar_count = similar_count(len1, len2, flags1, flags2, codes1, codes2, match_count )
+
+      t = transposition_count / 2
+      jaro_distance(len1, len2, match_count, t, similar_count)
+    end
+
+    private def jaro_distance(len1, len2, match_count, transposition_count, similar_count)
+      match_count = similar_count / 10.0 + match_count if @adj_table
+      (match_count / len1 + match_count / len2 + (match_count - transposition_count) / match_count) / 3
+    end
+
+    def match_count(len1, len2, flags1, flags2, codes1, codes2, window)
       # count number of matching characters
-      match_count = 0
+      match_count = 0.0
+
       (0...len1).each do |i|
-        left = (i >= window) ? i - window : 0
-        right = (i + window <= len2 - 1) ? (i + window) : (len2 - 1)
+        left = (i >= window) ? (i - window).to_i : 0
+        right = (i + window <= len2 - 1) ? (i + window).to_i : (len2 - 1).to_i
         right = len2 - 1 if right > len2 - 1
         (left..right).each do |j|
           next if flags2[j]
@@ -93,9 +103,11 @@ module Cadmium
         end
       end
 
-      return 0.0 if match_count == 0
+      match_count
+    end
 
-      # count number of transpositions
+    # count number of transpositions
+    private def transposition_count(len1, len2, flags1, flags2, codes1, codes2)
       transposition_count = k = 0
 
       (0...len1).each do |i|
@@ -113,8 +125,13 @@ module Cadmium
         transposition_count += 1 if codes1[i] != codes2[jj]
       end
 
-      # count similarities in nonmatched characters
+      transposition_count
+    end
+
+    # count similarities in nonmatched characters
+    private def similar_count(len1, len2, flags1, flags2, codes1, codes2, match_count)
       similar_count = 0
+
       if @adj_table && len1 > match_count
         (0...len1).each do |i|
           next if flags1[i]
@@ -129,10 +146,7 @@ module Cadmium
         end
       end
 
-      m = match_count.to_f
-      t = transposition_count / 2
-      m = similar_count / 10.0 + m if @adj_table
-      (m / len1 + m / len2 + (m - t) / m) / 3
+      similar_count
     end
   end
 end
