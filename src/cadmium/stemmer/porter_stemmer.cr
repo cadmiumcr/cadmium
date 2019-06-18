@@ -20,7 +20,7 @@ module Cadmium
     end
 
     def self.step1b(token : String)
-      if token[-3..-1] == "eed"
+      if token[-3..-1]? == "eed"
         if measure(token[0, token.size - 3]) > 0
           return token.sub(/eed$/, "ee")
         end
