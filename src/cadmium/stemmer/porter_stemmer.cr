@@ -20,7 +20,7 @@ module Cadmium
     end
 
     def self.step1b(token : String)
-      if token[-3..-1]? == "eed"
+      if token.match(/eed$/)
         if measure(token[0, token.size - 3]) > 0
           return token.sub(/eed$/, "ee")
         end
@@ -40,7 +40,7 @@ module Cadmium
                 return tok.sub(/([^aeiou])\\1$/, "\\1")
               end
 
-              if measure(tok) == 1 && categorize_chars(tok)[-3, 3] == "CVC" && tok.match(/[^wxy]$/)
+              if measure(tok) == 1 && categorize_chars(tok)[-3, 3]? == "CVC" && tok.match(/[^wxy]$/)
                 return tok + "e"
               end
             end
