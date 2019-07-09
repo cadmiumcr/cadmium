@@ -1,8 +1,11 @@
 require "./languages/common"
 
 require "./languages/english"
+require "./languages/czech"
 require "./languages/bulgarian"
 require "./languages/deutsch"
+require "./languages/spanish"
+require "./languages/portuguese"
 
 module Cadmium
   class PragmaticTokenizer < Tokenizer
@@ -12,11 +15,11 @@ module Cadmium
         # ar: Arabic,
         bg: Bulgarian,
         # ca: Catalan,
-        # cs: Czech,
+        cs: Czech,
         # da: Danish,
         de: Deutsch,
         # el: Greek,
-        # es: Spanish,
+        es: Spanish,
         # fa: Persian,
         # fi: Finnish,
         # fr: French,
@@ -28,7 +31,7 @@ module Cadmium
         # nb: Norwegian,
         # no: Norwegian,
         # pl: Polish,
-        # pt: Portuguese,
+        pt: Portuguese,
         # ro: Romanian,
         # ru: Russian,
         # sk: Slovak,
