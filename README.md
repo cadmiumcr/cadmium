@@ -75,7 +75,24 @@ Cadmium includes several different tokenizers, each of which is useful for diffe
 
 #### Aggressive Tokenizer
 
-The aggressive tokenizer currently has localization available for English (:en / nil), Spanish (:es), Persian (:fa), French (:fr), Indonesian (:id), Dutch (:nl), Norwegian (:no), Polish (:pl), Portuguese (:pt), Slavic Languages (:ru, :sb, :uk, :bg), and Swedish (:sv). If no language is included it will default to English.
+The aggressive tokenizer currently has localization available for:
+
+- English (**:en**)
+- Spanish (**:es**)
+- Persian (**:fa**)
+- French (**:fr**)
+- Indonesian (**:id**)
+- Dutch (**:nl**)
+- Norwegian (**:no**)
+- Polish (**:pl**)
+- Portuguese (**:pt**)
+- Russian (**:ru**)
+- Serbian (**:sb**)
+- Ukranian (**:uk**)
+- Bulgarian (**:bg**)
+- Swedish (**:sv**)
+
+If no language is included it will default to English.
 
 Use it like so:
 
