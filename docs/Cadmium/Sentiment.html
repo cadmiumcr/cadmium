@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.27.2">
+<meta name="generator" content="Crystal Docs 0.29.0">
 
 
 <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -466,7 +466,7 @@ also takes advantage of emojis to further increase accuracy.</p>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/sentiment.cr#L4" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/sentiment.cr#L4" target="_blank">
         cadmium/sentiment.cr
       </a>
     
@@ -495,6 +495,39 @@ also takes advantage of emojis to further increase accuracy.</p>
 
 
 
+  <h2>Class Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#data%3D%28data%3AString%3F%29-class-method" class="signature"><strong>.data=</strong>(data : String?)</a>
+        
+          <div class="summary"><p>Set the sentiment data.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sentiment_data-class-method" class="signature"><strong>.sentiment_data</strong></a>
+        
+          <div class="summary"><p>Gets the raw sentiment data.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tokenizer%3ACadmium%3A%3ATokenizer-class-method" class="signature"><strong>.tokenizer</strong> : Cadmium::Tokenizer</a>
+        
+          <div class="summary"><p>Manage the <code><a href="../Cadmium/Tokenizer.html">Tokenizer</a></code> that the sentiment analyzer uses.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tokenizer%3D%28tokenizer%3ACadmium%3A%3ATokenizer%29-class-method" class="signature"><strong>.tokenizer=</strong>(tokenizer : Cadmium::Tokenizer)</a>
+        
+          <div class="summary"><p>Manage the <code><a href="../Cadmium/Tokenizer.html">Tokenizer</a></code> that the sentiment analyzer uses.</p></div>
+        
+      </li>
+    
+  </ul>
+
 
 
   <h2>Instance Method Summary</h2>
@@ -519,6 +552,88 @@ also takes advantage of emojis to further increase accuracy.</p>
 
 
 
+
+  <h2>Class Method Detail</h2>
+  
+    <div class="entry-detail" id="data=(data:String?)-class-method">
+      <div class="signature">
+        
+        def self.<strong>data=</strong>(data : String?)
+
+        <a class="method-permalink" href="#data%3D%28data%3AString%3F%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Set the sentiment data. Format should look like:</p>
+
+<pre><code>convince	<span class="n">1</span>
+cover<span class="o">-</span>up	<span class="n">-3</span>
+cramp	<span class="n">-1</span></code></pre>
+
+<p>Where higher numbers are more positive, lower
+numbers are more negative, and 0 is neutral.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/sentiment.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sentiment_data-class-method">
+      <div class="signature">
+        
+        def self.<strong>sentiment_data</strong>
+
+        <a class="method-permalink" href="#sentiment_data-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Gets the raw sentiment data.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/sentiment.cr#L41" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tokenizer:Cadmium::Tokenizer-class-method">
+      <div class="signature">
+        
+        def self.<strong>tokenizer</strong> : <a href="../Cadmium/Tokenizer.html">Cadmium::Tokenizer</a>
+
+        <a class="method-permalink" href="#tokenizer%3ACadmium%3A%3ATokenizer-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Manage the <code><a href="../Cadmium/Tokenizer.html">Tokenizer</a></code> that the sentiment analyzer uses.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/sentiment.cr#L28" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tokenizer=(tokenizer:Cadmium::Tokenizer)-class-method">
+      <div class="signature">
+        
+        def self.<strong>tokenizer=</strong>(tokenizer : <a href="../Cadmium/Tokenizer.html">Cadmium::Tokenizer</a>)
+
+        <a class="method-permalink" href="#tokenizer%3D%28tokenizer%3ACadmium%3A%3ATokenizer%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Manage the <code><a href="../Cadmium/Tokenizer.html">Tokenizer</a></code> that the sentiment analyzer uses.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/sentiment.cr#L32" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
@@ -548,7 +663,7 @@ and negative (negative words).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/sentiment.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/sentiment.cr#L59" target="_blank">View source</a>]
         
       </div>
     </div>

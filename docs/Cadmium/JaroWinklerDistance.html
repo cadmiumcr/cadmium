@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.27.2">
+<meta name="generator" content="Crystal Docs 0.29.0">
 
 
 <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -461,7 +461,7 @@ Code credit goes to kostya. https://github.com/kostya/jaro_winkler</p>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/distance/jaro_winkler.cr#L7" target="_blank">
+      <a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/distance/jaro_winkler.cr#L7" target="_blank">
         cadmium/distance/jaro_winkler.cr
       </a>
     
@@ -518,7 +518,7 @@ Code credit goes to kostya. https://github.com/kostya/jaro_winkler</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#distance%28s1%3AArray%28Char%29%2Cs2%3AArray%28Char%29%29-instance-method" class="signature"><strong>#distance</strong>(s1 : Array(Char), s2 : Array(Char))</a>
+        <a href="#distance%28codes1%3AArray%28Char%29%2Ccodes2%3AArray%28Char%29%29-instance-method" class="signature"><strong>#distance</strong>(codes1 : Array(Char), codes2 : Array(Char))</a>
         
       </li>
     
@@ -528,7 +528,12 @@ Code credit goes to kostya. https://github.com/kostya/jaro_winkler</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#jaro_distance%28s1%3AArray%28Char%29%2Cs2%3AArray%28Char%29%29-instance-method" class="signature"><strong>#jaro_distance</strong>(s1 : Array(Char), s2 : Array(Char))</a>
+        <a href="#jaro_distance%28codes1%3AArray%28Char%29%2Ccodes2%3AArray%28Char%29%29-instance-method" class="signature"><strong>#jaro_distance</strong>(codes1 : Array(Char), codes2 : Array(Char))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#match_count%28len1%2Clen2%2Cflags1%2Cflags2%2Ccodes1%2Ccodes2%2Cwindow%29-instance-method" class="signature"><strong>#match_count</strong>(len1, len2, flags1, flags2, codes1, codes2, window)</a>
         
       </li>
     
@@ -576,7 +581,7 @@ Code credit goes to kostya. https://github.com/kostya/jaro_winkler</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/distance/jaro_winkler.cr#L27" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/distance/jaro_winkler.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -599,23 +604,23 @@ Code credit goes to kostya. https://github.com/kostya/jaro_winkler</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/distance/jaro_winkler.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/distance/jaro_winkler.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="distance(s1:Array(Char),s2:Array(Char))-instance-method">
+    <div class="entry-detail" id="distance(codes1:Array(Char),codes2:Array(Char))-instance-method">
       <div class="signature">
         
-        def <strong>distance</strong>(s1 : Array(Char), s2 : Array(Char))
+        def <strong>distance</strong>(codes1 : Array(Char), codes2 : Array(Char))
 
-        <a class="method-permalink" href="#distance%28s1%3AArray%28Char%29%2Cs2%3AArray%28Char%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#distance%28codes1%3AArray%28Char%29%2Ccodes2%3AArray%28Char%29%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/distance/jaro_winkler.cr#L35" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/distance/jaro_winkler.cr#L35" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -631,23 +636,39 @@ Code credit goes to kostya. https://github.com/kostya/jaro_winkler</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/distance/jaro_winkler.cr#L39" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/distance/jaro_winkler.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="jaro_distance(s1:Array(Char),s2:Array(Char))-instance-method">
+    <div class="entry-detail" id="jaro_distance(codes1:Array(Char),codes2:Array(Char))-instance-method">
       <div class="signature">
         
-        def <strong>jaro_distance</strong>(s1 : Array(Char), s2 : Array(Char))
+        def <strong>jaro_distance</strong>(codes1 : Array(Char), codes2 : Array(Char))
 
-        <a class="method-permalink" href="#jaro_distance%28s1%3AArray%28Char%29%2Cs2%3AArray%28Char%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#jaro_distance%28codes1%3AArray%28Char%29%2Ccodes2%3AArray%28Char%29%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/watzon/cadmium/blob/f92f94a30f0d86ab0f57565d36a683b61312d913/src/cadmium/distance/jaro_winkler.cr#L43" target="_blank">View source</a>]
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/distance/jaro_winkler.cr#L56" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="match_count(len1,len2,flags1,flags2,codes1,codes2,window)-instance-method">
+      <div class="signature">
+        
+        def <strong>match_count</strong>(len1, len2, flags1, flags2, codes1, codes2, window)
+
+        <a class="method-permalink" href="#match_count%28len1%2Clen2%2Cflags1%2Cflags2%2Ccodes1%2Ccodes2%2Cwindow%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/watzon/cadmium/blob/9aec3b65646d08f39926515de9b0c17b94644c9d/src/cadmium/distance/jaro_winkler.cr#L86" target="_blank">View source</a>]
         
       </div>
     </div>
