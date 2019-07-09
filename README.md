@@ -14,24 +14,41 @@ For full API documentation check out [the docs](https://watzon.github.io/cadmium
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Tokenizers](#tokenizers)
-- [String Distance](#string-distance)
-- [Stemmers](#stemmers)
-- [Phonetics](#phonetics)
-- [Inflectors](#inflectors)
-- [N-Grams](#n-grams)
-- [Classifiers](#classifiers)
-- [tf-idf](#tf-idf)
-- [Transliterator](#transliterator)
-- [Sentiment Analysis](#sentiment-analysis)
-- [Tries](#tries)
-- [EdgeWeightedDigraph](#edge-weighted-digraph)
-- [Readability](#readability)
-- [WordNet](#wordnet)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [Contributors](#contributors)
+- [Table of Contents](#Table-of-Contents)
+- [Installation](#Installation)
+- [Usage](#Usage)
+  - [Tokenizers](#Tokenizers)
+    - [Aggressive Tokenizer](#Aggressive-Tokenizer)
+    - [Case Tokenizer](#Case-Tokenizer)
+    - [Regex Tokenizer](#Regex-Tokenizer)
+    - [Treebank Word Tokenizer](#Treebank-Word-Tokenizer)
+    - [Pragmatic Tokenizer](#Pragmatic-Tokenizer)
+  - [String Distance](#String-Distance)
+    - [Jaro-Winkler](#Jaro-Winkler)
+    - [Levenshtein](#Levenshtein)
+    - [Pair](#Pair)
+  - [Stemmers](#Stemmers)
+  - [Phonetics](#Phonetics)
+  - [Inflectors](#Inflectors)
+    - [Nouns](#Nouns)
+    - [Present Tense Verbs](#Present-Tense-Verbs)
+    - [Numbers](#Numbers)
+  - [N-Grams](#N-Grams)
+    - [bigrams](#bigrams)
+    - [trigrams](#trigrams)
+    - [arbitrary n-grams](#arbitrary-n-grams)
+    - [padding](#padding)
+  - [Classifiers](#Classifiers)
+  - [tf-idf](#tf-idf)
+  - [Transliterator](#Transliterator)
+  - [Sentiment Analysis](#Sentiment-Analysis)
+  - [Tries](#Tries)
+  - [Edge Weighted Digraph](#Edge-Weighted-Digraph)
+  - [Readability](#Readability)
+  - [WordNet](#WordNet)
+- [Roadmap](#Roadmap)
+- [Contributing](#Contributing)
+- [Contributors](#Contributors)
 
 ## Installation
 
@@ -58,7 +75,7 @@ Cadmium includes several different tokenizers, each of which is useful for diffe
 
 #### Aggressive Tokenizer
 
-The aggressive tokenizer currently has localization available for English (:en / nil), Spanish (:es), Persian (:fa), French (:fr), Indonesian (:id), Dutch (:nl), Norwegian (:no), Polish (:pl), Portuguese (:pt), Russian (:ru), and Swedish (:sv). If no language is included it will default to English.
+The aggressive tokenizer currently has localization available for English (:en / nil), Spanish (:es), Persian (:fa), French (:fr), Indonesian (:id), Dutch (:nl), Norwegian (:no), Polish (:pl), Portuguese (:pt), Slavic Languages (:ru, :sb, :uk, :bg), and Swedish (:sv). If no language is included it will default to English.
 
 Use it like so:
 
