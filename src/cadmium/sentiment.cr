@@ -22,8 +22,25 @@ module Cadmium
       "wasn't"  => 1,
     }
 
-    @@tokenizer = Cadmium::TreebankWordTokenizer.new
-    @@data = File.read(File.join(__DIR__, "../../data/sentiment.txt"))
+    # Manage the `Tokenizer` that the sentiment analyzer uses.
+    class_property tokenizer : Cadmium::Tokenizer = Cadmium::TreebankWordTokenizer.new
+
+    # Set the sentiment data. Format should look like:
+    #
+    # ```
+    # convince	1
+    # cover-up	-3
+    # cramp	-1
+    # ```
+    #
+    # Where higher numbers are more positive, lower
+    # numbers are more negative, and 0 is neutral.
+    class_setter data : String?
+
+    # Gets the raw sentiment data.
+    def self.sentiment_data
+      @@data ||= {{ read_file("./data/sentiment.txt") }}
+    end
 
     # Analyze a phrase and return a `result` hash comprised of a score,
     # comparative analysis (a score based soley on number of negative
@@ -41,7 +58,7 @@ module Cadmium
     # ```
     def analyze(phrase, inject = nil)
       # Turn our text file into an array
-      data = @@data.split("\n").map do |d|
+      data = self.sentiment_data.split("\n").map do |d|
         arr = d.split(/\s+/).reject(&.empty?)
         str = [] of String
         int = 1
