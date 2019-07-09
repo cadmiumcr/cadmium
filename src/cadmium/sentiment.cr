@@ -39,7 +39,7 @@ module Cadmium
 
     # Gets the raw sentiment data.
     def self.sentiment_data
-      @@data ||= {{ read_file("./data/sentiment.txt") }}
+      @@data ||= {{ read_file("#{__DIR__}/../../data/sentiment.txt") }}
     end
 
     # Analyze a phrase and return a `result` hash comprised of a score,
