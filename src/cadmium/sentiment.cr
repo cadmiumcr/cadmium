@@ -28,9 +28,9 @@ module Cadmium
     # Set the sentiment data. Format should look like:
     #
     # ```
-    # convince	1
-    # cover-up	-3
-    # cramp	-1
+    # convince 1
+    # cover - up -3
+    # cramp -1
     # ```
     #
     # Where higher numbers are more positive, lower

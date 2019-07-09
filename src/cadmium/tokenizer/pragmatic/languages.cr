@@ -1,6 +1,7 @@
 require "./languages/common"
 
 require "./languages/english"
+require "./languages/bulgarian"
 require "./languages/deutsch"
 
 module Cadmium
@@ -9,7 +10,7 @@ module Cadmium
       @@language_codes = {
         en: English,
         # ar: Arabic,
-        # bg: Bulgarian,
+        bg: Bulgarian,
         # ca: Catalan,
         # cs: Czech,
         # da: Danish,
