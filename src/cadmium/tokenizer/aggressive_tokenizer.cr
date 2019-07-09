@@ -33,7 +33,7 @@ module Cadmium
         string.split(' ').reject(&.empty?)
       when :pt
         trim(string.split(/[^a-zA-Zà-úÀ-Ú]/).reject(&.empty?))
-      when :ru
+      when :ru, :sr, :bg, :uk
         string = string.gsub(/[^a-zа-яё0-9]/i, ' ').gsub(/[\s\n]+/, ' ').strip
         string.split(' ').reject(&.empty?)
       when :sv
