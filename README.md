@@ -409,6 +409,22 @@ classifier.categorize("Crystal is my favorite!")
 # => "programming"
 ```
 
+You can save the classifier as JSON as well
+
+```crystal
+require "json"
+json = classifier.to_json
+File.write("classifier.json", json)
+```
+
+And load it again later
+
+```crystal
+require "json"
+json = File.open("classifier.json")
+classifier = classifier.from_json(json)
+```
+
 ### tf-idf
 
 [Term Frequency–Inverse Document Frequency (tf-idf)](http://en.wikipedia.org/wiki/Tf%E2%80%93idf) is implemented to determine how important a word (or words) is to a document relative to a corpus. The following example will add four documents to a corpus and determine the weight of the word "crystal" and then the weight of the word "ruby" in each document.
