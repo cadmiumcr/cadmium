@@ -182,7 +182,7 @@ module Cadmium
               "LIX Index                      %2.2f \n",
         num_paragraphs, num_sentences, num_words, num_chars,
         words_per_sentence, syllables_per_word,
-        flesch, kincaid, fog, smog, ari, coleman_liau
+        flesch, kincaid, fog, smog, ari, coleman_liau, lix
     end
 
     private def count_words
