@@ -101,6 +101,19 @@ module Cadmium
       (words_per_sentence + percent_fog_complex_words) * 0.4
     end
 
+    # The SMOG grade of the text sample. The grade indicates the approximate
+    # representation of the US grade level needed to comprehend the text.
+    # A higher score indicates harder text; a value of 8 or less is a
+    # good standard for ordinary text. Evaluating SMOG requires
+    # a text containing at least 30 sentences.
+
+    def smog
+      if num_sentences < 30
+        return nil
+      end
+      1.0430 * Math.sqrt(@complex_words * 30 / num_sentences) + 3.1291
+    end
+
     # The percentage of words that are defined as "complex" for the purpose of
     # the Fog Index. This is non-hyphenated words of three or more syllabes.
     def percent_fog_complex_words
@@ -118,10 +131,11 @@ module Cadmium
               "Average syllables per word     %.2f \n\n" +
               "Flesch score                   %2.2f \n" +
               "Flesch-Kincaid grade level     %2.2f \n" +
-              "Fog Index                      %2.2f \n",
+              "Fog Index                      %2.2f \n"+
+              "SMOG grade level               %2.2f \n",
         num_paragraphs, num_sentences, num_words, num_chars,
         words_per_sentence, syllables_per_word,
-        flesch, kincaid, fog
+        flesch, kincaid, fog, smog
     end
 
     private def count_words
