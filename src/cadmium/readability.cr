@@ -19,6 +19,7 @@ module Cadmium
       @frequencies["default"] = 0
       @syllables = 0
       @complex_words = 0
+      @long_words = 0
       count_words
     end
 
@@ -148,6 +149,15 @@ module Cadmium
       0.0588 * (characters_per_word * 100) - 0.296 * sentences_per_hundred_words - 15.8
     end
 
+    # The LIX score of the text sample.
+    # The score gives an indication of reading level required by readers to understand the text.
+    # A higher score indicates easier to read text; a value of 40 or more is a
+    # good standard for ordinary text.
+
+    def lix
+      (num_words / num_sentences) + (@long_words * 100) / num_words
+    end
+
     # The percentage of words that are defined as "complex" for the purpose of
     # the Fog Index. This is non-hyphenated words of three or more syllabes.
     def percent_fog_complex_words
@@ -168,7 +178,8 @@ module Cadmium
               "Fog Index                      %2.2f \n" +
               "SMOG grade level               %2.2f \n" +
               "Automated Readability Index    %2.2f \n" +
-              "Coleman-Liau Index             %2.2f \n",
+              "Coleman-Liau Index             %2.2f \n" +
+              "LIX Index                      %2.2f \n",
         num_paragraphs, num_sentences, num_words, num_chars,
         words_per_sentence, syllables_per_word,
         flesch, kincaid, fog, smog, ari, coleman_liau
@@ -181,6 +192,12 @@ module Cadmium
 
         # up frequency counts
         @frequencies.has_key?(word) ? (@frequencies[word] += 1) : (@frequencies[word] = 1)
+
+        # character counts
+        characters = word.size
+        if characters > 6
+          @long_words += 1 # for LIX Index
+        end
 
         # syllable counts
         syllables = Cadmium::Util::Syllable.syllables(word)
