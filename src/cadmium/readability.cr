@@ -158,6 +158,18 @@ module Cadmium
       (num_words / num_sentences) + (@long_words * 100) / num_words
     end
 
+    # The Linsear Write score of the text sample.
+    # The score gives an indication of the reading complexity of the text.
+    # The score should be calculated in an exact 100 words sample.
+    # The following formula uses instead calculated averages.
+
+    def linsear_write
+      if num_words < 100
+        return 0
+      end
+      (100 - percent_fog_complex_words + (3 * percent_fog_complex_words)) / sentences_per_hundred_words
+    end
+
     # The percentage of words that are defined as "complex" for the purpose of
     # the Fog Index. This is non-hyphenated words of three or more syllabes.
     def percent_fog_complex_words
@@ -179,10 +191,11 @@ module Cadmium
               "SMOG grade level               %2.2f \n" +
               "Automated Readability Index    %2.2f \n" +
               "Coleman-Liau Index             %2.2f \n" +
-              "LIX Index                      %2.2f \n",
+              "LIX Index                      %2.2f \n" +
+              "Linsear Write Index            %2.2f \n",
         num_paragraphs, num_sentences, num_words, num_chars,
         words_per_sentence, syllables_per_word,
-        flesch, kincaid, fog, smog, ari, coleman_liau, lix
+        flesch, kincaid, fog, smog, ari, coleman_liau, lix, linsear_write
     end
 
     private def count_words
