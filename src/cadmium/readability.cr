@@ -109,7 +109,7 @@ module Cadmium
 
     def smog
       if num_sentences < 30
-        return nil
+        return 0
       end
       1.0430 * Math.sqrt(@complex_words * 30 / num_sentences) + 3.1291
     end
