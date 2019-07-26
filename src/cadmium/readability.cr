@@ -70,6 +70,18 @@ module Cadmium
       words.size.to_f / sentences.size.to_f
     end
 
+    # The average number of sentences per 100 words. Useful for the Coleman-Liau
+    # score calculation.
+    def sentences_per_hundred_words
+      sentences.size.to_f / (words.size * 100).to_f
+    end
+
+    # The average number of characters per word. Useful for the Coleman-Liau
+    # score calculation.
+    def characters_per_word
+      num_chars.to_f / words.size.to_f
+    end
+
     # The average number of syllables per word. The syllable count is
     # performed by Cadmium::Util::Syllable, and so may not be completely
     # accurate, especially if the Carnegie-Mellon Pronouncing Dictionary
@@ -123,6 +135,19 @@ module Cadmium
       4.71 * (num_chars / num_words) + 0.5 * (num_words / num_sentences) - 21.43
     end
 
+    # The Coleman-Liau score of the text sample.
+    # The score gives an indication of the US grade level needed to comprehend the text.
+    # A higher score indicates harder text; a value of 8 or less is a
+    # good standard for ordinary text. Calculating Coleman-Liau requires
+    # a text containing at least 100 words.
+
+    def coleman_liau
+      if num_words < 100
+        return 0
+      end
+      0.0588 * (characters_per_word * 100) - 0.296 * sentences_per_hundred_words - 15.8
+    end
+
     # The percentage of words that are defined as "complex" for the purpose of
     # the Fog Index. This is non-hyphenated words of three or more syllabes.
     def percent_fog_complex_words
@@ -142,10 +167,11 @@ module Cadmium
               "Flesch-Kincaid grade level     %2.2f \n" +
               "Fog Index                      %2.2f \n" +
               "SMOG grade level               %2.2f \n" +
-              "Automated Readability Index    %2.2f \n",
+              "Automated Readability Index    %2.2f \n" +
+              "Coleman-Liau Index             %2.2f \n",
         num_paragraphs, num_sentences, num_words, num_chars,
         words_per_sentence, syllables_per_word,
-        flesch, kincaid, fog, smog, ari
+        flesch, kincaid, fog, smog, ari, coleman_liau
     end
 
     private def count_words
