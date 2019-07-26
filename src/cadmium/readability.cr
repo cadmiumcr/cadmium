@@ -131,7 +131,7 @@ module Cadmium
               "Average syllables per word     %.2f \n\n" +
               "Flesch score                   %2.2f \n" +
               "Flesch-Kincaid grade level     %2.2f \n" +
-              "Fog Index                      %2.2f \n"+
+              "Fog Index                      %2.2f \n" +
               "SMOG grade level               %2.2f \n",
         num_paragraphs, num_sentences, num_words, num_chars,
         words_per_sentence, syllables_per_word,
