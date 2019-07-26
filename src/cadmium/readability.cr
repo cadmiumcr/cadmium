@@ -114,6 +114,15 @@ module Cadmium
       1.0430 * Math.sqrt(@complex_words * 30 / num_sentences) + 3.1291
     end
 
+    # The Automated Readability Index of the text sample.
+    # The score gives an indication of how difficult the page is to read.
+    # Each score can be matched to an equivalent reading ability level.
+    # ARI uses a scale based on age in full-time education.
+
+    def ari
+      4.71 * (num_chars / num_words) + 0.5 * (num_words / num_sentences) - 21.43
+    end
+
     # The percentage of words that are defined as "complex" for the purpose of
     # the Fog Index. This is non-hyphenated words of three or more syllabes.
     def percent_fog_complex_words
@@ -132,10 +141,11 @@ module Cadmium
               "Flesch score                   %2.2f \n" +
               "Flesch-Kincaid grade level     %2.2f \n" +
               "Fog Index                      %2.2f \n" +
-              "SMOG grade level               %2.2f \n",
+              "SMOG grade level               %2.2f \n" +
+              "Automated Readability Index    %2.2f \n",
         num_paragraphs, num_sentences, num_words, num_chars,
         words_per_sentence, syllables_per_word,
-        flesch, kincaid, fog, smog
+        flesch, kincaid, fog, smog, ari
     end
 
     private def count_words
