@@ -72,9 +72,9 @@ module Cadmium
     end
 
     # The average number of sentences per 100 words. Useful for the Coleman-Liau
-    # score calculation.
+    # and Linsear Write score calculation
     def sentences_per_hundred_words
-      sentences.size.to_f / (words.size * 100).to_f
+      sentences.size.to_f / (words.size / 100).to_f
     end
 
     # The average number of characters per word. Useful for the Coleman-Liau
