@@ -167,7 +167,8 @@ module Cadmium
       if num_words < 100
         return 0
       end
-      (100 - percent_fog_complex_words + (3 * percent_fog_complex_words)) / sentences_per_hundred_words
+      result = (100 - percent_fog_complex_words + (3 * percent_fog_complex_words)) / sentences_per_hundred_words
+      result > 20 ? result / 2 : (result / 2) - 1
     end
 
     # The percentage of words that are defined as "complex" for the purpose of
