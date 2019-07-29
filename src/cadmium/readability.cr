@@ -177,7 +177,7 @@ module Cadmium
     # The percentage of words that are defined as "complex" for the purpose of
     # the Fog Index. This is non-hyphenated words of three or more syllabes.
     def percent_fog_complex_words
-      ((@complex_words.to_f / words.size.to_f) * 100).round(2)
+      (@complex_words.to_f / words.size.to_f) * 100
     end
 
     # Return a nicely formatted report on the sample, showing most the useful
