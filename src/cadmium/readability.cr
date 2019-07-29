@@ -133,7 +133,8 @@ module Cadmium
     # ARI uses a scale based on age in full-time education.
 
     def ari
-      (4.71 * (num_chars / num_words) + 0.5 * (num_words / num_sentences) - 21.43).round(2)
+      result = 4.71 * (num_chars / num_words) + 0.5 * (num_words / num_sentences) - 21.43
+      result.finite? ? result.round(2) : 0.0
     end
 
     # The Coleman-Liau score of the text sample.
@@ -155,7 +156,8 @@ module Cadmium
     # good standard for ordinary text.
 
     def lix
-      ((num_words / num_sentences) + (@long_words * 100) / num_words).round(2)
+      result = (num_words / num_sentences) + (@long_words * 100) / num_words)
+      result.finite? ? result.round(2) : 0.0
     end
 
     # The Linsear Write score of the text sample.
@@ -167,7 +169,8 @@ module Cadmium
       if num_words < 100
         return 0
       end
-      result = ((100 - percent_fog_complex_words + (3 * percent_fog_complex_words)) / sentences_per_hundred_words).round(2)
+      result = ((100 - percent_fog_complex_words + (3 * percent_fog_complex_words)) / sentences_per_hundred_words)
+      result.finite? ? result = result.round(2) : result = 0.0
       result > 20 ? result / 2 : (result / 2) - 1
     end
 
