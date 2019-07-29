@@ -96,14 +96,14 @@ module Cadmium
     # the text is readable by a seventh grader. A score of 7.0 to 8.0 is
     # regarded as optimal for ordinary text.
     def kincaid
-      (11.8 * syllables_per_word) + (0.39 * words_per_sentence) - 15.59
+      ((11.8 * syllables_per_word) + (0.39 * words_per_sentence) - 15.59).round(2)
     end
 
     # Flesch reading ease of the text sample. A higher score indicates text
     # that is easier to read. The score is on a 100-point scale, and a score
     # of 60-70 is regarded as optimal for ordinary text.
     def flesch
-      206.835 - (1.015 * words_per_sentence) - (84.6 * syllables_per_word)
+      (206.835 - (1.015 * words_per_sentence) - (84.6 * syllables_per_word)).round(2)
     end
 
     # The Gunning Fog Index of the text sample. The index indicates the number
@@ -111,7 +111,7 @@ module Cadmium
     # need to comprehend the text. A higher score indicates harder text; a
     # value of around 12 is indicated as ideal for ordinary text.
     def fog
-      (words_per_sentence + percent_fog_complex_words) * 0.4
+      ((words_per_sentence + percent_fog_complex_words) * 0.4).round(2)
     end
 
     # The SMOG grade of the text sample. The grade indicates the approximate
@@ -133,7 +133,7 @@ module Cadmium
     # ARI uses a scale based on age in full-time education.
 
     def ari
-      4.71 * (num_chars / num_words) + 0.5 * (num_words / num_sentences) - 21.43
+      (4.71 * (num_chars / num_words) + 0.5 * (num_words / num_sentences) - 21.43).round(2)
     end
 
     # The Coleman-Liau score of the text sample.
@@ -144,9 +144,9 @@ module Cadmium
 
     def coleman_liau
       if num_words < 100
-        return 0
+        return 0.0
       end
-      0.0588 * (characters_per_word * 100) - 0.296 * sentences_per_hundred_words - 15.8
+      (0.0588 * (characters_per_word * 100) - 0.296 * sentences_per_hundred_words - 15.8).round(2)
     end
 
     # The LIX score of the text sample.
@@ -155,7 +155,7 @@ module Cadmium
     # good standard for ordinary text.
 
     def lix
-      (num_words / num_sentences) + (@long_words * 100) / num_words
+      ((num_words / num_sentences) + (@long_words * 100) / num_words).round(2)
     end
 
     # The Linsear Write score of the text sample.
@@ -167,14 +167,14 @@ module Cadmium
       if num_words < 100
         return 0
       end
-      result = (100 - percent_fog_complex_words + (3 * percent_fog_complex_words)) / sentences_per_hundred_words
+      result = ((100 - percent_fog_complex_words + (3 * percent_fog_complex_words)) / sentences_per_hundred_words).round(2)
       result > 20 ? result / 2 : (result / 2) - 1
     end
 
     # The percentage of words that are defined as "complex" for the purpose of
     # the Fog Index. This is non-hyphenated words of three or more syllabes.
     def percent_fog_complex_words
-      (@complex_words.to_f / words.size.to_f) * 100
+      ((@complex_words.to_f / words.size.to_f) * 100).round(2)
     end
 
     # Return a nicely formatted report on the sample, showing most the useful
