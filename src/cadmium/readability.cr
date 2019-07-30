@@ -156,7 +156,7 @@ module Cadmium
     # good standard for ordinary text.
 
     def lix
-      result = (num_words / num_sentences) + ((@long_words * 100) / num_words)
+      result = (num_words / num_sentences).to_f + ((@long_words * 100) / num_words).to_f
       result.finite? ? result.round(2) : 0.0
     end
 
