@@ -28,7 +28,6 @@ module Cadmium
       keywords_ratio.keys
     end
 
-
     private def window_start(words_in_sentence : Array(String), keywords : Array(String)) : Int32 | Nil
       words_in_sentence.index { |word| keywords.includes?(word) }
     end
@@ -37,14 +36,12 @@ module Cadmium
       words_in_sentence[-1..0].index { |word| keywords.includes?(word) }
     end
 
-
     private def window_size(words_in_sentence : Array(String), keywords : Array(String)) : Int32
       return 0 unless (window_start = window_start(words_in_sentence, keywords))
       return 0 unless (window_end = window_end(words_in_sentence, keywords))
       return 0 if window_start.not_nil! > window_end.not_nil!
       window_end.not_nil! - window_start.not_nil! + 1
     end
-
 
     private def sentence_weight(sentence : String, keywords : Array(String)) : Int32
       words_in_sentence = all_words(sentence)
