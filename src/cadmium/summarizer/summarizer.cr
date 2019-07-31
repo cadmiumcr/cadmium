@@ -1,6 +1,6 @@
 module Cadmium
   abstract class Summarizer
-    abstract def summarize(text : String, max_num_sentences = 5) : Array(String)
+    abstract def summarize(text : String, max_num_sentences = 5) : String
 
     def all_words(text) # Should we use a tokenizer instead ?
       all_words = [] of String

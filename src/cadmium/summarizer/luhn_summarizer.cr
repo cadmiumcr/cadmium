@@ -26,13 +26,15 @@ module Cadmium
       window_start = words_in_sentence.index { |word| keywords.includes?(word) }
       return 0 if window_start === nil
       window_end = words_in_sentence[last_index..0].index { |word| keywords.includes?(word) }
-      return 0 if window_start.not_nil! > window_end.not_nil!
+      return 0 if window_end === nil
+      # return 0 if window_start.not_nil! > window_end.not_nil!
       window_size = window_end.not_nil! - 1 + window_start.not_nil!
       number_of_keywords = words_in_sentence.count { |word| keywords.includes?(word) }
       (number_of_keywords*number_of_keywords) / window_size
     end
 
-    def summarize(text : String, max_num_sentences = 5) : Array(String)
+    def summarize(text : String, max_num_sentences = 5) : String
+      return "" if max_num_sentences <= 0
       sentences = Cadmium::Util::Sentence.sentences(text)
       sentences.sort_by! { |sentence| -sentence_weight(sentence, keywords(text)) }
       sentences[0..max_num_sentences].join(" ")
