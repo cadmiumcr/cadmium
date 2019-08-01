@@ -2,32 +2,11 @@ require "./summarizer"
 
 module Cadmium
   # The Luhn summarizer returns the most significant sentences of a text by :
-  # 1 - Calculating occurences ratio of significant words (discounting ones with ratio outside an arbitray range).
+  # 1 - Calculating occurences ratio of significant words (discounting ones with ratio outside an arbitray range, ie "normalized").
   # 2 - Calculating each sentence weight ((number of significant words)² / (greatest distance between two significant words)).
   # 3 - Sorting sentences according to their weight and returning the first n of them.
   # Reference : https://ieeexplore.ieee.org/document/5392672?arnumber=5392672
   class LuhnSummarizer < Summarizer
-    def keywords(text, min_ratio = 0.001, max_ratio = 0.5) # Should we make min_ratio and max_ratio configurable by the user ?
-      number_of_words = all_words(text).size
-      return nil if number_of_words == 0
-      significant_words = significant_words(text)
-      return nil if significant_words.size == 0
-
-      keywords_occurences = {} of String => Int32
-      keywords_ratio = {} of String => Float64
-
-      significant_words.each do |word| # Should we use Cadmium Tf instead ?
-        keywords_occurences.has_key?(word) ? (keywords_occurences[word] += 1) : (keywords_occurences[word] = 1)
-      end
-
-      keywords_occurences.keys.each do |word|
-        ratio = keywords_occurences[word].to_f / number_of_words
-        keywords_ratio[word] = ratio unless (ratio < min_ratio || ratio > max_ratio)
-      end
-
-      keywords_ratio.keys
-    end
-
     private def window_start(words_in_sentence : Array(String), keywords : Array(String)) : Int32 | Nil
       words_in_sentence.index { |word| keywords.includes?(word) }
     end
@@ -43,21 +22,21 @@ module Cadmium
       window_end.not_nil! - window_start.not_nil! + 1
     end
 
-    private def sentence_weight(sentence : String, keywords : Array(String)) : Int32
-      words_in_sentence = all_words(sentence)
-      return 0 if words_in_sentence.size <= 1
-      window_size = window_size(words_in_sentence, keywords)
+    private def sentence_weight(sentence : String, normalized_terms : Array(String)) : Int32
+      terms_in_sentence = all_terms(sentence)
+      return 0 if terms_in_sentence.size <= 1
+      window_size = window_size(terms_in_sentence, normalized_terms)
       return 0 if window_size <= 0
-      number_of_keywords = words_in_sentence.count { |word| keywords.includes?(word) }
-      (number_of_keywords*number_of_keywords) / window_size
+      number_of_normalized_terms = terms_in_sentence.count { |word| normalized_terms.includes?(word) }
+      (number_of_normalized_terms*number_of_normalized_terms) / window_size
     end
 
     def summarize(text : String, max_num_sentences = 5) : String
       return "" if max_num_sentences <= 0
-      keywords = keywords(text)
-      return "" if keywords.nil?
+      normalized_terms = normalized_terms(text)
+      return "" if normalized_terms.nil?
       sentences = Cadmium::Util::Sentence.sentences(text)
-      sentences.sort_by! { |sentence| -sentence_weight(sentence, keywords) }
+      sentences.sort_by! { |sentence| -sentence_weight(sentence, normalized_terms) }
       sentences[0..max_num_sentences].join(" ")
     end
   end
