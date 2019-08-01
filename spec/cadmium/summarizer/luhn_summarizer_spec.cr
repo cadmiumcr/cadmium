@@ -21,4 +21,8 @@ describe Cadmium::LuhnSummarizer do
   it "should return an empty string if max_num_sentences is 0" do
     subject.summarize(hume_text, 0).should eq(summary_length[0])
   end
+
+  it "should summarize text via String#summarize" do
+    hume_text.summarize(Cadmium::LuhnSummarizer).should eq(summary_length[5])
+  end
 end
