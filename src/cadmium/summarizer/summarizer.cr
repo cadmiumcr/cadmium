@@ -1,6 +1,6 @@
 module Cadmium
   abstract class Summarizer
-    # All extraction-based summarizer must implement the sentence_rating method.
+    # All extraction-based summarizers must implement the select_sentences method.
     abstract def select_sentences(text : String, max_num_sentences : Int32, normalized_terms_ratio : Hash(String, Float64)) : Array(String)
 
     def significant_terms(text : String) : Array(String) # Should we use a stemmer ?
@@ -31,7 +31,7 @@ module Cadmium
       terms_ratio = {} of String => Float64
       terms_frequencies.keys.each do |term|
         ratio = terms_frequencies[term].to_f / number_of_terms
-        terms_ratio[term] = ratio # unless (ratio < min_ratio || ratio > max_ratio)
+        terms_ratio[term] = ratio
       end
       terms_ratio
     end
