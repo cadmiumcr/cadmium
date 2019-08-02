@@ -7,6 +7,10 @@ module Cadmium
   # 3 - Sorting sentences according to their weight and returning the first n of them.
   # Reference : https://ieeexplore.ieee.org/document/5392672?arnumber=5392672
   class LuhnSummarizer < Summarizer
+    private def all_terms(text : String) : Array(String) # Only for Luhn to calculate term distance in sentence
+      text.tokenize(WordTokenizer)
+    end
+
     private def window_start(terms_in_sentence : Array(String), normalized_terms : Array(String)) : Int32 | Nil
       terms_in_sentence.index { |term| normalized_terms.includes?(term) }
     end
@@ -30,6 +34,12 @@ module Cadmium
       return 0 if window_size <= 0
       number_of_normalized_terms = terms_in_sentence.count { |term| normalized_terms.includes?(term) }
       (number_of_normalized_terms*number_of_normalized_terms) / window_size
+    end
+
+    private def select_sentences(text, max_num_sentences, normalized_terms_ratio)
+      sentences = Cadmium::Util::Sentence.sentences(text)
+      sentences.sort_by! { |sentence| -sentence_rating(sentence, normalized_terms_ratio) } # This could be improved, performance wise.
+      sentences[0..max_num_sentences]
     end
   end
 end
