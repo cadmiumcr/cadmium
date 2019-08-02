@@ -3,13 +3,8 @@ module Cadmium
     # All extraction-based summarizers must implement the select_sentences method.
     abstract def select_sentences(text : String, max_num_sentences : Int32, normalized_terms_ratio : Hash(String, Float64)) : Array(String)
 
-    def significant_terms(text : String) : Array(String) # Should we use a stemmer ?
-      PragmaticTokenizer.new(
-        clean: true,
-        remove_stop_words: true,
-        punctuation: :none,
-        downcase: true
-      ).tokenize(text)
+    def significant_terms(text : String) : Array(String)
+      text.tokenize_and_stem
     end
 
     def normalized_terms_ratio(text : String, min_ratio = 0.001, max_ratio = 0.5) : Hash(String, Float64) | Nil
