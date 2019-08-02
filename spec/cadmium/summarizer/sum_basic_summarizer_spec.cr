@@ -2,13 +2,13 @@ require "../../spec_helper"
 include LongTexts
 
 summary_length = {
-  5 => "The great advantage of the mathematical sciences above the moral consists in this, that the ideas of the former, being sensible, are always clear and determinate, the smallest distinction between them is immediately perceptible, and the same terms are still expressive of the same ideas, without ambiguity or variation. Our line is too short to fathom such immense abysses. And however we may flatter ourselves that we are guided, in every step which we take, by a kind of verisimilitude and experience, we may be assured that this fancied experience has no authority when we thus apply it to subjects that lie entirely out of the sphere of experience. But on this we shall have occasion to touch afterwards.14 Secondly, I cannot perceive any force in the arguments on which this theory is founded. We are ignorant, it is true, of the manner in which bodies operate on each other: Their force or energy is entirely incomprehensible: But are we not equally ignorant of the manner or force by which a mind, even the supreme mind, operates either on itself or on body?",
-  2 => "The great advantage of the mathematical sciences above the moral consists in this, that the ideas of the former, being sensible, are always clear and determinate, the smallest distinction between them is immediately perceptible, and the same terms are still expressive of the same ideas, without ambiguity or variation. Our line is too short to fathom such immense abysses. And however we may flatter ourselves that we are guided, in every step which we take, by a kind of verisimilitude and experience, we may be assured that this fancied experience has no authority when we thus apply it to subjects that lie entirely out of the sphere of experience.",
+  5 => "But the finer sentiments of the mind, the operations of the understanding, the various agitations of the passions, though really in themselves distinct, easily escape us, when surveyed by reflection; nor is it in our power to recal the original object, as often as we have occasion to contemplate it. But the finer sentiments of the mind, the operations of the understanding, the various agitations of the passions, though really in themselves distinct, easily escape us, when surveyed by reflection; nor is it in our power to recal the original object, as often as we have occasion to contemplate it. But the finer sentiments of the mind, the operations of the understanding, the various agitations of the passions, though really in themselves distinct, easily escape us, when surveyed by reflection; nor is it in our power to recal the original object, as often as we have occasion to contemplate it. But the finer sentiments of the mind, the operations of the understanding, the various agitations of the passions, though really in themselves distinct, easily escape us, when surveyed by reflection; nor is it in our power to recal the original object, as often as we have occasion to contemplate it. But the finer sentiments of the mind, the operations of the understanding, the various agitations of the passions, though really in themselves distinct, easily escape us, when surveyed by reflection; nor is it in our power to recal the original object, as often as we have occasion to contemplate it.",
+  2 => "But the finer sentiments of the mind, the operations of the understanding, the various agitations of the passions, though really in themselves distinct, easily escape us, when surveyed by reflection; nor is it in our power to recal the original object, as often as we have occasion to contemplate it. But the finer sentiments of the mind, the operations of the understanding, the various agitations of the passions, though really in themselves distinct, easily escape us, when surveyed by reflection; nor is it in our power to recal the original object, as often as we have occasion to contemplate it.",
   0 => "",
 }
 
-describe Cadmium::SumBasic do
-  subject = Cadmium::SumBasic.new
+describe Cadmium::SumBasicSummarizer do
+  subject = Cadmium::SumBasicSummarizer.new
 
   it "should summarize a long text to default number (5) sentences" do
     subject.summarize(hume_text).should eq(summary_length[5])
@@ -23,6 +23,6 @@ describe Cadmium::SumBasic do
   end
 
   it "should summarize text via String#summarize" do
-    hume_text.summarize(Cadmium::SumBasic).should eq(summary_length[5])
+    hume_text.summarize(Cadmium::SumBasicSummarizer).should eq(summary_length[5])
   end
 end
