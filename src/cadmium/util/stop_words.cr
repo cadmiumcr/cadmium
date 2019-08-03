@@ -1,8 +1,12 @@
+require "json"
+
 module Cadmium
   module Util
     module StopWords
       # a list of commonly used words that have little meaning and can be excluded
       # from analysis.
+      @lang : Symbol
+      @@i18n_all_stopwords : Hash(Array(String))
       @@stop_words = [
         "a", "about", "above", "above", "across", "after", "afterwards", "again",
         "against", "all", "almost", "alone", "along", "already", "also", "although",
@@ -42,6 +46,12 @@ module Cadmium
         "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "$", "1",
         "2", "3", "4", "5", "6", "7", "8", "9", "0", "_",
       ]
+
+      def i18n_stop_words(lang = nil) : Array(String)
+        @lang = lang.nil? ? :en : lang
+        @@i18n_all_stopwords ||= {{ read_file("#{__DIR__}/../../data/stopwords.json").from_json }}
+        @@stop_words = i18n_all_stopwords[@lang] unless @lang == :en
+      end
     end
   end
 end
