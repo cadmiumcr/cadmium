@@ -11,7 +11,8 @@ module Cadmium
       process(word1) == process(word2)
     end
 
-    def self.tokenize_and_phoneticize(word, keep_stops = false)
+    def self.tokenize_and_phoneticize(word, keep_stops = false, lang = @@lang)
+      Cadmium::Util::StopWords.i18n_stop_words(lang)
       phoneticized_tokens = [] of String
       @@tokenizer.tokenize(word).each do |token|
         if keep_stops || @@stop_words.includes?(token) == false

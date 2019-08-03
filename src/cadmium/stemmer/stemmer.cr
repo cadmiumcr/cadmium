@@ -9,11 +9,13 @@ module Cadmium
       token
     end
 
-    def self.add_stop_word(word)
+    def self.add_stop_word(word, lang = @@lang)
+      Cadmium::Util::StopWords.i18n_stop_words(lang)
       @@stop_words.push word
     end
 
-    def self.add_stop_words(words)
+    def self.add_stop_words(words, lang = @@lang)
+      Cadmium::Util::StopWords.i18n_stop_words(lang)
       @@stop_words.concat words
     end
 
@@ -21,14 +23,16 @@ module Cadmium
       remove_stop_words([word])
     end
 
-    def self.remove_stop_words(words)
+    def self.remove_stop_words(words, lang = @@lang)
+      Cadmium::Util::StopWords.i18n_stop_words(lang)
       words.each do |word|
         @@stop_words.delete(word)
       end
       @@stop_words
     end
 
-    def self.tokenize_and_stem(text, keep_stops = false)
+    def self.tokenize_and_stem(text, keep_stops = false, lang = @@lang)
+      Cadmium::Util::StopWords.i18n_stop_words(lang)
       stemmed_tokens = [] of String
       lowercase_text = text.downcase
       tokens = Cadmium::AggressiveTokenizer.new.tokenize(lowercase_text)

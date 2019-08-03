@@ -124,7 +124,7 @@ describe Cadmium::PorterStemmer do
   end
 
   it "should tokenize and stem ignoring stop words" do
-    "My dog is very fun TO play with And another thing, he is A poodle.".tokenize_and_stem.should eq(["dog", "fun", "plai", "thing", "poodl"])
+    "My dog is very fun TO play with And another thing, he is A poodle.".tokenize_and_stem.should eq(["dog", "fun", "plai", "poodl"])
   end
 
   it "should tokenize and stem including stopwords" do
