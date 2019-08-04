@@ -34,7 +34,8 @@ module Cadmium
 
     # This is ugly but needed because normalization removes significant terms whose ratio > max_ratio.
     private def normalized_terms_sentence(sentence : String, normalized_terms_ratio : Hash(String, Float64)) : Array(String)
-      sentence.split(" ").reject! { |term| !normalized_terms_ratio.includes?(term) }
+      terms_in_sentence = significant_terms(sentence)
+      terms_in_sentence.reject! { |term| !normalized_terms_ratio.includes?(term) }
     end
 
     private def select_sentences(text : String, max_num_sentences : Int, normalized_terms_ratio : Hash(String, Float64)) : Array(String)
