@@ -13,7 +13,7 @@ module Cadmium
       normalize_ratio(terms_ratio(terms_frequencies(significant_terms), significant_terms.size), min_ratio, max_ratio) # This is ugly, should find a better way to chain.
     end
 
-    def terms_frequencies(terms : Array(String)) : Hash(String, Int32) # Should we use Cadmium Tf instead ? Maybe factor it out in Cadmium::Util ?
+    def terms_frequencies(terms : Array(String)) : Hash(String, Int32)
       terms_frequencies = {} of String => Int32
 
       terms.each do |term|
@@ -22,7 +22,7 @@ module Cadmium
       terms_frequencies
     end
 
-    def terms_ratio(terms_frequencies : Hash(String, Int32), number_of_terms : Int32) : Hash(String, Float64) # Is ratio the same as idf ?
+    def terms_ratio(terms_frequencies : Hash(String, Int32), number_of_terms : Int32) : Hash(String, Float64) # We need to abstract this out to a TF Cadmium::Util method or use tfidf.cr directly here
       terms_ratio = {} of String => Float64
       terms_frequencies.keys.each do |term|
         ratio = terms_frequencies[term].to_f / number_of_terms

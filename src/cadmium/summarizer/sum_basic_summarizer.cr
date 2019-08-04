@@ -10,17 +10,6 @@ module Cadmium
   # Step 5 : If the desired summary length has not been reached, go back to Step 2
   # Reference : http://www.cis.upenn.edu/~nenkova/papers/ipm.pdf
   class SumBasicSummarizer < Summarizer
-    # This will go away as soon as I find out why the stemmer commented out causes an out of bound error just for SumBasic.
-    def significant_terms(text : String) : Array(String)
-      PragmaticTokenizer.new(
-        clean: true,
-        remove_stop_words: true,
-        punctuation: :none,
-        downcase: true
-      ).tokenize(text)
-      # text.tokenize_and_stem
-    end
-
     private def average_probability_of_words(normalized_terms_ratio : Hash(String, Float64), sentence : String) : Float64
       significant_terms_in_sentence = significant_terms(sentence)
       number_of_terms_in_sentence = significant_terms_in_sentence.size
@@ -45,16 +34,18 @@ module Cadmium
 
     # This is ugly but needed because normalization removes significant terms whose ratio > max_ratio.
     private def normalized_terms_sentence(sentence : String, normalized_terms_ratio : Hash(String, Float64)) : Array(String)
-      significant_terms(sentence).reject! { |term| !normalized_terms_ratio.includes?(term) }
+      sentence.split(" ").reject! { |term| !normalized_terms_ratio.includes?(term) }
     end
 
     private def select_sentences(text : String, max_num_sentences : Int, normalized_terms_ratio : Hash(String, Float64)) : Array(String)
       sentences = Cadmium::Util::Sentence.sentences(text)
       selected_sentences = [] of String
       selected_sentence = ""
-      loop do                                                                                                                                              # Step 5
-        rated_sentences = sentences.to_h { |sentence| {sentence, average_probability_of_words(normalized_terms_ratio, sentence)} }                         # Step 2
-        selected_sentences << highest_scoring_sentence_with_highest_probability_term(normalized_terms_ratio, rated_sentences)                              # Step 3
+      loop do                                                                                                                      # Step 5
+        rated_sentences = sentences.to_h { |sentence| {sentence, average_probability_of_words(normalized_terms_ratio, sentence)} } # Step 2
+        selected_sentence = highest_scoring_sentence_with_highest_probability_term(normalized_terms_ratio, rated_sentences)
+        sentences.reject!(selected_sentence)
+        selected_sentences << selected_sentence                                                                                                            # Step 3
         normalized_terms_ratio = update_probability_of_terms(normalized_terms_ratio, normalized_terms_sentence(selected_sentence, normalized_terms_ratio)) # Step 4
         break if selected_sentences.size == max_num_sentences
       end
