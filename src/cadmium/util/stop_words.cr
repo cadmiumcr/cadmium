@@ -8,7 +8,7 @@ module Cadmium
       # a list of commonly used words that have little meaning and can be excluded
       # from analysis.
       @@lang : Symbol = :en
-      I18N_ALL_STOPWORDS = Hash(String, Array(String)).from_json(File.read("#{__DIR__}/../../../data/stopwords.json"))
+      I18N_ALL_STOPWORDS = Hash(String, Array(String)).from_json({{ read_file("#{__DIR__}/../../../data/stopwords.json") }})
       @@stop_words : Array(String) = i18n_stop_words(@@lang)
 
       def self.i18n_stop_words(lang = nil) : Array(String)
