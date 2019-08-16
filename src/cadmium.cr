@@ -2,7 +2,7 @@ require "./cadmium/core_ext/**"
 require "./cadmium/util/*"
 require "./cadmium/*"
 
-# Cadmium is a Natrual Language Processing (NLP) library for Crystal. It includes several
+# Cadmium is a Natural Language Processing (NLP) library for Crystal. It includes several
 # modules and classes for processing sentences and splitting them into digestable pieces.
 #
 # Every module in Cadmium is accessable via a convenience method directly from the
@@ -39,6 +39,8 @@ module Cadmium
     word_tokenizer:             Cadmium::WordTokenizer,
     transliterator:             Cadmium::Transliterator,
     wordnet:                    Cadmium::Wordnet,
+    luhn_summarizer:            Cadmium::LuhnSummarizer,
+    sum_basic_summarizer:       Cadmium::SumBasicSummarizer,
   }
 
   {% for name, mod in MODULES %}
