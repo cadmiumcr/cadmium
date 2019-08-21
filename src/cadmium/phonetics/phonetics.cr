@@ -3,9 +3,7 @@ require "../i18n/stop_words"
 
 module Cadmium
   abstract class Phonetics
-    include Cadmium::I18n
     include Cadmium::I18n::StopWords
-    stop_words en
 
     @@tokenizer = Cadmium::AggressiveTokenizer.new
 
@@ -14,7 +12,6 @@ module Cadmium
     end
 
     def self.tokenize_and_phoneticize(word, keep_stops = false)
-      @@stop_words = stop_words_en
       phoneticized_tokens = [] of String
       @@tokenizer.tokenize(word).each do |token|
         if keep_stops || @@stop_words.includes?(token) == false

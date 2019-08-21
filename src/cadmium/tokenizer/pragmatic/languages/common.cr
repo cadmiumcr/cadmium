@@ -1,7 +1,10 @@
+require "../../../i18n/stop_words"
+
 module Cadmium
   class PragmaticTokenizer < Tokenizer
     module Languages
       class Common
+        include Cadmium::I18n::StopWords
         # Single quotes handling
         ALNUM_QUOTE     = /(\w|\D)'(?!')(?=\W|$)/
         QUOTE_WORD      = /(\W|^)'(?=\w)/
@@ -10,7 +13,7 @@ module Cadmium
 
         PUNCTUATION_MAP = {"。" => "♳", "．" => "♴", "." => "♵", "！" => "♶", "!" => "♷", "?" => "♸", "？" => "♹", "、" => "♺", "¡" => "⚀", "¿" => "⚁", "„" => "⚂", "“" => "⚃", "[" => "⚄", "]" => "⚅", "\"" => "☇", "#" => "☈", "$" => "☉", "%" => "☊", "&" => "☋", "(" => "☌", ")" => "☍", "*" => "☠", "+" => "☢", "," => "☣", ":" => "☤", ";" => "☥", "<" => "☦", "=" => "☧", ">" => "☀", "@" => "☁", "^" => "☂", "_" => "☃", "`" => "☄", "'" => "☮", "{" => "♔", "|" => "♕", "}" => "♖", "~" => "♗", "-" => "♘", "«" => "♙", "»" => "♚", "”" => "⚘", "‘" => "⚭"}
         ABBREVIATIONS   = Set(String).new
-        STOP_WORDS      = Set(String).new
+        STOP_WORDS      = @@stop_words
         CONTRACTIONS    = {} of String => String
 
         def self.punctuation_map

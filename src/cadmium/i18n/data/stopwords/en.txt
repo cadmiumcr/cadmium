@@ -277,6 +277,7 @@ edu
 ee
 effect
 eg
+e.g.
 eh
 eight
 eighty
@@ -389,7 +390,6 @@ go
 goes
 going
 gone
-good
 goods
 got
 gotten
@@ -1254,6 +1254,7 @@ won't
 wonder
 wont
 words
+word
 work
 worked
 working

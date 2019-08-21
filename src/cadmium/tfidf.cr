@@ -4,7 +4,6 @@ require "random"
 
 module Cadmium
   class TfIdf
-    include Cadmium::I18n
     include Cadmium::I18n::StopWords
 
     # TODO: Figure out how to make this work with no key

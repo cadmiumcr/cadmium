@@ -3,7 +3,6 @@ require "../tokenizer/aggressive_tokenizer"
 
 module Cadmium
   abstract class Stemmer
-    include Cadmium::I18n
     include Cadmium::I18n::StopWords
 
     def self.stem(token)

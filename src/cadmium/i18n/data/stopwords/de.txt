@@ -328,6 +328,7 @@ kleine
 kleinen
 kleiner
 kleines
+km
 kommen
 kommt
 konnte
