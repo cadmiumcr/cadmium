@@ -1,21 +1,20 @@
-require "../util/stop_words"
+require "../i18n/stop_words"
 require "../tokenizer/aggressive_tokenizer"
 
 module Cadmium
   abstract class Stemmer
-    include Cadmium::Util::StopWords
+    include Cadmium::I18n
+    include Cadmium::I18n::StopWords
 
     def self.stem(token)
       token
     end
 
-    def self.add_stop_word(word, lang = @@lang)
-      Cadmium::Util::StopWords.i18n_stop_words(lang)
+    def self.add_stop_word(word)
       @@stop_words.push word
     end
 
-    def self.add_stop_words(words, lang = @@lang)
-      Cadmium::Util::StopWords.i18n_stop_words(lang)
+    def self.add_stop_words(words)
       @@stop_words.concat words
     end
 
@@ -23,16 +22,14 @@ module Cadmium
       remove_stop_words([word])
     end
 
-    def self.remove_stop_words(words, lang = @@lang)
-      Cadmium::Util::StopWords.i18n_stop_words(lang)
+    def self.remove_stop_words(words)
       words.each do |word|
         @@stop_words.delete(word)
       end
       @@stop_words
     end
 
-    def self.tokenize_and_stem(text, keep_stops = false, lang = @@lang)
-      Cadmium::Util::StopWords.i18n_stop_words(lang)
+    def self.tokenize_and_stem(text, keep_stops = false)
       stemmed_tokens = [] of String
       lowercase_text = text.downcase
       tokens = Cadmium::AggressiveTokenizer.new.tokenize(lowercase_text)

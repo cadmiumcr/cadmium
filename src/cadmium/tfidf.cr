@@ -1,10 +1,11 @@
 require "./tokenizer/word_tokenizer"
-require "./util/stop_words"
+require "./i18n/stop_words"
 require "random"
 
 module Cadmium
   class TfIdf
-    include Cadmium::Util::StopWords
+    include Cadmium::I18n
+    include Cadmium::I18n::StopWords
 
     # TODO: Figure out how to make this work with no key
     alias Document = NamedTuple(key: String, terms: Hash(String, Float64))
