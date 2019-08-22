@@ -14,10 +14,10 @@ module Cadmium
     @stop_words : Array(String)
     @tokenizer : Cadmium::WordTokenizer
 
-    def initialize(documents : Array(Document)? = nil)
+    def initialize(documents : Array(Document)? = nil, custom_stop_words : Array(String) = @@stop_words)
       @documents = documents || [] of Document
       @idf_cache = {} of String => Float64
-      @stop_words = @@stop_words
+      @stop_words = custom_stop_words
       @tokenizer = Cadmium::WordTokenizer.new
     end
 

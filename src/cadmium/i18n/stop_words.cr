@@ -14,6 +14,13 @@ module Cadmium
           files.each_child do |file|
             languages << file.chomp(".txt")
           end
+          def self.stop_words_all_languages : Hash(String, Array(String))
+            all_languages = Hash(String, Array(String)).new
+            {% for language, index in languages %}
+          all_languages[language] = {{ read_file("#{DATA_DIR.id}#{language}.txt").split("\n") }}
+          {% end %}
+          all_languages
+          end
         {% end %}
           {% for language, index in languages %}
         def self.stop_words_{{language}} : Array(String)

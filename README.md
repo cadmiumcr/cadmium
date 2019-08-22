@@ -46,6 +46,7 @@ For full API documentation check out [the docs](https://watzon.github.io/cadmium
   - [Edge Weighted Digraph](#edge-weighted-digraph)
   - [Readability](#readability)
   - [WordNet](#wordnet)
+  - [I18n](#I18n)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
@@ -612,6 +613,31 @@ puts synset.pos
 puts synset.gloss
 puts synset.word_counts
 ```
+
+### I18N
+
+## Stopwords
+
+>> **Stopwords** are common words without significant semantic value and found frequently in a text. Many NLP algorithms require to remove them from a document to keep only what is called *content words*.
+Cadmium natively uses stopwords lists for its stemmers and tokenizers methods for example.
+
+In case you need to access directly to one or several stopwords lists, you need to include the `Cadmium::I18n::StopWords` module and call the `stop_words` macro with as arguments the ISO 639-1 language code strings of the desired languages.
+
+The `stop_words` macro will produce a or several `stop_words_{language}` methods, each returning an array of the stopwords.
+
+Example :
+
+```crystal
+include Cadmium::I18n::StopWords
+
+stop_words fr, es, pt, it, ro
+
+latin_stop_words = stop_words_fr + stop_words_es + stop_words_pt + stop_words_it + stop_words_ro
+
+```
+
+If you need to access conveniently at runtime stopwords for all languages, just call the stop_words macro with the `all_languages` argument.
+You'll have access to a `stop_words_all_languages` method which returns a hash of the language codes with their associated stopwords list as an array.
 
 ## Roadmap
 
