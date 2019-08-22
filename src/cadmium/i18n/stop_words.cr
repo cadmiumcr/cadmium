@@ -9,23 +9,17 @@ module Cadmium
       @@stop_words : Array(String) = {{ read_file("#{DATA_DIR.id}en.txt").split("\n") }}
 
       macro stop_words(*languages)
-        {% if languages.includes?("all_languages") %}
-          files = Dir.open(DATA_DIR)
-          files.each_child do |file|
-            languages << file.chomp(".txt")
-          end
-          def self.stop_words_all_languages : Hash(String, Array(String))
-            all_languages = Hash(String, Array(String)).new
-            {% for language, index in languages %}
-          all_languages[language] = {{ read_file("#{DATA_DIR.id}#{language}.txt").split("\n") }}
-          {% end %}
-          all_languages
-          end
-        {% end %}
           {% for language, index in languages %}
+          {% if language.id != "all_languages" %}
         def self.stop_words_{{language}} : Array(String)
         {{ read_file("#{DATA_DIR.id}#{language}.txt").split("\n") }}
+      end
+         {% else %}
+         def self.stop_words_all_languages : Hash(String, Array(String))
+         # read_file only accepts literals so it can't be fed dynamically with non-macro variables (ie we can't parse the data directory and give it the filenames)
+         Hash(String, Array(String)).from_json({{ read_file("#{DATA_DIR.id}all-languages.json") }})
         end
+        {% end %}
         {% end %}
       end
     end
