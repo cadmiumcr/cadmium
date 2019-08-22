@@ -47,6 +47,7 @@ For full API documentation check out [the docs](https://watzon.github.io/cadmium
   - [Readability](#readability)
   - [WordNet](#wordnet)
   - [I18n](#I18n)
+    - [Stopwords](#stopwords)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
@@ -616,7 +617,7 @@ puts synset.word_counts
 
 ### I18N
 
-## Stopwords
+#### Stopwords
 
 >> **Stopwords** are common words without significant semantic value and found frequently in a text. Many NLP algorithms require to remove them from a document to keep only what is called *content words*.
 Cadmium natively uses stopwords lists for its stemmers and tokenizers methods for example.
