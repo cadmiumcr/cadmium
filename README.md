@@ -1,6 +1,6 @@
 ![Logo](img/cadmium.png)
 
-[![Travis](https://img.shields.io/travis/watzon/cadmium.svg)](https://travis-ci.org/watzon/cadmium) <a href="https://patreon.com/watzon"><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.herokuapp.com%2Fwatzon%2Fpledgesssss&style=flat" /></a>
+[![Travis](https://img.shields.io/travis/cadmiumcr/cadmium.svg)](https://travis-ci.org/cadmiumcr/cadmium) <a href="https://patreon.com/watzon"><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.herokuapp.com%2Fwatzon%2Fpledgesssss&style=flat" /></a>
 
 Cadmium is a Natural Language Processing (NLP) library for Crystal. Included are classes and modules for tokenizing, inflecting, stemming, and creating n-grams with much more to come.
 
@@ -10,7 +10,7 @@ This library is heavily based on the [natural](https://github.com/NaturalNode/na
 
 Any utilities that can be internationalized will be eventually. For now English is the primary concern.
 
-For full API documentation check out [the docs](https://watzon.github.io/cadmium/).
+For full API documentation check out [the docs](https://cadmiumcr.github.io/cadmium/).
 
 ## Table of Contents
 
@@ -59,7 +59,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   cadmium:
-    github: watzon/cadmium
+    github: cadmiumcr/cadmium
     branch: master
 ```
 
@@ -691,7 +691,7 @@ This is all I want to have done before a __v1.0__ release.
 
 ## Contributing
 
-1. Fork it ( https://github.com/watzon/cadmium/fork )
+1. Fork it ( https://github.com/cadmiumcr/cadmium/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -699,4 +699,4 @@ This is all I want to have done before a __v1.0__ release.
 
 ## Contributors
 
-This project exists thanks to all the people who contribute. <a href="https://github.com/watzon/Cadmium/graphs/contributors"><img src="https://opencollective.com/Cadmium/contributors.svg?width=890&button=false" /></a>
+This project exists thanks to all the people who contribute. <a href="https://github.com/cadmiumcr/Cadmium/graphs/contributors"><img src="https://opencollective.com/Cadmium/contributors.svg?width=890&button=false" /></a>
