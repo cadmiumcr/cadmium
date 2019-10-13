@@ -12,6 +12,27 @@ Any utilities that can be internationalized will be eventually. For now English 
 
 For full API documentation check out [the docs](https://cadmiumcr.github.io/cadmium/).
 
+
+| Shard name             | Description                                                                                                      |
+|------------------------|------------------------------------------------------------------------------------------------------------------|
+| cadmium_tokenizer      | Contains several types of string tokenizers                                                                      |
+| cadmium_stemmer        | Contains a Porter stemmer, useful to get the stems of english words                                              |
+| cadmium_ngrams         |  Contains methods to obtain unigram, bigrams, trigrams or ngrams from strings                                    |
+| cadmium_classifier     | Contains two probabilistic classifiers used in NLP operations like language detection or POS tagging for example |
+| cadmium_readability    | Analyzes blocks of text and determine, using various algorithms, the readability of the text.                    |
+| cadmium_tfidf          | Calculates the Term Frequency–Inverse Document Frequency of a corpus                                             |
+| cadmium_glove          | Pure Crystal implementation of Global Vectors for Word Representations.                                          |
+| cadmium_pos_tagger     |  Tags each token of a text with its Part Of Speech category                                                      |
+| cadmium_lemmatizer     | Returns the lemma of each given string token                                                                     |
+| cadmium_summarizer     | Extracts the most meaningful sentences of a text to create a summary                                             |
+| cadmium_sentiment      | Evaluates the sentiment of a text                                                                                |
+| cadmium_distance       |                                                                                                                  |
+| cadmium_transliterator |                                                                                                                  |
+| cadmium_graph          |                                                                                                                  |
+
+
+
+
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
