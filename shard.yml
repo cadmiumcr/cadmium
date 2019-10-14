@@ -15,7 +15,7 @@ dependencies:
   cadmium_ngrams:
     github: cadmiumcr/ngrams
   cadmium_summarizer:
-    github: cadmiumrc/summarizer
+    github: cadmiumcr/summarizer
   cadmium_sentiment:
     github: cadmiumcr/sentiment
   cadmium_distance:
