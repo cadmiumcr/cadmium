@@ -33,7 +33,7 @@ module Cadmium
       window_size = window_size(terms_in_sentence, normalized_terms)
       return 0 if window_size <= 0
       number_of_normalized_terms = terms_in_sentence.count { |term| normalized_terms.includes?(term) }
-      (number_of_normalized_terms*number_of_normalized_terms) / window_size
+      (number_of_normalized_terms*number_of_normalized_terms) // window_size
     end
 
     private def select_sentences(text, max_num_sentences, normalized_terms_ratio)
