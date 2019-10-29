@@ -74,7 +74,7 @@ module Cadmium
     # The average number of sentences per 100 words. Useful for the Coleman-Liau
     # and Linsear Write score calculation
     def sentences_per_hundred_words
-      sentences.size.to_f / (words.size / 100).to_f
+      sentences.size.to_f / (words.size // 100).to_f
     end
 
     # The average number of characters per word. Useful for the Coleman-Liau
@@ -133,7 +133,7 @@ module Cadmium
     # ARI uses a scale based on age in full-time education.
 
     def ari
-      result = 4.71 * (num_chars / num_words) + 0.5 * (num_words / num_sentences) - 21.43
+      result = 4.71 * (num_chars // num_words) + 0.5 * (num_words // num_sentences) - 21.43
       result.finite? ? result.round(2) : 0.0
     end
 
@@ -156,7 +156,7 @@ module Cadmium
     # good standard for ordinary text.
 
     def lix
-      result = (num_words / num_sentences).to_f + ((@long_words * 100) / num_words).to_f
+      result = (num_words // num_sentences).to_f + ((@long_words * 100) // num_words).to_f
       result.finite? ? result.round(2) : 0.0
     end
 

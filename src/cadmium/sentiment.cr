@@ -6,20 +6,20 @@ module Cadmium
 
     # Negate the next word in the phrase.
     NEGATORS = {
-      "cant"    => 1,
-      "can't"   => 1,
-      "dont"    => 1,
-      "don't"   => 1,
-      "doesnt"  => 1,
-      "doesn't" => 1,
-      "not"     => 1,
-      "non"     => 1,
-      "wont"    => 1,
-      "won't"   => 1,
-      "isnt"    => 1,
-      "isn't"   => 1,
-      "wasnt"   => 1,
-      "wasn't"  => 1,
+      "cant",
+      "can't",
+      "dont",
+      "don't",
+      "doesnt",
+      "doesn't",
+      "not",
+      "non",
+      "wont",
+      "won't",
+      "isnt",
+      "isn't",
+      "wasnt",
+      "wasn't",
     }
 
     # Manage the `Tokenizer` that the sentiment analyzer uses.
