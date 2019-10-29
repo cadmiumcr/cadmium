@@ -36,7 +36,7 @@ module Cadmium
       (number_of_normalized_terms*number_of_normalized_terms) // window_size
     end
 
-    private def select_sentences(text, max_num_sentences, normalized_terms_ratio)
+    private def select_sentences(text, max_num_sentences, normalized_terms_ratio) : Array(String)
       sentences = Cadmium::Util::Sentence.sentences(text)
       sentences.sort_by! { |sentence| -sentence_rating(sentence, normalized_terms_ratio) } # This could be improved, performance wise.
       sentences[0..max_num_sentences]
