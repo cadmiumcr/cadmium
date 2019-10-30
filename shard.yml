@@ -8,6 +8,8 @@ authors:
 crystal: 0.31.1
 
 dependencies:
+  cadmium_language_detector:
+    github: cadmiumcr/language_detector
   cadmium_lemmatizer:
     github: cadmiumcr/lemmatizer
   cadmium_readability:
