@@ -1,6 +1,6 @@
 ![Logo](img/cadmium.png)
 
-Cadmium is a Natural Language Processing (NLP) library for Crystal. Included are classes and modules for tokenizing, inflecting, stemming, and creating n-grams with much more to come.
+**Cadmium** is a *Natural Language Processing* (NLP) library for [Crystal](https://crystal-lang.org/).
 
 For full API documentation check out [the docs](https://cadmiumcr.github.io/cadmium/).
 
@@ -36,7 +36,7 @@ For more complete and up to date information about specific parts of Cadmium, ch
 
 ## Installation
 
-Your project *should* only include the cadmium shard(s) you need.
+Your project *should* only include the Cadmium shard(s) you need.
 
 However, in case you want to test out **all of Cadmium** in a simple way, you can install all modules of the project in a few lines.
 
