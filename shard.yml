@@ -3,12 +3,45 @@ version: 0.3.0
 
 authors:
   - Chris Watson <chris@watzon.me>
+  - Rémy Marronnier <rmarronnier@gmail.com>
 
-crystal: 0.29.0
+crystal: 0.31.1
+
+dependencies:
+  cadmium_language_detector:
+    github: cadmiumcr/language_detector
+  cadmium_lemmatizer:
+    github: cadmiumcr/lemmatizer
+  cadmium_readability:
+    github: cadmiumcr/readability
+  cadmium_ngrams:
+    github: cadmiumcr/ngrams
+  cadmium_summarizer:
+    github: cadmiumcr/summarizer
+  cadmium_sentiment:
+    github: cadmiumcr/sentiment
+  cadmium_distance:
+    github: cadmiumcr/distance
+  cadmium_tfidf:
+    github: cadmiumcr/tfidf
+  cadmium_phonetics:
+    github: cadmiumcr/phonetics
+  cadmium_inflector:
+    github: cadmiumcr/inflector
+  cadmium_graph:
+    github: cadmiumcr/graph
+  cadmium_trie:
+    github: cadmiumcr/trie
+  cadmium_transliterator:
+    github: cadmiumcr/transliterator
+  cadmium_glove:
+    github: cadmiumcr/glove
+  cadmium_wordnet:
+    github: cadmiumcr/wordnet
 
 development_dependencies:
   ameba:
     github: veelenga/ameba
-    version: 0.10.0
+    version: 0.10.1
 
 license: MIT
