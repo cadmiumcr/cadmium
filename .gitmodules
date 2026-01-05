@@ -52,3 +52,6 @@
 [submodule "shards/apatite"]
 	path = shards/apatite
 	url = https://github.com/watzon/apatite.git
+[submodule "shards/cadmium_models"]
+	path = shards/cadmium_models
+	url = git@github.com:cadmiumcr/models.git
