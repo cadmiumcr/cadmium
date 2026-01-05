@@ -42,7 +42,10 @@ submodule-summary:
 # Run specs for a specific shard
 [group('shard')]
 test shard:
-    cd shards/{{ shard }} && crystal spec
+    #!/usr/bin/env bash
+    set -e
+    cd shards/{{ shard }}
+    CRYSTAL_PATH="lib:$(cd ../.. && pwd)/lib:$(crystal env CRYSTAL_PATH)" crystal spec
 
 # Run specs for all shards
 [group('shard')]
@@ -202,8 +205,9 @@ clean:
 # Show repository structure
 [group('util')]
 ls-shards:
-    @echo "Cadmium shards:"
-    @for shard in shards/*/; do
+    #!/usr/bin/env bash
+    echo "Cadmium shards:"
+    for shard in shards/*/; do
         name=$(basename "$shard")
         if [ -d "$shard/.git" ]; then
             cd "$shard"

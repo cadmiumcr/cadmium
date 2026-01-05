@@ -1,6 +1,12 @@
 # Development overrides for local monorepo development
 # Usage: SHARDS_OVERRIDE=shard.dev.yml shards install
 dependencies:
+  cadmium_tokenizer:
+    path: ./shards/cadmium_tokenizer
+  apatite:
+    path: ./shards/apatite
+  cadmium_classifier:
+    path: ./shards/cadmium_classifier
   cadmium_language_detector:
     path: ./shards/cadmium_language_detector
   cadmium_lemmatizer:

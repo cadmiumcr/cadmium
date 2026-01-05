@@ -43,3 +43,12 @@
 [submodule "shards/cadmium_wordnet"]
 	path = shards/cadmium_wordnet
 	url = git@github.com:cadmiumcr/wordnet.git
+[submodule "shards/cadmium_classifier"]
+	path = shards/cadmium_classifier
+	url = git@github.com:cadmiumcr/classifier.git
+[submodule "shards/cadmium_tokenizer"]
+	path = shards/cadmium_tokenizer
+	url = git@github.com:cadmiumcr/tokenizer.git
+[submodule "shards/apatite"]
+	path = shards/apatite
+	url = https://github.com/watzon/apatite.git
