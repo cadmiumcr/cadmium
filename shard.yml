@@ -34,8 +34,6 @@ dependencies:
     github: cadmiumcr/trie
   cadmium_transliterator:
     github: cadmiumcr/transliterator
-  cadmium_glove:
-    github: cadmiumcr/glove
   cadmium_wordnet:
     github: cadmiumcr/wordnet
 

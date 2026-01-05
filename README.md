@@ -16,7 +16,6 @@ For more complete and up to date information about specific parts of Cadmium, ch
 | [cadmium_classifier](https://github.com/cadmiumcr/classifier) | Contains two probabilistic classifiers used in NLP operations like language detection or POS tagging for example |
 | [cadmium_readability](https://github.com/cadmiumcr/readability) | Analyzes blocks of text and determine, using various algorithms, the readability of the text. |
 | [cadmium_tfidf](https://github.com/cadmiumcr/tfidf)          | Calculates the Term Frequency–Inverse Document Frequency of a corpus |
-| [cadmium_glove](https://github.com/cadmiumcr/glove)          | Pure Crystal implementation of Global Vectors for Word Representations |
 | [cadmium_pos_tagger](https://github.com/cadmiumcr/pos_tagger) | Tags each token of a text with its Part Of Speech category   |
 | [cadmium_lemmatizer](https://github.com/cadmiumcr/lemmatizer) | Returns the lemma of each given string token                 |
 | [cadmium_summarizer](https://github.com/cadmiumcr/summarizer) | Extracts the most meaningful sentences of a text to create a summary |

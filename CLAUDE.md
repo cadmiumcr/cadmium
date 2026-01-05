@@ -74,12 +74,10 @@ just push-submodules              # Push all submodule changes
 
 **Text Processing:**
 - `cadmium_tokenizer` - String tokenization
-- `cadmium_stemmer` - Porter stemmer
 - `cadmium_lemmatizer` - Word lemmatization (depends on: cadmium_pos_tagger)
 - `cadmium_inflector` - English word inflection
 
 **Analysis:**
-- `cadmium_pos_tagger` - Part-of-speech tagging
 - `cadmium_sentiment` - Sentiment analysis
 - `cadmium_readability` - Text readability
 - `cadmium_summarizer` - Text summarization (depends on: cadmium_lemmatizer, cadmium_stemmer)
@@ -92,7 +90,15 @@ just push-submodules              # Push all submodule changes
 - `cadmium_graph` - Edge-weighted digraph
 - `cadmium_trie` - Trie data structure
 - `cadmium_classifier` - Probabilistic classifiers
-- `cadmium_glove` - Word embeddings
+
+**Models:**
+- `cadmium_models` - Pre-trained machine learning models (MessagePack format)
+
+**Legacy (lib/ directory - not yet migrated to shards/):**
+- `cadmium_pos_tagger` - Part-of-speech tagging
+- `cadmium_stemmer` - Porter stemmer
+- `cadmium_util` - Internal utilities
+- `msgpack` - MessagePack serialization (external dependency)
 
 **Utilities:**
 - `cadmium_phonetics` - Phonetic matching
@@ -115,13 +121,18 @@ Each shard is a separate git repository. To make changes:
 
 ### Internal Dependencies
 Some shards depend on others:
-- `cadmium_summarizer` → `cadmium_lemmatizer` → `cadmium_pos_tagger`
+- `cadmium_summarizer` → `cadmium_lemmatizer` → `cadmium_pos_tagger` (legacy lib/)
 - `cadmium_language_detector` → `cadmium_classifier`
+- `cadmium_classifier` → `cadmium_tokenizer`, `num`, `msgpack`
+- `cadmium_summarizer` → `num`
 
 When modifying a shard that others depend on, consider the impact on dependent shards.
 
 ### External Dependencies
-- `apatite` - Matrix operations (used by summarizer)
+- `num` - Scientific computing library for tensor/matrix operations (https://github.com/crystal-data/num.cr)
+  - Used by `cadmium_summarizer` for PageRank matrix operations
+  - Used by `cadmium_classifier` for Viterbi algorithm matrix operations
+- `msgpack` - MessagePack serialization (used by cadmium_classifier for model persistence)
 - `ameba` - Linter (dev dependency in each shard)
 
 ## Release Workflow
@@ -137,6 +148,18 @@ Or use the full workflow: `just release <shard> <version> "<message>"`
 ## Testing
 
 Each shard has its own `spec/` directory. Run tests from the monorepo root using `just test <shard>`, or navigate to individual shards and run `crystal spec`.
+
+**Note:** When running tests directly within a shard directory (not using `just test`), you may need to set `CRYSTAL_PATH` to include the monorepo's lib directory:
+```bash
+cd shards/<shard>
+CRYSTAL_PATH="lib:$(cd ../.. && pwd)/lib:$(crystal env CRYSTAL_PATH)" crystal spec
+```
+
+To run a single spec file within a shard:
+```bash
+cd shards/<shard>
+crystal spec spec/path/to/specific_spec.cr
+```
 
 ## Troubleshooting
 
