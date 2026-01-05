@@ -1,0 +1,33 @@
+# Development overrides for local monorepo development
+# Usage: SHARDS_OVERRIDE=shard.dev.yml shards install
+dependencies:
+  cadmium_language_detector:
+    path: ./shards/cadmium_language_detector
+  cadmium_lemmatizer:
+    path: ./shards/cadmium_lemmatizer
+  cadmium_readability:
+    path: ./shards/cadmium_readability
+  cadmium_ngrams:
+    path: ./shards/cadmium_ngrams
+  cadmium_summarizer:
+    path: ./shards/cadmium_summarizer
+  cadmium_sentiment:
+    path: ./shards/cadmium_sentiment
+  cadmium_distance:
+    path: ./shards/cadmium_distance
+  cadmium_tfidf:
+    path: ./shards/cadmium_tfidf
+  cadmium_phonetics:
+    path: ./shards/cadmium_phonetics
+  cadmium_inflector:
+    path: ./shards/cadmium_inflector
+  cadmium_graph:
+    path: ./shards/cadmium_graph
+  cadmium_trie:
+    path: ./shards/cadmium_trie
+  cadmium_transliterator:
+    path: ./shards/cadmium_transliterator
+  cadmium_glove:
+    path: ./shards/cadmium_glove
+  cadmium_wordnet:
+    path: ./shards/cadmium_wordnet

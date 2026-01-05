@@ -49,6 +49,107 @@ dependencies:
     branch: master
 ```
 
+## Development
+
+This repository uses [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) to include all Cadmium modules in a monorepo structure.
+
+### Setting Up Development Environment
+
+**Clone with submodules:**
+```bash
+git clone --recursive git@github.com:cadmiumcr/cadmium.git
+cd cadmium
+```
+
+**If you already cloned without submodules:**
+```bash
+git submodule update --init --recursive
+```
+
+**Install dependencies:**
+```bash
+SHARDS_OVERRIDE=shard.dev.yml shards install
+```
+
+### Working with Submodules
+
+#### Making Changes to a Module
+
+Each module is a separate git repository. To make changes:
+
+1. Navigate to the module directory:
+   ```bash
+   cd shards/cadmium_language_detector
+   ```
+
+2. Create a branch for your changes (recommended):
+   ```bash
+   git checkout -b feature/my-changes
+   ```
+
+3. Make your changes, commit, and push to the module's repository:
+   ```bash
+   git add .
+   git commit -m "Describe your changes"
+   git push origin feature/my-changes
+   ```
+
+4. Update the parent repository to reference the new submodule commit:
+   ```bash
+   cd ../..
+   git add shards/cadmium_language_detector
+   git commit -m "Update cadmium_language_detector submodule"
+   ```
+
+#### Updating All Submodules
+
+To update all submodules to their latest versions:
+```bash
+git submodule update --remote --merge
+git add shards/
+git commit -m "Update all submodules"
+```
+
+#### Updating a Single Submodule
+
+```bash
+cd shards/cadmium_language_detector
+git pull origin master  # or main
+cd ../..
+git add shards/cadmium_language_detector
+git commit -m "Update cadmium_language_detector"
+```
+
+#### Checking Submodule Status
+
+```bash
+# See status of all submodules
+git submodule status
+
+# See which submodules have changes
+git submodule summary
+```
+
+### Troubleshooting
+
+**Detached HEAD in Submodule:**
+If you're in a detached HEAD state inside a submodule, create a branch:
+```bash
+cd shards/cadmium_language_detector
+git checkout -b my-feature-branch
+```
+
+**Submodule Not Initialized:**
+```bash
+git submodule init
+git submodule update
+```
+
+**Submodule Out of Date:**
+```bash
+git submodule update --remote
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/cadmiumcr/cadmium/fork )

@@ -1,7 +1,10 @@
 language: crystal
 
+git:
+  submodules: true
+
 install:
-  - shards install
+  - SHARDS_OVERRIDE=shard.dev.yml shards install
 
 script:
   - crystal spec

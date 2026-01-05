@@ -5,7 +5,7 @@ authors:
   - Chris Watson <chris@watzon.me>
   - Rémy Marronnier <rmarronnier@gmail.com>
 
-crystal: 0.31.1
+crystal: ">=1.0.0"
 
 dependencies:
   cadmium_language_detector:
@@ -38,10 +38,5 @@ dependencies:
     github: cadmiumcr/glove
   cadmium_wordnet:
     github: cadmiumcr/wordnet
-
-development_dependencies:
-  ameba:
-    github: veelenga/ameba
-    version: 0.10.1
 
 license: MIT
