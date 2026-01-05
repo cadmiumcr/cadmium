@@ -1,0 +1,45 @@
+[submodule "shards/cadmium_language_detector"]
+	path = shards/cadmium_language_detector
+	url = git@github.com:cadmiumcr/language_detector.git
+[submodule "shards/cadmium_lemmatizer"]
+	path = shards/cadmium_lemmatizer
+	url = git@github.com:cadmiumcr/lemmatizer.git
+[submodule "shards/cadmium_readability"]
+	path = shards/cadmium_readability
+	url = git@github.com:cadmiumcr/readability.git
+[submodule "shards/cadmium_ngrams"]
+	path = shards/cadmium_ngrams
+	url = git@github.com:cadmiumcr/ngrams.git
+[submodule "shards/cadmium_summarizer"]
+	path = shards/cadmium_summarizer
+	url = git@github.com:cadmiumcr/summarizer.git
+[submodule "shards/cadmium_sentiment"]
+	path = shards/cadmium_sentiment
+	url = git@github.com:cadmiumcr/sentiment.git
+[submodule "shards/cadmium_distance"]
+	path = shards/cadmium_distance
+	url = git@github.com:cadmiumcr/distance.git
+[submodule "shards/cadmium_tfidf"]
+	path = shards/cadmium_tfidf
+	url = git@github.com:cadmiumcr/tfidf.git
+[submodule "shards/cadmium_phonetics"]
+	path = shards/cadmium_phonetics
+	url = git@github.com:cadmiumcr/phonetics.git
+[submodule "shards/cadmium_inflector"]
+	path = shards/cadmium_inflector
+	url = git@github.com:cadmiumcr/inflector.git
+[submodule "shards/cadmium_transliterator"]
+	path = shards/cadmium_transliterator
+	url = git@github.com:cadmiumcr/transliterator.git
+[submodule "shards/cadmium_graph"]
+	path = shards/cadmium_graph
+	url = git@github.com:cadmiumcr/graph.git
+[submodule "shards/cadmium_trie"]
+	path = shards/cadmium_trie
+	url = git@github.com:cadmiumcr/trie.git
+[submodule "shards/cadmium_glove"]
+	path = shards/cadmium_glove
+	url = git@github.com:cadmiumcr/glove.git
+[submodule "shards/cadmium_wordnet"]
+	path = shards/cadmium_wordnet
+	url = git@github.com:cadmiumcr/wordnet.git
