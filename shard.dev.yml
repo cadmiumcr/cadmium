@@ -33,3 +33,5 @@ dependencies:
     path: ./shards/cadmium_transliterator
   cadmium_wordnet:
     path: ./shards/cadmium_wordnet
+  cadmium_models:
+    path: ./shards/cadmium_models
