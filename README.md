@@ -150,6 +150,28 @@ git submodule update
 git submodule update --remote
 ```
 
+### Using Justfile
+
+This repository includes a `justfile` with convenient commands for managing the monorepo. Install [just](https://github.com/casey/just) and run `just` to see all available commands.
+
+**Common commands:**
+```bash
+# Install dependencies
+just install
+
+# Update all submodules
+just update-submodules
+
+# Run tests for a specific shard
+just test cadmium_language_detector
+
+# Format all shards
+just format-all
+
+# Release a new version of a shard
+just release cadmium_language_detector 1.2.3 "Bump version to 1.2.3"
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/cadmiumcr/cadmium/fork )
